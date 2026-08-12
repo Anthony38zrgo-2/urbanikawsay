@@ -1,0 +1,3 @@
+role,model,variant,opencode_agent,purpose
+planner,opencode-go/glm-5.2,max,plan,"Architecture; WordPress audit; migration contracts; diagnostics; high-risk review"
+builder,opencode-go/deepseek-v4-flash,low,build,"Vue 3; Tailwind; SVG; tests; bounded migration implementation"

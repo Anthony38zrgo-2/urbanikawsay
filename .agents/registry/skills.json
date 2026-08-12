@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "skills": [
+    {
+      "id": "wordpress-audit",
+      "manifest_path": ".agents/skills/wordpress-audit/SKILL.md",
+      "triggers": [
+        "wordpress",
+        "legacy",
+        "template",
+        "plugin",
+        "shortcode",
+        "permalink"
+      ],
+      "knowledge_channels": [
+        "wordpress"
+      ],
+      "risk": "medium",
+      "enabled": true
+    },
+    {
+      "id": "migration-planning",
+      "manifest_path": ".agents/skills/migration-planning/SKILL.md",
+      "triggers": [
+        "migration plan",
+        "task packet",
+        "route map",
+        "architecture"
+      ],
+      "knowledge_channels": [
+        "wordpress",
+        "vue",
+        "seo",
+        "web-platform"
+      ],
+      "risk": "medium",
+      "enabled": true
+    },
+    {
+      "id": "vue3-migration",
+      "manifest_path": ".agents/skills/vue3-migration/SKILL.md",
+      "triggers": [
+        "vue",
+        "component",
+        "composable",
+        "router",
+        "page"
+      ],
+      "knowledge_channels": [
+        "vue",
+        "web-platform"
+      ],
+      "risk": "medium",
+      "enabled": true
+    },
+    {
+      "id": "tailwind-design-system",
+      "manifest_path": ".agents/skills/tailwind-design-system/SKILL.md",
+      "triggers": [
+        "tailwind",
+        "responsive",
+        "design token",
+        "utility classes"
+      ],
+      "knowledge_channels": [
+        "tailwind"
+      ],
+      "risk": "medium",
+      "enabled": true
+    },
+    {
+      "id": "svg-icon-pipeline",
+      "manifest_path": ".agents/skills/svg-icon-pipeline/SKILL.md",
+      "triggers": [
+        "svg",
+        "icon",
+        "currentColor",
+        "viewBox"
+      ],
+      "knowledge_channels": [
+        "svg",
+        "web-platform"
+      ],
+      "risk": "low",
+      "enabled": true
+    },
+    {
+      "id": "content-migration",
+      "manifest_path": ".agents/skills/content-migration/SKILL.md",
+      "triggers": [
+        "content",
+        "copy",
+        "media",
+        "wordpress export",
+        "mapping"
+      ],
+      "knowledge_channels": [
+        "wordpress",
+        "web-platform"
+      ],
+      "risk": "medium",
+      "enabled": true
+    },
+    {
+      "id": "seo-preservation",
+      "manifest_path": ".agents/skills/seo-preservation/SKILL.md",
+      "triggers": [
+        "seo",
+        "canonical",
+        "redirect",
+        "metadata",
+        "structured data",
+        "sitemap"
+      ],
+      "knowledge_channels": [
+        "seo",
+        "wordpress",
+        "web-platform"
+      ],
+      "risk": "high",
+      "enabled": true
+    },
+    {
+      "id": "accessibility",
+      "manifest_path": ".agents/skills/accessibility/SKILL.md",
+      "triggers": [
+        "accessibility",
+        "a11y",
+        "keyboard",
+        "aria",
+        "semantic html"
+      ],
+      "knowledge_channels": [
+        "web-platform"
+      ],
+      "risk": "medium",
+      "enabled": true
+    },
+    {
+      "id": "visual-regression",
+      "manifest_path": ".agents/skills/visual-regression/SKILL.md",
+      "triggers": [
+        "screenshot",
+        "visual regression",
+        "responsive",
+        "fidelity"
+      ],
+      "knowledge_channels": [
+        "tailwind",
+        "web-platform"
+      ],
+      "risk": "medium",
+      "enabled": true
+    },
+    {
+      "id": "web-performance",
+      "manifest_path": ".agents/skills/web-performance/SKILL.md",
+      "triggers": [
+        "bundle",
+        "performance",
+        "lazy load",
+        "image optimization",
+        "web vitals"
+      ],
+      "knowledge_channels": [
+        "vue",
+        "web-platform"
+      ],
+      "risk": "medium",
+      "enabled": true
+    },
+    {
+      "id": "knowledge-query",
+      "manifest_path": ".agents/skills/knowledge-query/SKILL.md",
+      "triggers": [
+        "uncertain API",
+        "framework detail",
+        "manual lookup"
+      ],
+      "knowledge_channels": [
+        "wordpress",
+        "vue",
+        "tailwind",
+        "svg",
+        "seo",
+        "web-platform"
+      ],
+      "risk": "low",
+      "enabled": true
+    },
+    {
+      "id": "problem-lookup",
+      "manifest_path": ".agents/skills/problem-lookup/SKILL.md",
+      "triggers": [
+        "error",
+        "repeated failure",
+        "known issue"
+      ],
+      "knowledge_channels": [],
+      "risk": "low",
+      "enabled": true
+    },
+    {
+      "id": "repo-analysis",
+      "manifest_path": ".agents/skills/repo-analysis/SKILL.md",
+      "triggers": [
+        "audit",
+        "ownership",
+        "repository analysis",
+        "cross-system"
+      ],
+      "knowledge_channels": [
+        "wordpress",
+        "vue",
+        "tailwind",
+        "seo",
+        "web-platform"
+      ],
+      "risk": "low",
+      "enabled": true
+    },
+    {
+      "id": "regression-validation",
+      "manifest_path": ".agents/skills/regression-validation/SKILL.md",
+      "triggers": [
+        "candidate validation",
+        "baseline",
+        "regression"
+      ],
+      "knowledge_channels": [],
+      "risk": "low",
+      "enabled": true
+    },
+    {
+      "id": "problem-solving-guardrails",
+      "manifest_path": ".agents/skills/problem-solving-guardrails/SKILL.md",
+      "triggers": [
+        "second failed attempt",
+        "workaround stacking",
+        "uncertain root cause"
+      ],
+      "knowledge_channels": [],
+      "risk": "low",
+      "enabled": true
+    },
+    {
+      "id": "context-garbage-collection",
+      "manifest_path": ".agents/skills/context-garbage-collection/SKILL.md",
+      "triggers": [
+        "handoff",
+        "falsified hypothesis",
+        "context growth",
+        "failed candidate"
+      ],
+      "knowledge_channels": [],
+      "risk": "low",
+      "enabled": true
+    },
+    {
+      "id": "context-handoff",
+      "manifest_path": ".agents/skills/context-handoff/SKILL.md",
+      "triggers": [
+        "planner builder transition",
+        "task resumption",
+        "handoff"
+      ],
+      "knowledge_channels": [],
+      "risk": "low",
+      "enabled": true
+    }
+  ]
+}

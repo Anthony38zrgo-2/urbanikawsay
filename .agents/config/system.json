@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "database": ".agents/data/agents.db",
+  "runtime": {
+    "language": "rust",
+    "journal_mode": "WAL",
+    "synchronous": "NORMAL",
+    "busy_timeout_ms": 1000,
+    "single_writer_preferred": true
+  },
+  "model_tiers": {
+    "planner": {
+      "purpose": "architecture, migration contracts, diagnosis, high-risk review"
+    },
+    "builder": {
+      "purpose": "routine Vue/Tailwind/SVG implementation, tests and bounded fixes"
+    }
+  },
+  "knowledge_channels": [
+    "wordpress",
+    "vue",
+    "tailwind",
+    "svg",
+    "seo",
+    "web-platform"
+  ],
+  "hot_path": {
+    "allow_etl": false,
+    "allow_embeddings": false,
+    "allow_bulk_manual_loading": false,
+    "allow_automatic_web_crawl": false
+  }
+}

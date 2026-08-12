@@ -1,0 +1,69 @@
+{
+  "source_id": "project-vue",
+  "channel": "vue",
+  "authority": 100,
+  "version_policy": "project-curated",
+  "source_type": "project-policy",
+  "source_ref": ".agents/AGENTS.md",
+  "entries": [
+    {
+      "id": "vue-composition",
+      "lookup_key": "script setup composition api",
+      "topic": "Vue component style",
+      "symbols": [],
+      "keywords": [
+        "vue",
+        "script setup",
+        "composition"
+      ],
+      "content": "For new Vue 3 code, prefer Composition API and <script setup> when compatible with repository conventions. Keep page orchestration, reusable presentation and stateful composables separated by real responsibility.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "vue-state-locality",
+      "lookup_key": "state ownership",
+      "topic": "State locality",
+      "symbols": [],
+      "keywords": [
+        "state",
+        "props",
+        "composable",
+        "store"
+      ],
+      "content": "Keep page-local state local. Introduce shared/global state only when multiple real consumers and lifecycle requirements justify it.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "vue-pattern-consistency",
+      "lookup_key": "router state fetching",
+      "topic": "Architecture consistency",
+      "symbols": [],
+      "keywords": [
+        "router",
+        "store",
+        "fetch",
+        "dependency"
+      ],
+      "content": "Do not introduce a second routing, global-state, data-fetching or form approach beside an established project convention without an explicit architecture decision.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "vue-slice-validation",
+      "lookup_key": "route page validation",
+      "topic": "Vertical-slice validation",
+      "symbols": [],
+      "keywords": [
+        "route",
+        "page",
+        "component",
+        "test"
+      ],
+      "content": "Validate a migrated route as a coherent slice before broad refactoring. Successful component compilation alone does not prove route-level contract preservation.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    }
+  ]
+}

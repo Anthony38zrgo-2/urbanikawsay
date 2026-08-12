@@ -1,0 +1,71 @@
+{
+  "source_id": "project-wordpress",
+  "channel": "wordpress",
+  "authority": 100,
+  "version_policy": "project-curated",
+  "source_type": "project-policy",
+  "source_ref": ".agents/AGENTS.md",
+  "entries": [
+    {
+      "id": "wp-route-contract",
+      "lookup_key": "permalink route",
+      "topic": "Public route contract",
+      "symbols": [],
+      "keywords": [
+        "permalink",
+        "redirect",
+        "route",
+        "slug"
+      ],
+      "content": "Treat public WordPress URLs and redirect behavior as external contracts. Inventory them before migrating a page; do not infer the target route from page titles alone.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "wp-plugin-contract",
+      "lookup_key": "plugin shortcode widget",
+      "topic": "Plugin-provided frontend behavior",
+      "symbols": [],
+      "keywords": [
+        "plugin",
+        "shortcode",
+        "widget",
+        "form"
+      ],
+      "content": "A plugin, shortcode or widget may own behavior, markup, validation, embeds, metadata or scripts. Inspect rendered/runtime effects before classifying it as removable.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "wp-content-boundary",
+      "lookup_key": "content copy media",
+      "topic": "Content preservation",
+      "symbols": [],
+      "keywords": [
+        "content",
+        "copy",
+        "media",
+        "alt"
+      ],
+      "content": "Preserve existing copy and meaningful media metadata by default. Editorial rewriting is a separate scope from frontend modernization.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "wp-dynamic-features",
+      "lookup_key": "server dynamic feature",
+      "topic": "Server/client boundary",
+      "symbols": [],
+      "keywords": [
+        "php",
+        "ajax",
+        "form",
+        "search",
+        "filter"
+      ],
+      "content": "Identify server-side features before replacement. Vue can own the UI without moving privileged or server-only logic into the browser.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    }
+  ]
+}

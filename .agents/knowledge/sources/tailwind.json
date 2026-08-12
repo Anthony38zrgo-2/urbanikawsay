@@ -1,0 +1,71 @@
+{
+  "source_id": "project-tailwind",
+  "channel": "tailwind",
+  "authority": 100,
+  "version_policy": "project-curated",
+  "source_type": "project-policy",
+  "source_ref": ".agents/AGENTS.md",
+  "entries": [
+    {
+      "id": "tw-token-set",
+      "lookup_key": "design tokens",
+      "topic": "Token discipline",
+      "symbols": [],
+      "keywords": [
+        "tailwind",
+        "tokens",
+        "spacing",
+        "color",
+        "radius"
+      ],
+      "content": "Define a compact reusable token vocabulary before styling many pages. Promote repeated real values; do not turn every legacy pixel measurement into a new token.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "tw-arbitrary-values",
+      "lookup_key": "arbitrary value",
+      "topic": "One-off fidelity",
+      "symbols": [],
+      "keywords": [
+        "arbitrary",
+        "utility",
+        "spacing",
+        "size"
+      ],
+      "content": "Use arbitrary values for genuine one-off fidelity constraints, not as the default way to translate legacy CSS.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "tw-responsive",
+      "lookup_key": "responsive breakpoints",
+      "topic": "Responsive intent",
+      "symbols": [],
+      "keywords": [
+        "mobile",
+        "desktop",
+        "breakpoint",
+        "responsive"
+      ],
+      "content": "Validate layout transitions at representative widths. Do not assume matching a single desktop screenshot preserves responsive behavior.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "tw-remove-legacy-css",
+      "lookup_key": "legacy css removal",
+      "topic": "Safe CSS retirement",
+      "symbols": [],
+      "keywords": [
+        "css",
+        "legacy",
+        "delete",
+        "dependency"
+      ],
+      "content": "Remove legacy CSS only after migrated surfaces no longer depend on it and route-level regression evidence is accepted.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    }
+  ]
+}

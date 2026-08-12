@@ -1,0 +1,200 @@
+{
+  "schema_version": 1,
+  "problems": [
+    {
+      "signature": "LEGACY_ROUTE_CHANGED",
+      "domain": "seo",
+      "symptom": "Migrated page works but public URL/permalink differs or old links 404.",
+      "cause": "Route migration was treated as an internal frontend concern instead of an external contract.",
+      "solution": "Restore the canonical route or add an intentional redirect according to the migration map, then revalidate canonical and navigation links.",
+      "prevention": "Inventory public routes/permalinks and redirect behavior before implementation.",
+      "search_terms": [
+        "404",
+        "permalink",
+        "redirect",
+        "route",
+        "canonical"
+      ],
+      "confidence": 95,
+      "occurrences": 1,
+      "status": "active",
+      "source_ref": ".agents/AGENTS.md"
+    },
+    {
+      "signature": "CONTENT_DRIFT_DURING_RESTYLE",
+      "domain": "wordpress",
+      "symptom": "Text, labels or link targets changed while only a visual migration was requested.",
+      "cause": "Builder rewrote content while translating presentation.",
+      "solution": "Restore source copy/targets from the content map; separate editorial changes into a new task.",
+      "prevention": "Treat content and presentation as separate contracts.",
+      "search_terms": [
+        "copy",
+        "content",
+        "label",
+        "rewrite",
+        "link"
+      ],
+      "confidence": 95,
+      "occurrences": 1,
+      "status": "active",
+      "source_ref": ".agents/AGENTS.md"
+    },
+    {
+      "signature": "PLUGIN_BEHAVIOR_MISSED",
+      "domain": "wordpress",
+      "symptom": "A migrated page looks correct but a legacy interaction, form, filter or embed no longer works.",
+      "cause": "Plugin/shortcode behavior was classified as styling or ignored during audit.",
+      "solution": "Identify the owning plugin/shortcode contract and rebuild or replace the behavior explicitly.",
+      "prevention": "Inventory plugin, widget and shortcode contributions before migration.",
+      "search_terms": [
+        "plugin",
+        "shortcode",
+        "widget",
+        "form",
+        "embed",
+        "behavior"
+      ],
+      "confidence": 90,
+      "occurrences": 1,
+      "status": "active",
+      "source_ref": ".agents/skills/wordpress-audit/SKILL.md"
+    },
+    {
+      "signature": "TAILWIND_ARBITRARY_VALUE_DRIFT",
+      "domain": "tailwind",
+      "symptom": "Many near-duplicate arbitrary spacing/color/size utilities appear across migrated pages.",
+      "cause": "Pages were styled independently without a token contract.",
+      "solution": "Identify repeated values, promote genuine tokens/shared patterns, and retain only justified one-offs.",
+      "prevention": "Define a small design-token vocabulary before mass migration.",
+      "search_terms": [
+        "tailwind",
+        "arbitrary",
+        "px",
+        "color",
+        "spacing",
+        "duplication"
+      ],
+      "confidence": 90,
+      "occurrences": 1,
+      "status": "active",
+      "source_ref": ".agents/skills/tailwind-design-system/SKILL.md"
+    },
+    {
+      "signature": "VUE_COMPONENT_MONOLITH",
+      "domain": "vue",
+      "symptom": "A migrated page contains unrelated data orchestration, UI sections and interactions in one large component.",
+      "cause": "Template translation was performed linearly without ownership boundaries.",
+      "solution": "Split by stable responsibilities and extract only real reusable/stateful behavior.",
+      "prevention": "Plan page orchestration and reusable component boundaries before coding.",
+      "search_terms": [
+        "vue",
+        "component",
+        "large",
+        "monolith",
+        "composable"
+      ],
+      "confidence": 85,
+      "occurrences": 1,
+      "status": "active",
+      "source_ref": ".agents/skills/vue3-migration/SKILL.md"
+    },
+    {
+      "signature": "SVG_ICON_THEME_BREAK",
+      "domain": "svg",
+      "symptom": "Generated icon cannot follow text/theme color or has inconsistent visual weight.",
+      "cause": "Hard-coded colors or inconsistent stroke/fill contract.",
+      "solution": "Normalize to the site icon contract and use currentColor when appropriate.",
+      "prevention": "Define icon style contract before generating the set.",
+      "search_terms": [
+        "svg",
+        "currentColor",
+        "stroke",
+        "fill",
+        "icon",
+        "theme"
+      ],
+      "confidence": 95,
+      "occurrences": 1,
+      "status": "active",
+      "source_ref": ".agents/skills/svg-icon-pipeline/SKILL.md"
+    },
+    {
+      "signature": "VISUAL_PASS_WITHOUT_BASELINE",
+      "domain": "visual",
+      "symptom": "A migrated page is declared complete because it builds, but fidelity/refresh intent was never compared to legacy.",
+      "cause": "No visual baseline or declared visual intent.",
+      "solution": "Capture representative legacy/candidate states and classify delta against FIDELITY, REFRESH or REDESIGN.",
+      "prevention": "Baseline visible routes before replacement.",
+      "search_terms": [
+        "screenshot",
+        "visual",
+        "baseline",
+        "responsive",
+        "fidelity"
+      ],
+      "confidence": 95,
+      "occurrences": 1,
+      "status": "active",
+      "source_ref": ".agents/skills/visual-regression/SKILL.md"
+    },
+    {
+      "signature": "SEO_METADATA_DROPPED",
+      "domain": "seo",
+      "symptom": "New route renders content but loses title, canonical, description, robots or structured data.",
+      "cause": "Frontend migration validated only DOM visuals/build output.",
+      "solution": "Restore required metadata through the selected rendering/delivery strategy and validate delivered output.",
+      "prevention": "Include SEO fields in each public route migration contract.",
+      "search_terms": [
+        "seo",
+        "meta",
+        "title",
+        "canonical",
+        "robots",
+        "schema"
+      ],
+      "confidence": 95,
+      "occurrences": 1,
+      "status": "active",
+      "source_ref": ".agents/skills/seo-preservation/SKILL.md"
+    },
+    {
+      "signature": "CLIENT_SECRET_LEAK",
+      "domain": "security",
+      "symptom": "WordPress/API secret or privileged credential appears in Vue source, env exposed to client, or built bundle.",
+      "cause": "Server configuration was copied into frontend code to preserve legacy integration.",
+      "solution": "Remove/rotate exposed secret and restore a server-side boundary or public-safe credential flow.",
+      "prevention": "Classify server-only configuration during audit and prohibit privileged data in client bundles.",
+      "search_terms": [
+        "secret",
+        "api key",
+        "password",
+        "env",
+        "credential",
+        "client"
+      ],
+      "confidence": 100,
+      "occurrences": 1,
+      "status": "active",
+      "source_ref": ".agents/AGENTS.md"
+    },
+    {
+      "signature": "REPEATED_SAME_PATCH",
+      "domain": "process",
+      "symptom": "Same visible failure survives two similar Builder patches.",
+      "cause": "Implementation continued without changing the causal model.",
+      "solution": "Rollback failed candidate, run Context GC, enter Diagnostic Mode and route to Planner.",
+      "prevention": "Enforce hypothesis states and the two-attempt implementation budget.",
+      "search_terms": [
+        "retry",
+        "same failure",
+        "workaround",
+        "attempt",
+        "diagnostic"
+      ],
+      "confidence": 100,
+      "occurrences": 1,
+      "status": "active",
+      "source_ref": ".agents/skills/problem-solving-guardrails/SKILL.md"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "source_id": "project-web-platform",
+  "channel": "web-platform",
+  "authority": 100,
+  "version_policy": "project-curated",
+  "source_type": "project-policy",
+  "source_ref": ".agents/AGENTS.md",
+  "entries": [
+    {
+      "id": "web-semantic-html",
+      "lookup_key": "semantic html",
+      "topic": "Native semantics",
+      "symbols": [],
+      "keywords": [
+        "html",
+        "button",
+        "link",
+        "form",
+        "landmark"
+      ],
+      "content": "Prefer native HTML semantics. Correct elements reduce ARIA complexity and preserve keyboard/accessibility behavior.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "web-client-secrets",
+      "lookup_key": "client secrets",
+      "topic": "Browser security boundary",
+      "symbols": [],
+      "keywords": [
+        "secret",
+        "credential",
+        "env",
+        "browser"
+      ],
+      "content": "Anything shipped to the browser is public to the user. Server-only secrets and privileged operations require a server-side boundary.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "web-form-contract",
+      "lookup_key": "form behavior",
+      "topic": "Form migration contract",
+      "symbols": [],
+      "keywords": [
+        "form",
+        "validation",
+        "submit",
+        "error"
+      ],
+      "content": "A form contract includes field semantics, validation, submit target, loading state, success state and failure behavior\u2014not only visual inputs.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "web-performance-baseline",
+      "lookup_key": "performance baseline",
+      "topic": "Measure before optimizing",
+      "symbols": [],
+      "keywords": [
+        "bundle",
+        "image",
+        "font",
+        "lazy",
+        "performance"
+      ],
+      "content": "Measure the actual candidate before adding optimization infrastructure. Prefer removing unnecessary bytes/work over adding complex caching.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    }
+  ]
+}

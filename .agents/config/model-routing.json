@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "provider": {
+    "id": "opencode-go",
+    "enabled": true
+  },
+  "planner": {
+    "model": "opencode-go/glm-5.2",
+    "variant": "max",
+    "opencode_agent": "plan"
+  },
+  "builder": {
+    "model": "opencode-go/deepseek-v4-flash",
+    "variant": "low",
+    "opencode_agent": "build"
+  },
+  "limits": {
+    "max_implementation_attempts": 2,
+    "cross_subsystem_threshold": 3,
+    "planner_review_file_threshold": 12
+  },
+  "policy": {
+    "meaningful_implementation_requires_plan": true,
+    "meaningful_implementation_requires_acceptance_criteria": true,
+    "unknown_override_falls_back_to_planner": true
+  }
+}
