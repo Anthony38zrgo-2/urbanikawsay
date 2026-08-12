@@ -39,14 +39,33 @@
   --color-warning: #FFB11B;
   --color-error: #D92D20;
 
-  /* Sombras */
+  /* Sombras — flat (sin sombra decorativa) + aero (solo botones) */
   --shadow-soft: 0 4px 24px rgb(13 77 46 / 0.06);
   --shadow-card: 0 18px 45px -26px rgb(18 31 23 / 0.18);
+  --shadow-aero: 0 10px 24px -10px rgb(9 46 28 / 0.35);
+  --shadow-aero-active: 0 4px 12px -6px rgb(9 46 28 / 0.4);
+  --shadow-modal: 0 24px 64px -20px rgb(9 46 28 / 0.45);
 
   /* Radii */
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 18px;
+  --radius-full: 9999px;
+
+  /* Flat surfaces (semánticos) */
+  --color-surface-flat: #FDFCF7;
+  --color-surface-flat-soft: #EEF5EB;
+  --color-surface-flat-muted: #E2E9DF;
+  --color-border-flat: #D5DDD2;
+
+  /* Focus ring global */
+  --color-focus-ring: #FF9A00;
+
+  /* Aero control tokens */
+  --aero-border-light: rgb(255 255 255 / 0.35);
+  --aero-highlight: rgb(255 255 255 / 0.25);
+  --aero-primary-bg: linear-gradient(135deg, #FF7A00 0%, #FFB11B 50%, #FFD60A 100%);
+  --aero-secondary-bg: linear-gradient(135deg, #0D4D2E 0%, #2EAA4D 100%);
 }
 
 :root {

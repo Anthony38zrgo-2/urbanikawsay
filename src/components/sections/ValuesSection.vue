@@ -99,13 +99,14 @@ const tabs = [
   margin-bottom: 1.5rem;
 }
 .tabs button {
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
+  border: 1px solid var(--color-border-flat);
+  background: var(--color-surface-flat);
   color: var(--color-text-secondary);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   padding: 0.6rem 1.25rem;
   font-weight: 600;
   cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 .tabs button.tab-active {
   background: var(--color-brand-primary);

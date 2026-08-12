@@ -25,8 +25,8 @@ const imageModules = import.meta.glob('@/assets/images/*.png', {
           :src="imageModules[`/src/assets/images/${slide.image}`]"
           :alt="slide.alt"
           class="hero-slide-img animate-kenburns"
-          loading="eager"
-          fetchpriority="high"
+          :loading="index === 0 ? 'eager' : 'lazy'"
+          :fetchpriority="index === 0 ? 'high' : 'auto'"
         />
       </figure>
       <div class="hero-overlay" aria-hidden="true"></div>
@@ -42,7 +42,7 @@ const imageModules = import.meta.glob('@/assets/images/*.png', {
         Invierte con tranquilidad con el respaldo de Urbanikawsay Inmobiliaria.
         <strong>¡Asegura tu futuro de la mano de expertos en el sector!</strong>
       </p>
-      <a href="#proyectos" class="btn-primary hero-cta animate-fade-in-up">
+      <a href="#proyectos" class="btn-aero btn-aero-primary hero-cta animate-fade-in-up">
         Conoce más aquí
         <span aria-hidden="true">↓</span>
       </a>
@@ -58,6 +58,11 @@ const imageModules = import.meta.glob('@/assets/images/*.png', {
   align-items: center;
   color: var(--color-text-inverse);
   overflow: hidden;
+}
+@media (max-width: 767px) {
+  .hero {
+    min-height: clamp(36rem, 82svh, 52rem);
+  }
 }
 .hero-slider {
   position: absolute;
@@ -79,7 +84,7 @@ const imageModules = import.meta.glob('@/assets/images/*.png', {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgb(9 46 28 / 0.55) 0%, rgb(9 46 28 / 0.75) 100%);
+  background: rgb(9 46 28 / 0.72);
 }
 .hero-content {
   position: relative;

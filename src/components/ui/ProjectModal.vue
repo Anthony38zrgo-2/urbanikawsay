@@ -72,7 +72,7 @@ const whatsappCta = computed(() =>
       <div class="project-actions">
         <button
           type="button"
-          class="btn-primary"
+          class="btn-aero btn-aero-primary"
           @click="emit('reserve', project.slug)"
         >
           {{ project.ctaLabel }}
@@ -81,7 +81,7 @@ const whatsappCta = computed(() =>
           :href="whatsappCta"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn-ghost"
+          class="btn-aero btn-aero-quiet"
         >
           Consultar por WhatsApp
         </a>

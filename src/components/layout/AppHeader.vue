@@ -21,8 +21,18 @@ const closeMenu = () => {
   menuOpen.value = false
 }
 
-onMounted(() => window.addEventListener('scroll', onScroll))
-onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
+const handleKeydown = (e) => {
+  if (e.key === 'Escape' && menuOpen.value) closeMenu()
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', onScroll)
+  document.addEventListener('keydown', handleKeydown)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+  document.removeEventListener('keydown', handleKeydown)
+})
 </script>
 
 <template>
@@ -49,6 +59,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
         class="side-nav"
         :class="{ 'is-open': menuOpen }"
         aria-label="Navegación principal"
+        :aria-hidden="menuOpen ? 'false' : 'true'"
       >
         <a
           v-for="item in siteData.navigation"
@@ -62,7 +73,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 
       <button
         type="button"
-        class="header-cta"
+        class="btn-aero btn-aero-primary header-cta"
         @click="emit('open-reserve')"
       >
         Separa tu lote
@@ -88,6 +99,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
   top: 0;
   z-index: 30;
   background: var(--color-brand-primary);
+  box-shadow: none;
   transition: box-shadow 0.2s ease;
 }
 .site-header.is-scrolled {
@@ -135,6 +147,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
   text-decoration: none;
   font-weight: 500;
   opacity: 0.9;
+  padding: 0.5rem 0.25rem;
 }
 .side-nav a:hover {
   opacity: 1;
@@ -142,28 +155,58 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
 }
 .header-cta {
   display: none;
-  background: var(--color-accent-gradient);
-  color: var(--color-text-on-accent);
-  border: none;
-  border-radius: var(--radius-md);
-  padding: 0.6rem 1.25rem;
-  font-weight: 700;
-  cursor: pointer;
 }
 .menu-toggle {
   display: grid;
   place-items: center;
   width: 2.75rem;
   height: 2.75rem;
-  border: none;
+  border: 1px solid var(--color-text-inverse);
   background: transparent;
   color: var(--color-text-inverse);
+  border-radius: var(--radius-md);
   cursor: pointer;
+}
+.menu-toggle:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Menú móvil (flat, visible cuando is-open) */
+@media (max-width: 767px) {
+  .side-nav {
+    position: fixed;
+    top: 4.5rem;
+    left: 0;
+    right: 0;
+    z-index: 29;
+    flex-direction: column;
+    gap: 0;
+    background: var(--color-brand-primary-dark);
+    border-bottom: 1px solid rgb(255 255 255 / 0.12);
+    padding: 0.5rem 1.25rem;
+    display: none;
+  }
+  .side-nav.is-open {
+    display: flex;
+  }
+  .side-nav a {
+    padding: 0.9rem 0.25rem;
+    border-bottom: 1px solid rgb(255 255 255 / 0.08);
+  }
+  .side-nav a:last-child {
+    border-bottom: none;
+  }
 }
 
 @media (min-width: 768px) {
   .side-nav {
     display: flex;
+    position: static;
+    flex-direction: row;
+    background: transparent;
+    border-bottom: none;
+    padding: 0;
   }
   .header-cta {
     display: inline-flex;

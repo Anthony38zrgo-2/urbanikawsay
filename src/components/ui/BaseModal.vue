@@ -104,7 +104,7 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgb(9 46 28 / 0.55);
+  background: rgb(9 46 28 / 0.6);
   padding: 1rem;
 }
 
@@ -113,9 +113,9 @@ onBeforeUnmount(() => {
   max-width: 40rem;
   max-height: 85vh;
   overflow-y: auto;
-  background: var(--color-surface);
+  background: var(--color-surface-flat);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-modal);
 }
 
 .modal-header {
@@ -123,7 +123,7 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border-flat);
 }
 
 .modal-title {

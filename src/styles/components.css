@@ -19,71 +19,19 @@
     scroll-margin-top: 5rem;
   }
 
-  /* Botones */
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: var(--radius-md);
-    padding: 0.75rem 1.5rem;
-    font-weight: 700;
-    color: var(--color-text-on-accent);
-    background: linear-gradient(135deg, #FF7A00 0%, #FFB11B 50%, #FFD60A 100%);
-    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .btn-primary:hover {
-    background: var(--color-accent-hover);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-soft);
-  }
-
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: var(--radius-md);
-    padding: 0.75rem 1.5rem;
-    font-weight: 700;
-    color: var(--color-text-inverse);
-    background: var(--color-brand-primary);
-    transition: background 0.2s ease, transform 0.2s ease;
-  }
-  .btn-secondary:hover {
-    background: var(--color-brand-primary-light);
-    transform: translateY(-1px);
-  }
-
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-radius: var(--radius-md);
-    padding: 0.75rem 1.5rem;
-    font-weight: 600;
-    color: var(--color-brand-primary);
-    border: 1px solid var(--color-brand-primary);
-    background: transparent;
-    transition: background 0.2s ease, color 0.2s ease;
-  }
-  .btn-ghost:hover {
-    background: var(--color-brand-primary);
-    color: var(--color-text-inverse);
-  }
-
-  /* Cards */
+  /* ============================================================
+     FLAT SURFACES — sólidas, sin gradientes ni sombra decorativa
+     ============================================================ */
   .card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-soft);
+    background: var(--color-surface-flat);
+    border: 1px solid var(--color-border-flat);
     border-radius: var(--radius-lg);
   }
   .card--feature {
-    background: var(--color-surface-soft);
-    border-left: 4px solid var(--color-brand-secondary);
+    background: var(--color-surface-flat-soft);
     border-radius: var(--radius-md);
   }
 
-  /* Badges */
   .badge-success {
     background: var(--color-brand-secondary-pale);
     color: var(--color-brand-primary-dark);
@@ -101,11 +49,95 @@
     font-weight: 600;
   }
 
-  /* Gradientes */
+  /* ============================================================
+     AERO BUTTONS — profundidad reservada a controles accionables
+     ============================================================ */
+  .btn-aero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 1px solid var(--aero-border-light);
+    border-radius: var(--radius-full);
+    padding: 0.8rem 1.75rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+    min-height: 2.75rem;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+  .btn-aero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--aero-highlight);
+    opacity: 0.25;
+    pointer-events: none;
+  }
+  .btn-aero:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-aero);
+  }
+  .btn-aero:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-aero-active);
+  }
+  .btn-aero:focus-visible {
+    outline: 3px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+  .btn-aero:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .btn-aero-primary {
+    color: var(--color-text-on-accent);
+    background: var(--aero-primary-bg);
+  }
+  .btn-aero-secondary {
+    color: var(--color-text-inverse);
+    background: var(--aero-secondary-bg);
+  }
+  .btn-aero-quiet {
+    color: var(--color-brand-primary);
+    background: var(--color-surface-flat-soft);
+    border-color: var(--color-border-flat);
+  }
+  .btn-aero-icon {
+    padding: 0.65rem;
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    border-radius: var(--radius-full);
+  }
+
+  /* Gradientes — solo dentro de botones aero */
   .bg-brand-gradient {
     background: linear-gradient(135deg, #0D4D2E 0%, #2EAA4D 60%, #7ED957 100%);
   }
   .bg-accent-gradient {
     background: linear-gradient(135deg, #FF7A00 0%, #FFB11B 50%, #FFD60A 100%);
+  }
+
+  /* Focus global para controles no-botón (inputs, links) */
+  :focus-visible {
+    outline: 3px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-aero {
+      transition: none;
+    }
+    .btn-aero:hover,
+    .btn-aero:active {
+      transform: none;
+    }
   }
 }

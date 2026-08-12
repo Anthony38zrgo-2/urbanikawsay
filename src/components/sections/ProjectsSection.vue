@@ -34,12 +34,10 @@ const features = [
       </ul>
 
       <div class="project-grid">
-        <button
+        <article
           v-for="project in projects"
           :key="project.slug"
-          type="button"
           class="card project-card"
-          @click="emit('open-project', project.slug)"
         >
           <img
             :src="imageModules[`/src/assets/images/${project.imageUrl}`]"
@@ -57,9 +55,15 @@ const features = [
               <BaseIcon name="road" :size="16" decorative />
               {{ project.distanceToPort }}
             </p>
-            <span class="project-link">Ver detalles <span aria-hidden="true">→</span></span>
+            <button
+              type="button"
+              class="btn-aero btn-aero-primary project-detail-btn"
+              @click="emit('open-project', project.slug)"
+            >
+              Ver detalles <span aria-hidden="true">→</span>
+            </button>
           </div>
-        </button>
+        </article>
       </div>
     </div>
   </section>
@@ -116,17 +120,13 @@ const features = [
   .project-grid { grid-template-columns: repeat(3, 1fr); }
 }
 .project-card {
-  text-align: left;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
-  font-family: inherit;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-card);
 }
 .project-img {
   width: 100%;
@@ -135,6 +135,9 @@ const features = [
 }
 .project-info {
   padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .project-name {
   font-family: var(--font-display);
@@ -151,11 +154,8 @@ const features = [
   font-size: 0.9rem;
   margin-bottom: 0.35rem;
 }
-.project-link {
-  display: inline-block;
-  margin-top: 0.75rem;
-  color: var(--color-accent-strong);
-  font-weight: 700;
-  font-size: 0.95rem;
+.project-detail-btn {
+  margin-top: auto;
+  padding-top: 0.75rem;
 }
 </style>

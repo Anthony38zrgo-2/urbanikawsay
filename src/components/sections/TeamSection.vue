@@ -14,7 +14,7 @@ import BaseIcon from '@/components/ui/BaseIcon.vue'
           class="card team-card"
         >
           <div class="team-avatar" aria-hidden="true">
-            <BaseIcon name="whatsapp" :size="32" decorative />
+            <BaseIcon name="person" :size="32" decorative />
           </div>
           <h3 class="team-name">{{ member.name }}</h3>
           <p class="team-role">{{ member.role }}</p>

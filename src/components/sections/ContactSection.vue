@@ -96,7 +96,7 @@ const handleSubmit = () => {
               :aria-invalid="!!errors.mensaje" aria-describedby="ct-msg-err"></textarea>
             <p v-if="errors.mensaje" id="ct-msg-err" class="field-error">{{ errors.mensaje }}</p>
           </div>
-          <button type="submit" class="btn-primary submit-btn">Enviar mensaje</button>
+          <button type="submit" class="btn-aero btn-aero-primary submit-btn">Enviar mensaje</button>
           <p v-if="submitted" class="success-msg" aria-live="polite">
             Gracias. Se abrirá tu cliente de correo para completar el envío.
           </p>
@@ -181,15 +181,18 @@ const handleSubmit = () => {
 }
 .field input,
 .field textarea {
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-flat);
   border-radius: var(--radius-sm);
   padding: 0.6rem 0.75rem;
   font-family: inherit;
   font-size: 0.95rem;
+  background: var(--color-surface-flat);
+  color: var(--color-text-primary);
 }
-.field input:focus,
-.field textarea:focus {
-  outline: 2px solid var(--color-brand-secondary);
+.field input:focus-visible,
+.field textarea:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 1px;
   border-color: transparent;
 }
 .field-error {
@@ -197,7 +200,6 @@ const handleSubmit = () => {
   font-size: 0.8rem;
 }
 .submit-btn {
-  border: none;
   cursor: pointer;
   align-self: flex-start;
 }

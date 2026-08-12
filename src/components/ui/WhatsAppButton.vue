@@ -127,10 +127,10 @@ onBeforeUnmount(() => document.removeEventListener('keydown', handleEscape))
   bottom: 5rem;
   z-index: 40;
   width: min(92vw, 24rem);
-  background: var(--color-surface);
+  background: var(--color-surface-flat);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-flat);
+  box-shadow: var(--shadow-modal);
   overflow: hidden;
 }
 .whatsapp-panel-close {
@@ -201,11 +201,12 @@ onBeforeUnmount(() => document.removeEventListener('keydown', handleEscape))
   font-size: 0.9rem;
 }
 .whatsapp-custom-message textarea {
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-flat);
   border-radius: var(--radius-sm);
   padding: 0.5rem;
   font-family: inherit;
   resize: vertical;
+  background: var(--color-surface-flat);
 }
 .whatsapp-message-actions {
   display: flex;
@@ -213,17 +214,22 @@ onBeforeUnmount(() => document.removeEventListener('keydown', handleEscape))
   align-items: center;
 }
 .whatsapp-message-actions button {
-  background: #25D366;
-  color: #fff;
-  border: none;
-  border-radius: var(--radius-sm);
-  padding: 0.5rem 1rem;
+  background: var(--color-brand-primary);
+  color: var(--color-text-inverse);
+  border: 1px solid var(--color-brand-primary);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 1.1rem;
   font-weight: 700;
   cursor: pointer;
+}
+.whatsapp-message-actions button:hover {
+  background: var(--color-brand-primary-light);
+  box-shadow: var(--shadow-aero);
 }
 .whatsapp-message-actions button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  box-shadow: none;
 }
 .whatsapp-floating {
   position: fixed;
@@ -233,19 +239,23 @@ onBeforeUnmount(() => document.removeEventListener('keydown', handleEscape))
   width: 3.75rem;
   height: 3.75rem;
   border-radius: 9999px;
-  border: none;
+  border: 1px solid var(--aero-border-light);
   cursor: pointer;
   display: grid;
   place-items: center;
-  background: #25D366;
-  box-shadow: var(--shadow-card);
+  background: var(--aero-secondary-bg);
+  box-shadow: var(--shadow-aero);
   transition: transform 0.2s ease;
 }
 .whatsapp-floating:hover {
   transform: scale(1.06);
 }
+.whatsapp-floating:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
 .whatsapp-glyph {
-  color: #fff;
+  color: var(--color-text-inverse);
   display: grid;
   place-items: center;
 }

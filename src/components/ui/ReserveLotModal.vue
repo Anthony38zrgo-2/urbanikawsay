@@ -101,7 +101,7 @@ const errorFor = (key) => computed(() => errors.value[key] || '')
         <span>He leído y acepto los Términos y condiciones y las Políticas de privacidad de Urbanikawsay Inmobiliaria.</span>
       </label>
       <p v-if="errors.acepta" class="field-error">{{ errors.acepta }}</p>
-      <button type="submit" class="btn-primary submit-btn">Enviar solicitud</button>
+      <button type="submit" class="btn-aero btn-aero-primary submit-btn">Enviar solicitud</button>
       <p v-if="submitted" class="success-msg" aria-live="polite">
         Gracias. Se abrirá tu cliente de correo para completar el envío.
       </p>
@@ -136,17 +136,18 @@ const errorFor = (key) => computed(() => errors.value[key] || '')
 }
 .field input,
 .field textarea {
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-flat);
   border-radius: var(--radius-sm);
   padding: 0.6rem 0.75rem;
   font-family: inherit;
   font-size: 0.95rem;
   color: var(--color-text-primary);
-  background: var(--color-surface);
+  background: var(--color-surface-flat);
 }
-.field input:focus,
-.field textarea:focus {
-  outline: 2px solid var(--color-brand-secondary);
+.field input:focus-visible,
+.field textarea:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 1px;
   border-color: transparent;
 }
 .field-error {
@@ -164,7 +165,6 @@ const errorFor = (key) => computed(() => errors.value[key] || '')
 }
 .submit-btn {
   align-self: flex-start;
-  border: none;
   cursor: pointer;
 }
 .success-msg {
