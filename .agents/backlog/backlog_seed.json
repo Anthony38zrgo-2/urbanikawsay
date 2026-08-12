@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "MIG-001",
+      "epic": "wordpress-modernization",
+      "title": "Audit legacy WordPress routes, templates and frontend dependencies",
+      "description": "Create the initial migration inventory and classify routes/features before implementation.",
+      "item_type": "planning",
+      "status": "proposed",
+      "priority": 100,
+      "sort_order": 10,
+      "rationale": "A bounded inventory prevents accidental loss of URL, content, plugin and SEO behavior.",
+      "technical_risk": "medium",
+      "user_value": "Creates a safe map for incremental modernization.",
+      "dependencies": [],
+      "affected_areas": [
+        "legacy WordPress",
+        "routing",
+        "content",
+        "plugins",
+        "SEO"
+      ],
+      "acceptance_criteria": [
+        "Public routes/permalinks are inventoried for the selected scope.",
+        "Frontend-affecting templates/plugins/shortcodes/forms are classified.",
+        "Unknown dependencies are explicit."
+      ],
+      "evidence": [],
+      "source_agent": "planner",
+      "source_context": "Starter backlog seed."
+    },
+    {
+      "id": "MIG-002",
+      "epic": "wordpress-modernization",
+      "title": "Define target Vue 3 rendering, routing and migration architecture",
+      "description": "Choose the target frontend structure and rendering/delivery strategy from actual site constraints.",
+      "item_type": "architecture",
+      "status": "proposed",
+      "priority": 95,
+      "sort_order": 20,
+      "rationale": "Vue 3 does not by itself decide SPA versus prerender/static/SSR delivery or backend boundaries.",
+      "technical_risk": "high",
+      "user_value": "Prevents a fast implementation from creating SEO or deployment regressions.",
+      "dependencies": [
+        "MIG-001"
+      ],
+      "affected_areas": [
+        "Vue app",
+        "routing",
+        "deployment",
+        "SEO"
+      ],
+      "acceptance_criteria": [
+        "Rendering strategy is explicit.",
+        "Route ownership and server/client boundaries are explicit.",
+        "Builder can scaffold without inventing architecture."
+      ],
+      "evidence": [],
+      "source_agent": "planner",
+      "source_context": "Starter backlog seed."
+    },
+    {
+      "id": "MIG-003",
+      "epic": "wordpress-modernization",
+      "title": "Establish minimal Tailwind design tokens and SVG icon contract",
+      "description": "Define only the shared visual primitives needed by the first migration slices.",
+      "item_type": "planning",
+      "status": "proposed",
+      "priority": 85,
+      "sort_order": 30,
+      "rationale": "A small shared contract prevents utility and icon drift without front-loading a huge design system.",
+      "technical_risk": "medium",
+      "user_value": "Keeps the modernized site visually coherent.",
+      "dependencies": [
+        "MIG-002"
+      ],
+      "affected_areas": [
+        "Tailwind",
+        "SVG",
+        "shared UI"
+      ],
+      "acceptance_criteria": [
+        "Core visual tokens are documented.",
+        "SVG stroke/fill/currentColor/accessibility contract is documented.",
+        "No speculative component library is required."
+      ],
+      "evidence": [],
+      "source_agent": "planner",
+      "source_context": "Starter backlog seed."
+    },
+    {
+      "id": "MIG-004",
+      "epic": "wordpress-modernization",
+      "title": "Migrate the first representative route as an end-to-end vertical slice",
+      "description": "Use one representative WordPress page to validate the entire migration flow before scaling out.",
+      "item_type": "implementation",
+      "status": "proposed",
+      "priority": 80,
+      "sort_order": 40,
+      "rationale": "A real vertical slice falsifies architecture, styling, content and SEO assumptions cheaply.",
+      "technical_risk": "medium",
+      "user_value": "Produces the first usable modern route and proves the pipeline.",
+      "dependencies": [
+        "MIG-002",
+        "MIG-003"
+      ],
+      "affected_areas": [
+        "Vue",
+        "Tailwind",
+        "SVG",
+        "content",
+        "SEO"
+      ],
+      "acceptance_criteria": [
+        "Legacy baseline exists.",
+        "Approved migration contract exists.",
+        "Route passes build/tests and visual/responsive checks.",
+        "URL/content/SEO/form contracts in scope are validated."
+      ],
+      "evidence": [],
+      "source_agent": "planner",
+      "source_context": "Starter backlog seed."
+    }
+  ]
+}

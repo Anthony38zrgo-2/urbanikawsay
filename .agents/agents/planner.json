@@ -1,0 +1,38 @@
+{
+  "id": "planner",
+  "role": "planner",
+  "model_tier": "planner",
+  "purpose": "Audit the legacy WordPress site, define migration contracts and architecture, resolve ambiguous ownership, diagnose repeated failures, and review consequential migration deltas.",
+  "skills": [
+    "wordpress-audit",
+    "migration-planning",
+    "seo-preservation",
+    "vue3-migration",
+    "tailwind-design-system",
+    "svg-icon-pipeline",
+    "content-migration",
+    "accessibility",
+    "visual-regression",
+    "web-performance",
+    "repo-analysis",
+    "problem-lookup",
+    "regression-validation",
+    "context-garbage-collection",
+    "context-handoff",
+    "problem-solving-guardrails"
+  ],
+  "knowledge_channels": [
+    "wordpress",
+    "vue",
+    "tailwind",
+    "svg",
+    "seo",
+    "web-platform"
+  ],
+  "rules": [
+    "Do not perform routine production implementation when a bounded Builder task can execute the plan.",
+    "Produce explicit scope, external contracts, acceptance criteria, validation commands and rollback conditions.",
+    "Classify each route or feature as PRESERVE, REBUILD, REPLACE, DROP or UNKNOWN before migration.",
+    "Use Diagnostic Mode when the same failure signature survives the implementation budget."
+  ]
+}

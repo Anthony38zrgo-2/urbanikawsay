@@ -1,0 +1,70 @@
+{
+  "source_id": "project-seo",
+  "channel": "seo",
+  "authority": 100,
+  "version_policy": "project-curated",
+  "source_type": "project-policy",
+  "source_ref": ".agents/AGENTS.md",
+  "entries": [
+    {
+      "id": "seo-rendering",
+      "lookup_key": "rendering strategy crawl",
+      "topic": "Rendering strategy",
+      "symbols": [],
+      "keywords": [
+        "spa",
+        "ssr",
+        "ssg",
+        "prerender",
+        "crawl"
+      ],
+      "content": "For public content, explicitly decide whether client rendering is sufficient or whether prerender/static/SSR delivery is required. Vue 3 does not decide this by itself.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "seo-canonical",
+      "lookup_key": "canonical redirects",
+      "topic": "URL signals",
+      "symbols": [],
+      "keywords": [
+        "canonical",
+        "redirect",
+        "permalink",
+        "url"
+      ],
+      "content": "Preserve intentional canonical URLs and redirects during migration. Route changes require an explicit redirect/canonical plan.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "seo-metadata",
+      "lookup_key": "metadata title description",
+      "topic": "Route metadata",
+      "symbols": [],
+      "keywords": [
+        "title",
+        "description",
+        "robots",
+        "og"
+      ],
+      "content": "Include title, description, robots intent and relevant social metadata in the public route contract when they exist in legacy behavior.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "seo-structured-data",
+      "lookup_key": "structured data schema",
+      "topic": "Structured data",
+      "symbols": [],
+      "keywords": [
+        "json-ld",
+        "schema",
+        "structured data"
+      ],
+      "content": "Preserve applicable structured data semantics when the content/entity still exists; remove or change it only intentionally.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    }
+  ]
+}

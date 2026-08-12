@@ -1,0 +1,1231 @@
+# Misión: planificar la migración completa de Urbanikawsay
+
+Actúa exclusivamente como **Planner / Tech Lead** usando **GLM 5.2 MAX**.
+
+Tu trabajo en esta fase es **analizar, comparar, diseñar la estrategia y producir un backlog ejecutable**.
+
+**NO implementes todavía la migración.**
+**NO empieces a crear componentes Vue.**
+**NO modifiques la web legacy.**
+**NO delegues decisiones arquitectónicas a DeepSeek.**
+
+La implementación posterior será realizada principalmente por:
+
+* **Planner:** GLM 5.2 MAX
+* **Builder:** DeepSeek V4 Flash Low
+
+El Builder debe recibir tareas pequeñas, cerradas, verificables y con criterios de aceptación claros.
+
+---
+
+# 0. PRIMERA ACCIÓN OBLIGATORIA: VERIFICAR `.agents`
+
+Antes de analizar cualquier web o escribir cualquier plan:
+
+1. Localiza `.agents` en el proyecto actual.
+2. Lee completamente:
+
+   * `AGENTS.md`
+   * configuración de modelos
+   * router
+   * skills disponibles
+   * workflows
+   * knowledge/config
+   * reglas de Fail Fast
+   * Context Garbage Collection
+   * handoff Planner → Builder
+   * mecanismos de backlog/estado si existen.
+3. Verifica que la configuración efectiva corresponda a:
+
+```text
+Planner:
+GLM 5.2 MAX
+
+Builder:
+DeepSeek V4 Flash Low
+```
+
+4. Comprueba que las skills relevantes para una migración web estén disponibles, especialmente las relacionadas con:
+
+```text
+wordpress-audit
+migration-planning
+vue3-migration
+tailwind-design-system
+svg-icon-pipeline
+content-migration
+seo-preservation
+accessibility
+visual-regression
+web-performance
+context-gc
+handoff
+regression-validation
+```
+
+5. Si los nombres exactos son diferentes, utiliza las skills equivalentes disponibles.
+
+6. Ejecuta el preflight definido por `.agents` si existe.
+
+7. Informa explícitamente:
+
+```text
+AGENTS STATUS
+-------------
+configuration: PASS | FAIL
+planner: ...
+builder: ...
+skills: ...
+router: ...
+preflight: ...
+blocking_issues: [...]
+```
+
+Si existe un error crítico en `.agents`, aplica **Fail Fast**:
+
+```text
+STOP
+-> explicar problema
+-> indicar corrección necesaria
+-> no continuar con una planificación basada en supuestos incorrectos
+```
+
+Un warning no bloqueante sí puede documentarse y permitir continuar.
+
+---
+
+# 1. FUENTES DE VERDAD
+
+Hay tres fuentes principales que debes estudiar.
+
+## A. Repositorio modelo
+
+Repositorio:
+
+```text
+https://github.com/Anthony38zrgo-2/consultoria-coexistir
+```
+
+Este repositorio será la **referencia técnica y arquitectónica principal** para la nueva web.
+
+Analízalo profundamente.
+
+No te limites a README o `package.json`.
+
+Revisa:
+
+```text
+package.json
+vite.config.*
+src/
+src/App.vue
+src/components/
+src/components/layout/
+src/components/sections/
+src/components/ui/
+src/composables/
+src/constants/
+src/data/
+src/models/
+src/styles/
+src/assets/
+main.js
+main.css
+index.html
+```
+
+Estudia especialmente:
+
+* arquitectura Vue 3;
+* Composition API / `<script setup>`;
+* organización de componentes;
+* separación `layout / sections / ui`;
+* estrategia de datos;
+* constantes;
+* composables;
+* assets;
+* Tailwind;
+* CSS adicional;
+* responsive design;
+* estructura del landing;
+* reutilización de componentes;
+* deployment;
+* Vite;
+* variables de entorno;
+* accesibilidad;
+* estructura visual;
+* convenciones de nombres;
+* responsabilidades de `App.vue`.
+
+### Regla importante
+
+`consultoria-coexistir` es un **modelo arquitectónico y de calidad**, no una plantilla para copiar ciegamente.
+
+Clasifica cada patrón encontrado como:
+
+```text
+ADOPT
+ADAPT
+IGNORE
+```
+
+Explica por qué.
+
+No copies contenido, branding ni decisiones específicas del negocio Coexistir que no sean aplicables a Urbanikawsay.
+
+---
+
+# 2. ANALIZAR LA WEB LEGACY WORDPRESS
+
+Fuente:
+
+```text
+D:\web\urbanikawsay\web-legacy
+```
+
+Realiza un inventario exhaustivo antes de diseñar la arquitectura nueva.
+
+Determina qué contiene realmente el proyecto:
+
+```text
+WordPress core
+theme
+child theme
+plugins
+templates
+PHP
+HTML
+CSS
+JavaScript
+media
+fonts
+icons
+forms
+widgets
+menus
+shortcodes
+Gutenberg blocks
+Elementor u otro page builder
+SEO metadata
+scripts externos
+analytics
+integraciones
+contenido estático
+contenido dinámico
+```
+
+No presupongas que todo lo existente debe migrarse.
+
+Para cada elemento importante utiliza:
+
+```text
+PRESERVE
+REBUILD
+REPLACE
+DROP
+UNKNOWN
+```
+
+Debes identificar:
+
+* páginas existentes;
+* rutas/URLs;
+* navegación;
+* header;
+* footer;
+* hero;
+* secciones;
+* CTAs;
+* formularios;
+* botones de contacto;
+* WhatsApp;
+* redes sociales;
+* imágenes;
+* logos;
+* iconos;
+* tipografías;
+* colores;
+* efectos;
+* animaciones;
+* contenido textual;
+* metadata;
+* title;
+* description;
+* OpenGraph;
+* canonical;
+* robots;
+* sitemap;
+* schema markup si existe;
+* enlaces externos;
+* funcionalidades dependientes de plugins;
+* funcionalidades dependientes de WordPress.
+
+Genera un mapa:
+
+```text
+LEGACY FEATURE
+      ↓
+BUSINESS PURPOSE
+      ↓
+KEEP?
+      ↓
+NEW VUE IMPLEMENTATION
+```
+
+---
+
+# 3. ANALIZAR EL NUEVO DISEÑO
+
+Fuente:
+
+```text
+D:\web\urbanikawsay\diseño
+```
+
+Analiza todos los archivos útiles de esta carpeta.
+
+Pueden incluir:
+
+```text
+PNG
+JPG
+JPEG
+WEBP
+SVG
+PDF
+TXT
+MD
+JSON
+CSS
+capturas
+mockups
+paletas
+logos
+referencias visuales
+```
+
+No analices solamente nombres de archivos.
+
+Cuando exista información visual, inspecciona realmente las imágenes.
+
+La carpeta `diseño` representa la **dirección visual nueva** y tiene precedencia sobre los colores de WordPress legacy cuando exista una contradicción deliberada.
+
+---
+
+# 4. EXTRAER Y FORMALIZAR LA NUEVA PALETA
+
+Genera un inventario de colores.
+
+Para cada color intenta establecer:
+
+```text
+nombre semántico
+HEX
+RGB
+uso esperado
+contraste
+foreground recomendado
+background recomendado
+estado
+```
+
+No quiero terminar con clases Tailwind llenas de HEX arbitrarios repetidos.
+
+Transforma la paleta en un sistema semántico.
+
+Ejemplo conceptual:
+
+```text
+brand-primary
+brand-secondary
+brand-accent
+
+surface
+surface-soft
+surface-strong
+
+text-primary
+text-secondary
+text-muted
+
+border
+success
+warning
+error
+```
+
+No uses esos nombres necesariamente si existe una nomenclatura mejor para el diseño real.
+
+Determina:
+
+* colores dominantes;
+* secundarios;
+* acentos;
+* neutrales;
+* fondos;
+* foreground;
+* estados;
+* combinaciones problemáticas;
+* contraste WCAG;
+* posibles gradientes.
+
+Produce una propuesta de **design tokens** para Tailwind.
+
+---
+
+# 5. ICONOGRAFÍA
+
+La nueva aplicación **NO debe depender de icon fonts ni iconos raster para UI**.
+
+Los iconos propios serán generados como:
+
+```text
+SVG
+```
+
+Planifica un pipeline de iconografía consistente.
+
+Cada SVG nuevo debería considerar:
+
+```text
+viewBox correcto
+dimensiones coherentes
+currentColor cuando corresponda
+stroke/fill consistente
+accesibilidad
+aria-hidden para iconos decorativos
+title/label cuando sea semántico
+optimización del SVG
+nombres deterministas
+```
+
+No copies automáticamente la dependencia de iconos del repositorio de referencia.
+
+El repositorio modelo sirve como referencia arquitectónica; Urbanikawsay tendrá su propia estrategia SVG.
+
+Identifica dentro del backlog:
+
+* iconos que pueden preservarse;
+* iconos que deben rediseñarse;
+* iconos nuevos requeridos;
+* assets que no deberían convertirse en iconos.
+
+---
+
+# 6. DEFINIR LA ARQUITECTURA OBJETIVO
+
+La nueva web utilizará como base:
+
+```text
+Vue 3
+Vite
+Tailwind CSS
+JavaScript o TypeScript según análisis
+SVG para iconografía propia
+```
+
+Parte conceptualmente de la organización encontrada en `consultoria-coexistir`.
+
+Considera una estructura similar a:
+
+```text
+src/
+├── assets/
+├── components/
+│   ├── layout/
+│   ├── sections/
+│   └── ui/
+├── composables/
+├── constants/
+├── data/
+├── models/
+├── styles/
+├── App.vue
+└── main.*
+```
+
+Pero no la copies obligatoriamente.
+
+Primero determina si Urbanikawsay necesita carpetas adicionales como:
+
+```text
+pages/
+router/
+services/
+icons/
+seo/
+utils/
+content/
+```
+
+Solo introdúcelas si existe una necesidad demostrable.
+
+## Evitar overengineering
+
+No introduzcas por defecto:
+
+```text
+Pinia
+Vue Router
+TypeScript
+SSR
+Nuxt
+Axios
+Zod
+Storybook
+arquitectura hexagonal
+repository pattern
+microfrontends
+design-system package separado
+```
+
+Cada dependencia o capa nueva debe resolver una necesidad concreta.
+
+Aplica:
+
+```text
+YAGNI
+KISS
+SOLID/SRP donde aporte
+Fail Fast
+```
+
+---
+
+# 7. DETERMINAR ESTRATEGIA DE RENDERIZADO
+
+No asumas que porque usamos Vue 3 debe ser una SPA client-only.
+
+Analiza:
+
+* naturaleza de Urbanikawsay;
+* cantidad de páginas;
+* contenido;
+* SEO;
+* hosting;
+* frecuencia de cambios;
+* formularios;
+* integraciones;
+* URLs legacy.
+
+Compara como mínimo:
+
+```text
+SPA
+SPA + prerender
+SSG
+SSR
+MPA si fuera justificable
+```
+
+Selecciona una estrategia.
+
+GLM 5.2 MAX es responsable de esta decisión.
+
+DeepSeek no debe redefinirla durante la implementación.
+
+---
+
+# 8. MAPA LEGACY → NUEVA WEB
+
+Construye una matriz completa:
+
+| Legacy | Estado | Nueva implementación | Prioridad | Riesgo |
+| ------ | ------ | -------------------- | --------- | ------ |
+
+Por ejemplo:
+
+```text
+WordPress header
+→ REBUILD
+→ AppHeader.vue
+
+WordPress footer
+→ REBUILD
+→ AppFooter.vue
+
+Hero
+→ REBUILD/ADAPT
+→ HeroSection.vue
+
+Plugin de formulario
+→ REPLACE
+→ Vue form + servicio elegido
+
+FontAwesome
+→ REPLACE
+→ SVG propio
+```
+
+Los ejemplos anteriores no son decisiones tomadas; debes determinar los mappings reales.
+
+---
+
+# 9. SEO Y COMPATIBILIDAD
+
+La migración no puede tratar SEO como un detalle posterior.
+
+Inventaría:
+
+```text
+legacy URL
+new URL
+title
+meta description
+canonical
+OpenGraph
+structured data
+redirect necesario
+```
+
+Prioriza preservar URLs cuando tenga sentido.
+
+Si una URL debe cambiar, planifica:
+
+```text
+301 redirect
+```
+
+Identifica también:
+
+* enlaces rotos potenciales;
+* assets referenciados externamente;
+* slugs WordPress;
+* problemas de trailing slash;
+* rutas con parámetros;
+* formularios indexables accidentalmente;
+* contenido duplicado.
+
+---
+
+# 10. PLAN DE MIGRACIÓN
+
+Después del análisis, GLM debe generar una estrategia por fases.
+
+Una secuencia esperable podría aproximarse a:
+
+```text
+F0 — Discovery / inventory
+F1 — Foundation
+F2 — Design system
+F3 — Shared layout
+F4 — Main content
+F5 — Interactions / forms
+F6 — SEO migration
+F7 — Accessibility
+F8 — Responsive validation
+F9 — Visual regression
+F10 — Performance
+F11 — Deployment / cutover
+```
+
+NO copies esta lista literalmente si el análisis indica un orden mejor.
+
+La estrategia debe minimizar retrabajo.
+
+---
+
+# 11. GENERAR BACKLOG EJECUTABLE
+
+Esta es una salida obligatoria.
+
+GLM debe convertir el plan en tareas suficientemente pequeñas para que **DeepSeek V4 Flash Low pueda ejecutarlas sin volver a diseñar la solución**.
+
+No escribas tareas vagas como:
+
+```text
+"Crear frontend"
+"Mejorar diseño"
+"Migrar WordPress"
+```
+
+Cada tarea debe tener contexto suficiente.
+
+Utiliza IDs deterministas:
+
+```text
+URB-001
+URB-002
+URB-003
+...
+```
+
+Cada tarea debe incluir:
+
+```text
+ID
+Título
+Fase
+Objetivo
+Tipo
+Prioridad
+Riesgo
+Dependencias
+Puede ejecutarse en paralelo
+Agente recomendado
+Modelo recomendado
+Skills necesarias
+Contexto mínimo requerido
+Archivos/carpetas de entrada
+Archivos esperados de salida
+Pasos de implementación
+Restricciones
+Criterios de aceptación
+Validaciones
+Definition of Done
+Escalation conditions
+```
+
+Ejemplo conceptual:
+
+```text
+URB-014
+
+Título:
+Implementar AppHeader base
+
+Owner:
+Builder
+
+Model:
+DeepSeek V4 Flash Low
+
+Depends on:
+URB-004
+URB-009
+
+Input:
+- migration contract
+- navigation inventory
+- design tokens
+- reference architecture
+
+Output:
+src/components/layout/AppHeader.vue
+
+Acceptance criteria:
+- navegación legacy preservada según mapping
+- responsive mobile/desktop
+- tokens Tailwind
+- sin HEX inline
+- SVG icons según pipeline
+- keyboard navigation funcional
+- build PASS
+```
+
+---
+
+# 12. BACKLOG ORIENTADO A COSTE DE MODELOS
+
+Diseña el backlog específicamente para esta relación:
+
+```text
+GLM 5.2 MAX
+     ↓
+planifica varias tareas relacionadas
+     ↓
+DeepSeek V4 Flash Low
+     ↓
+implementa
+     ↓
+tests
+     ↓
+validación
+```
+
+Queremos evitar:
+
+```text
+GLM
+→ DeepSeek
+→ GLM
+→ DeepSeek
+→ GLM
+→ DeepSeek
+```
+
+para cada archivo pequeño.
+
+Agrupa decisiones relacionadas durante la fase de planning.
+
+GLM debe resolver por adelantado:
+
+* arquitectura;
+* naming;
+* contracts;
+* design tokens;
+* componentes;
+* ownership;
+* dependencias;
+* orden;
+* criterios de aceptación.
+
+DeepSeek debe recibir problemas principalmente **determinísticos**.
+
+---
+
+# 13. SUBAGENTES
+
+GLM debe decidir explícitamente cuándo conviene utilizar subagentes.
+
+No uses subagentes por defecto.
+
+Úsalos solamente cuando permitan:
+
+```text
+paralelismo real
+aislamiento de contexto
+análisis especializado
+reducción del contexto principal
+```
+
+Durante la fase de discovery son buenos candidatos los análisis independientes.
+
+Ejemplos:
+
+```text
+Subagent A — WordPress Auditor
+Subagent B — Reference Architecture Analyst
+Subagent C — Visual / Palette Analyst
+Subagent D — SEO & Content Inventory
+```
+
+Estos análisis pueden ejecutarse en paralelo porque principalmente son read-only.
+
+Después:
+
+```text
+GLM Planner
+    ↓
+integra resultados
+    ↓
+resuelve contradicciones
+    ↓
+define arquitectura única
+    ↓
+genera backlog
+```
+
+## Regla
+
+Los subagentes **no toman la decisión final de arquitectura**.
+
+GLM 5.2 MAX es el integrador y propietario del plan.
+
+---
+
+# 14. SUGERENCIAS DE SUBAGENTES EN EL BACKLOG
+
+Cada tarea debe indicar uno de:
+
+```text
+subagent: NO
+```
+
+o:
+
+```text
+subagent: RECOMMENDED
+```
+
+o:
+
+```text
+subagent: REQUIRED
+```
+
+Si se recomienda un subagente, especificar:
+
+```text
+role
+mission
+input
+expected_output
+model
+skills
+context_boundary
+parallel_group
+```
+
+Ejemplo:
+
+```text
+Subagent:
+RECOMMENDED
+
+Role:
+Visual Regression Inspector
+
+Model:
+DeepSeek V4 Flash Low
+
+Mission:
+Comparar capturas legacy vs nueva implementación para detectar diferencias estructurales y responsive.
+
+Context boundary:
+Solo recibe screenshots, acceptance criteria y componente bajo revisión.
+No recibe todo el historial del proyecto.
+```
+
+---
+
+# 15. DECIDIR CUÁNDO ESCALAR DE DEEPSEEK A GLM
+
+Añade una condición `ESCALATE_TO_GLM` cuando una tarea encuentre:
+
+```text
+arquitectura no definida
+dos soluciones estructurales válidas
+cambio cross-cutting
+SEO crítico
+cambio de estrategia de renderizado
+contradicción entre legacy y diseño
+dependencia nueva no prevista
+ownership ambiguo
+contrato del planner incompleto
+3 intentos fallidos sobre la misma causa
+```
+
+DeepSeek debe detenerse en esos casos.
+
+No debe improvisar arquitectura.
+
+---
+
+# 16. PARALELIZACIÓN
+
+Identifica grupos explícitos.
+
+Ejemplo:
+
+```text
+PARALLEL GROUP A
+- inventario WordPress
+- análisis repo referencia
+- análisis paleta
+- inventario SEO
+
+BARRIER A
+- GLM integra resultados
+
+PARALLEL GROUP B
+- assets
+- icon inventory
+- content normalization
+```
+
+Evita paralelizar tareas que modifiquen los mismos archivos.
+
+Indica claramente barriers y dependencias.
+
+---
+
+# 17. CONTEXT ENGINEERING
+
+No entregues todo el repositorio a cada Builder.
+
+Para cada tarea define:
+
+```text
+minimum_context
+```
+
+El contexto de DeepSeek debe contener únicamente:
+
+```text
+task
+acceptance criteria
+relevant architecture decision
+relevant files
+required skill
+necessary legacy reference
+necessary visual reference
+```
+
+No debe contener análisis históricos que ya no sean necesarios.
+
+Utiliza Context Garbage Collection entre bloques de trabajo.
+
+---
+
+# 18. CONTRATOS DE MIGRACIÓN
+
+Antes de que una página o sección pueda entrar en BUILD, debe tener un contrato mínimo:
+
+```text
+source
+target
+classification
+content
+visual intent
+components
+assets
+tokens
+interactions
+responsive behavior
+SEO
+accessibility
+acceptance criteria
+```
+
+Estado:
+
+```text
+DISCOVERED
+ANALYZED
+PLANNED
+READY_FOR_BUILD
+BUILDING
+VALIDATING
+DONE
+BLOCKED
+```
+
+Una tarea no puede ser enviada a DeepSeek si todavía está en:
+
+```text
+UNKNOWN
+```
+
+respecto a una decisión estructural necesaria.
+
+---
+
+# 19. FAIL FAST
+
+Durante planificación e implementación posterior:
+
+```text
+detect
+→ isolate
+→ classify
+→ decide
+→ act
+→ validate
+```
+
+Si una hipótesis importante puede verificarse con una inspección barata, hazla antes de construir sobre ella.
+
+Ejemplo:
+
+No planifiques un reemplazo de plugin basándote únicamente en su nombre.
+
+Primero determina:
+
+```text
+qué funcionalidad aporta
+si realmente está activa
+qué páginas dependen de ella
+qué datos procesa
+```
+
+---
+
+# 20. VALIDACIÓN FUTURA
+
+Incluye tareas específicas para validar:
+
+```text
+npm install
+npm run build
+lint si existe
+responsive
+desktop
+tablet
+mobile
+keyboard
+focus
+WCAG
+formularios
+links
+SEO
+metadata
+SVG
+404
+URLs legacy
+performance
+Core Web Vitals
+visual regression
+```
+
+La validación visual debe comparar:
+
+```text
+legacy
++
+nuevo diseño
++
+implementación Vue
+```
+
+El objetivo no es reproducir accidentalmente los defectos visuales de WordPress.
+
+---
+
+# 21. ENTREGABLES DEL PLANNER
+
+Al terminar esta fase crea, como mínimo:
+
+```text
+docs/migration/
+├── 00-agents-validation.md
+├── 01-reference-repo-analysis.md
+├── 02-legacy-inventory.md
+├── 03-design-analysis.md
+├── 04-color-system.md
+├── 05-target-architecture.md
+├── 06-migration-map.md
+├── 07-seo-migration.md
+├── 08-subagent-strategy.md
+├── 09-migration-plan.md
+└── 10-backlog.md
+```
+
+Si `.agents` define un directorio de knowledge/plans canónico, utiliza ese mecanismo además de estos documentos o adapta estas rutas sin duplicar innecesariamente información.
+
+Genera además una versión machine-readable:
+
+```text
+docs/migration/backlog.json
+```
+
+---
+
+# 22. FORMATO DE `backlog.json`
+
+Cada tarea debe aproximarse a:
+
+```json
+{
+  "id": "URB-001",
+  "title": "...",
+  "phase": "foundation",
+  "type": "architecture|ui|content|seo|asset|test|infra",
+  "owner": "planner|builder",
+  "model": "glm-5.2-max|deepseek-v4-flash-low",
+  "priority": "P0|P1|P2|P3",
+  "risk": "low|medium|high",
+  "depends_on": [],
+  "parallel_group": null,
+  "subagent": {
+    "mode": "no|recommended|required",
+    "role": null
+  },
+  "skills": [],
+  "inputs": [],
+  "outputs": [],
+  "minimum_context": [],
+  "steps": [],
+  "acceptance_criteria": [],
+  "validation": [],
+  "escalate_to_glm_if": []
+}
+```
+
+Puedes mejorar el esquema si `.agents` ya posee uno más sólido.
+
+---
+
+# 23. RESUMEN EJECUTIVO FINAL
+
+Además de los archivos, termina mostrando:
+
+```text
+URBANIKAWSAY MIGRATION PLAN
+===========================
+
+AGENTS
+PASS / FAIL
+
+REFERENCE REPOSITORY
+analyzed
+
+LEGACY
+pages: N
+components/features: N
+assets: N
+wordpress dependencies: N
+
+DESIGN
+palette: analyzed
+tokens proposed: N
+visual direction: ...
+
+TARGET
+Vue: ...
+Tailwind: ...
+rendering strategy: ...
+routing: ...
+SEO strategy: ...
+SVG strategy: ...
+
+BACKLOG
+total: N
+P0: N
+P1: N
+P2: N
+P3: N
+
+MODEL DISTRIBUTION
+GLM tasks: N
+DeepSeek tasks: N
+
+SUBAGENTS
+recommended: N
+parallel groups: N
+
+CRITICAL PATH
+URB-... → URB-... → URB-...
+
+FIRST BUILDER-READY TASK
+URB-...
+
+BLOCKERS
+...
+```
+
+---
+
+# 24. PRINCIPIO CENTRAL
+
+El objetivo de esta sesión no es escribir mucho código.
+
+El objetivo es transformar:
+
+```text
+WordPress legacy
++
+nuevo diseño
++
+arquitectura de referencia
+```
+
+en:
+
+```text
+decisiones explícitas
++
+contratos
++
+dependencias
++
+backlog
++
+criterios verificables
+```
+
+de forma que posteriormente:
+
+```text
+GLM 5.2 MAX
+```
+
+pueda mantenerse como **arquitecto/planner de alto nivel**, mientras:
+
+```text
+DeepSeek V4 Flash Low
+```
+
+ejecuta la mayor parte del trabajo de construcción con bajo coste.
+
+La calidad del plan se mide por cuánto reduce la necesidad de que el Builder improvise.

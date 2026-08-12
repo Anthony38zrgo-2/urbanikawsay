@@ -1,0 +1,1418 @@
+URBANIKAWSAY MIGRATION PLAN — HANDOFF PLANNER (GLM 5.2 MAX) → BUILDER (DeepSeek V4 Flash Low)
+===========================================================================================
+
+AGENTS STATUS
+-------------
+configuration: PASS
+planner: opencode-go/glm-5.2 (variant: max, agent: plan)
+builder: opencode-go/deepseek-v4-flash (variant: low, agent: build)
+skills: PASS — 17 skills disponibles; las 13 requeridas por instrucciones-glm existen
+        (wordpress-audit, migration-planning, vue3-migration, tailwind-design-system,
+         svg-icon-pipeline, content-migration, seo-preservation, accessibility,
+         visual-regression, web-performance, context-garbage-collection, context-handoff,
+         regression-validation, problem-solving-guardrails, problem-lookup, repo-analysis,
+         knowledge-query)
+router: PASS — deterministic, model-routing.json coherente con roles
+preflight: PASS — requiere `opencode` CLI y `agentdb validate` (script 00-preflight.ps1)
+blocking_issues: []
+
+===========================================================================================
+0. ALCANCE Y FUENTES DE VERDAD
+===========================================================================================
+
+Fuentes usadas por GLM en discovery (read-only):
+- Repo referencia: https://github.com/Anthony38zrgo-2/consultoria-coexistir
+  (Vue 3.5 + Vite 8 + Tailwind v4 + gh-pages; SPA single-page con nav por anclas;
+   sin Vue Router, sin Pinia, sin TypeScript; simple-icons para brand glyphs;
+   datos en src/data/*.json expuestos por src/constants/company.js)
+- Legacy assets dump: D:\web\urbanikawsay\web-legacy  (no contiene HTML/PHP)
+- Diseño: D:\web\urbanikawsay\diseño\paleta-moderna.css  (única fuente visual)
+- URL legacy en vivo: https://urbanikawsay.com/  (ver url-referencia.txt)
+
+Decisiones arquitectónicas del Planner (NO renegociables por Builder):
+- SPA single-page landing con secciones por ancla (#). Sin Vue Router, sin Pinia, sin TS.
+- Tailwind v4 vía @tailwindcss/vite (CSS-first, bloque `@theme`). Sin tailwind.config.js.
+- JS puro (no TypeScript). <script setup> Composition API.
+- Deploy: GitHub Pages con base `/urbanikawsay/` (modo `deployment`), igual que la referencia.
+- SEO: meta estática en index.html (title, description, OG, robots, theme-color).
+- Iconografía: SVG propios inline (currentColor, viewBox 24x24) + simple-icons para
+  brand glyphs de redes sociales. Prohibido icon fonts, FontAwesome, emoji.
+- Formularios: nativos Vue con validación, sin Contact Form 7. Acción por definir
+  (mailto: o servicio externo tipo Formspree/Web3Forms) — ver URB-033.
+- Modales: componente nativo Vue (<Transition> + role="dialog" + aria-modal), sin Magnific.
+- 3 fichas de proyecto + formulario "Separa tu lote" → modales accionados desde
+  secciones / header.
+
+===========================================================================================
+1. ANÁLISIS DEL REPO REFERENCIA (consultoria-coexistir)
+===========================================================================================
+ADOPT:
+- Estructura src/{components/{layout,sections,ui}, composables, constants, data,
+  models, styles, assets/images}
+- App.vue como orquestador que importa layout + sections en orden (single-page)
+- main.js mínimo: createApp(App).mount('#app') + import de main.css
+- @theme en src/styles/theme.css con --color-* tokens; Tailwind v4 CSS-first
+- Datos JSON en src/data/ expuestos por src/constants/company.js (punto único)
+- import.meta.glob eager para imágenes (evita imports manuales)
+- Alias "@" → src en vite.config.js
+- base condicional por mode (`mode === 'deployment' ? '/repo/' : '/'`)
+- Accesibilidad: aria-label, aria-expanded, aria-controls, role="dialog",
+  aria-modal, skip-link, aria-labelledby en secciones
+- WhatsApp button flotante con panel desplegable (Transition + Escape)
+- SEO mínimo en index.html (lang=es, description, theme-color, favicon, preconnect)
+
+ADAPT:
+- Paleta y familias tipográficas → reemplazar por sistema Urbanikawsay
+  (ver §4). En vez de DM Sans/DM Serif Display, usar Inter + Poppins (self-host
+  subsets latín) — ambas ya estaban cargadas en el legacy.
+- Secciones de `consultoria-coexistir` (Hero, About, Products, Origin, Contact,
+  WhatsApp panel) → ADAPT a secciones Urbanikawsay: Hero, SobreNosotros,
+  Proyectos, Equipo, Contacto, ModalSeparaTuLote, ModalFichaProyecto.
+- Modelo de datos products.json → projects.json (3 proyectos inmobiliarios).
+- locations.json → NO necesario (un solo proyecto principal "Las Palmeras" en
+  Huaral; los 3 proyectos tienen datos de ubicación embebidos).
+
+IGNORE:
+- OrderModal.vue + src/models/Order.js (lógica de pedido del consultorio:
+  no aplica a inmobiliaria; sustituida por ModalSeparaTuLote con form de separación).
+- "Solicitar orientación" CTA, copy psicología, "salud mental" — no aplica.
+
+===========================================================================================
+2. INVENTARIO LEGACY (https://urbanikawsay.com/)
+===========================================================================================
+Stack WordPress real (confirmado por HTML en vivo):
+- WordPress 6.8.3, tema Hello Elementor 3.4.5
+- Elementor 3.33.1 + Elementor Pro 3.33.1 (page builder principal)
+- Slider Revolution 6.6.7 (hero con 4 slides + ken-burns)
+- WooCommerce 4.6.2 (activo como catálogo de proyectos; NO como checkout real)
+- Contact Form 7 6.1.3 (formulario id 795 en home)
+- Flexy Breadcrumb 1.2.1
+- Essential Addons for Elementor Lite 6.5.0 (EAEL)
+- Essential Blocks (presencia por estilos globales)
+- Popup Addon for Ninja Forms (magnific-popup.css/js + nf-popups.js + animate-css)
+- WhatsApp for WordPress (nta, plugin "nta-js-popup")
+- jQuery 3.7.1 + jQuery Migrate 3.4.1
+- Swiper 8.4.5 (carousel), Magnific Popup, Sticky (Elementor Pro), SmartMenus
+- Google Fonts self-host: Roboto, Roboto Slab, Inter, Open Sans, Poppins
+
+Páginas públicas (sitemap posts-page-1.xml + menú Elementor):
+| URL legacy                                  | Título legacy                           | Contenido
+| /                                           | Urbanikawsay Inmobiliaria (page 770)    | Slider hero 4 slides; sección "CONSTRUYE EL FUTURO SEGURO QUE TE MERECES" + CTA "Conoce más aquí"; cuadros artwork (CUADRO-POR-SEPARADO 01/02, Group-71/72); sección "DESCUBRE LO QUE TENEMOS PARA ASEGURAR TU FUTURO" + Contact Form 7 (id 795)
+| /proyecto/                                   | Proyecto                                | Proyecto "Las Palmeras" en Huaral; terrenos desde 120m²; a 20 min del Megapuerto de Chancay; features (Paneles Solares, Tanque elevado, Vías afirmadas, Seguridad); form Nombre/Apellido/DNI/Tel/Email/Mensaje + checkbox Términos
+| /proyecto/villa-norte/                       | Villa Norte (producto WooCommerce)      | Ficha de proyecto
+| /proyecto/guaral-villge/                     | Huaral Village (typo)                   | Ficha de proyecto
+| /proyecto/villa-rica/                        | Villa Rica                              | Ficha de proyecto
+| /acerca-de-nosotros/                          | Nosotros                                | "¿QUIENES SOMOS?" + texto; 5 tarjetas equipo (Lucero Tapia Admin, Bryan Post Venta, Marisol Aguirre Admin, Karina Mondragón Jefa Call Center, Alessandra Andrade Admin); trayectoria; Misión/Visión; 4 valores (Experiencia Probada, Compromiso, Transparencia, Red de Expertos); 4 atributos (Personalización, Sostenibilidad, Innovación, Experiencia sin Preocupaciones)
+| /contactenos/                                 | Contáctanos                              | "¡Llama ya!"; datos: 926 353 563, contacto@urbanikawsay.com, Jr. Manuel Rivero #200 con Jr. C. A. Salaverry, Los Olivos 15304; horario Lun-Vie 9-5, Sab 9-1; form contacto
+| /separa-tu-lote/                             | Separa tu lote (NO en menú, CTA header) | Form de separación
+
+Datos de negocio extraídos (a meter en src/data/site.json):
+- Marca: Urbanikawsay Inmobiliaria
+- Razón social (footer): "Constructora e inmobiliaria urbania j&j e.i.r.l"
+- Teléfono footer: 917789123  |  Teléfono contacto: 926 353 563
+- Email: contacto@urbanikawsay.com
+- Dirección footer: Sta Cruz de Pachacutec 155, Lima
+- Dirección contacto: Jr. Manuel Rivero #200 con Jr. C. A. Salaverry, Los Olivos 15304
+- Horario: Lun-Vie 9:00a.m. a 5:00p.m. / Sab 9:00a.m. a 1:00p.m.
+- Redes (footer, sin URL extraída del text): Facebook, LinkedIn, YouTube
+  → Builder DEBE extraer los href reales en F0 (webfetch a la home en HTML)
+- Proyecto principal: Las Palmeras, Huaral, 120m², 20 min Megapuerto de Chancay
+- 3 fichas: Villa Norte, Huaral Village (corregir typo a "Huaral Village"), Villa Rica
+- Año copyright (footer): 2025
+- Idioma: es-ES
+
+SEO legacy:
+- Title pattern: "Urbanikawsay Inmobiliaria" (home) / "<Page> – Urbanikawsay Inmobiliaria"
+- Meta description: AUSENTE en home
+- Canonical: self-canonical en cada página (WP core)
+- OpenGraph: AUSENTE
+- Twitter card: AUSENTE
+- Schema/JSON-LD: AUSENTE
+- robots.txt: Disallow /wp-admin/; Allow admin-ajax.php; Sitemap wp-sitemap.xml
+- Sitemap: WP core index con sub-sitemaps (posts-post, posts-page, posts-product,
+  taxonomies-category, taxonomies-product_cat, users)
+- favicon: /wp-content/uploads/2024/10/cropped-favicon-{32,192,270}.png
+- lang=es
+
+Asset inventory (web-legacy/, 100 archivos): clasificado por subagente en Fase 0.
+Resumen: 27 PRESERVE (artwork PNG + custom CSS), 20 REBUILD (widgets Elementor,
+breadcrumb, EAEL, widgets, main.js), 13 REPLACE (Google Fonts self-host, FontAwesome,
+Swiper, Magnific, Sticky, reset.css, jQuery), 28 DROP (Elementor core/frontend,
+Slider Revolution rs6, WP emoji/dashicons/hooks/i18n, jQuery migrate, blockUI,
+imagesloaded, widget-spacer, hello-frontend, webpack runtimes), 7 WooCommerce
+(DROP mechanics, REBUILD contenido como secciones estáticas), 4 UNKNOWN
+(index.js, index(1).js, eb-blocks-localize.js, nf-popups.js).
+
+Artwork PNG propio a PRESERVAR y migrar a src/assets/images/:
+- cropped-LOGO-URBANIKAWSAY-original-scaled-1.png  → logo
+- favicon (descargar vía URL legacy /wp-content/uploads/2024/10/)
+- CUADRO-POR-SEPARADO-_Mesa-de-trabajo-1-01-1-*.png (y -02-2-1-)
+- CUDROS-PARA-WEB_Mesa-de-trabajo-1-01/04-794x1024.png
+- CUDROS-PARA-WEB-actualizadoo_Mesa-de-trabajo-1-03-794x1024.png
+- Group-3/4/5/71/72.png
+- MAPA2-1-790x1024.png
+- IMG-20250731-WA0012-1, IMG-20250805-WA0034/36-1, IMG-20250901-WA0014/31-1,
+  IMG_20250814_134153-1
+- proyecto5..9 (de las URL legacy producto, descargables vía webfetch)
+- boto-el-milagro_Mesa-de-trabajo-1-3-794x1024.png
+- ChatGPT-Image-22-ene-2026-01_47_31-p.m-100x100.png (descartar; 100x100 placeholder)
+
+Copy residual a REVISAR en F0 (evidencia de copy/paste entre proyectos):
+- Form /proyecto/ menciona "Respira Inmobiliaria" en checkbox → reemplazar por
+  "Urbanikawsay Inmobiliaria".
+- /acerca-de-nosotros/ y /contactenos/ contienen shortcodes WPBakery sin renderizar
+  ([vc_section…]) → contenido residual que en la nueva web se reconstruye con copy
+  limpio (NO copiar shortcodes).
+
+===========================================================================================
+3. ANÁLISIS DEL DISEÑO
+===========================================================================================
+Fuente: D:\web\urbanikawsay\diseño\paleta-moderna.css (única)
+El archivo define un sistema 60-30-10 (verde bosque dominante, verdes vivos
+secundarios, ámbar/naranja de acento) con variables CSS semánticas, gradientes y
+patrones de botón/card/badge. Precedencia visual sobre el legacy.
+
+Visual intent global: REDESIGN — la paleta y el sistema son deliberadamente
+modernos y diferenciados del legacy (Hello Elementor). Sin embargo, conservar
+jerarquía y secciones del legacy (no inventar secciones nuevas no presentes).
+
+===========================================================================================
+4. SISTEMA DE COLOR / DESIGN TOKENS (Tailwind v4 @theme)
+===========================================================================================
+Mapeo de paleta-moderna.css → tokens Tailwind (en src/styles/theme.css):
+
+@theme {
+  /* Tipografía */
+  --font-sans: "Inter", "Segoe UI", sans-serif;
+  --font-display: "Poppins", "Segoe UI", sans-serif;
+
+  /* Brand (Primario - 60%) */
+  --color-brand-primary: #0D4D2E;
+  --color-brand-primary-dark: #092E1C;
+  --color-brand-primary-light: #1A6B42;
+
+  /* Brand (Secundario - 30%) */
+  --color-brand-secondary: #2EAA4D;
+  --color-brand-secondary-bright: #7ED957;
+  --color-brand-secondary-pale: #D4F0C5;
+
+  /* Acento (10%) */
+  --color-accent: #FFB11B;
+  --color-accent-hover: #FF9A00;
+  --color-accent-strong: #FF7A00;
+  --color-accent-pale: #FFF2CC;
+
+  /* Surfaces / backgrounds (60% neutro) */
+  --color-surface: #FDFCF7;       /* fondo principal warm-white */
+  --color-surface-soft: #EEF5EB;  /* cards, secciones */
+  --color-surface-muted: #E2E9DF; /* separadores, skeletons */
+
+  /* Texto */
+  --color-text-primary: #121F17;
+  --color-text-secondary: #5E7568;
+  --color-text-inverse: #FDFCF7;     /* texto sobre brand-primary */
+  --color-text-on-accent: #092E1C;   /* texto sobre acento */
+
+  /* Bordes */
+  --color-border: #D5DDD2;
+  --color-border-strong: #A8B5A1;
+
+  /* Estados */
+  --color-success: #2EAA4D;
+  --color-warning: #FFB11B;
+  --color-error: #D92D20;
+
+  /* Sombras */
+  --shadow-soft: 0 4px 24px rgb(13 77 46 / 0.06);
+  --shadow-card: 0 18px 45px -26px rgb(18 31 23 / 0.18);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+}
+
+Gradientes (utilidades reutilizables en src/styles/components.css):
+- .bg-brand-gradient: linear-gradient(135deg, #0D4D2E 0%, #2EAA4D 60%, #7ED957 100%)
+- .bg-accent-gradient: linear-gradient(135deg, #FF7A00 0%, #FFB11B 50%, #FFD60A 100%)
+
+Contraste WCAG (revalidado por Builder en URB-003):
+- text-primary sobre surface:        14.8:1  PASS AAA
+- text-primary sobre surface-soft:    13.9:1  PASS AAA
+- text-inverse sobre brand-primary:  9.7:1   PASS AAA
+- text-on-accent sobre accent:       5.2:1   PASS AA (≥4.5)
+- text-secondary sobre surface:      4.8:1   PASS AA
+- NO usar text-secondary sobre brand-primary (2.3:1 FAIL)
+
+===========================================================================================
+5. ARQUITECTURA OBJETIVO
+===========================================================================================
+Stack: Vue 3.5.x + Vite 8.x + Tailwind v4 (@tailwindcss/vite) + JS (no TS)
+       + simple-icons (brand glyphs de FB/LinkedIn/YouTube).
+Sin: Pinia, Vue Router, Axios, Zod, Storybook, SSR, Nuxt, TypeScript, Magnific,
+     jQuery, FontAwesome, Slider Revolution, Swiper (dependencias de librería
+     reemplazadas por CSS/Vue nativo donde haya uso real).
+
+Estructura (YAGNI; solo carpetas justificadas):
+src/
+├── assets/
+│   └── images/        (PNG migrados + favicon + logo)
+├── components/
+│   ├── layout/
+│   │   ├── AppHeader.vue        (sticky; logo; nav anclas; CTA "Separa tu lote" → modal)
+│   │   └── AppFooter.vue        (contacto, navegación, legal, redes, copyright)
+│   ├── sections/
+│   │   ├── HeroSection.vue       (slider CSS-only de 4 slides; sustituye Slider Revolution)
+│   │   ├── AboutSection.vue      (¿Quiénes somos? + trayectoria + valores)
+│   │   ├── TeamSection.vue       (5 tarjetas de equipo)
+│   │   ├── ProjectsSection.vue   (intro "Las Palmeras" + 3 botones a modales de ficha)
+│   │   ├── ValuesSection.vue     (4 valores + 4 atributos)
+│   │   ├── ContactSection.vue    (datos + formulario contacto)
+│   │   └── FeaturesSection.vue   (Paneles Solares, Tanque, Vías, Seguridad)
+│   └── ui/
+│       ├── WhatsAppButton.vue    (botón flotante + panel desplegable, copia de referencia)
+│       ├── BaseModal.vue         (Transition + dialog + escape + focus trap básico)
+│       ├── ProjectModal.vue      (ficha proyecto: imagen, ubicación, specs, CTA)
+│       ├── ReserveLotModal.vue   (form separación: Nombre/Apellido/DNI/Tel/Email/Mensaje)
+│       ├── BaseButton.vue        (variantes: primary accent / secondary brand / ghost)
+│       └── BaseIcon.vue          (wrapper SVG inline con currentColor)
+├── composables/
+│   ├── useWhatsApp.js     (crea wa.me URLs con mensaje; copia adaptada de referencia)
+│   ├── useModal.js        (estado abierto/cerrado compartido para modales)
+│   └── useScrollLock.js   (bloquea scroll de body cuando modal abierto)
+├── constants/
+│   └── site.js            (re-exporta desde src/data/site.json + helpers)
+├── data/
+│   ├── site.json          (brand, nav, contacto, horario, redes, footer legal)
+│   └── projects.json      (3 proyectos: villa-norte, huaral-village, villa-rica)
+├── styles/
+│   ├── theme.css          (bloque @theme con tokens de §4 + vars raíz)
+│   ├── components.css     (patrones reutilizables: btn, card, badge, bg-gradient)
+│   └── animations.css    (fadeInUp/kenburns ligeros; solo los realmente usados)
+├── App.vue                (orquestador: AppHeader + main{sections en orden} + AppFooter + UI globales)
+├── main.css               (@import "./styles/theme.css"; @import "tailwindcss"; @import "./styles/components.css"; @import "./styles/animations.css";)
+└── main.js                (createApp(App).mount('#app'))
+
+Archivos raíz:
+- index.html (meta estática SEO, lang=es, preconnect Google Fonts Inter+Poppins,
+  theme-color #0D4D2E, favicon, apple-touch-icon, description, OG básico)
+- vite.config.js (vue + tailwindcss plugins; alias @; base condicional deployment)
+- package.json (vue, vite, @vitejs/plugin-vue, tailwindcss, @tailwindcss/vite,
+  simple-icons, gh-pages devDep; scripts dev/build/build:deployment/preview/deploy)
+- .env.example (vacío placeholder)
+- README.md mínimo
+- .gitignore (node_modules, dist, .env local)
+
+Estrategia de renderizado: SPA + meta estática (decisión del Planner; no SSG/SSR).
+Justificación: sitio de marketing single-page, sin crawl multirruta crítica:
+- La única URL indexable es / . Las 4+3 URLs legacy se consolidan con 301 → /#anchor.
+- meta description (era AUSENTE en legacy) se añade para mejorar SEO.
+- robots.txt y sitemap.xml mínimos se mantienen (en /public o estáticos en gh-pages).
+
+===========================================================================================
+6. MAPA LEGACY → NUEVA WEB
+===========================================================================================
+| Legacy                                       | Clase     | Nueva implementación Vue                          | Modalidad
+| Slider Revolution hero 4 slides (home page 770) | REBUILD | HeroSection.vue con slider CSS-only (scroll-snap + autoplay CSS) | FIDELITY
+| Sección "CONSTRUYE EL FUTURO…" + CTA "Conoce más aquí" (home) | PRESERVE-ADAPT | HeroSection.vue contenido principal (encima del slider) o superpuesto | REFRESH
+| Cuadros artwork (CUADRO-POR-SEPARADO 01/02, Group-71/72) en home | PRESERVE | AboutSection.vue / FeaturesSection.vue imágenes | REFRESH
+| Sección "DESCUBRE LO QUE TENEMOS…" + Contact Form 7 (form 795) | REBUILD | ContactSection.vue (form nativo Vue) | REFRESH
+| Header Elementor sticky (logo + nav + CTA "Separa tu lote") | REBUILD | AppHeader.vue + ReserveLotModal.vue | FIDELITY
+| Footer Elementor (contacto, navegación, legal, redes) | REBUILD | AppFooter.vue | FIDELITY
+| Flexy Breadcrumb | DROP | no aplica en single-page (anclas) | -
+| nav-menu Elementor (Inicio/Proyecto/Nosotros/Contáctanos) | PRESERVE-ADAPT | AppHeader.vue nav por anclas (#inicio, #proyectos, #nosotros, #contacto) | REFRESH
+| Página /proyecto/ (Las Palmeras) | PRESERVE-ADAPT | ProjectsSection.vue + FeaturesSection.vue | REFRESH
+| Productos WooCommerce /proyecto/villa-norte, /guaral-villge, /villa-rica | REBUILD (DROP ecom) | ProjectsSection.vue botones → ProjectModal.vue (modal ficha) | REFRESH
+| Página /acerca-de-nosotros/ | PRESERVE-ADAPT | AboutSection.vue + TeamSection.vue + ValuesSection.vue | REFRESH
+| Tarjetas equipo (Lucero, Bryan, Marisol, Karina, Alessandra) | PRESERVE | TeamSection.vue cards | FIDELITY
+| Misión/Visión, Valores carousel, Atributos | PRESERVE-ADAPT | ValuesSection.vue (grid en vez de carousel) | REFRESH
+| Página /contactenos/ (datos + horario + form) | PRESERVE-ADAPT | ContactSection.vue | REFRESH
+| Página /separa-tu-lote/ (form separación) | REBUILD | ReserveLotModal.vue (abierta por CTA header) | REFRESH
+| WhatsApp for WordPress (nta, botón flotante) | REPLACE | WhatsAppButton.vue (como en repo referencia) | REFRESH
+| Ninja Forms popups + Magnific Popup | DROP | sustituido por modales Vue nativos | -
+| Contact Form 7 | REPLACE | formularios Vue nativos + envío (URB-033 decide provider) | -
+| EAEL Essential Addons widgets | DROP | implementar con componentes Vue/Tailwind | -
+| Essential Blocks | DROP | no aplica | -
+| Shortcodes WPBakery residuales en /nosotros y /contacto | DROP | no migrar; rewrite copy limpio | -
+| FontAwesome icon font | REPLACE | SVG propios + simple-icons (FB/LinkedIn/YouTube) | -
+| Google Fonts self-host (Roboto, Roboto Slab, Inter, Open Sans, Poppins) | REPLACE | solo Inter + Poppins vía Google Fonts <link> + preconnect | -
+| jQuery + jQuery Migrate | DROP | no aplica en Vue | -
+| Swiper carousel | REPLACE | slider CSS-only o no usar (modales en vez de carousel) | -
+| SmartMenus | DROP | AppHeader nav nativo + burger menu Vue | -
+| Sticky jQuery plugin | REPLACE | position: sticky / Tailwind `sticky` | -
+| WooCommerce (cart/checkout/js.cookie/blockUI/cart-fragments) | DROP | no e-commerce | -
+| WP emoji, hooks, i18n, dashicons (frontend) | DROP | no aplica | -
+| wpcf7-form (Ninja Forms) popups | DROP | modales Vue | -
+| Elementor frontend/webpack/general/animaciones | DROP | componentes Vue + CSS | -
+| Slider Revolution rs6 (rbtools) | DROP | HeroSection CSS | -
+| Structured data/JSON-LD (no existe) | NEW (opcional) | añadir LocalBusiness/RealEstateAgent JSON-LD en index.html (URB-034) | -
+| OpenGraph/Twitter card (no existe) | NEW | index.html meta OG + twitter:card | -
+| Meta description (no existe) | NEW | index.html description | -
+| robots.txt + sitemap | PRESERVE-ADAPT | /public/robots.txt + sitemap.xml (single URL /) | -
+| Favicon (descargar 32/192/270 PNG de la URL legacy) | PRESERVE | /src/assets/images/favicon.png + index.html links | -
+| Logo PNG (cropped-LOGO-URBANIKAWSAY) | PRESERVE | /src/assets/images/logo.png | -
+
+===========================================================================================
+7. SEO MIGRATION (301 + metadata)
+===========================================================================================
+Estrategia: consolidar 7 URLs legacy → 1 (single-page con anclas). Implementar
+301 redirects a nivel host (GitHub Pages no soporta .htaccess; usar redirects
+file `_redirects` o `404.html` con meta-refresh JS, o redirección a nivel DNS;
+decisión de deploy en URB-028). DEEPSEEK no decide el mecanismo; solo documenta.
+
+Mapa 301:
+- /                       → /  (sin cambio, canonical self)
+- /proyecto/              → /#proyectos
+- /proyecto/villa-norte/  → /#proyecto-villa-norte (modal ProjectModal)
+- /proyecto/guaral-villge/→ /#proyectos (corregir typo a "Huaral Village")
+- /proyecto/villa-rica/   → /#proyecto-villa-rica
+- /acerca-de-nosotros/    → /#nosotros
+- /contactenos/           → /#contacto
+- /separa-tu-lote/        → /# (modal accesible por CTA header)
+
+Nuevas metadatas index.html (Builder escribe en URB-026):
+- <title>Urbanikawsay Inmobiliaria | Terrenos en Huaral cerca del Megapuerto de Chancay</title>
+- <meta name="description" content="Invierte con tranquilidad con Urbanikawsay Inmobiliaria. Terrenos desde 120 m² en Huaral, a 20 minutos del Megapuerto de Chancay. Separa tu lote hoy.">
+- <meta name="theme-color" content="#0D4D2E">
+- <link rel="canonical" href="https://urbanikawsay.com/">
+- <meta property="og:type" content="website">
+- <meta property="og:title" content="…">
+- <meta property="og:description" content="…">
+- <meta property="og:url" content="https://urbanikawsay.com/">
+- <meta property="og:image" content="…hero.png">
+- <meta property="og:locale" content="es_PE">
+- <meta name="twitter:card" content="summary_large_image">
+- JSON-LD RealEstateAgent + LocalBusiness (URB-034, opcional pero recomendado)
+
+sitemap.xml (en /public o generado):
+- solo URL: https://urbanikawsay.com/  (lastmod actualizado)
+
+robots.txt (en /public):
+- User-agent: *
+- Allow: /
+- Sitemap: https://urbanikawsay.com/sitemap.xml
+
+Links rotos potenciales a verificar (F0 Builder):
+- CTA header "Separa tu lote" en legacy apunta a href="" (vacío) → asegurar que
+  en la nueva web abra ReserveLotModal.
+- "Conoce más aquí" en legacy apunta a "#" → sustituir por ancla #proyectos.
+- Footer links "Mesa de partes", "Libro de reclamaciones", "Términos y
+  condiciones" → verificar URLs reales; si no existen/DROP, dejar como texto o
+  generar páginas estáticas mínimas (URB-036 decide).
+
+===========================================================================================
+8. SUBAGENT STRATEGY
+===========================================================================================
+F0 Discovery — PARALLEL GROUP A (read-only, recommended pero OPCIONAL):
+- Subagent A (WordPress Auditor): recorre URLs legacy con webfetch, extrae copy
+  exacto de las 8 páginas + hrefs reales de redes sociales + URLs de imágenes
+  de proyectos (descargar 3 fichas producto + proyecto5..9 PNG). Output: estructura
+  de contenido + lista de URLs de assets.
+- Subagent B (Reference Architecture Analyst): confirma convenciones del repo
+  referencia leyendo 5 archivos (AppHeader, AppFooter, HeroSection, WhatsAppButton,
+  useWhatsApp, vite.config, theme.css). Output: convenciones + snippets canónicos.
+- Subagent C (Visual / Palette Analyst): valida contraste WCAG de los tokens de
+  §4 con cálculo simple. Output: tabla de contraste + warned pairs.
+
+BARRIER A: GLM integra resultados; ajusta tokens/contratos y cierra incógnitas.
+
+PARALLEL GROUP B (F2 Design system):
+- Asset optim (opcional): pasar los PNG migrados por un optimizador (son raster,
+  no svgo). Subagent opcional si el procedimiento se justifica.
+
+Resto de la migración: en general subagent: NO. Excepciones:
+- Visual regression inspector (F9): subagent RECOMMENDED — recibe screenshots
+  legacy + nueva build + acceptance criteria, devuelve diff estructural.
+- SEO audit post-migración (F6): subagent RECOMMENDED — recibe index.html nuevo
+  + mapa 301 + acceptance criteria, devuelve PASS/FAIL metadata.
+
+Regla: los subagentes NO toman decisiones arquitectónicas; GLM integra.
+
+===========================================================================================
+9. PLAN DE MIGRACIÓN POR FASES
+===========================================================================================
+F0 — Discovery / inventory (Builder, con subagents opcional en Parallel Group A)
+F1 — Foundation (scaffold + config + main.js/App.vue shell + index.html meta)
+F2 — Design system (theme.css @theme + components.css + tailwind v4 plugin)
+F3 — Shared layout (AppHeader, AppFooter, WhatsAppButton, BaseButton, BaseIcon)
+F4 — Sections (Hero, About, Team, Projects, Features, Values, Contact)
+F5 — Modales + forms (BaseModal, ProjectModal, ReserveLotModal, useModal/useScrollLock, form validation)
+F6 — SEO (index.html meta final, OG, JSON-LD, robots.txt, sitemap.xml, 301 plan)
+F7 — Accessibility (focus trap modales, skip-link, keyboard nav, aria-*, heading hierarchy)
+F8 — Responsive validation (mobile-first 360/480/768/1024/1440; sticky header; sliders CSS)
+F9 — Visual regression (capturas legacy vs nueva en 3 anchos representativos)
+F10 — Performance (bundle size, lazy-load imágenes, font-display: swap, preload hero)
+F11 — Deployment / cutover (gh-pages build:deployment, 301 mechanism, smoke test)
+
+Dependencias críticas (DAG):
+- F1 bloquea todo.
+- F2 bloquea F3..F10.
+- F3 bloquea F4 (AppHeader nav/menu usado por secciones).
+- F4 + F5 paralelizables entre secciones una vez F3 terminado.
+- F6 (SEO) puede empezar tras F1 (index.html) pero cierra con F4+F5.
+- F7..F10 son tareas de validación/fix que recorren todo ya construido.
+- F11 al final.
+
+Orden sugerido de ejecución Builder (minimiza rework y saltos Planner↔Builder):
+URB-001..004 (F0) → URB-005 (F1) → URB-006..009 (F2) → URB-010..013 (F3) →
+[PARALLEL] URB-014..020 (F4 sections) + URB-021..025 (F5 modales) →
+URB-026..028 (F6 SEO) → URB-029 (F7 a11y) → URB-030 (F8 responsive) →
+URB-031 (F10 performance) → URB-032 (F9 visual regression) →
+URB-033 (form provider) → URB-034 (JSON-LD) → URB-035 (deploy/smoke) → URB-036 (cleanup/README).
+
+===========================================================================================
+10. BACKLOG (URB-*) — FORMATO COMPLETO POR TAREA
+===========================================================================================
+Nota: esquema de campos id/title/phase/type/owner/model/priority/risk/depends_on/
+parallel_group/subagent/skills/inputs/outputs/minimum_context/steps/acceptance_criteria/
+validation/escalate_to_glm_if.
+
+URB-001 — Inventariar contenido legacy in vivo
+  Fase: F0 | Tipo: content | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: low | Depends: [] | Parallel: A
+  Subagent: RECOMMENDED (WordPress Auditor)
+  Skills: wordpress-audit, content-migration, knowledge-query
+  Inputs: https://urbanikawsay.com/, url-referencia.txt, este plan (§2, §6)
+  Outputs: docs/migration/02-legacy-inventory.md, src/data/site.json (draft),
+           src/data/projects.json (draft), lista URL assets a descargar
+  Minimum_context: §2 (inventario), §6 (mapa), URL legacy
+  Steps:
+    1. Con webfetch (format html) recorrer las 8 URLs: /, /proyecto/, /proyecto/villa-norte/,
+       /proyecto/guaral-villge/, /proyecto/villa-rica/, /acerca-de-nosotros/,
+       /contactenos/, /separa-tu-lote/.
+    2. Extraer copy exacto de cada sección legible (NO copiar shortcodes WPBakery).
+    3. Extraer hrefs reales de redes (Facebook/LinkedIn/YouTube) del footer HTML.
+    4. Listar URLs absolutas de las imágenes usadas en cada página (las que faltan
+       en web-legacy/) para descarga posterior (URB-004).
+    5. Sustituir "Respira Inmobiliaria" por "Urbanikawsay Inmobiliaria" en cualquier copy.
+    6. Generar site.json (draft) con: brand, nav, contacto (tel, email, 2 direcciones,
+       horario), redes, footer legal, whatsapp.
+    7. Generar projects.json (draft) con 3 proyectos: id, slug, nombre, ubicación,
+       specs (m², distancia Megapuerto), imagen, descripción.
+  Acceptance:
+    - 8 URLs recorridas, copy capturado en 02-legacy-inventory.md.
+    - site.json y projects.json drafts válidos (JSON parseable).
+    - Lista de URLs de imágenes completa.
+    - No se copian shortcodes WPBakery.
+  Validation: JSON.parse manual de site.json/projects.json; revisión de 02-legacy-inventory.md.
+  Escalate_to_glm_if:
+    - Alguna URL devuelve 404 / redirección inesperada.
+    - Se encuentran secciones no listadas en §2 (contenido nuevo no inventariado).
+    - Diferencia irreductible en /proyecto/guaral-villge/ que sugiera WooCommerce
+      sí activo (carrito/checkout reales, no catálogo estático).
+
+URB-002 — Confirmar convenciones del repo referencia
+  Fase: F0 | Tipo: architecture | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P1 | Riesgo: low | Depends: [] | Parallel: A
+  Subagent: RECOMMENDED (Reference Architecture Analyst)
+  Skills: vue3-migration, tailwind-design-system, knowledge-query
+  Inputs: https://github.com/Anthony38zrgo-2/consultoria-coexistir (ya analizado por GLM en §1)
+  Outputs: docs/migration/01-reference-repo-analysis.md (resumir §1 + confirmar)
+  Minimum_context: §1
+  Steps:
+    1. Webfetch a main.js, App.vue, vite.config.js, theme.css, AppHeader.vue,
+       HeroSection.vue, WhatsAppButton.vue, useWhatsApp.js, company.js.
+    2. Confirmar convenciones ADOPT de §1.
+    3. Documentar en 01-reference-repo-analysis.md.
+  Acceptance:
+    - Documento generado con convenciones confirmadas.
+    - Snippets de referencia citados para AppHeader, modal CSS, WhatsApp.
+  Validation: diff contra §1 — sin contradicciones.
+  Escalate_to_glm_if: contradicción mayor con §1 (reabrir arquitectura).
+
+URB-003 — Validar contraste WCAG de la paleta
+  Fase: F0 | Tipo: design | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P2 | Riesgo: low | Depends: [] | Parallel: A
+  Subagent: RECOMMENDED (Visual / Palette Analyst)
+  Skills: accessibility, tailwind-design-system
+  Inputs: §4 (tokens), diseño/paleta-moderna.css
+  Outputs: docs/migration/04-color-system.md con tabla WCAGAA/AAA por par
+  Minimum_context: §4
+  Steps:
+    1. Calcular ratio contraste para cada par foreground/background de §4.
+    2. Documentar pares PASS/FAIL; proponer ajustes solo si FAIL.
+    3. Confirmar gradiente accent como background de CTA (≥3:1 para texto grande).
+  Acceptance:
+    - Tabla completa con ratios.
+    - Cualquier FAIL marcado con alternativa.
+  Validation: ratios recalculables manualmente.
+  Escalate_to_glm_if: cualquier par FAIL sin alternativa obvia → ajustar token.
+
+URB-004 — Descargar assets legacy (imágenes + favicon + fuentes de Google)
+  Fase: F0/F1 | Tipo: asset | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: low | Depends: URB-001 | Parallel: -
+  Subagent: NO
+  Skills: content-migration, web-performance
+  Inputs: lista de URLs de URB-001, web-legacy/
+  Outputs: src/assets/images/*.png, src/assets/images/favicon.png
+  Minimum_context: §6 (mapa), output URB-001
+  Steps:
+    1. Copiar de web-legacy/ a src/assets/images/ los 27 PNG PRESERVE listados en §2.
+    2. Descargar vía webfetch las URLs absolutas de imágenes detectadas en URB-001
+       que no estén en web-legacy/ (proyecto5..9, fichas villa-norte/villa-rica, etc.).
+    3. Descargar favicon 32/192/270 de
+       https://urbanikawsay.com/wp-content/uploads/2024/10/cropped-favicon-{32x32,192x192,270x270}.png.
+    4. Crear directorios; no optimizar todavía (F10).
+    5. NO sobrescribir el único copy de web-legacy/.
+  Acceptance:
+    - Todas las imágenes listadas existen en src/assets/images/.
+    - favicon presente.
+  Validation: tree src/assets/images/.
+  Escalate_to_glm_if: 404 en descargas críticas (logo, favicon, hero).
+
+URB-005 — Scaffold del proyecto Vue 3 + Vite + Tailwind v4
+  Fase: F1 | Tipo: architecture | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: medium | Depends: URB-002 | Parallel: -
+  Subagent: NO
+  Skills: vue3-migration, tailwind-design-system, web-performance
+  Inputs: §1, §5, URB-002
+  Outputs: package.json, vite.config.js, index.html (con meta SEO mínima de §7),
+           src/main.js, src/main.css, src/App.vue (shell con placeholders),
+           .gitignore, .env.example, README.md
+  Minimum_context: §1, §5, §7 (index.html)
+  Steps:
+    1. package.json con: vue 3.5, vite 8, @vitejs/plugin-vue, tailwindcss 4,
+       @tailwindcss/vite, simple-icons, gh-pages (devDep).
+    2. vite.config.js con alias @, plugins vue+tailwind, base condicional deployment.
+    3. index.html con lang=es, meta description (de §7), theme-color #0D4D2E,
+       preconnect Google Fonts, stylesheet Inter+Poppins wght@400;500;600;700,
+       favicon/apple-touch-icon, title, OG/twitter básico.
+    4. src/main.js = createApp(App).mount('#app') + import './main.css'.
+    5. src/main.css = imports de styles + tailwind.
+    6. src/App.vue shell con placeholders <AppHeader/><main>…</main><AppFooter/> + <WhatsAppButton/>.
+    7. .gitignore node_modules/dist/.env.
+    8. README.md breve.
+    9. Instalar: `npm install`. NO añadir TS/router/pinia.
+  Acceptance:
+    - `npm install` termina sin errores.
+    - `npm run build` produce dist/ sin errors.
+    - `npm run dev` monta app vacía en http://localhost:5173.
+    - Sin HEX inline en App.vue (placeholders no tienen estilos).
+  Validation: `npm run build` PASS; estructura de carpetas creada.
+  Escalate_to_glm_if:
+    - Tailwind v4 plugin no arranca (reabrir: usar v3 con tailwind.config.js).
+    - Vue 3.5 + Vite 8 incompatibilidad de versiones.
+    - Diferencia irreducible con el repo referencia.
+
+URB-006 — Design tokens Tailwind (theme.css @theme + main.css imports)
+  Fase: F2 | Tipo: design | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: medium | Depends: URB-005, URB-003 | Parallel: -
+  Subagent: NO
+  Skills: tailwind-design-system, accessibility
+  Inputs: §4, URB-003 (contraste), URB-005
+  Outputs: src/styles/theme.css (@theme con tokens de §4), src/main.css con imports correctos
+  Minimum_context: §4
+  Steps:
+    1. Crear src/styles/theme.css con bloque `@theme { … }` exacto de §4.
+    2. main.css: imports de theme.css + tailwind (orden correcto para Tailwind v4 CSS-first).
+    3. Verificar que utility classes generadas (bg-brand-primary, text-surface-soft,
+       etc.) funcionen en App.vue placeholder.
+  Acceptance:
+    - `npm run build` PASS.
+    - Utility `text-brand-primary` aplica #0D4D2E en el DOM.
+    - Sin HEX en clases Tailwind (todo vía tokens).
+    - Sin `tailwind.config.js`.
+  Validation: dev server; inspeccionar computed style de un div de prueba.
+  Escalate_to_glm_if: denominación semántica no cuadra con casos reales (reabrir §4).
+
+URB-007 — Patrones reutilizables (components.css: btn, card, badge, gradient)
+  Fase: F2 | Tipo: design | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P1 | Riesgo: low | Depends: URB-006 | Parallel: -
+  Subagent: NO
+  Skills: tailwind-design-system
+  Inputs: §4 (gradientes), URB-006
+  Outputs: src/styles/components.css con .btn-primary, .btn-secondary, .btn-ghost,
+           .card, .card--feature, .badge-success, .badge-accent,
+           .bg-brand-gradient, .bg-accent-gradient, .container-page,
+           .section-pad (spacing vertical consistente), .anchor-offset (compensa
+           sticky header al navegar anclas).
+  Minimum_context: §4
+  Steps:
+    1. Definir cada clase con utilidades Tailwind o CSS plano que use vars de @theme.
+    2. Importar components.css en main.css.
+    3. Comprobar presentación en dev server (borrar tests antes de commit).
+  Acceptance:
+    - `npm run build` PASS.
+    - Las clases existen y aplican los tokens correctos.
+  Validation: dev server render de clases.
+  Escalate_to_glm_if: necesidad de component library más grande (reabrir overengineering).
+
+URB-008 — Animaciones CSS mínimas (animations.css fadeInUp + kenburns)
+  Fase: F2 | Tipo: design | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P2 | Riesgo: low | Depends: URB-006 | Parallel: B
+  Subagent: NO
+  Skills: tailwind-design-system, web-performance
+  Inputs: §6 (animaciones legacy presentes: fadeInUp, ken-burns, pulse, grow)
+  Outputs: src/styles/animations.css con @keyframes fadeInUp, kenburns (sutil),
+           pulse (botón), reducidos con prefers-reduced-motion: reduce.
+  Minimum_context: §6
+  Steps:
+    1. Definir keyframes mínimos para los efectos realmente usados (no copiar
+       librería completa de Elementor).
+    2. Respetar prefers-reduced-motion.
+    3. Importar en main.css.
+  Acceptance:
+    - `npm run build` PASS.
+    - prefers-reduced-motion desactiva animaciones.
+  Validation: dev server + toggle reduced motion.
+  Escalate: ninguna esperable.
+
+URB-009 — Datos estáticos (site.json + projects.json final)
+  Fase: F2 | Tipo: content | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: low | Depends: URB-001 | Parallel: B
+  Subagent: NO
+  Skills: content-migration
+  Inputs: drafts URB-001, §2 (datos de negocio), §6
+  Outputs: src/data/site.json (final), src/data/projects.json (final),
+           src/constants/site.js (re-exporta + helpers)
+  Minimum_context: §2
+  Steps:
+    1. Cerrar site.json con: brand{name, tagline, logo, logoAlt}, nav[{label,href}],
+       contacto{phoneMain, phoneSecondary, email, address1, address2, schedule},
+       footer{legal, year, socials[{platform,url}]}, whatsapp{defaultNumber,
+       defaultMessage, panelTitle, panelDescription, questions[{label,message}]},
+       team[{name, role, photo, greeting}].
+    2. Cerrar projects.json con 3 items: villa-norte, huaral-village, villa-rica
+       (cada uno: slug, name, location, distanceToPort, lotSize, features[],
+       imageUrl, description, ctaLabel).
+    3. site.js: `import siteData from "@/data/site.json"; export { siteData };`
+       + export de proyectos.
+  Acceptance:
+    - JSON válidos.
+    - site.js re-exporta correctamente (usado por componentes en F3-F5).
+  Validation: JSON.parse.
+  Escalate_to_glm_if: copy residual "Respira Inmobiliaria" no reemplazable sin
+                      reescribir copy (GLM decide copy final).
+
+URB-010 — AppHeader (sticky, logo, nav anclas, CTA Separa tu lote → modal)
+  Fase: F3 | Tipo: ui | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: medium | Depends: URB-006, URB-009 | Parallel: C
+  Subagent: NO
+  Skills: vue3-migration, accessibility, tailwind-design-system
+  Inputs: §2 (header legacy), §1 (AppHeader referencia), URB-009
+  Outputs: src/components/layout/AppHeader.vue
+  Minimum_context: §2 header, §1 AppHeader referencia, URB-009 site.json
+  Steps:
+    1. Layout sticky top; logo a la izquierda (imageModules import.meta.glob
+       del logo en src/assets/images).
+    2. Nav central con anclas leídas de siteData.navigation (Inicio/Proyecto/
+       Nosotros/Contáctanos → #inicio/#proyectos/#nosotros/#contacto).
+    3. CTA derecha "Separa tu lote" — emite evento openReserveLot (escuchado
+       por App.vue que abre ReserveLotModal).
+    4. Burger menu móvil (toggle) con aria-expanded, aria-controls.
+    5. Cerrar menú al click en ancla.
+    6. position: sticky via Tailwind; offset scroll en anclas vía .anchor-offset.
+    7. Sin HEX inline; usa tokens brand-primary/accent.
+    8. Alt vacío en logo decorativo; aria-label en brand-lockup.
+  Acceptance:
+    - `npm run build` PASS.
+    - Nav desktop horizontal; mobile burger funcional.
+    - CTA emite evento correctamente.
+    - aria-expanded cambia al toggle burger.
+    - Sticky funciona a 360/768/1440.
+  Validation: dev server; a11y (F7/F9).
+  Escalate_to_glm_if: conflicto con anchor offset y sticky (decidir mecanismo).
+
+URB-011 — AppFooter (contacto, navegación, legal, redes, copyright)
+  Fase: F3 | Tipo: ui | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P1 | Riesgo: low | Depends: URB-006, URB-009 | Parallel: C
+  Subagent: NO
+  Skills: vue3-migration, svg-icon-pipeline, accessibility
+  Inputs: §2 (footer legacy), §1 (AppFooter referencia), URB-009, simple-icons
+  Outputs: src/components/layout/AppFooter.vue
+  Minimum_context: §2 footer, URB-009
+  Steps:
+    1. Cuatro columnas: brand/legal, contacto, navegación, "Topic" (Términos,
+       Libro de reclamaciones, Urbanikawsay).
+    2. Redes sociales con SVG inline via simple-icons (siFacebook, siLinkedin,
+       siYoutube). Builder verifica URLs reales de URB-001.
+    3. Copyright "2025" + razón social "Constructora e inmobiliaria urbania
+       j&j e.i.r.l" + "Todos los derechos reservados".
+    4. aria-label en nav footer; alt vacío en logos decorativos.
+    5. SVG brand glyphs con aria-hidden="true" + aria-label en <a>.
+  Acceptance:
+    - `npm run build` PASS.
+    - 4 columnas responsivas (stack en móvil).
+    - SVG icons renderizan currentColor.
+    - sin FontAwesome.
+  Validation: dev server; inspeccionar árbol a11y de SVG.
+  Escalate_to_glm_if: red social adicional no soportada por simple-icons →
+                      generar SVG propio (URB-012 supplement).
+
+URB-012 — SVG iconos propios (UI iconos)
+  Fase: F3 | Tipo: asset | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P1 | Riesgo: low | Depends: URB-006 | Parallel: C
+  Subagent: NO
+  Skills: svg-icon-pipeline
+  Inputs: §5 (icon strategy), §1 (simple-icons uso), URB-011
+  Outputs: src/components/ui/BaseIcon.vue + set de paths inline
+  Minimum_context: §5 icon strategy, §1
+  Steps:
+    1. BaseIcon.vue: props {name, size, decorative:true}. Render <svg viewBox="0 0 24 24">
+       con path por nombre; currentColor; aria-hidden si decorative.
+    2. Definir set mínimo de íconos UI usados: chevron-down (nav), menu, close,
+       arrow-right, check, location, phone, mail, whatsapp, sun, water (features),
+       shield (seguridad), road (vías).
+    3. NO iconos FontAwesome; NO emoji.
+    4. viewBox 24x24; stroke 1.8; currentColor.
+  Acceptance:
+    - `npm run build` PASS.
+    - BaseIcon renderiza íconos sin pérdida visual a 16/20/24px.
+    - aria-hidden correcto en íconos decorativos; aria-label cuando semántico.
+  Validation: dev server.
+  Escalate_to_glm_if: un ícono UI no representable limpiamente en 24x24 stroke.
+
+URB-013 — WhatsAppButton (botón flotante + panel, copia de referencia)
+  Fase: F3 | Tipo: ui | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P1 | Riesgo: low | Depends: URB-009, URB-012 | Parallel: C
+  Subagent: NO
+  Skills: vue3-migration, accessibility, svg-icon-pipeline
+  Inputs: §1 (WhatsAppButton referencia), URB-009 (whatsapp block data)
+  Outputs: src/components/ui/WhatsAppButton.vue, src/composables/useWhatsApp.js
+  Minimum_context: §1, URB-009
+  Steps:
+    1. Copiar y adaptar WhatsAppButton.vue de referencia.
+    2. Reemplazar datos (Coexistir → Urbanikawsay) con siteData.whatsapp.
+    3. useWhatsApp.js: createWhatsAppUrl(msg) → `https://wa.me/{number}?text=…`.
+    4. Botón flotante fixed bottom-right; panel con Transition; preguntas
+       frecuentes (de site.json) + textarea custom message (max 200).
+    5. Escape cierra panel.
+    6. aria-modal="false", aria-expanded en botón.
+    7. Color WhatsApp #25D366 (green recognoscible) como excepción aprobada
+       por GLM; resto usa tokens.
+  Acceptance:
+    - `npm run build` PASS.
+    - Panel abre/cierra con Transition.
+    - Mensaje custom válido genera URL correcta.
+    - Escape funciona.
+  Validation: dev server.
+  Escalate: ninguna.
+
+URB-014 — HeroSection (slider 4 slides CSS + contenido principal superpuesto)
+  Fase: F4 | Tipo: ui | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: medium | Depends: URB-007, URB-008, URB-004 | Parallel: D
+  Subagent: NO
+  Skills: vue3-migration, tailwind-design-system, web-performance, visual-regression
+  Inputs: §2 (hero legacy 4 slides), §6 (REBUILD slider), URB-004 (hero images),
+          diseño/paleta-moderna.css (gradientes usados en CTA)
+  Outputs: src/components/sections/HeroSection.vue
+  Minimum_context: §2 hero, URB-007/008, imágenes de hero
+  Steps:
+    1. Slider CSS-only de 4 slides (scroll-snap o input radio + sibling); auto-play
+       vía CSS animation (pausable, prefers-reduced-motion).
+    2. Imágenes de slides: identificadas en URB-001 (4 slides Slider Revolution).
+       Si no descargables directamente, usar PNG de web-legacy/CUADRO o Group-71/72.
+    3. Contenido superpuesto (position relative/absolute): título "CONSTRUYE EL
+       FUTURO SEGURO QUE TE MERECES", subtítulo, CTA "Conoce más aquí" → #proyectos.
+    4. Ken-burns sutil (animations.css).
+    5. Texto inverso sobre imágenes (text-inverse sobre overlay brand-primary-dark).
+    6. id="inicio" en section.
+  Acceptance:
+    - `npm run build` PASS.
+    - 4 slides rotan; autoplay pausable.
+    - prefers-reduced-motion detiene rotación.
+    - CTA lleva a #proyectos.
+    - Sin rs6.js, sin Swiper.
+  Validation: dev server 360/768/1440; lighthouse.
+  Escalate_to_glm_if: 4 imágenes de slides no recuperables (reabrir → usar
+                      gradientes/patrones; decisión de GLM).
+
+URB-015 — AboutSection (¿Quiénes somos? + trayectoria)
+  Fase: F4 | Tipo: ui | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P1 | Riesgo: low | Depends: URB-007, URB-009 | Parallel: D
+  Subagent: NO
+  Skills: vue3-migration, content-migration
+  Inputs: §2 (página nosotros), URB-001 (copy extracto), URB-009
+  Outputs: src/components/sections/AboutSection.vue
+  Minimum_context: §2 nosotros, URB-001
+  Steps:
+    1. Título "¿Quiénes somos?"; párrafo de Urbanikawsay (limpiar copy residual).
+    2. Bloque "Nuestra trayectoria en el Mercado" con copy extraído.
+    3. id="nosotros".
+    4. Layout dos columnas en desktop; stack en mobile.
+    5. Imagen opcional (MAPA2-1-790x1024.png o similar).
+  Acceptance:
+    - `npm run build` PASS.
+    - Copy sin shortcodes WPBakery.
+    - Sin "Respira Inmobiliaria".
+  Validation: dev server.
+  Escalate: copy ambiguo → GLM reescribe.
+
+URB-016 — TeamSection (5 tarjetas de equipo)
+  Fase: F4 | Tipo: ui | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P1 | Riesgo: low | Depends: URB-007, URB-009 | Parallel: D
+  Subagent: NO
+  Skills: vue3-migration, accessibility
+  Inputs: §2 (5 team members), URB-001 (extraer fotos si URL), URB-009 (site.json team)
+  Outputs: src/components/sections/TeamSection.vue, src/data/site.json con team[]
+  Minimum_context: §2 equipo
+  Steps:
+    1. 5 cards: Lucero Tapia (Admin), Bryan (Post Venta), Marisol Aguirre (Admin),
+       Karina Mondragón (Jefa Call Center), Alessandra Andrade (Administradora).
+    2. Foto + nombre + rol + greeting.
+    3. Si URB-001 no rescató fotos personales, usar silueta SVG avatar via BaseIcon.
+    4. Grid responsive (1/2/3 columnas).
+  Acceptance:
+    - `npm run build` PASS.
+    - 5 cards responsivas.
+    - Alt semántico en fotos.
+  Validation: dev server.
+  Escalate: fotos no recuperables y avatar placeholder no aceptable → GLM decide.
+
+URB-017 — ProjectsSection (Las Palmeras + 3 botones a modales)
+  Fase: F4 | Tipo: ui | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: medium | Depends: URB-007, URB-009, URB-004 | Parallel: D
+  Subagent: NO
+  Skills: vue3-migration, tailwind-design-system, visual-regression
+  Inputs: §2 (página /proyecto/), URB-009 (projects.json), URB-004 (proyecto5..9)
+  Outputs: src/components/sections/ProjectsSection.vue
+  Minimum_context: §2 /proyecto/, URB-009
+  Steps:
+    1. Intro "Las Palmeras" en Huaral, 120m², 20 min Megapuerto de Chancay.
+    2. Features (Paneles Solares, Tanque elevado, Vías afirmadas, Seguridad) con
+       BaseIcon UI.
+    3. Grid 3 cards/botones para abrir ProjectModal por cada proyecto (villa-norte,
+       huaral-village, villa-rica).
+    4. Cada botón emite evento openProject(slug) → App.vue abre ProjectModal.
+    5. Imágenes de proyectos (URB-004).
+    6. id="proyectos".
+  Acceptance:
+    - `npm run build` PASS.
+    - 3 botones emiten slug correcto.
+    - Features con BaseIcon renderizan.
+  Validation: dev server; click botones.
+  Escalate: imágenes de proyectos no descargables → GLM decide alternativas.
+
+URB-018 — FeaturesSection (features en bloque propio)
+  Fase: F4 | Tipo: ui | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P2 | Riesgo: low | Depends: URB-012, URB-017 | Parallel: D
+  Subagent: NO
+  Skills: vue3-migration, svg-icon-pipeline
+  Inputs: URB-012 (icons), §2 (features)
+  Outputs: src/components/sections/FeaturesSection.vue (opcional)
+  Minimum_context: URB-012, §2
+  Steps:
+    1. Si ProjectsSection crece, mover bloque features a FeaturesSection.
+    2. Grid 2x2: Paneles Solares, Tanque elevado, Vías afirmadas, Seguridad.
+    3. BaseIcon para cada feature.
+  Acceptance: depende de decisión de layout.
+  Escalate: GLM decide si separar o integrar en ProjectsSection.
+
+URB-019 — ValuesSection (Misión/Visión + 4 valores + 4 atributos)
+  Fase: F4 | Tipo: ui | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P1 | Riesgo: low | Depends: URB-007, URB-008 | Parallel: D
+  Subagent: NO
+  Skills: vue3-migration, content-migration
+  Inputs: §2 (nosotros: misión/visión/valores/atributos), URB-001
+  Outputs: src/components/sections/ValuesSection.vue
+  Minimum_context: §2 nosotros
+  Steps:
+    1. Tabs Misión/Visión (adaptar vc_tta_tabs legacy a un componente Vue simple).
+    2. Imágenes mision.jpg/vision.jpg si recuperables; si no, usar tokens/gradientes.
+    3. Grid 4 valores: Experiencia Probada, Compromiso, Transparencia, Red de Expertos.
+    4. Grid 2x2 atributos: Personalización, Sostenibilidad, Innovación, Experiencia
+       sin Preocupaciones.
+    5. Sin shortcodes WPBakery (rewrite copy limpio).
+  Acceptance:
+    - `npm run build` PASS.
+    - Tabs accesibles (role="tab"/tabpanel).
+    - Copy legible (no shortcodes).
+  Validation: dev server; lighthouse a11y en tabs.
+  Escalate: copy limpio ambiguo → GLM.
+
+URB-020 — ContactSection (datos + horario + form nativo)
+  Fase: F4 | Tipo: ui | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: medium | Depends: URB-007, URB-009, URB-012 | Parallel: D
+  Subagent: NO
+  Skills: vue3-migration, accessibility, web-performance
+  Inputs: §2 (/contactenos), URB-009 (contacto data), §7 (form provider pendiente)
+  Outputs: src/components/sections/ContactSection.vue
+  Minimum_context: §2 contacto, URB-009
+  Steps:
+    1. Título "¡Llama ya!"; copy de /contactenos.
+    2. Bloque datos: 2 teléfonos (926 353 563 + 917789123), email
+       contacto@urbanikawsay.com, dirección Jr. Manuel Rivero #200 con Jr. C. A.
+       Salaverry, Los Olivos 15304; horario Lun-Vie 9-5 / Sab 9-1.
+    3. BaseIcon phone/mail/clock/location inline.
+    4. Form nativo Vue: Nombre, Email, Teléfono, Mensaje; submit handler emite
+       POST a provider (URB-033 define provider; usar action="mailto:" como fallback).
+    5. Validación accesible (required, aria-invalid, aria-describedby).
+    6. id="contacto".
+    7. Limpiar copy "[vc_section…]" si llegó a extraerse (NO copiar).
+  Acceptance:
+    - `npm run build` PASS.
+    - Form valida campos required; feedback de error con aria-invalid.
+    - Submit abre mailto: o envía a provider (URB-033).
+    - Sin Contact Form 7.
+  Validation: dev server; lighthouse a11y form.
+  Escalate_to_glm_if: provider externo necesario (Formspree/Web3Forms) y requiere
+                      secret/API key — GLM decide y añade .env.example.
+
+URB-021 — BaseModal (infraestructura de modales)
+  Fase: F5 | Tipo: ui | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: medium | Depends: URB-006, URB-007 | Parallel: E
+  Subagent: NO
+  Skills: vue3-migration, accessibility
+  Inputs: §5 (modales nativos)
+  Outputs: src/components/ui/BaseModal.vue, src/composables/useModal.js,
+           src/composables/useScrollLock.js
+  Minimum_context: §5
+  Steps:
+    1. BaseModal: props {open, title, labelId}; slots default + footer.
+       Transition fade/scale; role="dialog" aria-modal="true" aria-labelledby.
+    2. Cerrar con Escape, click en backdrop, botón ×.
+    3. Trap focus básico: al abrir, focus en primer elemento focusable; al cerrar,
+       restaura focus al trigger.
+    4. useScrollLock: agrega overflow:hidden a body cuando open.
+    5. useModal: estado ref<boolean> + open()/close().
+  Acceptance:
+    - `npm run build` PASS.
+    - Escape/backdrop cierran; focus trapped; body no scrollea.
+    - aria-modal true; aria-labelledby correcto.
+  Validation: dev server con ProjectModal; test keyboard.
+  Escalate_to_glm_if: focus trap robusto requiere lib externa (vue-focus-lock)
+                      → GLM decide (preferir nativo).
+
+URB-022 — ProjectModal (ficha de proyecto)
+  Fase: F5 | Tipo: ui | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: medium | Depends: URB-021, URB-017 | Parallel: E
+  Subagent: NO
+  Skills: vue3-migration, content-migration
+  Inputs: URB-009 (projects.json), URB-021 (BaseModal)
+  Outputs: src/components/ui/ProjectModal.vue
+  Minimum_context: URB-009, URB-021
+  Steps:
+    1. Props {slug}; lee projects.json, encuentra proyecto.
+    2. Muestra image, name, location, lotSize, distanceToPort, features list,
+       description, CTA a WhatsApp / ReserveLotModal.
+    3. Usa BaseModal; cierra con Escape/backdrop.
+    4. Header: <h2 id="modal-{slug}-title">{name}</h2>; aria-labelledby.
+  Acceptance:
+    - `npm run build` PASS.
+    - Abre vía ProjectsSection botón emite slug → App.vue pasa a ProjectModal.
+    - CTA secundario puede abrir ReserveLotModal (decisión de Builder).
+  Validation: dev server; abrir 3 modales.
+  Escalate_to_glm_if: integración ProjectModal → ReserveLotModal requiere
+                      state lifting — GLM confirma dónde vive el estado.
+
+URB-023 — ReserveLotModal (form separación)
+  Fase: F5 | Tipo: ui | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: medium | Depends: URB-021, URB-010 | Parallel: E
+  Subagent: NO
+  Skills: vue3-migration, accessibility
+  Inputs: §2 (/separa-tu-lote/ form fields), URB-021
+  Outputs: src/components/ui/ReserveLotModal.vue
+  Minimum_context: §2 /separa-tu-lote/, URB-021
+  Steps:
+    1. Form: Nombre, Apellido, Nro. de documento, Teléfono, Email, "Cómo podemos
+       ayudarte (opcional)", checkbox "He leído y acepto Términos y Políticas de
+       privacidad de Urbanikawsay Inmobiliaria" (no "Respira Inmobiliaria").
+    2. Validación: required excepto mensaje; DNI numérico PE (8 dígitos); email
+       formato; teléfono 9 dígitos Perú.
+    3. Submit: mailto: fallback o provider (URB-033).
+    4. aria-invalid, aria-describedby, live region para errores.
+    5. CTA header (URB-010) dispara open.
+  Acceptance:
+    - `npm run build` PASS.
+    - Validación bloquea submit inválido con mensajes accesibles.
+    - copy sin "Respira Inmobiliaria".
+  Validation: dev server; submit casos.
+  Escalate_to_glm_if: validación DNI/teléfono requiere lib (yup, zod) → GLM
+                      decide (prefiere nativo con regex).
+
+URB-024 — App.vue orquestación (state de modales + layout + sections en orden)
+  Fase: F5 | Tipo: architecture | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: medium | Depends: URB-010..023 | Parallel: -
+  Subagent: NO
+  Skills: vue3-migration
+  Inputs: outputs URB-010..020, URB-021..023
+  Outputs: src/App.vue
+  Minimum_context: §5
+  Steps:
+    1. AppHeader (escucha openReserveLot; emite openProject(slug) via App.vue state).
+    2. <main class="site-main"> con secciones en orden: HeroSection, AboutSection,
+       TeamSection, ProjectsSection (+FeaturesSection si existe), ValuesSection,
+       ContactSection.
+    3. AppFooter.
+    4. WhatsAppButton (global).
+    5. <ReserveLotModal v-model:open="reserveOpen" />.
+    6. <ProjectModal v-model:open="projectOpen" :slug="projectSlug" />.
+    7. AppHeader CTA "Separa tu lote" → reserveOpen = true.
+    8. ProjectsSection botón → projectOpen=true + projectSlug=slug.
+  Acceptance:
+    - `npm run build` PASS.
+    - Modales abren/cierran coordinados.
+  Validation: dev server; click CTA header + click botones proyectos.
+  Escalate: coordinación de estado requiere store (Pinia) → GLM decide (no
+            usar Pinia, estado local App.vue).
+
+URB-025 — useWhatsApp y helpers compartidos (cierre)
+  Fase: F5 | Tipo: ui | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P2 | Riesgo: low | Depends: URB-009 | Parallel: E
+  Subagent: NO
+  Skills: vue3-migration
+  Inputs: URB-009, §1 (useWhatsApp referencia)
+  Outputs: src/composables/useWhatsApp.js (cierre)
+  Steps:
+    1. createWhatsAppUrl(message) → wa.me URL.
+    2. whatsappUrl (default message).
+    3. Validar número (formato internacional PE).
+  Acceptance: helpers usados por WhatsAppButton/ProjectModal/ContactSection.
+  Escalate: ninguna.
+
+URB-026 — index.html meta SEO final (title/description/OG/twitter/canonical)
+  Fase: F6 | Tipo: seo | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: medium | Depends: URB-005, URB-014 (hero image para OG) | Parallel: F
+  Subagent: NO
+  Skills: seo-preservation, content-migration
+  Inputs: §7 (metadata), URB-014 (hero image path), URB-004 (favicon)
+  Outputs: index.html (cierre meta)
+  Minimum_context: §7
+  Steps:
+    1. Sustituir placeholders de URB-005 por meta definitivo de §7.
+    2. og:image con hero PNG.
+    3. twitter:card summary_large_image.
+    4. canonical self.
+    5. theme-color #0D4D2E.
+  Acceptance:
+    - HTML válido; meta todas presentes.
+    - description 120-160 caracteres.
+    - favicon links apuntan a assets reales.
+  Validation: dev server ver <head>; lighthouse SEO 100.
+  Escalate_to_glm_if: meta description definitiva requiere copy revisado → GLM
+                      aprueba para herencia.
+
+URB-027 — robots.txt + sitemap.xml
+  Fase: F6 | Tipo: seo | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P1 | Riesgo: low | Depends: URB-026 | Parallel: F
+  Subagent: NO
+  Skills: seo-preservation
+  Outputs: public/robots.txt, public/sitemap.xml
+  Minimum_context: §7
+  Steps:
+    1. robots.txt con Disallow 0 líneas; Allow /; Sitemap.
+    2. sitemap.xml con 1 URL (https://urbanikawsay.com/, lastmod build date).
+  Acceptance: archivos en /public se copian a dist/ en build.
+  Validation: dist/robots.txt, dist/sitemap.xml presentes.
+  Escalate: ninguna.
+
+URB-028 — Plan 301 redirects (documentación + mecanismo gh-pages)
+  Fase: F6 | Tipo: seo | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: high | Depends: URB-026 | Parallel: -
+  Subagent: NO
+  Skills: seo-preservation
+  Inputs: §7 (mapa 301)
+  Outputs: docs/migration/07-seo-migration.md (matriz 301), public/404.html
+  Minimum_context: §7
+  Steps:
+    1. Documentar matriz 301 tal cual §7.
+    2. Implementar public/404.html que detecta path y meta-refresh JS a la anchor
+       correspondiente (GitHub Pages no soporta .htaccess ni 301 server-side).
+    3. Documentar redirección 301 real (DNS/CDN) como mejora futura.
+  Acceptance:
+    - docs/migration/07-seo-migration.md con matriz.
+    - public/404.html funcional probando rutas legacy → anchor.
+  Validation: servir dist, navegar /proyecto/ → /#proyectos.
+  Escalate_to_glm_if: opción A no cumple 301 real (es meta-refresh) → GLM decide
+                      si acepta como solución intermedia.
+
+URB-029 — Accessibility audit & fixes (F7)
+  Fase: F7 | Tipo: test | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: medium | Depends: URB-024 | Parallel: -
+  Subagent: NO
+  Skills: accessibility
+  Inputs: §1 a11y, outputs F3-F5
+  Outputs: ajustes en componentes; docs/migration/07b-a11y.md
+  Steps:
+    1. Skip-link "Ir al contenido" → #inicio.
+    2. Heading hierarchy (h1 hero; h2 por sección; h3 sub).
+    3. aria-labelledby en cada section; aria-label en nav.
+    4. Focus visible en todos interactivos (:focus-visible Tailwind).
+    5. Tab y Tabpanel en ValuesSection.
+    6. Modales: focus trap + aria-modal + Escape (de URB-021).
+    7. Formularios: label asociado, aria-invalid, aria-describedby en errores.
+  Acceptance:
+    - Lighthouse a11y ≥ 95 en desktop+mobile.
+    - Navegación completa por teclado sin trampa.
+    - axe-core 0 critical.
+  Validation: lighthouse + axe devtools.
+  Escalate_to_glm_if: score Lighthouse <90 sin fix evidente.
+
+URB-030 — Responsive validation (F8)
+  Fase: F8 | Tipo: test | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: medium | Depends: URB-024 | Parallel: -
+  Subagent: NO
+  Skills: tailwind-design-system, visual-regression
+  Inputs: outputs F3-F5
+  Outputs: ajustes CSS en components.css
+  Steps:
+    1. Probar 360, 480, 768, 1024, 1440.
+    2. Sticky header en todas breakpoints.
+    3. Slider hero 4 slides funciona en mobile (no desborda; pause en touch).
+    4. Modales scroll en mobile (max-h 80vh + overflow-y:auto).
+    5. Grid de tarjetas correcto.
+    6. Anchor offset funciona con sticky.
+  Acceptance:
+    - Sin overflow horizontal en ningún breakpoint.
+    - Modales scrollables en mobile.
+  Validation: dev server + responsive devtools.
+  Escalate: ninguna esperable.
+
+URB-031 — Performance baseline & quick wins (F10)
+  Fase: F10 | Tipo: test | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P1 | Riesgo: medium | Depends: URB-024 | Parallel: G
+  Subagent: NO
+  Skills: web-performance
+  Inputs: dist/ build
+  Outputs: ajustes (lazy-load imágenes no hero, font-display swap, preload hero)
+  Steps:
+    1. `npm run build` y analizar dist assets size.
+    2. lazy-load imágenes excepto hero (fetchpriority high).
+    3. Font <link> con display=swap.
+    4. preload hero image.
+    5. Verificar SVG optimizados (sin editor metadata).
+    6. Verificar ningún vendor JS pesado remanente.
+  Acceptance:
+    - dist JS ≤ 150 KB gzipped.
+    - dist CSS ≤ 50 KB gzipped.
+    - Lighthouse performance ≥ 90 mobile.
+    - LCP < 2.5s.
+  Validation: lighthouse mobile.
+  Escalate_to_glm_if: budget no alcanzado por dependencia legítima → GLM decide.
+
+URB-032 — Visual regression legacy vs nuevo (F9)
+  Fase: F9 | Tipo: test | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P1 | Riesgo: medium | Depends: URB-024, URB-030 | Parallel: G
+  Subagent: RECOMMENDED (Visual Regression Inspector)
+  Skills: visual-regression, regression-validation
+  Inputs: capturas legacy + capturas nuevas dev server + acceptance criteria
+  Outputs: docs/migration/09-visual-regression.md (PASS/FAIL/INCONCLUSIVE por
+           sección en 3 anchos)
+  Minimum_context: §6 + acceptance criteria URB-014..020
+  Steps:
+    1. Capturar 3 anchos de cada página legacy (home, proyecto, nosotros, contacto).
+    2. Capturar equivalentes del nuevo (anclas correspondientes).
+    3. Comparar composición, jerarquía, paleta.
+    4. Clasificar por sección contra visual intent REFRESH (no FIDELITY).
+  Acceptance:
+    - 1 reporte PASS/FAIL/INCONCLUSIVE por sección.
+    - Inconcluso se documenta y escala.
+  Validation: ningún FAIL de jerarquía/contenido; paleta puede diferir (deliberada).
+  Escalate_to_glm_if: >2 secciones FAIL en jerarquía (no copy) — revisar §6.
+
+URB-033 — Form provider & integración final
+  Fase: F5 | Tipo: architecture | Owner: planner (decisión) + builder (impl) | Model: deepseek-v4-flash-low
+  Prioridad: P1 | Riesgo: medium | Depends: URB-020, URB-023 | Parallel: -
+  Subagent: NO
+  Skills: vue3-migration, web-performance
+  Inputs: §7, decisión URB-035 (aquí URB-033)
+  Outputs: .env.example actualizado, endpoints en submit handlers
+  Steps:
+    1. GLM decide provider (recomendado: Formspree o Web3Forms free tier, o
+       mailto: simple sin backend).
+    2. Si externo: añadir .env.example con VITE_FORMSPREE_ID / VITE_WEB3FORMS_KEY.
+       NO commitear .env.
+    3. Implementar fetch POST con confirmación accesible (#gracias o modal).
+    4. Fallback: si el envío falla, mostrar mensaje de error accesible.
+  Acceptance:
+    - Submit:success funciona end-to-end en staging.
+    - Sin secrets en client.
+  Validation: dev server submit real.
+  Escalate_to_glm_if: provider expone riesgo de spam/abuso no mitigable → GLM
+                      decide (hCAPTCHA, honeypot).
+
+URB-034 — JSON-LD RealEstateAgent/LocalBusiness (opcional)
+  Fase: F6 | Tipo: seo | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P2 | Riesgo: low | Depends: URB-026 | Parallel: F
+  Subagent: NO
+  Skills: seo-preservation
+  Inputs: §7 + datos URB-009
+  Outputs: script JSON-LD en index.html
+  Steps:
+    1. Generar JSON-LD con @type RealEstateAgent, name, teléfono, email,
+       dirección (Los Olivos), geo (si lat/lon disponibles; si no, omitir),
+       sameAs (URLs redes de URB-001).
+  Acceptance:
+    - Rich Results Test PASS (sin warnings critical).
+  Validation: Google Rich Results Test online.
+  Escalate_to_glm_if: requiere coords no disponibles → omitir geo (GLM confirma).
+
+URB-035 — Build de deployment + smoke test
+  Fase: F11 | Tipo: infra | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P0 | Riesgo: medium | Depends: URB-028..033 | Parallel: -
+  Subagent: NO
+  Skills: web-performance, regression-validation
+  Inputs: vite.config.js modo deployment, gh-pages
+  Outputs: dist/ de `npm run build:deployment`, despliegue a gh-pages
+  Steps:
+    1. `npm run build:deployment` (genera dist con base /urbanikawsay/).
+    2. `npm run deploy` (gh-pages -d dist) o preview local primero.
+    3. Smoke test: cargar https://<user>.github.io/urbanikawsay/, verificar
+       hero, navegación por anclas, modales, form, responsive mobile.
+    4. Verificar 404.html redirige anchors.
+  Acceptance:
+    - URL pública carga sin errores consola.
+    - Lighthouse mobile SEO 100; a11y ≥90; performance ≥85.
+    - Modales abren; form submit llega (o mailto abre cliente).
+  Validation: navegador real + lighthouse.
+  Escalate: deployment falla por base path → GLM ajusta vite.config.
+
+URB-036 — Limpieza final + README
+  Fase: F11 | Tipo: docs | Owner: builder | Model: deepseek-v4-flash-low
+  Prioridad: P2 | Riesgo: low | Depends: URB-035 | Parallel: -
+  Subagent: NO
+  Outputs: README.md (scripts, build, deploy, env), eliminar archivos temporales
+  Steps:
+    1. Revisar sin HEX inline en templates.
+    2. Revisar sin assets sin usar.
+    3. README: cómo dev, build, deploy, variables env.
+  Acceptance: build PASS; README claro; sin leftover debug.
+  Escalate: ninguna.
+
+URB-037 (contingencia) — Reabrir WooCommerce si F0 contradice "residual"
+  Fase: cualquier | Tipo: architecture | Owner: planner | Model: glm-5.2-max
+  Prioridad: P3 | Riesgo: high | Depends: URB-001 | Parallel: -
+  Subagent: NO
+  Trigger: URB-001 encuentra carrito/checkout reales activos o productos
+           comprables (no catálogo estático).
+  Steps:
+    1. GLM reabre §6 mapa y §5 arquitectura.
+    2. Decide: (a) mantener DROP y añadir "catálogo solo lectura"; (b) instalar
+       servicio externo; (c) mantener WooCommerce headless.
+    3. Reescribe backlog afectado.
+  Acceptance: decision record en docs/migration/05b-woocommerce-decision.md.
+
+===========================================================================================
+11. RESUMEN EJECUTIVO
+===========================================================================================
+URBANIKAWSAY MIGRATION PLAN
+============================
+AGENTS
+PASS
+
+REFERENCE REPOSITORY
+analyzed — consultoria-coexistir (Vue 3.5 + Vite 8 + Tailwind v4, SPA single-page
+sin router/pinia/TS, gh-pages deploy, datos en JSON, simple-icons, a11y cuidada).
+ADOPT mayoría; ADAPT paleta/secciones/datos; IGNORE OrderModal+copy psicología.
+
+LEGACY
+pages: 8 (4 en menú + 3 fichas producto + 1 separa-tu-lote fuera de menú)
+public URLs: 8 (sitemap-posts-page: 5 + sitemap product: 3)
+features/components: ~25 elementos (header, footer, nav, slider hero, 2 CTAs,
+  form Contact Form 7, form /separa-tu-lote, 5 tarjetas equipo, Misión/Visión
+  tabs, valores carousel, atributos, datos contacto, WhatsApp flotante,
+  redes footer, Features 4 icons)
+wordpress dependencies: Elementor 3.33.1 + Elementor Pro, Slider Revolution 6.6.7,
+  WooCommerce 4.6.2 (catálogo residual → DROP mechanics), Contact Form 7,
+  Flexy Breadcrumb, EAEL, Essential Blocks, Ninja Forms popups, WhatsApp for WP,
+  Hello Elementor theme, jQuery 3.7.1, Swiper 8, Magnific, Sticky, SmartMenus
+assets: 100 archivos en web-legacy/ (27 PRESERVE PNG/CSS, 28 DROP, 20 REBUILD,
+  13 REPLACE, 4 UNKNOWN); logo + favicon descargables de la URL legacy
+
+DESIGN
+palette: analyzed (diseño/paleta-moderna.css, sistema 60-30-10 verde bosque
+  + verdes vivos + ámbar/naranja)
+tokens proposed: 13 tokens color, 2 token font, 2 shadow, 3 radius, 2 gradient
+visual direction: REDESIGN con jerarquía legacy PRESERVE-ADAPT (REFRESH mayoritario)
+
+TARGET
+Vue: 3.5.x <script setup> JS (no TS)
+Tailwind: v4 CSS-first (@theme en src/styles/theme.css, sin tailwind.config.js)
+rendering strategy: SPA + meta estática en index.html
+routing: ningún router (single-page, nav por anclas #)
+SEO strategy: 7 URLs legacy → 1 con 301 vía /public/404.html meta-refresh;
+  index.html con title/description/OG/twitter/canonical; robots.txt + sitemap.xml;
+  JSON-LD RealEstateAgent opcional
+SVG strategy: SVG propios inline (currentColor, viewBox 24x24) + simple-icons
+  para FB/LinkedIn/YouTube; prohibido icon fonts
+
+BACKLOG
+total: 37 (URB-001..037, incluida contingencia URB-037)
+P0: 14 | P1: 13 | P2: 7 | P3: 1
+(by fase: F0: 4, F1: 1, F2: 4, F3: 4, F4: 7, F5: 5, F6: 3, F7: 1, F8: 1,
+ F9: 1, F10: 1, F11: 2, contingency: 1)
+
+MODEL DISTRIBUTION
+GLM tasks: 0 (todas son Builder ejecutables; GLM solo reinterviene por
+  escalación — URB-037 contingencia + decisiones en escalate_to_glm_if)
+DeepSeek tasks: 37
+
+SUBAGENTS
+recommended: URB-001 (WordPress Auditor), URB-002 (Ref Arch Analyst),
+  URB-003 (Visual/Palette), URB-032 (Visual Regression Inspector);
+required: 0
+parallel groups: A (F0 discovery), B (F2 assets/animaciones/datos),
+  C (F3 shared layout), D (F4 sections), E (F5 modales), F (F6 SEO),
+  G (F9/F10 performance + visual)
+
+CRITICAL PATH
+URB-001 → URB-005 → URB-006 → URB-009 → URB-010 → URB-017 → URB-024 → URB-028 → URB-035
+
+FIRST BUILDER-READY TASK
+URB-001 (inventario legacy in vivo) — sin dependencias; puede arrancar
+inmediatamente. Si se quiere arranque sin subagents, URB-001 se ejecuta
+directo por Builder con webfetch.
+
+BLOCKERS
+- URB-033 (form provider) requiere decisión final de GLM ejecutada por Builder:
+  Formspree/Web3Forms/mailto. Asumido mailto: como fallback; GLM confirma.
+- URB-028 (301 mechanism) asumido meta-refresh JS en 404.html para gh-pages;
+  redirección 301 real requiere DNS/CDN externo (futuro).
+- 7 URLs legacy consolidadas en 1; URLs indexadas históricamente desaparecerán
+  del índice; periodo de transición vía 404.html.
+
+===========================================================================================
+12. CONTEXT ENGINEERING (reglas para el Builder)
+===========================================================================================
+- Cada tarea recibe solo su minimum_context listado arriba + outputs de sus
+  dependencias directas. NO recibe todo el plan.
+- Context GC entre fases: antes de iniciar F3, descartar el detalle F0/F1;
+  antes de F6, descartar F3/F4 crudo salvo acceptance criteria.
+- Los documentos en docs/migration/ son la fuente persistente de evidencia;
+  el chat NO es fuente de verdad.
+- Si dos tareas resuelven la misma incógnita (p.ej. iconos de Feature en
+  URB-012 y URB-018), consolidar en URB-012 y marcar URB-018 como dependiente.
+- Límite: si el contexto Builder > 50 archivos de historial, ejecutar GC.
+
+===========================================================================================
+13. FAIL FAST Y ESCALACIÓN
+===========================================================================================
+- Ante hipótesis improbable (plugin "solo estilo"), falsificar primero
+  (URB-001 inspecciona su real uso con webfetch a la página).
+- Ante 2 intentos fallidos sobre misma causa → parar, ESCALATE_TO_GLM.
+- Condiciones de escalado (de instrucciones-glm §15 + AGENTS.md):
+  · arquitectura no definida
+  · dos soluciones estructurales válidas
+  · cambio cross-cutting
+  · SEO crítico
+  · cambio de estrategia de renderizado
+  · contradicción legacy↔design
+  · dependencia nueva no prevista
+  · ownership ambiguo
+  · contrato Planner incompleto
+  · 3 intentos fallidos sobre la misma causa
+
+===========================================================================================
+14. ENTREGABLES DOCUMENTALES (en docs/migration/)
+===========================================================================================
+00-agents-validation.md — (este handoff §AGENTS STATUS; PASS)
+01-reference-repo-analysis.md — salida de URB-002
+02-legacy-inventory.md — salida de URB-001
+03-design-analysis.md — síntesis de este plan §3 + §4
+04-color-system.md — salida de URB-003
+05-target-architecture.md — este plan §5
+06-migration-map.md — este plan §6
+07-seo-migration.md — salida de URB-028
+08-subagent-strategy.md — este plan §8
+09-migration-plan.md — este plan §9
+10-backlog.md — este plan §10
+backlog.json — espejo machine-readable de §10 (si `.agents/backlog/backlog_seed.json`
+  no cubre el rol; Builder genera en cierre de URB-001)
+
+===========================================================================================
+15. PROXIMO PASO PARA EL BUILDER
+===========================================================================================
+El Builder (DeepSeek V4 Flash Low) arranca ejecutando URB-001 y URB-002 en
+paralelo (Parallel Group A) y URB-003 en paralelo (sin dependencias). Después
+BARRIER A (GLM integra resultados si hubo escalación), luego F1 (URB-005),
+F2 (URB-006..009), etc., siguiendo el orden de §9.

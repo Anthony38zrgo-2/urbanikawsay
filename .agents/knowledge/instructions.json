@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "instructions": [
+    {
+      "id": "global-migration-contract",
+      "scope": "global",
+      "trigger": null,
+      "priority": 100,
+      "body": "Inventory and capture a legacy baseline before replacing externally visible WordPress behavior. Preserve route/content/SEO/form contracts intentionally.",
+      "source_ref": ".agents/AGENTS.md"
+    },
+    {
+      "id": "global-planner-builder",
+      "scope": "global",
+      "trigger": "implementation",
+      "priority": 100,
+      "body": "Meaningful implementation requires an explicit migration plan/task packet and acceptance criteria. Planner owns architecture and policy; Builder executes bounded work.",
+      "source_ref": ".agents/AGENTS.md"
+    },
+    {
+      "id": "vue-no-architecture-drift",
+      "scope": "vue",
+      "trigger": "implementation",
+      "priority": 90,
+      "body": "Do not introduce a second router, state/data-fetching pattern, component system or rendering strategy without Planner approval.",
+      "source_ref": ".agents/AGENTS.md"
+    },
+    {
+      "id": "tailwind-token-discipline",
+      "scope": "tailwind",
+      "trigger": "styling",
+      "priority": 85,
+      "body": "Use the established token vocabulary and reusable patterns. Arbitrary values require a real one-off fidelity reason.",
+      "source_ref": ".agents/AGENTS.md"
+    },
+    {
+      "id": "svg-only-icons",
+      "scope": "svg",
+      "trigger": "icon",
+      "priority": 95,
+      "body": "New icons are generated SVGs. No icon fonts, raster substitutes, emoji, or third-party icon dependency without explicit approval.",
+      "source_ref": ".agents/AGENTS.md"
+    },
+    {
+      "id": "seo-rendering-gate",
+      "scope": "seo",
+      "trigger": "public route",
+      "priority": 100,
+      "body": "For public content routes, Planner must explicitly classify SEO/crawl needs and rendering strategy. Vue 3 does not imply client-only SPA delivery.",
+      "source_ref": ".agents/AGENTS.md"
+    },
+    {
+      "id": "content-no-rewrite",
+      "scope": "wordpress",
+      "trigger": "content",
+      "priority": 90,
+      "body": "Preserve legacy copy by default. Content rewriting is separate scope and must be explicit.",
+      "source_ref": ".agents/AGENTS.md"
+    },
+    {
+      "id": "security-client-boundary",
+      "scope": "web-platform",
+      "trigger": "configuration",
+      "priority": 100,
+      "body": "Never move server-only secrets, credentials or privileged WordPress logic into client-side Vue code.",
+      "source_ref": ".agents/AGENTS.md"
+    }
+  ]
+}

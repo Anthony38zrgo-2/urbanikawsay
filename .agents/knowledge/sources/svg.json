@@ -1,0 +1,70 @@
+{
+  "source_id": "project-svg",
+  "channel": "svg",
+  "authority": 100,
+  "version_policy": "project-curated",
+  "source_type": "project-policy",
+  "source_ref": ".agents/AGENTS.md",
+  "entries": [
+    {
+      "id": "svg-viewbox",
+      "lookup_key": "viewBox",
+      "topic": "SVG geometry contract",
+      "symbols": [],
+      "keywords": [
+        "svg",
+        "viewBox",
+        "path"
+      ],
+      "content": "Every generated icon should have a stable viewBox and minimal geometry so it scales predictably at UI sizes.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "svg-currentcolor",
+      "lookup_key": "currentColor",
+      "topic": "Themeable icon color",
+      "symbols": [],
+      "keywords": [
+        "currentColor",
+        "fill",
+        "stroke",
+        "theme"
+      ],
+      "content": "Use currentColor for single-color icons that should inherit text/theme color. Fixed colors are appropriate only when the design intentionally requires them.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "svg-accessibility",
+      "lookup_key": "svg accessibility",
+      "topic": "Accessible icon semantics",
+      "symbols": [],
+      "keywords": [
+        "aria",
+        "title",
+        "decorative",
+        "icon"
+      ],
+      "content": "Decorative icons should not create redundant accessible names. Informational icons need an accessible name through the surrounding control/content contract.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    },
+    {
+      "id": "svg-style-set",
+      "lookup_key": "icon style contract",
+      "topic": "Coherent icon family",
+      "symbols": [],
+      "keywords": [
+        "stroke",
+        "fill",
+        "cap",
+        "join",
+        "optical"
+      ],
+      "content": "Define stroke/fill language, stroke width, caps/joins and optical grid before generating many icons; consistency matters more than individual cleverness.",
+      "source_ref": ".agents/AGENTS.md",
+      "source_version": "1"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+id,epic,title,item_type,status,priority
+MIG-001,wordpress-modernization,"Audit legacy WordPress routes, templates and frontend dependencies",planning,proposed,100
+MIG-002,wordpress-modernization,"Define target Vue 3 rendering, routing and migration architecture",architecture,proposed,95
+MIG-003,wordpress-modernization,"Establish minimal Tailwind design tokens and SVG icon contract",planning,proposed,85
+MIG-004,wordpress-modernization,"Migrate the first representative route as an end-to-end vertical slice",implementation,proposed,80

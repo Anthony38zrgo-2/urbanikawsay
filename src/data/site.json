@@ -1,0 +1,56 @@
+{
+  "brand": {
+    "name": "Urbanikawsay",
+    "tagline": "Inmobiliaria",
+    "logo": "logo.png",
+    "logoAlt": "Urbanikawsay Inmobiliaria"
+  },
+  "navigation": [
+    { "label": "Inicio", "href": "#inicio" },
+    { "label": "Proyecto", "href": "#proyectos" },
+    { "label": "Nosotros", "href": "#nosotros" },
+    { "label": "Contáctanos", "href": "#contacto" }
+  ],
+  "contact": {
+    "phoneMain": "917 789 123",
+    "phoneMainIntl": "51917789123",
+    "phoneSecondary": "926 353 563",
+    "email": "contacto@urbanikawsay.com",
+    "address1": "Jr. Manuel Rivero #200 con Jr. C. A. Salaverry, Los Olivos 15304",
+    "address2": "Sta Cruz de Pachacutec 155, Lima",
+    "schedule": "Lun – Vie: 9:00 a.m. a 5:00 p.m. / Sab: 9:00 a.m. a 1:00 p.m."
+  },
+  "footer": {
+    "legalName": "Constructora e inmobiliaria urbania j&j e.i.r.l",
+    "year": 2025,
+    "socials": [
+      { "platform": "Facebook", "url": "#" },
+      { "platform": "Linkedin", "url": "#" },
+      { "platform": "Youtube", "url": "#" }
+    ],
+    "topic": [
+      "Términos y condiciones",
+      "Libro de reclamaciones",
+      "Urbanikawsay inmobiliaria"
+    ]
+  },
+  "whatsapp": {
+    "number": "51917789123",
+    "defaultMessage": "Hola, quiero más información sobre sus terrenos.",
+    "panelTitle": "Hablemos por WhatsApp",
+    "panelDescription": "Escoge una pregunta frecuente o escríbenos tu consulta.",
+    "questions": [
+      { "label": "Quiero separar un lote", "message": "Hola, quiero separar un lote. ¿Cómo procedo?" },
+      { "label": "¿Cómo es el crédito directo?", "message": "Hola, quisiera información sobre el crédito directo sin bancos." },
+      { "label": "¿Tienen título de propiedad?", "message": "Hola, ¿los lotes cuentan con título de propiedad?" },
+      { "label": "¿Dónde están ubicados?", "message": "Hola, ¿dónde están ubicados sus terrenos?" }
+    ]
+  },
+  "team": [
+    { "name": "Lucero Tapia", "role": "Área Administrativa", "greeting": "Hola, soy Lucero. Formo parte del área administrativa y estoy aquí para acompañarte en todo el proceso de documentación y firma de tu minuta, resolviendo tus dudas paso a paso." },
+    { "name": "Bryan", "role": "Post Venta", "greeting": "Hola, soy Bryan. Formo parte del equipo de postventa y estaré contigo para brindarte seguimiento y apoyarte en todo lo que necesites después de tu compra." },
+    { "name": "Marisol Aguirre", "role": "Área Administrativa", "greeting": "Hola, soy Marisol. Estoy aquí para acompañarte en cada etapa de tu proceso, resolver tus dudas y asegurarme de que tu experiencia sea clara y confiable." },
+    { "name": "Karina Mondragón", "role": "Jefa de Call Center", "greeting": "Hola, soy Karina. Soy la jefa de Call Center y estoy aquí para brindarte toda la información y acompañarte desde el primer contacto." },
+    { "name": "Alessandra Andrade", "role": "Administradora", "greeting": "Hola, soy Alessandra. Soy administradora y estoy aquí para apoyarte de manera específica y organizada para que tu experiencia sea segura y confiable." }
+  ]
+}

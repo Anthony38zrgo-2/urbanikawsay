@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Redirigiendo… | Urbanikawsay Inmobiliaria</title>
+  <script>
+    // Redirección para rutas legacy consolidadas en el single-page SPA.
+    // GitHub Pages no soporta .htaccess ni 301 server-side; se usa meta-refresh/JS.
+    var legacy = {
+      "/proyecto/": "/#proyectos",
+      "/proyecto/villa-norte/": "/#proyectos",
+      "/proyecto/guaral-villge/": "/#proyectos",
+      "/proyecto/villa-rica/": "/#proyectos",
+      "/acerca-de-nosotros/": "/#nosotros",
+      "/contactenos/": "/#contacto",
+      "/separa-tu-lote/": "/",
+      "/proyecto/villa-norte": "/#proyectos",
+      "/proyecto/guaral-villge": "/#proyectos",
+      "/proyecto/villa-rica": "/#proyectos",
+      "/proyecto": "/#proyectos",
+      "/acerca-de-nosotros": "/#nosotros",
+      "/contactenos": "/#contacto",
+      "/separa-tu-lote": "/"
+    };
+    var base = (window.location.pathname.startsWith("/urbanikawsay/")) ? "/urbanikawsay" : "";
+    var path = window.location.pathname.replace(new RegExp("^" + base), "");
+    var target = legacy[path] || "/";
+    window.location.replace(base + target);
+  </script>
+</head>
+<body>
+  <p>Redirigiendo…</p>
+</body>
+</html>

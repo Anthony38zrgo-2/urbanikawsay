@@ -1,0 +1,59 @@
+@theme {
+  /* Tipografía */
+  --font-sans: "Inter", "Segoe UI", sans-serif;
+  --font-display: "Poppins", "Segoe UI", sans-serif;
+
+  /* Brand — Primario (60%) */
+  --color-brand-primary: #0D4D2E;
+  --color-brand-primary-dark: #092E1C;
+  --color-brand-primary-light: #1A6B42;
+
+  /* Brand — Secundario (30%) */
+  --color-brand-secondary: #2EAA4D;
+  --color-brand-secondary-bright: #7ED957;
+  --color-brand-secondary-pale: #D4F0C5;
+
+  /* Acento (10%) */
+  --color-accent: #FFB11B;
+  --color-accent-hover: #FF9A00;
+  --color-accent-strong: #FF7A00;
+  --color-accent-pale: #FFF2CC;
+
+  /* Surfaces / backgrounds */
+  --color-surface: #FDFCF7;
+  --color-surface-soft: #EEF5EB;
+  --color-surface-muted: #E2E9DF;
+
+  /* Texto */
+  --color-text-primary: #121F17;
+  --color-text-secondary: #5E7568;
+  --color-text-inverse: #FDFCF7;
+  --color-text-on-accent: #092E1C;
+
+  /* Bordes */
+  --color-border: #D5DDD2;
+  --color-border-strong: #A8B5A1;
+
+  /* Estados */
+  --color-success: #2EAA4D;
+  --color-warning: #FFB11B;
+  --color-error: #D92D20;
+
+  /* Sombras */
+  --shadow-soft: 0 4px 24px rgb(13 77 46 / 0.06);
+  --shadow-card: 0 18px 45px -26px rgb(18 31 23 / 0.18);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+}
+
+:root {
+  --palette-primary: #0D4D2E;
+  --palette-secondary: #2EAA4D;
+  --palette-accent: #FFB11B;
+  --palette-surface: #FDFCF7;
+  --color-background: var(--palette-surface);
+  --color-foreground: #121F17;
+}

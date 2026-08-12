@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "villa-norte",
+    "name": "Villa Norte",
+    "location": "Huaral",
+    "lotSize": "Desde 120 m²",
+    "distanceToPort": "A 20 minutos del Megapuerto de Chancay",
+    "imageUrl": "proyecto-villa-norte.png",
+    "description": "Un proyecto pensado para invertir cerca de uno de los mejores proyectos de la década.",
+    "features": ["Vías afirmadas", "Paneles solares", "Tanque elevado", "Seguridad"],
+    "ctaLabel": "Separar mi lote"
+  },
+  {
+    "slug": "huaral-village",
+    "name": "Huaral Village",
+    "location": "Huaral",
+    "lotSize": "Desde 120 m²",
+    "distanceToPort": "A 20 minutos del Megapuerto de Chancay",
+    "imageUrl": "proyecto-huaral-village.png",
+    "description": "Terrenos en venta con acceso a servicios básicos y título de propiedad.",
+    "features": ["Vías afirmadas", "Paneles solares", "Tanque elevado", "Seguridad"],
+    "ctaLabel": "Separar mi lote"
+  },
+  {
+    "slug": "villa-rica",
+    "name": "Villa Rica",
+    "location": "Huaral",
+    "lotSize": "Desde 120 m²",
+    "distanceToPort": "A 20 minutos del Megapuerto de Chancay",
+    "imageUrl": "proyecto-extra-1.png",
+    "description": "Oportunidad de inversión en un terreno cerca del megapuerto y del desarrollo de la zona.",
+    "features": ["Vías afirmadas", "Paneles solares", "Tanque elevado", "Seguridad"],
+    "ctaLabel": "Separar mi lote"
+  }
+]
