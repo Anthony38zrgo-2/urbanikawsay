@@ -32,13 +32,16 @@ const handleSubmit = () => {
     <div class="container-page">
       <div class="contact-grid">
         <div class="contact-info">
-          <h2 id="contact-title" class="contact-heading">¡Llama ya!</h2>
-          <p class="contact-sub">
-            ¡Aprovecha esta oportunidad de inversión en un terreno de 120 m² junto
-            al mega puerto y disfruta de los beneficios de invertir cerca de uno de
-            los mejores proyectos de la década!
-          </p>
-          <ul class="contact-list">
+          <div class="section-header">
+            <p class="section-eyebrow">Contáctanos</p>
+            <h2 id="contact-title" class="section-title">¡Llama ya!</h2>
+            <p class="section-lead">
+              ¡Aprovecha esta oportunidad de inversión en un terreno de 120 m² junto
+              al mega puerto y disfruta de los beneficios de invertir cerca de uno de
+              los mejores proyectos de la década!
+            </p>
+          </div>
+          <ul class="list-contact">
             <li>
               <BaseIcon name="phone" decorative />
               <div>
@@ -73,7 +76,7 @@ const handleSubmit = () => {
         </div>
 
         <form class="contact-form card" @submit.prevent="handleSubmit">
-          <h3 class="form-title">Contáctanos</h3>
+          <h3 class="form-title">Envíanos tu consulta</h3>
           <div class="field">
             <label for="ct-nombre">Nombre</label>
             <input id="ct-nombre" v-model="form.nombre" type="text" required
@@ -97,7 +100,7 @@ const handleSubmit = () => {
             <p v-if="errors.mensaje" id="ct-msg-err" class="field-error">{{ errors.mensaje }}</p>
           </div>
           <button type="submit" class="btn-aero btn-aero-primary submit-btn">Enviar mensaje</button>
-          <p v-if="submitted" class="success-msg" aria-live="polite">
+          <p v-if="submitted" class="form-success" aria-live="polite">
             Gracias. Se abrirá tu cliente de correo para completar el envío.
           </p>
         </form>
@@ -113,54 +116,13 @@ const handleSubmit = () => {
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
+  gap: var(--space-block);
 }
 @media (min-width: 900px) {
   .contact-grid { grid-template-columns: 1fr 1fr; }
 }
-.contact-heading {
-  font-family: var(--font-display);
-  color: var(--color-brand-primary);
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: 1rem;
-}
-.contact-sub {
-  color: var(--color-text-secondary);
-  line-height: 1.7;
-  margin-bottom: 1.75rem;
-}
-.contact-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-.contact-list li {
-  display: flex;
-  gap: 0.9rem;
-  color: var(--color-brand-primary);
-}
-.contact-list li > svg {
-  flex-shrink: 0;
-  margin-top: 0.15rem;
-}
-.contact-list li > div {
-  display: flex;
-  flex-direction: column;
-}
-.contact-list .label {
-  font-weight: 700;
-  color: var(--color-text-primary);
-}
-.contact-list a {
-  color: var(--color-brand-primary);
-  text-decoration: none;
-}
-.contact-list a:hover {
-  text-decoration: underline;
-}
 .contact-form {
-  padding: 1.75rem;
+  padding: var(--space-stack);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -168,43 +130,11 @@ const handleSubmit = () => {
 .form-title {
   font-family: var(--font-display);
   color: var(--color-brand-primary);
-  font-size: 1.4rem;
-}
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-.field label {
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-.field input,
-.field textarea {
-  border: 1px solid var(--color-border-flat);
-  border-radius: var(--radius-sm);
-  padding: 0.6rem 0.75rem;
-  font-family: inherit;
-  font-size: 0.95rem;
-  background: var(--color-surface-flat);
-  color: var(--color-text-primary);
-}
-.field input:focus-visible,
-.field textarea:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 1px;
-  border-color: transparent;
-}
-.field-error {
-  color: var(--color-error);
-  font-size: 0.8rem;
+  font-size: var(--text-heading-lg);
+  margin-bottom: 0.5rem;
 }
 .submit-btn {
   cursor: pointer;
   align-self: flex-start;
-}
-.success-msg {
-  color: var(--color-success);
-  font-size: 0.9rem;
 }
 </style>

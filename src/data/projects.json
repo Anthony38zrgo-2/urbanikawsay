@@ -6,6 +6,7 @@
     "lotSize": "Desde 120 m²",
     "distanceToPort": "A 20 minutos del Megapuerto de Chancay",
     "imageUrl": "proyecto-villa-norte.png",
+    "status": "available",
     "description": "Un proyecto pensado para invertir cerca de uno de los mejores proyectos de la década.",
     "features": ["Vías afirmadas", "Paneles solares", "Tanque elevado", "Seguridad"],
     "ctaLabel": "Separar mi lote"
@@ -17,6 +18,7 @@
     "lotSize": "Desde 120 m²",
     "distanceToPort": "A 20 minutos del Megapuerto de Chancay",
     "imageUrl": "proyecto-huaral-village.png",
+    "status": "last",
     "description": "Terrenos en venta con acceso a servicios básicos y título de propiedad.",
     "features": ["Vías afirmadas", "Paneles solares", "Tanque elevado", "Seguridad"],
     "ctaLabel": "Separar mi lote"
@@ -28,6 +30,7 @@
     "lotSize": "Desde 120 m²",
     "distanceToPort": "A 20 minutos del Megapuerto de Chancay",
     "imageUrl": "proyecto-extra-1.png",
+    "status": "presale",
     "description": "Oportunidad de inversión en un terreno cerca del megapuerto y del desarrollo de la zona.",
     "features": ["Vías afirmadas", "Paneles solares", "Tanque elevado", "Seguridad"],
     "ctaLabel": "Separar mi lote"

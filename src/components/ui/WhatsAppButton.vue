@@ -85,18 +85,20 @@ onBeforeUnmount(() => document.removeEventListener('keydown', handleEscape))
           </a>
         </div>
         <form class="whatsapp-custom-message" @submit.prevent="sendCustomMessage">
-          <label for="whatsapp-custom-message">¿Tienes otra consulta?</label>
-          <textarea
-            id="whatsapp-custom-message"
-            v-model="customMessage"
-            maxlength="200"
-            rows="3"
-            placeholder="Escribe tu mensaje para enviarlo por WhatsApp"
-            required
-          ></textarea>
+          <div class="field">
+            <label for="whatsapp-custom-message">¿Tienes otra consulta?</label>
+            <textarea
+              id="whatsapp-custom-message"
+              v-model="customMessage"
+              maxlength="200"
+              rows="3"
+              placeholder="Escribe tu mensaje para enviarlo por WhatsApp"
+              required
+            ></textarea>
+          </div>
           <div class="whatsapp-message-actions">
             <span aria-live="polite">{{ customMessage.length }}/200</span>
-            <button type="submit" :disabled="!customMessage.trim()">
+            <button type="submit" class="btn-aero btn-aero-secondary btn-sm" :disabled="!customMessage.trim()">
               Enviar <span aria-hidden="true">↗</span>
             </button>
           </div>
@@ -196,40 +198,15 @@ onBeforeUnmount(() => document.removeEventListener('keydown', handleEscape))
   flex-direction: column;
   gap: 0.5rem;
 }
-.whatsapp-custom-message label {
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-.whatsapp-custom-message textarea {
-  border: 1px solid var(--color-border-flat);
-  border-radius: var(--radius-sm);
-  padding: 0.5rem;
-  font-family: inherit;
-  resize: vertical;
-  background: var(--color-surface-flat);
-}
 .whatsapp-message-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
-.whatsapp-message-actions button {
-  background: var(--color-brand-primary);
-  color: var(--color-text-inverse);
-  border: 1px solid var(--color-brand-primary);
-  border-radius: var(--radius-full);
-  padding: 0.5rem 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-}
-.whatsapp-message-actions button:hover {
-  background: var(--color-brand-primary-light);
-  box-shadow: var(--shadow-aero);
-}
-.whatsapp-message-actions button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  box-shadow: none;
+.whatsapp-message-actions > span {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
 }
 .whatsapp-floating {
   position: fixed;

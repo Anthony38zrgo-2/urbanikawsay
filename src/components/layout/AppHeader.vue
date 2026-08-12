@@ -65,6 +65,7 @@ onBeforeUnmount(() => {
           v-for="item in siteData.navigation"
           :key="item.href"
           :href="item.href"
+          class="nav-link nav-link--inverse"
           @click="closeMenu"
         >
           {{ item.label }}
@@ -73,7 +74,7 @@ onBeforeUnmount(() => {
 
       <button
         type="button"
-        class="btn-aero btn-aero-primary header-cta"
+        class="btn-aero btn-aero-primary btn-sm header-cta"
         @click="emit('open-reserve')"
       >
         Separa tu lote
@@ -142,16 +143,9 @@ onBeforeUnmount(() => {
   display: none;
   gap: 1.5rem;
 }
-.side-nav a {
-  color: var(--color-text-inverse);
-  text-decoration: none;
+.side-nav .nav-link {
   font-weight: 500;
-  opacity: 0.9;
   padding: 0.5rem 0.25rem;
-}
-.side-nav a:hover {
-  opacity: 1;
-  text-decoration: underline;
 }
 .header-cta {
   display: none;
@@ -190,11 +184,11 @@ onBeforeUnmount(() => {
   .side-nav.is-open {
     display: flex;
   }
-  .side-nav a {
+  .side-nav .nav-link {
     padding: 0.9rem 0.25rem;
     border-bottom: 1px solid rgb(255 255 255 / 0.08);
   }
-  .side-nav a:last-child {
+  .side-nav .nav-link:last-child {
     border-bottom: none;
   }
 }

@@ -1,6 +1,7 @@
 <script setup>
 defineProps({
   variant: { type: String, default: 'primary', validator: (v) => ['primary', 'secondary', 'quiet', 'icon'].includes(v) },
+  size: { type: String, default: 'md', validator: (v) => ['sm', 'md', 'lg', 'wide'].includes(v) },
   tag: { type: String, default: 'button' },
   type: { type: String, default: 'button' },
   href: { type: String, default: '' },
@@ -20,6 +21,9 @@ defineProps({
       'btn-aero btn-aero-secondary': variant === 'secondary',
       'btn-aero btn-aero-quiet': variant === 'quiet',
       'btn-aero btn-aero-icon': variant === 'icon',
+      'btn-sm': size === 'sm',
+      'btn-lg': size === 'lg',
+      'btn-wide': size === 'wide',
     }"
   >
     <slot />

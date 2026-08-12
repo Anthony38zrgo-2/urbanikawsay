@@ -1,17 +1,16 @@
 @layer components {
-  /* Contenedor */
+  /* ============================================================
+     LAYOUT PRIMITIVES (PREM-003)
+     ============================================================ */
   .container-page {
     width: 100%;
     max-width: 72rem;
     margin-inline: auto;
-    padding-inline: 1.25rem;
+    padding-inline: var(--space-inline);
   }
 
   .section-pad {
-    padding-block: 4rem;
-  }
-  @media (min-width: 768px) {
-    .section-pad { padding-block: 5.5rem; }
+    padding-block: var(--space-section);
   }
 
   /* Compensa sticky header al navegar a anclas */
@@ -19,38 +18,367 @@
     scroll-margin-top: 5rem;
   }
 
+  /* Ritmo vertical dentro de una sección */
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-stack);
+  }
+
+  /* Divisor premium (línea sutil con acento opcional) */
+  .rule {
+    height: 1px;
+    border: 0;
+    background: var(--color-border-flat);
+  }
+  .rule--accent {
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-accent), transparent);
+    max-width: 7rem;
+  }
+
+  /* Grids reutilizables */
+  .grid-feature,
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-stack);
+  }
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-block);
+  }
+  @media (min-width: 640px) {
+    .grid-feature,
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  }
+
   /* ============================================================
-     FLAT SURFACES — sólidas, sin gradientes ni sombra decorativa
+     SECTION HEADER (PREM-004)
+     eyebrow → title → lead
+     ============================================================ */
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: var(--space-block);
+    max-width: 44rem;
+  }
+  .section-header--center {
+    margin-inline: auto;
+    text-align: center;
+    align-items: center;
+  }
+  .section-eyebrow {
+    font-family: var(--font-display);
+    color: var(--color-brand-secondary);
+    font-size: var(--text-eyebrow);
+    font-weight: 700;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .section-eyebrow::before {
+    content: "";
+    width: 1.6rem;
+    height: 2px;
+    background: var(--color-accent);
+  }
+  .section-header--center .section-eyebrow::before {
+    display: none;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    color: var(--color-brand-primary);
+    font-size: var(--text-heading-2xl);
+    line-height: 1.15;
+    letter-spacing: var(--tracking-display);
+  }
+  .section-lead {
+    color: var(--color-text-secondary);
+    font-size: var(--text-body-lg);
+    line-height: 1.7;
+    max-width: 36rem;
+  }
+  .section-header--center .section-lead {
+    margin-inline: auto;
+  }
+
+  /* ============================================================
+     CARDS (PREM-005)
      ============================================================ */
   .card {
     background: var(--color-surface-flat);
-    border: 1px solid var(--color-border-flat);
+    border: var(--border-hairline);
     border-radius: var(--radius-lg);
   }
+
+  /* Card inmobiliaria: profundidad suave + imagen + badge de estado */
+  .card-property {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--color-surface-flat);
+    border: var(--border-hairline);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-premium-card);
+    transition: transform 0.2s ease, box-shadow 0.25s ease;
+  }
+  .card-property:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-premium-hover);
+  }
+
   .card--feature {
     background: var(--color-surface-flat-soft);
     border-radius: var(--radius-md);
   }
+  .card--feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1rem;
+    color: var(--color-brand-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
 
+  .card-team {
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  /* Card de stat (indicadores de confianza) */
+  .card-stat {
+    padding: 1.5rem;
+    text-align: center;
+    background: var(--color-surface-flat-soft);
+    border: var(--border-hairline);
+    border-radius: var(--radius-lg);
+  }
+  .card-stat .stat-value {
+    font-family: var(--font-display);
+    font-size: var(--text-display-2xl);
+    color: var(--color-brand-primary);
+    line-height: 1;
+  }
+  .card-stat .stat-label {
+    color: var(--color-text-secondary);
+    font-size: var(--text-caption);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.5rem;
+  }
+
+  /* ============================================================
+     BADGES & CHIPS (PREM-006)
+     ============================================================ */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: var(--radius-full);
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .badge-primary {
+    background: var(--color-brand-primary);
+    color: var(--color-text-inverse);
+  }
   .badge-success {
     background: var(--color-brand-secondary-pale);
     color: var(--color-brand-primary-dark);
-    border-radius: var(--radius-sm);
-    padding: 0.25rem 0.75rem;
-    font-size: 0.8rem;
-    font-weight: 600;
   }
   .badge-accent {
     background: var(--color-accent-pale);
     color: #8A4D00;
-    border-radius: var(--radius-sm);
-    padding: 0.25rem 0.75rem;
-    font-size: 0.8rem;
+  }
+  .badge-warning {
+    background: var(--color-accent);
+    color: var(--color-text-on-accent);
+  }
+  .badge-muted {
+    background: var(--color-surface-muted);
+    color: var(--color-text-secondary);
+  }
+
+  /* Estados de lote inmobiliario */
+  .badge-status--available { background: var(--color-brand-secondary); color: #fff; }
+  .badge-status--presale   { background: var(--color-accent); color: var(--color-text-on-accent); }
+  .badge-status--last      { background: var(--color-accent-strong); color: var(--color-text-on-accent); }
+  .badge-status--sold      { background: var(--color-surface-muted); color: var(--color-text-secondary); }
+
+  /* Chip (etiqueta neutra, pills) */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid var(--color-border-flat);
+    background: var(--color-surface-flat);
+    color: var(--color-brand-primary);
+    border-radius: var(--radius-full);
+    padding: 0.45rem 1rem;
+    font-size: 0.85rem;
     font-weight: 600;
+  }
+  .chip svg { color: var(--color-brand-secondary); }
+
+  /* ============================================================
+     LISTS (PREM-007)
+     ============================================================ */
+  .list-feature {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .list-feature li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    color: var(--color-brand-primary);
+    font-size: 0.95rem;
+  }
+  .list-feature li svg {
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    color: var(--color-brand-secondary);
+  }
+
+  .list-contact {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .list-contact li {
+    display: flex;
+    gap: 0.9rem;
+    color: var(--color-brand-primary);
+  }
+  .list-contact li > svg {
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+  .list-contact li > div {
+    display: flex;
+    flex-direction: column;
+  }
+  .list-contact .label {
+    font-weight: 700;
+    color: var(--color-text-primary);
+  }
+  .list-contact a {
+    color: var(--color-brand-primary);
+    text-decoration: none;
+  }
+  .list-contact a:hover {
+    text-decoration: underline;
+  }
+
+  .list-check {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .list-check li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-brand-primary);
+    font-size: 0.95rem;
+  }
+  .list-check li svg {
+    flex-shrink: 0;
+    color: var(--color-brand-secondary);
+  }
+  @media (min-width: 480px) {
+    .list-check { grid-template-columns: 1fr 1fr; }
   }
 
   /* ============================================================
-     AERO BUTTONS — profundidad reservada a controles accionables
+     FORMS (PREM-008)
+     ============================================================ */
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .field label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+  }
+  .field input,
+  .field textarea,
+  .field select {
+    border: 1px solid var(--color-border-flat);
+    border-radius: var(--radius-sm);
+    padding: 0.7rem 0.85rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background: var(--color-surface-flat);
+    color: var(--color-text-primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .field textarea {
+    resize: vertical;
+  }
+  .field input:hover,
+  .field textarea:hover {
+    border-color: var(--color-border-strong);
+  }
+  .field input:focus-visible,
+  .field textarea:focus-visible,
+  .field select:focus-visible {
+    outline: 3px solid var(--color-focus-ring);
+    outline-offset: 1px;
+    border-color: transparent;
+  }
+  .field input[aria-invalid="true"],
+  .field textarea[aria-invalid="true"] {
+    border-color: var(--color-error);
+  }
+  .field-error {
+    color: var(--color-error);
+    font-size: 0.8rem;
+  }
+  .field-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 480px) {
+    .field-row { grid-template-columns: 1fr 1fr; }
+  }
+  .form-success {
+    color: var(--color-success);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+  }
+  .check input {
+    margin-top: 0.15rem;
+    accent-color: var(--color-brand-secondary);
+  }
+  .check-error { color: var(--color-error); }
+
+  /* ============================================================
+     BUTTONS & ACTIONS (PREM-009)
      ============================================================ */
   .btn-aero {
     display: inline-flex;
@@ -117,12 +445,194 @@
     border-radius: var(--radius-full);
   }
 
+  /* Tamaños */
+  .btn-sm {
+    padding: 0.55rem 1.15rem;
+    min-height: 2.25rem;
+    font-size: 0.9rem;
+  }
+  .btn-lg {
+    padding: 1rem 2.25rem;
+    min-height: 3.25rem;
+    font-size: 1.05rem;
+  }
+  .btn-wide {
+    width: 100%;
+  }
+
+  /* Link con flecha (CTA de texto) */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-brand-primary);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+  .link-arrow:hover {
+    gap: 0.75rem;
+    color: var(--color-accent-strong);
+  }
+  .link-arrow:focus-visible {
+    outline: 3px solid var(--color-focus-ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+  .link-arrow[aria-disabled="true"] {
+    color: var(--color-text-secondary);
+    pointer-events: none;
+  }
+
   /* Gradientes — solo dentro de botones aero */
   .bg-brand-gradient {
     background: linear-gradient(135deg, #0D4D2E 0%, #2EAA4D 60%, #7ED957 100%);
   }
   .bg-accent-gradient {
     background: linear-gradient(135deg, #FF7A00 0%, #FFB11B 50%, #FFD60A 100%);
+  }
+
+  /* ============================================================
+     MEDIA FRAMES (PREM-010)
+     ============================================================ */
+  .media-frame {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    background: var(--color-surface-muted);
+  }
+  .media-frame > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .media-frame:hover > img {
+    transform: scale(1.04);
+  }
+  .media-frame--rounded-lg { border-radius: var(--radius-lg); }
+
+  .aspect-video { aspect-ratio: 16 / 9; }
+  .aspect-4-3 { aspect-ratio: 4 / 3; }
+  .aspect-square { aspect-ratio: 1 / 1; }
+
+  /* ============================================================
+     TABS (PREM-011)
+     ============================================================ */
+  .tabs-pill {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.3rem;
+    background: var(--color-surface-muted);
+    border-radius: var(--radius-full);
+  }
+  .tab-pill {
+    border: none;
+    background: transparent;
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-full);
+    padding: 0.6rem 1.4rem;
+    font-weight: 600;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .tab-pill:hover {
+    color: var(--color-brand-primary);
+  }
+  .tab-pill.is-active {
+    background: var(--color-surface-flat);
+    color: var(--color-brand-primary);
+    box-shadow: var(--shadow-premium-card);
+  }
+  .tab-pill:focus-visible {
+    outline: 3px solid var(--color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* ============================================================
+     NAV (PREM-013)
+     ============================================================ */
+  .nav-link {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0.25rem;
+    position: relative;
+    transition: color 0.2s ease;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: var(--color-accent);
+    transition: width 0.2s ease;
+  }
+  .nav-link:hover {
+    color: var(--color-brand-primary);
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  .nav-link:focus-visible {
+    outline: 3px solid var(--color-focus-ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+  .nav-link--inverse {
+    color: var(--color-text-inverse);
+    opacity: 0.92;
+  }
+  .nav-link--inverse:hover {
+    color: var(--color-text-inverse);
+    opacity: 1;
+    text-decoration: underline;
+  }
+  .nav-link--inverse::after { display: none; }
+
+  .footer-link {
+    color: var(--color-text-inverse);
+    text-decoration: none;
+    opacity: 0.9;
+  }
+  .footer-link:hover {
+    text-decoration: underline;
+    opacity: 1;
+  }
+
+  .social-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: grid;
+    place-items: center;
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.12);
+    color: var(--color-text-inverse);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+  .social-icon:hover {
+    background: var(--color-accent);
+    color: var(--color-text-on-accent);
+    transform: translateY(-2px);
+  }
+  .social-icon svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  /* ============================================================
+     HERO (PREM-012)
+     ============================================================ */
+  .hero-overlay--dark {
+    background: linear-gradient(180deg, rgb(9 46 28 / 0.55) 0%, rgb(9 46 28 / 0.82) 100%);
   }
 
   /* Focus global para controles no-botón (inputs, links) */
@@ -132,11 +642,20 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .btn-aero {
+    .btn-aero,
+    .link-arrow,
+    .media-frame > img,
+    .card-property,
+    .tab-pill,
+    .nav-link,
+    .nav-link::after,
+    .social-icon {
       transition: none;
     }
     .btn-aero:hover,
-    .btn-aero:active {
+    .btn-aero:active,
+    .card-property:hover,
+    .media-frame:hover > img {
       transform: none;
     }
   }

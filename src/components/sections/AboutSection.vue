@@ -11,7 +11,10 @@ const mapa = imageModules['/src/assets/images/mapa.png']
     <div class="container-page">
       <div class="about-grid">
         <div class="about-content">
-          <h2 id="about-title" class="section-eyebrow">¿QUIÉNES SOMOS?</h2>
+          <div class="section-header">
+            <p class="section-eyebrow">¿Quiénes somos?</p>
+            <h2 id="about-title" class="section-title">Somos arquitectos de sueños inmobiliarios</h2>
+          </div>
           <p class="about-copy">
             En Urbanika somos un equipo de especialistas en el rubro inmobiliario.
             Contamos con líderes expertos, asesores con amplia trayectoria, un área
@@ -28,7 +31,7 @@ const mapa = imageModules['/src/assets/images/mapa.png']
             financiera y futuros prometedores.
           </p>
         </div>
-        <figure class="about-media">
+        <figure class="about-media media-frame media-frame--rounded-lg aspect-4-3">
           <img :src="mapa" alt="Ubicación de Urbanikawsay Inmobiliaria en Lima" class="about-img" />
         </figure>
       </div>
@@ -48,32 +51,21 @@ const mapa = imageModules['/src/assets/images/mapa.png']
     grid-template-columns: 1.2fr 1fr;
   }
 }
-.section-eyebrow {
-  font-family: var(--font-display);
-  color: var(--color-brand-secondary);
-  font-size: 0.9rem;
-  letter-spacing: 0.12em;
-  margin-bottom: 0.75rem;
-}
 .about-copy {
   color: var(--color-text-primary);
-  font-size: 1.05rem;
+  font-size: var(--text-body-lg);
   line-height: 1.7;
   margin-bottom: 1.5rem;
 }
 .about-subtitle {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: var(--text-heading-lg);
   color: var(--color-brand-primary);
   margin-bottom: 0.75rem;
 }
-.about-media {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-}
 .about-img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 </style>

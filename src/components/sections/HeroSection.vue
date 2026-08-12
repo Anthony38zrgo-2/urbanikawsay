@@ -29,23 +29,26 @@ const imageModules = import.meta.glob('@/assets/images/*.png', {
           :fetchpriority="index === 0 ? 'high' : 'auto'"
         />
       </figure>
-      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="hero-overlay hero-overlay--dark" aria-hidden="true"></div>
     </div>
 
     <div class="container-page hero-content">
-      <h1 id="hero-title" class="animate-fade-in-up">
-        CONSTRUYE EL<br />
-        <strong>FUTURO SEGURO</strong><br />
-        <strong>QUE TE MERECES</strong>
-      </h1>
-      <p class="hero-subtitle animate-fade-in-up">
-        Invierte con tranquilidad con el respaldo de Urbanikawsay Inmobiliaria.
-        <strong>¡Asegura tu futuro de la mano de expertos en el sector!</strong>
-      </p>
-      <a href="#proyectos" class="btn-aero btn-aero-primary hero-cta animate-fade-in-up">
-        Conoce más aquí
-        <span aria-hidden="true">↓</span>
-      </a>
+      <div class="hero-section">
+        <p class="section-eyebrow">Inmobiliaria de confianza</p>
+        <h1 id="hero-title" class="hero-title animate-fade-in-up">
+          CONSTRUYE EL<br />
+          <strong>FUTURO SEGURO</strong><br />
+          <strong>QUE TE MERECES</strong>
+        </h1>
+        <p class="hero-subtitle animate-fade-in-up">
+          Invierte con tranquilidad con el respaldo de Urbanikawsay Inmobiliaria.
+          <strong>¡Asegura tu futuro de la mano de expertos en el sector!</strong>
+        </p>
+        <a href="#proyectos" class="btn-aero btn-aero-primary btn-lg hero-cta animate-fade-in-up">
+          Conoce más aquí
+          <span aria-hidden="true">↓</span>
+        </a>
+      </div>
     </div>
   </section>
 </template>
@@ -91,23 +94,37 @@ const imageModules = import.meta.glob('@/assets/images/*.png', {
   z-index: 1;
   padding-block: 6rem;
 }
-.hero-content h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  line-height: 1.15;
-  margin-bottom: 1rem;
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 40rem;
 }
-.hero-content h1 strong {
+.hero-section .section-eyebrow {
+  color: var(--color-accent);
+}
+.hero-section .section-eyebrow::before {
+  background: var(--color-accent);
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: var(--text-display-3xl);
+  line-height: 1.1;
+  letter-spacing: var(--tracking-display);
+  color: var(--color-text-inverse);
+}
+.hero-title strong {
   color: var(--color-accent);
 }
 .hero-subtitle {
   max-width: 32rem;
-  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  font-size: var(--text-body-lg);
   opacity: 0.95;
-  margin-bottom: 1.75rem;
 }
 .hero-cta {
+  align-self: flex-start;
   text-decoration: none;
+  margin-top: 0.5rem;
 }
 
 @keyframes heroCrossfade {

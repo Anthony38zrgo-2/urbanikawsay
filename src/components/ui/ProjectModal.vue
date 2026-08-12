@@ -43,12 +43,14 @@ const whatsappCta = computed(() =>
     @close="emit('close')"
   >
     <template v-if="project">
-      <img
-        v-if="imageSrc"
-        :src="imageSrc"
-        :alt="`Proyecto ${project.name}`"
-        class="project-image"
-      />
+      <div class="media-frame aspect-video project-media">
+        <img
+          v-if="imageSrc"
+          :src="imageSrc"
+          :alt="`Proyecto ${project.name}`"
+          class="project-image"
+        />
+      </div>
       <dl class="project-specs">
         <div class="spec">
           <BaseIcon name="location" />
@@ -63,7 +65,7 @@ const whatsappCta = computed(() =>
         </div>
       </dl>
       <p class="project-desc">{{ project.description }}</p>
-      <ul class="feature-list">
+      <ul class="list-check feature-list">
         <li v-for="feature in project.features" :key="feature">
           <BaseIcon name="check" decorative />
           {{ feature }}
@@ -91,9 +93,7 @@ const whatsappCta = computed(() =>
 </template>
 
 <style scoped>
-.project-image {
-  width: 100%;
-  border-radius: var(--radius-md);
+.project-media {
   margin-bottom: 1rem;
 }
 .project-specs {
@@ -119,16 +119,7 @@ const whatsappCta = computed(() =>
   margin-bottom: 1rem;
 }
 .feature-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
   margin-bottom: 1.5rem;
-}
-.feature-list li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--color-brand-primary);
 }
 .project-actions {
   display: flex;

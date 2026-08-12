@@ -6,12 +6,15 @@ import BaseIcon from '@/components/ui/BaseIcon.vue'
 <template>
   <section class="section-pad team-section" aria-labelledby="team-title">
     <div class="container-page">
-      <h2 id="team-title" class="team-heading">Nuestro equipo</h2>
+      <div class="section-header section-header--center">
+        <p class="section-eyebrow">El equipo</p>
+        <h2 id="team-title" class="section-title">Nuestro equipo</h2>
+      </div>
       <div class="team-grid">
         <article
           v-for="member in siteData.team"
           :key="member.name"
-          class="card team-card"
+          class="card card-team"
         >
           <div class="team-avatar" aria-hidden="true">
             <BaseIcon name="person" :size="32" decorative />
@@ -29,13 +32,6 @@ import BaseIcon from '@/components/ui/BaseIcon.vue'
 .team-section {
   background: var(--color-surface-soft);
 }
-.team-heading {
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  color: var(--color-brand-primary);
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
 .team-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -47,9 +43,6 @@ import BaseIcon from '@/components/ui/BaseIcon.vue'
 @media (min-width: 1024px) {
   .team-grid { grid-template-columns: repeat(3, 1fr); }
 }
-.team-card {
-  padding: 1.5rem;
-}
 .team-avatar {
   width: 3.5rem;
   height: 3.5rem;
@@ -58,7 +51,7 @@ import BaseIcon from '@/components/ui/BaseIcon.vue'
   border-radius: 9999px;
   background: var(--color-brand-secondary-pale);
   color: var(--color-brand-primary);
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
 }
 .team-name {
   font-family: var(--font-display);

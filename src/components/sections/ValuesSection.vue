@@ -27,10 +27,13 @@ const tabs = [
 <template>
   <section class="section-pad values-section" aria-labelledby="values-title">
     <div class="container-page">
-      <h2 id="values-title" class="values-heading">Nuestra fortaleza, tu garantía</h2>
-      <p class="values-sub">Dando forma a sonrisas en cada terreno. Felices hogares, paso a paso.</p>
+      <div class="section-header section-header--center">
+        <p class="section-eyebrow">Nuestra fortaleza</p>
+        <h2 id="values-title" class="section-title">Nuestra fortaleza, tu garantía</h2>
+        <p class="section-lead">Dando forma a sonrisas en cada terreno. Felices hogares, paso a paso.</p>
+      </div>
 
-      <div class="tabs" role="tablist" aria-label="Misión y visión">
+      <div class="tabs-pill" role="tablist" aria-label="Misión y visión">
         <button
           v-for="tab in tabs"
           :key="tab.id"
@@ -40,7 +43,7 @@ const tabs = [
           :aria-selected="activeTab === tab.id"
           :aria-controls="`panel-${tab.id}`"
           :tabindex="activeTab === tab.id ? 0 : -1"
-          :class="{ 'tab-active': activeTab === tab.id }"
+          :class="{ 'tab-pill': true, 'is-active': activeTab === tab.id }"
           @click="activeTab = tab.id"
         >
           {{ tab.label }}
@@ -81,37 +84,11 @@ const tabs = [
 .values-section {
   background: var(--color-surface-soft);
 }
-.values-heading {
-  font-family: var(--font-display);
-  color: var(--color-brand-primary);
-  text-align: center;
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-}
-.values-sub {
-  text-align: center;
-  color: var(--color-text-secondary);
-  margin-bottom: 2.5rem;
-}
-.tabs {
+.tabs-pill {
   display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-.tabs button {
-  border: 1px solid var(--color-border-flat);
-  background: var(--color-surface-flat);
-  color: var(--color-text-secondary);
-  border-radius: var(--radius-full);
-  padding: 0.6rem 1.25rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.tabs button.tab-active {
-  background: var(--color-brand-primary);
-  color: var(--color-text-inverse);
-  border-color: var(--color-brand-primary);
+  margin-inline: auto;
+  margin-bottom: 2.5rem;
+  width: fit-content;
 }
 .tab-panel {
   max-width: 40rem;
@@ -122,7 +99,7 @@ const tabs = [
 .tab-heading {
   font-family: var(--font-display);
   color: var(--color-brand-primary);
-  font-size: 1.35rem;
+  font-size: var(--text-heading-lg);
   margin-bottom: 0.5rem;
 }
 .tab-text {

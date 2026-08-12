@@ -25,7 +25,7 @@ const siFacebookRaw = siFacebook.path
             rel="noopener noreferrer"
             :aria-label="`Visitar Urbanikawsay en ${social.platform}`"
             :title="social.platform"
-            class="social-link"
+            class="social-icon"
           >
             <svg
               v-if="social.platform === 'Facebook'"
@@ -59,7 +59,7 @@ const siFacebookRaw = siFacebook.path
 
       <div class="footer-col">
         <h3 class="footer-title">Contacto</h3>
-        <ul class="footer-list">
+        <ul class="list-contact footer-contact">
           <li>
             <BaseIcon name="phone" decorative />
             <a :href="`tel:+${siteData.contact.phoneMainIntl}`">{{ siteData.contact.phoneMain }}</a>
@@ -84,7 +84,7 @@ const siFacebookRaw = siFacebook.path
         <nav aria-label="Navegación del pie de página">
           <ul class="footer-list footer-nav">
             <li v-for="item in siteData.navigation" :key="item.href">
-              <a :href="item.href">{{ item.label }}</a>
+              <a :href="item.href" class="footer-link">{{ item.label }}</a>
             </li>
           </ul>
         </nav>
@@ -94,7 +94,7 @@ const siFacebookRaw = siFacebook.path
         <h3 class="footer-title">Topic</h3>
         <ul class="footer-list footer-nav">
           <li v-for="topic in siteData.footer.topic" :key="topic">
-            <a href="#">{{ topic }}</a>
+            <a href="#" class="footer-link">{{ topic }}</a>
           </li>
         </ul>
       </div>
@@ -138,24 +138,6 @@ const siFacebookRaw = siFacebook.path
   gap: 0.75rem;
   margin-top: 1rem;
 }
-.social-link {
-  width: 2.5rem;
-  height: 2.5rem;
-  display: grid;
-  place-items: center;
-  border-radius: 9999px;
-  background: rgb(255 255 255 / 0.12);
-  color: var(--color-text-inverse);
-  transition: background 0.2s ease;
-}
-.social-link:hover {
-  background: var(--color-accent);
-  color: var(--color-text-on-accent);
-}
-.social-link svg {
-  width: 1.1rem;
-  height: 1.1rem;
-}
 .footer-title {
   font-family: var(--font-display);
   font-size: 1rem;
@@ -189,5 +171,19 @@ const siFacebookRaw = siFacebook.path
 }
 .footer-nav li a {
   opacity: 0.9;
+}
+.footer-contact {
+  gap: 0.7rem;
+}
+.footer-contact li {
+  color: var(--color-text-inverse);
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+.footer-contact .label {
+  color: var(--color-text-inverse);
+}
+.footer-contact a {
+  color: var(--color-text-inverse);
 }
 </style>

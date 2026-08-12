@@ -102,7 +102,7 @@ const errorFor = (key) => computed(() => errors.value[key] || '')
       </label>
       <p v-if="errors.acepta" class="field-error">{{ errors.acepta }}</p>
       <button type="submit" class="btn-aero btn-aero-primary submit-btn">Enviar solicitud</button>
-      <p v-if="submitted" class="success-msg" aria-live="polite">
+      <p v-if="submitted" class="form-success" aria-live="polite">
         Gracias. Se abrirá tu cliente de correo para completar el envío.
       </p>
     </form>
@@ -114,45 +114,6 @@ const errorFor = (key) => computed(() => errors.value[key] || '')
   display: flex;
   flex-direction: column;
   gap: 1rem;
-}
-.field-row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-@media (min-width: 480px) {
-  .field-row { grid-template-columns: 1fr 1fr; }
-}
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-.field label,
-.check {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-text-primary);
-}
-.field input,
-.field textarea {
-  border: 1px solid var(--color-border-flat);
-  border-radius: var(--radius-sm);
-  padding: 0.6rem 0.75rem;
-  font-family: inherit;
-  font-size: 0.95rem;
-  color: var(--color-text-primary);
-  background: var(--color-surface-flat);
-}
-.field input:focus-visible,
-.field textarea:focus-visible {
-  outline: 3px solid var(--color-focus-ring);
-  outline-offset: 1px;
-  border-color: transparent;
-}
-.field-error {
-  color: var(--color-error);
-  font-size: 0.8rem;
 }
 .check {
   display: flex;
@@ -166,9 +127,5 @@ const errorFor = (key) => computed(() => errors.value[key] || '')
 .submit-btn {
   align-self: flex-start;
   cursor: pointer;
-}
-.success-msg {
-  color: var(--color-success);
-  font-size: 0.9rem;
 }
 </style>
