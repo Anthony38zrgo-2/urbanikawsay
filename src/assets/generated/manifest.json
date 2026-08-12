@@ -1,0 +1,815 @@
+{
+  "boto-el-milagro.png": {
+    "name": "boto-el-milagro.png",
+    "role": "promo",
+    "active": false,
+    "source": "src/assets/images/boto-el-milagro.png",
+    "sourceWidth": 794,
+    "sourceHeight": 1024,
+    "formats": {
+      "avif": [],
+      "webp": [],
+      "png": [],
+      "jpg": []
+    }
+  },
+  "cuadro-01.png": {
+    "name": "cuadro-01.png",
+    "role": "hero",
+    "active": true,
+    "source": "src/assets/images/regenerated/cuadro-01.png",
+    "sourceWidth": 1586,
+    "sourceHeight": 992,
+    "width": 1280,
+    "height": 801,
+    "formats": {
+      "avif": [
+        {
+          "src": "./cuadro-01/cuadro-01-480.avif",
+          "width": 480,
+          "bytes": 10899,
+          "height": 300
+        },
+        {
+          "src": "./cuadro-01/cuadro-01-768.avif",
+          "width": 768,
+          "bytes": 22590,
+          "height": 480
+        },
+        {
+          "src": "./cuadro-01/cuadro-01-1024.avif",
+          "width": 1024,
+          "bytes": 35566,
+          "height": 640
+        },
+        {
+          "src": "./cuadro-01/cuadro-01-1280.avif",
+          "width": 1280,
+          "bytes": 49726,
+          "height": 801
+        }
+      ],
+      "webp": [
+        {
+          "src": "./cuadro-01/cuadro-01-480.webp",
+          "width": 480,
+          "bytes": 15644,
+          "height": 300
+        },
+        {
+          "src": "./cuadro-01/cuadro-01-768.webp",
+          "width": 768,
+          "bytes": 32668,
+          "height": 480
+        },
+        {
+          "src": "./cuadro-01/cuadro-01-1024.webp",
+          "width": 1024,
+          "bytes": 51680,
+          "height": 640
+        },
+        {
+          "src": "./cuadro-01/cuadro-01-1280.webp",
+          "width": 1280,
+          "bytes": 72532,
+          "height": 801
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./cuadro-01/cuadro-01-1280.jpg",
+          "width": 1280,
+          "bytes": 106297,
+          "height": 801
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./cuadro-01/cuadro-01-1280.jpg",
+      "width": 1280,
+      "bytes": 106297,
+      "height": 801
+    }
+  },
+  "cuadro-02.png": {
+    "name": "cuadro-02.png",
+    "role": "hero",
+    "active": true,
+    "source": "src/assets/images/regenerated/cuadro-02.png",
+    "sourceWidth": 1586,
+    "sourceHeight": 992,
+    "width": 1280,
+    "height": 801,
+    "formats": {
+      "avif": [
+        {
+          "src": "./cuadro-02/cuadro-02-480.avif",
+          "width": 480,
+          "bytes": 13296,
+          "height": 300
+        },
+        {
+          "src": "./cuadro-02/cuadro-02-768.avif",
+          "width": 768,
+          "bytes": 29253,
+          "height": 480
+        },
+        {
+          "src": "./cuadro-02/cuadro-02-1024.avif",
+          "width": 1024,
+          "bytes": 48437,
+          "height": 640
+        },
+        {
+          "src": "./cuadro-02/cuadro-02-1280.avif",
+          "width": 1280,
+          "bytes": 71772,
+          "height": 801
+        }
+      ],
+      "webp": [
+        {
+          "src": "./cuadro-02/cuadro-02-480.webp",
+          "width": 480,
+          "bytes": 20872,
+          "height": 300
+        },
+        {
+          "src": "./cuadro-02/cuadro-02-768.webp",
+          "width": 768,
+          "bytes": 46334,
+          "height": 480
+        },
+        {
+          "src": "./cuadro-02/cuadro-02-1024.webp",
+          "width": 1024,
+          "bytes": 75254,
+          "height": 640
+        },
+        {
+          "src": "./cuadro-02/cuadro-02-1280.webp",
+          "width": 1280,
+          "bytes": 108526,
+          "height": 801
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./cuadro-02/cuadro-02-1280.jpg",
+          "width": 1280,
+          "bytes": 133130,
+          "height": 801
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./cuadro-02/cuadro-02-1280.jpg",
+      "width": 1280,
+      "bytes": 133130,
+      "height": 801
+    }
+  },
+  "favicon-192.png": {
+    "name": "favicon-192.png",
+    "role": "favicon",
+    "active": true,
+    "source": "src/assets/images/favicon-192.png",
+    "sourceWidth": 192,
+    "sourceHeight": 192,
+    "width": 192,
+    "height": 192,
+    "formats": {
+      "avif": [],
+      "webp": [],
+      "png": [
+        {
+          "src": "./favicon-192.png",
+          "width": 192,
+          "bytes": 9237,
+          "height": 192
+        }
+      ],
+      "jpg": []
+    },
+    "fallback": {
+      "src": "./favicon-192.png",
+      "width": 192,
+      "bytes": 9237,
+      "height": 192
+    }
+  },
+  "favicon-32.png": {
+    "name": "favicon-32.png",
+    "role": "favicon",
+    "active": true,
+    "source": "src/assets/images/favicon-32.png",
+    "sourceWidth": 32,
+    "sourceHeight": 32,
+    "width": 32,
+    "height": 32,
+    "formats": {
+      "avif": [],
+      "webp": [],
+      "png": [
+        {
+          "src": "./favicon-32.png",
+          "width": 32,
+          "bytes": 1272,
+          "height": 32
+        }
+      ],
+      "jpg": []
+    },
+    "fallback": {
+      "src": "./favicon-32.png",
+      "width": 32,
+      "bytes": 1272,
+      "height": 32
+    }
+  },
+  "foto-wa-1.png": {
+    "name": "foto-wa-1.png",
+    "role": "photo",
+    "active": false,
+    "source": "src/assets/images/foto-wa-1.png",
+    "sourceWidth": 208,
+    "sourceHeight": 188,
+    "formats": {
+      "avif": [],
+      "webp": [],
+      "png": [],
+      "jpg": []
+    }
+  },
+  "foto-wa-2.png": {
+    "name": "foto-wa-2.png",
+    "role": "photo",
+    "active": false,
+    "source": "src/assets/images/foto-wa-2.png",
+    "sourceWidth": 208,
+    "sourceHeight": 188,
+    "formats": {
+      "avif": [],
+      "webp": [],
+      "png": [],
+      "jpg": []
+    }
+  },
+  "group-71.png": {
+    "name": "group-71.png",
+    "role": "hero",
+    "active": true,
+    "source": "src/assets/images/regenerated/group-71.png",
+    "sourceWidth": 1586,
+    "sourceHeight": 992,
+    "width": 1280,
+    "height": 801,
+    "formats": {
+      "avif": [
+        {
+          "src": "./group-71/group-71-480.avif",
+          "width": 480,
+          "bytes": 17430,
+          "height": 300
+        },
+        {
+          "src": "./group-71/group-71-768.avif",
+          "width": 768,
+          "bytes": 42373,
+          "height": 480
+        },
+        {
+          "src": "./group-71/group-71-1024.avif",
+          "width": 1024,
+          "bytes": 75063,
+          "height": 640
+        },
+        {
+          "src": "./group-71/group-71-1280.avif",
+          "width": 1280,
+          "bytes": 110599,
+          "height": 801
+        }
+      ],
+      "webp": [
+        {
+          "src": "./group-71/group-71-480.webp",
+          "width": 480,
+          "bytes": 30530,
+          "height": 300
+        },
+        {
+          "src": "./group-71/group-71-768.webp",
+          "width": 768,
+          "bytes": 79472,
+          "height": 480
+        },
+        {
+          "src": "./group-71/group-71-1024.webp",
+          "width": 1024,
+          "bytes": 137372,
+          "height": 640
+        },
+        {
+          "src": "./group-71/group-71-1280.webp",
+          "width": 1280,
+          "bytes": 200082,
+          "height": 801
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./group-71/group-71-1280.jpg",
+          "width": 1280,
+          "bytes": 208848,
+          "height": 801
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./group-71/group-71-1280.jpg",
+      "width": 1280,
+      "bytes": 208848,
+      "height": 801
+    }
+  },
+  "group-72.png": {
+    "name": "group-72.png",
+    "role": "hero",
+    "active": true,
+    "source": "src/assets/images/regenerated/group-72.png",
+    "sourceWidth": 1586,
+    "sourceHeight": 992,
+    "width": 1280,
+    "height": 801,
+    "formats": {
+      "avif": [
+        {
+          "src": "./group-72/group-72-480.avif",
+          "width": 480,
+          "bytes": 13799,
+          "height": 300
+        },
+        {
+          "src": "./group-72/group-72-768.avif",
+          "width": 768,
+          "bytes": 32793,
+          "height": 480
+        },
+        {
+          "src": "./group-72/group-72-1024.avif",
+          "width": 1024,
+          "bytes": 56844,
+          "height": 640
+        },
+        {
+          "src": "./group-72/group-72-1280.avif",
+          "width": 1280,
+          "bytes": 87502,
+          "height": 801
+        }
+      ],
+      "webp": [
+        {
+          "src": "./group-72/group-72-480.webp",
+          "width": 480,
+          "bytes": 23086,
+          "height": 300
+        },
+        {
+          "src": "./group-72/group-72-768.webp",
+          "width": 768,
+          "bytes": 55762,
+          "height": 480
+        },
+        {
+          "src": "./group-72/group-72-1024.webp",
+          "width": 1024,
+          "bytes": 96288,
+          "height": 640
+        },
+        {
+          "src": "./group-72/group-72-1280.webp",
+          "width": 1280,
+          "bytes": 146808,
+          "height": 801
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./group-72/group-72-1280.jpg",
+          "width": 1280,
+          "bytes": 162390,
+          "height": 801
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./group-72/group-72-1280.jpg",
+      "width": 1280,
+      "bytes": 162390,
+      "height": 801
+    }
+  },
+  "logo.png": {
+    "name": "logo.png",
+    "role": "logo",
+    "active": true,
+    "source": "src/assets/images/logo.png",
+    "sourceWidth": 2559,
+    "sourceHeight": 733,
+    "width": 512,
+    "height": 147,
+    "formats": {
+      "avif": [
+        {
+          "src": "./logo/logo-512.avif",
+          "width": 512,
+          "bytes": 11233,
+          "height": 147
+        }
+      ],
+      "webp": [
+        {
+          "src": "./logo/logo-512.webp",
+          "width": 512,
+          "bytes": 18060,
+          "height": 147
+        }
+      ],
+      "png": [
+        {
+          "src": "./logo/logo-512.png",
+          "width": 512,
+          "bytes": 30488,
+          "height": 147
+        }
+      ],
+      "jpg": []
+    },
+    "fallback": {
+      "src": "./logo/logo-512.png",
+      "width": 512,
+      "bytes": 30488,
+      "height": 147
+    }
+  },
+  "mapa.png": {
+    "name": "mapa.png",
+    "role": "map",
+    "active": true,
+    "source": "src/assets/images/mapa.png",
+    "sourceWidth": 790,
+    "sourceHeight": 1024,
+    "width": 790,
+    "height": 1024,
+    "formats": {
+      "avif": [
+        {
+          "src": "./mapa/mapa-395.avif",
+          "width": 395,
+          "bytes": 17608,
+          "height": 512
+        },
+        {
+          "src": "./mapa/mapa-640.avif",
+          "width": 640,
+          "bytes": 29421,
+          "height": 830
+        },
+        {
+          "src": "./mapa/mapa-790.avif",
+          "width": 790,
+          "bytes": 37127,
+          "height": 1024
+        }
+      ],
+      "webp": [
+        {
+          "src": "./mapa/mapa-395.webp",
+          "width": 395,
+          "bytes": 27376,
+          "height": 512
+        },
+        {
+          "src": "./mapa/mapa-640.webp",
+          "width": 640,
+          "bytes": 50640,
+          "height": 830
+        },
+        {
+          "src": "./mapa/mapa-790.webp",
+          "width": 790,
+          "bytes": 62342,
+          "height": 1024
+        }
+      ],
+      "png": [
+        {
+          "src": "./mapa/mapa-790.png",
+          "width": 790,
+          "bytes": 352699,
+          "height": 1024
+        }
+      ],
+      "jpg": []
+    },
+    "fallback": {
+      "src": "./mapa/mapa-790.png",
+      "width": 790,
+      "bytes": 352699,
+      "height": 1024
+    }
+  },
+  "proyecto-extra-1.png": {
+    "name": "proyecto-extra-1.png",
+    "role": "project",
+    "active": true,
+    "source": "src/assets/images/regenerated/proyecto-extra-1.png",
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
+    "width": 1200,
+    "height": 900,
+    "formats": {
+      "avif": [
+        {
+          "src": "./proyecto-extra-1/proyecto-extra-1-320.avif",
+          "width": 320,
+          "bytes": 6750,
+          "height": 240
+        },
+        {
+          "src": "./proyecto-extra-1/proyecto-extra-1-480.avif",
+          "width": 480,
+          "bytes": 12199,
+          "height": 360
+        },
+        {
+          "src": "./proyecto-extra-1/proyecto-extra-1-640.avif",
+          "width": 640,
+          "bytes": 19225,
+          "height": 480
+        },
+        {
+          "src": "./proyecto-extra-1/proyecto-extra-1-960.avif",
+          "width": 960,
+          "bytes": 39196,
+          "height": 720
+        },
+        {
+          "src": "./proyecto-extra-1/proyecto-extra-1-1200.avif",
+          "width": 1200,
+          "bytes": 58017,
+          "height": 900
+        }
+      ],
+      "webp": [
+        {
+          "src": "./proyecto-extra-1/proyecto-extra-1-320.webp",
+          "width": 320,
+          "bytes": 7056,
+          "height": 240
+        },
+        {
+          "src": "./proyecto-extra-1/proyecto-extra-1-480.webp",
+          "width": 480,
+          "bytes": 13034,
+          "height": 360
+        },
+        {
+          "src": "./proyecto-extra-1/proyecto-extra-1-640.webp",
+          "width": 640,
+          "bytes": 19636,
+          "height": 480
+        },
+        {
+          "src": "./proyecto-extra-1/proyecto-extra-1-960.webp",
+          "width": 960,
+          "bytes": 40098,
+          "height": 720
+        },
+        {
+          "src": "./proyecto-extra-1/proyecto-extra-1-1200.webp",
+          "width": 1200,
+          "bytes": 60280,
+          "height": 900
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./proyecto-extra-1/proyecto-extra-1-1200.jpg",
+          "width": 1200,
+          "bytes": 88020,
+          "height": 900
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./proyecto-extra-1/proyecto-extra-1-1200.jpg",
+      "width": 1200,
+      "bytes": 88020,
+      "height": 900
+    }
+  },
+  "proyecto-extra-2.png": {
+    "name": "proyecto-extra-2.png",
+    "role": "project",
+    "active": false,
+    "source": "src/assets/images/proyecto-extra-2.png",
+    "sourceWidth": 208,
+    "sourceHeight": 188,
+    "formats": {
+      "avif": [],
+      "webp": [],
+      "png": [],
+      "jpg": []
+    }
+  },
+  "proyecto-huaral-village.png": {
+    "name": "proyecto-huaral-village.png",
+    "role": "project",
+    "active": true,
+    "source": "src/assets/images/regenerated/proyecto-huaral-village.png",
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
+    "width": 1200,
+    "height": 900,
+    "formats": {
+      "avif": [
+        {
+          "src": "./proyecto-huaral-village/proyecto-huaral-village-320.avif",
+          "width": 320,
+          "bytes": 6438,
+          "height": 240
+        },
+        {
+          "src": "./proyecto-huaral-village/proyecto-huaral-village-480.avif",
+          "width": 480,
+          "bytes": 11765,
+          "height": 360
+        },
+        {
+          "src": "./proyecto-huaral-village/proyecto-huaral-village-640.avif",
+          "width": 640,
+          "bytes": 18582,
+          "height": 480
+        },
+        {
+          "src": "./proyecto-huaral-village/proyecto-huaral-village-960.avif",
+          "width": 960,
+          "bytes": 38108,
+          "height": 720
+        },
+        {
+          "src": "./proyecto-huaral-village/proyecto-huaral-village-1200.avif",
+          "width": 1200,
+          "bytes": 56914,
+          "height": 900
+        }
+      ],
+      "webp": [
+        {
+          "src": "./proyecto-huaral-village/proyecto-huaral-village-320.webp",
+          "width": 320,
+          "bytes": 7046,
+          "height": 240
+        },
+        {
+          "src": "./proyecto-huaral-village/proyecto-huaral-village-480.webp",
+          "width": 480,
+          "bytes": 12986,
+          "height": 360
+        },
+        {
+          "src": "./proyecto-huaral-village/proyecto-huaral-village-640.webp",
+          "width": 640,
+          "bytes": 20188,
+          "height": 480
+        },
+        {
+          "src": "./proyecto-huaral-village/proyecto-huaral-village-960.webp",
+          "width": 960,
+          "bytes": 39956,
+          "height": 720
+        },
+        {
+          "src": "./proyecto-huaral-village/proyecto-huaral-village-1200.webp",
+          "width": 1200,
+          "bytes": 59062,
+          "height": 900
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./proyecto-huaral-village/proyecto-huaral-village-1200.jpg",
+          "width": 1200,
+          "bytes": 85844,
+          "height": 900
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./proyecto-huaral-village/proyecto-huaral-village-1200.jpg",
+      "width": 1200,
+      "bytes": 85844,
+      "height": 900
+    }
+  },
+  "proyecto-villa-norte.png": {
+    "name": "proyecto-villa-norte.png",
+    "role": "project",
+    "active": true,
+    "source": "src/assets/images/regenerated/proyecto-villa-norte.png",
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
+    "width": 1200,
+    "height": 900,
+    "formats": {
+      "avif": [
+        {
+          "src": "./proyecto-villa-norte/proyecto-villa-norte-320.avif",
+          "width": 320,
+          "bytes": 6656,
+          "height": 240
+        },
+        {
+          "src": "./proyecto-villa-norte/proyecto-villa-norte-480.avif",
+          "width": 480,
+          "bytes": 11819,
+          "height": 360
+        },
+        {
+          "src": "./proyecto-villa-norte/proyecto-villa-norte-640.avif",
+          "width": 640,
+          "bytes": 18273,
+          "height": 480
+        },
+        {
+          "src": "./proyecto-villa-norte/proyecto-villa-norte-960.avif",
+          "width": 960,
+          "bytes": 35249,
+          "height": 720
+        },
+        {
+          "src": "./proyecto-villa-norte/proyecto-villa-norte-1200.avif",
+          "width": 1200,
+          "bytes": 51156,
+          "height": 900
+        }
+      ],
+      "webp": [
+        {
+          "src": "./proyecto-villa-norte/proyecto-villa-norte-320.webp",
+          "width": 320,
+          "bytes": 6910,
+          "height": 240
+        },
+        {
+          "src": "./proyecto-villa-norte/proyecto-villa-norte-480.webp",
+          "width": 480,
+          "bytes": 13018,
+          "height": 360
+        },
+        {
+          "src": "./proyecto-villa-norte/proyecto-villa-norte-640.webp",
+          "width": 640,
+          "bytes": 20066,
+          "height": 480
+        },
+        {
+          "src": "./proyecto-villa-norte/proyecto-villa-norte-960.webp",
+          "width": 960,
+          "bytes": 38164,
+          "height": 720
+        },
+        {
+          "src": "./proyecto-villa-norte/proyecto-villa-norte-1200.webp",
+          "width": 1200,
+          "bytes": 54766,
+          "height": 900
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./proyecto-villa-norte/proyecto-villa-norte-1200.jpg",
+          "width": 1200,
+          "bytes": 78402,
+          "height": 900
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./proyecto-villa-norte/proyecto-villa-norte-1200.jpg",
+      "width": 1200,
+      "bytes": 78402,
+      "height": 900
+    }
+  }
+}

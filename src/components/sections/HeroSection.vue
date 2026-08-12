@@ -1,4 +1,7 @@
 <script setup>
+import ResponsiveImage from '@/components/ui/ResponsiveImage.vue'
+import { imageAssets } from '@/assets/generated/image-assets.js'
+
 const slides = [
   { image: 'cuadro-01.png', alt: 'Urbanikawsay Inmobiliaria — inversión en terrenos' },
   { image: 'group-71.png', alt: 'Proyectos inmobiliarios cerca del Megapuerto de Chancay' },
@@ -6,10 +9,6 @@ const slides = [
   { image: 'cuadro-02.png', alt: 'Lotes con servicios básicos' },
 ]
 
-const imageModules = import.meta.glob('@/assets/images/*.png', {
-  eager: true,
-  import: 'default',
-})
 </script>
 
 <template>
@@ -21,10 +20,12 @@ const imageModules = import.meta.glob('@/assets/images/*.png', {
         class="hero-slide"
         :style="{ '--i': index }"
       >
-        <img
-          :src="imageModules[`/src/assets/images/${slide.image}`]"
+        <ResponsiveImage
+          :asset="imageAssets[slide.image]"
           :alt="slide.alt"
-          class="hero-slide-img animate-kenburns"
+          picture-class="hero-slide-picture"
+          img-class="hero-slide-img animate-kenburns"
+          sizes="100vw"
           :loading="index === 0 ? 'eager' : 'lazy'"
           :fetchpriority="index === 0 ? 'high' : 'auto'"
         />
@@ -79,10 +80,15 @@ const imageModules = import.meta.glob('@/assets/images/*.png', {
   animation: heroCrossfade 20s infinite;
   animation-delay: calc(var(--i) * 5s);
 }
-.hero-slide-img {
+:deep(.hero-slide-img) {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.hero-slide-picture {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .hero-overlay {
   position: absolute;

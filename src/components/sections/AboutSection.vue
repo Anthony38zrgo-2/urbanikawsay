@@ -1,9 +1,8 @@
 <script setup>
-const imageModules = import.meta.glob('@/assets/images/*.png', {
-  eager: true,
-  import: 'default',
-})
-const mapa = imageModules['/src/assets/images/mapa.png']
+import ResponsiveImage from '@/components/ui/ResponsiveImage.vue'
+import { imageAssets } from '@/assets/generated/image-assets.js'
+
+const mapa = imageAssets['mapa.png']
 </script>
 
 <template>
@@ -31,8 +30,14 @@ const mapa = imageModules['/src/assets/images/mapa.png']
             financiera y futuros prometedores.
           </p>
         </div>
-        <figure class="about-media media-frame media-frame--rounded-lg aspect-4-3">
-          <img :src="mapa" alt="Ubicación de Urbanikawsay Inmobiliaria en Lima" class="about-img" />
+        <figure class="about-media media-frame media-frame--rounded-lg media-frame--contain aspect-map">
+          <ResponsiveImage
+            :asset="mapa"
+            alt="Ubicación de Urbanikawsay Inmobiliaria en Lima"
+            picture-class="about-image-picture"
+            img-class="about-img"
+            sizes="(min-width: 768px) 40vw, 100vw"
+          />
         </figure>
       </div>
     </div>
@@ -63,9 +68,9 @@ const mapa = imageModules['/src/assets/images/mapa.png']
   color: var(--color-brand-primary);
   margin-bottom: 0.75rem;
 }
-.about-img {
+:deep(.about-img) {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 </style>

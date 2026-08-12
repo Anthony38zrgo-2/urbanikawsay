@@ -1,17 +1,15 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import BaseIcon from '@/components/ui/BaseIcon.vue'
+import ResponsiveImage from '@/components/ui/ResponsiveImage.vue'
 import { siteData } from '@/constants/site'
+import { imageAssets } from '@/assets/generated/image-assets.js'
 
 const emit = defineEmits(['open-reserve'])
 const menuOpen = ref(false)
 const scrolled = ref(false)
 
-const imageModules = import.meta.glob('@/assets/images/*.png', {
-  eager: true,
-  import: 'default',
-})
-const logo = imageModules[`/src/assets/images/${siteData.brand.logo}`]
+const logo = imageAssets[siteData.brand.logo]
 
 const onScroll = () => {
   scrolled.value = window.scrollY > 10
@@ -47,7 +45,15 @@ onBeforeUnmount(() => {
         :aria-label="siteData.brand.logoAlt"
         @click="closeMenu"
       >
-        <img class="brand-logo" :src="logo" alt="" width="120" height="120" />
+        <ResponsiveImage
+          :asset="logo"
+          alt=""
+          picture-class="brand-logo-picture"
+          img-class="brand-logo"
+          sizes="44px"
+          loading="eager"
+          fetchpriority="high"
+        />
         <span class="brand-copy">
           <strong>{{ siteData.brand.name }}</strong>
           <small>{{ siteData.brand.tagline }}</small>
@@ -120,10 +126,15 @@ onBeforeUnmount(() => {
   text-decoration: none;
   color: var(--color-text-inverse);
 }
-.brand-logo {
+:deep(.brand-logo) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+:deep(.brand-logo-picture) {
+  display: block;
   width: 2.75rem;
   height: 2.75rem;
-  object-fit: contain;
 }
 .brand-copy {
   display: flex;

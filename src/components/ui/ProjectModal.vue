@@ -2,8 +2,10 @@
 import { computed } from 'vue'
 import BaseModal from './BaseModal.vue'
 import BaseIcon from './BaseIcon.vue'
+import ResponsiveImage from './ResponsiveImage.vue'
 import { projects } from '@/constants/site'
 import { useWhatsApp } from '@/composables/useWhatsApp'
+import { imageAssets } from '@/assets/generated/image-assets.js'
 
 const props = defineProps({
   open: { type: Boolean, default: false },
@@ -18,14 +20,9 @@ const project = computed(() =>
   projects.find((p) => p.slug === props.slug),
 )
 
-const imageModules = import.meta.glob('@/assets/images/*.png', {
-  eager: true,
-  import: 'default',
-})
-
 const imageSrc = computed(() => {
-  if (!project.value) return ''
-  return imageModules[`/src/assets/images/${project.value.imageUrl}`] || ''
+  if (!project.value) return null
+  return imageAssets[project.value.imageUrl] || null
 })
 
 const whatsappCta = computed(() =>
@@ -43,12 +40,14 @@ const whatsappCta = computed(() =>
     @close="emit('close')"
   >
     <template v-if="project">
-      <div class="media-frame aspect-video project-media">
-        <img
+      <div class="media-frame aspect-4-3 media-frame--contain project-media">
+        <ResponsiveImage
           v-if="imageSrc"
-          :src="imageSrc"
+          :asset="imageSrc"
           :alt="`Proyecto ${project.name}`"
-          class="project-image"
+          picture-class="project-image-picture"
+          img-class="project-image"
+          sizes="(min-width: 768px) 40rem, 100vw"
         />
       </div>
       <dl class="project-specs">
@@ -95,6 +94,11 @@ const whatsappCta = computed(() =>
 <style scoped>
 .project-media {
   margin-bottom: 1rem;
+}
+:deep(.project-image-picture) {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .project-specs {
   display: flex;

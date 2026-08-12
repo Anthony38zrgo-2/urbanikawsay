@@ -1,13 +1,10 @@
 <script setup>
 import BaseIcon from '@/components/ui/BaseIcon.vue'
+import ResponsiveImage from '@/components/ui/ResponsiveImage.vue'
 import { projects } from '@/constants/site'
+import { imageAssets } from '@/assets/generated/image-assets.js'
 
 const emit = defineEmits(['open-project'])
-
-const imageModules = import.meta.glob('@/assets/images/*.png', {
-  eager: true,
-  import: 'default',
-})
 
 const features = [
   { label: 'Paneles Solares', icon: 'sun' },
@@ -51,10 +48,13 @@ const statusClass = (status) => `badge-status--${status || 'sold'}`
           :key="project.slug"
           class="card-property"
         >
-          <div class="media-frame aspect-video project-media">
-            <img
-              :src="imageModules[`/src/assets/images/${project.imageUrl}`]"
+          <div class="media-frame aspect-4-3 media-frame--contain project-media">
+            <ResponsiveImage
+              :asset="imageAssets[project.imageUrl]"
               :alt="`Proyecto ${project.name}`"
+              picture-class="project-image-picture"
+              img-class="project-img"
+              sizes="(min-width: 768px) 33vw, 100vw"
               loading="lazy"
             />
             <span class="badge badge-status--project" :class="statusClass(project.status)">

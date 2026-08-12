@@ -14,6 +14,7 @@ Tailwind CSS v4** como SPA de una sola página con navegación por anclas.
 ```
 src/
 ├── assets/images/        PNG migrados + favicon + logo
+├── assets/generated/     Derivados AVIF/WebP/PNG y manifest generado
 ├── components/
 │   ├── layout/           AppHeader, AppFooter
 │   ├── sections/         Hero, About, Team, Projects, Values, Contact
@@ -36,6 +37,8 @@ npm run build        # build de producción (base /)
 npm run build:deployment  # build para GitHub Pages (base /urbanikawsay/)
 npm run preview      # previsualizar build
 npm run deploy       # publicar a gh-pages (tras build:deployment)
+npm run images:optimize # generar derivados responsive con sharp
+npm run images:check    # validar presupuesto de bytes y resolucion
 ```
 
 ## Variables de entorno (opcionales)
@@ -59,3 +62,7 @@ Meta SEO completa + JSON-LD RealEstateAgent en `index.html`.
 ## Documentación
 `docs/migration/` — inventario legacy, análisis de referencia, tokens, arquitectura,
 mapa de migración, SEO, subagentes, plan y backlog.
+
+El backlog creativo de regeneración está en `REGENERAR_IMAGENES_BACKLOG.md`.
+Las entregas externas deben colocarse en `src/assets/images/regenerated/` y luego
+procesarse con `npm run images:optimize`.
