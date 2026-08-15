@@ -1,13 +1,14 @@
 {
   "brand": {
     "name": "Urbanikawsay",
+    "shortName": "UK",
     "tagline": "Inmobiliaria",
     "logo": "logo.png",
     "logoAlt": "Urbanikawsay Inmobiliaria"
   },
   "navigation": [
     { "label": "Inicio", "href": "#inicio" },
-    { "label": "Proyecto", "href": "#proyectos" },
+    { "label": "Proyectos", "href": "#proyectos" },
     { "label": "Nosotros", "href": "#nosotros" },
     { "label": "Contáctanos", "href": "#contacto" }
   ],
@@ -47,10 +48,10 @@
     ]
   },
   "team": [
-    { "name": "Lucero Tapia", "role": "Área Administrativa", "greeting": "Hola, soy Lucero. Formo parte del área administrativa y estoy aquí para acompañarte en todo el proceso de documentación y firma de tu minuta, resolviendo tus dudas paso a paso." },
-    { "name": "Bryan", "role": "Post Venta", "greeting": "Hola, soy Bryan. Formo parte del equipo de postventa y estaré contigo para brindarte seguimiento y apoyarte en todo lo que necesites después de tu compra." },
-    { "name": "Marisol Aguirre", "role": "Área Administrativa", "greeting": "Hola, soy Marisol. Estoy aquí para acompañarte en cada etapa de tu proceso, resolver tus dudas y asegurarme de que tu experiencia sea clara y confiable." },
-    { "name": "Karina Mondragón", "role": "Jefa de Call Center", "greeting": "Hola, soy Karina. Soy la jefa de Call Center y estoy aquí para brindarte toda la información y acompañarte desde el primer contacto." },
-    { "name": "Alessandra Andrade", "role": "Administradora", "greeting": "Hola, soy Alessandra. Soy administradora y estoy aquí para apoyarte de manera específica y organizada para que tu experiencia sea segura y confiable." }
+    { "name": "Lucero Tapia", "role": "Administradora", "greeting": "Hola, soy Lucero. Como administradora, estoy aquí para acompañarte en todo el proceso de documentación y firma de tu minuta, resolviendo tus dudas paso a paso." },
+    { "name": "Marisol Gómez", "role": "Coordinadora", "greeting": "Hola, soy Marisol. Como coordinadora, estoy aquí para acompañarte en cada etapa de tu proceso, resolver tus dudas y asegurarme de que tu experiencia sea clara y confiable." },
+    { "name": "Alexandra", "role": "Área Administrativa", "greeting": "Hola, soy Alexandra. Formo parte del área administrativa y estoy aquí para apoyarte de manera específica y organizada para que tu experiencia sea segura y confiable." },
+    { "name": "Bryan Segura", "role": "Post Venta", "greeting": "Hola, soy Bryan. Formo parte del equipo de postventa y estaré contigo para brindarte seguimiento y apoyarte en todo lo que necesites después de tu compra." },
+    { "name": "Geraldine Romero", "role": "Jefe Comercial", "greeting": "Hola, soy Geraldine. Como jefe comercial, estoy aquí para brindarte la mejor asesoría en tu inversión y acompañarte a encontrar el terreno ideal para tu futuro." }
   ]
 }

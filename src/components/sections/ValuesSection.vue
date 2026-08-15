@@ -1,7 +1,10 @@
 <script setup>
 import { ref } from 'vue'
 import BaseIcon from '@/components/ui/BaseIcon.vue'
+import ResponsiveImage from '@/components/ui/ResponsiveImage.vue'
+import { imageAssets } from '@/assets/generated/image-assets.js'
 
+const bgImage = imageAssets['group-71.png']
 const activeTab = ref('mision')
 
 const values = [
@@ -26,7 +29,19 @@ const tabs = [
 
 <template>
   <section class="section-pad values-section" aria-labelledby="values-title">
-    <div class="container-page">
+    <div class="values-bg-layer" aria-hidden="true">
+      <ResponsiveImage
+        :asset="bgImage"
+        alt=""
+        picture-class="values-bg-picture"
+        img-class="values-bg-img"
+        sizes="100vw"
+        loading="lazy"
+      />
+      <div class="values-overlay"></div>
+    </div>
+
+    <div class="container-page values-content">
       <div class="section-header section-header--center">
         <p class="section-eyebrow">Nuestra fortaleza</p>
         <h2 id="values-title" class="section-title">Nuestra fortaleza, tu garantía</h2>
@@ -64,7 +79,7 @@ const tabs = [
 
       <ul class="values-grid">
         <li v-for="value in values" :key="value.title" class="card values-card">
-          <BaseIcon name="check" :size="22" decorative />
+          <BaseIcon name="check" :size="24" decorative />
           <h3 class="values-card-title">{{ value.title }}</h3>
           <p class="values-card-text">{{ value.text }}</p>
         </li>
@@ -82,29 +97,108 @@ const tabs = [
 
 <style scoped>
 .values-section {
-  background: var(--color-surface-soft);
+  position: relative;
+  overflow: hidden;
+  color: var(--color-text-inverse);
 }
+
+.values-bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+:deep(.values-bg-picture) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+:deep(.values-bg-img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.values-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 46, 28, 0.88) 0%,
+    rgba(9, 46, 28, 0.82) 50%,
+    rgba(9, 46, 28, 0.94) 100%
+  );
+}
+
+.values-content {
+  position: relative;
+  z-index: 1;
+}
+
+.values-section .section-eyebrow {
+  color: var(--color-brand-secondary-bright);
+}
+
+.values-section .section-title {
+  color: #FFFFFF;
+}
+
+.values-section .section-lead {
+  color: rgba(253, 252, 247, 0.92);
+}
+
 .tabs-pill {
   display: flex;
   margin-inline: auto;
   margin-bottom: 2.5rem;
   width: fit-content;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  padding: 0.35rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
+
+.tab-pill {
+  color: #FFFFFF;
+  opacity: 0.9;
+}
+
+.tab-pill:hover {
+  color: #FFFFFF;
+  opacity: 1;
+}
+
+.tab-pill.is-active {
+  background: #FFFFFF;
+  color: var(--color-brand-primary);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  opacity: 1;
+}
+
 .tab-panel {
-  max-width: 40rem;
+  max-width: 42rem;
   margin-inline: auto;
   text-align: center;
   margin-bottom: 2.5rem;
 }
+
 .tab-heading {
   font-family: var(--font-display);
-  color: var(--color-brand-primary);
+  color: #FFFFFF;
   font-size: var(--text-heading-lg);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
+  text-wrap: balance;
 }
+
 .tab-text {
-  color: var(--color-text-secondary);
+  color: rgba(253, 252, 247, 0.92);
+  line-height: 1.7;
 }
+
 .values-grid {
   list-style: none;
   display: grid;
@@ -112,52 +206,79 @@ const tabs = [
   gap: 1.25rem;
   margin-bottom: 2.5rem;
 }
-@media (min-width: 768px) {
+
+@media (min-width: 640px) {
   .values-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
 @media (min-width: 1024px) {
   .values-grid { grid-template-columns: repeat(4, 1fr); }
 }
+
 .values-card {
-  padding: 1.5rem;
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
   color: var(--color-brand-primary);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.values-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -6px rgba(0, 0, 0, 0.28);
+}
+
 .values-card svg {
   color: var(--color-brand-secondary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
 }
+
 .values-card-title {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  color: var(--color-brand-primary);
+  font-size: 1.15rem;
   margin-bottom: 0.5rem;
 }
+
 .values-card-text {
   color: var(--color-text-secondary);
   font-size: 0.92rem;
   line-height: 1.6;
 }
+
 .attr-grid {
   list-style: none;
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.25rem;
 }
+
 @media (min-width: 768px) {
   .attr-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
 .attr-item {
-  background: var(--color-surface);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
   border-left: 4px solid var(--color-accent);
   border-radius: var(--radius-md);
-  padding: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
+
 .attr-title {
   font-family: var(--font-display);
-  color: var(--color-brand-primary);
+  color: #FFFFFF;
   margin-bottom: 0.4rem;
 }
+
 .attr-text {
-  color: var(--color-text-secondary);
+  color: rgba(253, 252, 247, 0.88);
   font-size: 0.92rem;
+  line-height: 1.6;
 }
 </style>

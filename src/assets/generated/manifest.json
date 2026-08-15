@@ -415,6 +415,235 @@
       "height": 801
     }
   },
+  "logo-el-milagro.png": {
+    "name": "logo-el-milagro.png",
+    "role": "logo",
+    "active": true,
+    "source": "src/assets/images/logo-el-milagro.png",
+    "sourceWidth": 1024,
+    "sourceHeight": 1024,
+    "width": 512,
+    "height": 512,
+    "formats": {
+      "avif": [
+        {
+          "src": "./logo-el-milagro/logo-el-milagro-512.avif",
+          "width": 512,
+          "bytes": 13162,
+          "height": 512
+        }
+      ],
+      "webp": [
+        {
+          "src": "./logo-el-milagro/logo-el-milagro-512.webp",
+          "width": 512,
+          "bytes": 32070,
+          "height": 512
+        }
+      ],
+      "png": [
+        {
+          "src": "./logo-el-milagro/logo-el-milagro-512.png",
+          "width": 512,
+          "bytes": 92480,
+          "height": 512
+        }
+      ],
+      "jpg": []
+    },
+    "fallback": {
+      "src": "./logo-el-milagro/logo-el-milagro-512.png",
+      "width": 512,
+      "bytes": 92480,
+      "height": 512
+    }
+  },
+  "logo-guaral-village.png": {
+    "name": "logo-guaral-village.png",
+    "role": "logo",
+    "active": true,
+    "source": "src/assets/images/logo-guaral-village.png",
+    "sourceWidth": 1024,
+    "sourceHeight": 391,
+    "width": 512,
+    "height": 196,
+    "formats": {
+      "avif": [
+        {
+          "src": "./logo-guaral-village/logo-guaral-village-512.avif",
+          "width": 512,
+          "bytes": 16819,
+          "height": 196
+        }
+      ],
+      "webp": [
+        {
+          "src": "./logo-guaral-village/logo-guaral-village-512.webp",
+          "width": 512,
+          "bytes": 28058,
+          "height": 196
+        }
+      ],
+      "png": [
+        {
+          "src": "./logo-guaral-village/logo-guaral-village-512.png",
+          "width": 512,
+          "bytes": 51419,
+          "height": 196
+        }
+      ],
+      "jpg": []
+    },
+    "fallback": {
+      "src": "./logo-guaral-village/logo-guaral-village-512.png",
+      "width": 512,
+      "bytes": 51419,
+      "height": 196
+    }
+  },
+  "logo-las-palmeras.png": {
+    "name": "logo-las-palmeras.png",
+    "role": "logo",
+    "active": true,
+    "source": "src/assets/images/logo-las-palmeras.png",
+    "sourceWidth": 1024,
+    "sourceHeight": 1024,
+    "width": 512,
+    "height": 512,
+    "formats": {
+      "avif": [
+        {
+          "src": "./logo-las-palmeras/logo-las-palmeras-512.avif",
+          "width": 512,
+          "bytes": 23110,
+          "height": 512
+        }
+      ],
+      "webp": [
+        {
+          "src": "./logo-las-palmeras/logo-las-palmeras-512.webp",
+          "width": 512,
+          "bytes": 33144,
+          "height": 512
+        }
+      ],
+      "png": [
+        {
+          "src": "./logo-las-palmeras/logo-las-palmeras-512.png",
+          "width": 512,
+          "bytes": 115644,
+          "height": 512
+        }
+      ],
+      "jpg": []
+    },
+    "fallback": {
+      "src": "./logo-las-palmeras/logo-las-palmeras-512.png",
+      "width": 512,
+      "bytes": 115644,
+      "height": 512
+    }
+  },
+  "logo-villa-hermosa.png": {
+    "name": "logo-villa-hermosa.png",
+    "role": "logo",
+    "active": true,
+    "source": "src/assets/images/logo-villa-hermosa.png",
+    "sourceWidth": 1024,
+    "sourceHeight": 603,
+    "width": 512,
+    "height": 302,
+    "formats": {
+      "avif": [
+        {
+          "src": "./logo-villa-hermosa/logo-villa-hermosa-512.avif",
+          "width": 512,
+          "bytes": 21775,
+          "height": 302
+        }
+      ],
+      "webp": [
+        {
+          "src": "./logo-villa-hermosa/logo-villa-hermosa-512.webp",
+          "width": 512,
+          "bytes": 39098,
+          "height": 302
+        }
+      ],
+      "png": [
+        {
+          "src": "./logo-villa-hermosa/logo-villa-hermosa-512.png",
+          "width": 512,
+          "bytes": 89754,
+          "height": 302
+        }
+      ],
+      "jpg": []
+    },
+    "fallback": {
+      "src": "./logo-villa-hermosa/logo-villa-hermosa-512.png",
+      "width": 512,
+      "bytes": 89754,
+      "height": 302
+    }
+  },
+  "logo-villa-norte-3.jpg": {
+    "name": "logo-villa-norte-3.jpg",
+    "role": "logo",
+    "active": false,
+    "source": "src/assets/images/logo-villa-norte-3.jpg",
+    "sourceWidth": 1024,
+    "sourceHeight": 342,
+    "formats": {
+      "avif": [],
+      "webp": [],
+      "png": [],
+      "jpg": []
+    }
+  },
+  "logo-villa-norte-3.png": {
+    "name": "logo-villa-norte-3.png",
+    "role": "logo",
+    "active": true,
+    "source": "src/assets/images/logo-villa-norte-3.png",
+    "sourceWidth": 1024,
+    "sourceHeight": 342,
+    "width": 512,
+    "height": 171,
+    "formats": {
+      "avif": [
+        {
+          "src": "./logo-villa-norte-3/logo-villa-norte-3-512.avif",
+          "width": 512,
+          "bytes": 15945,
+          "height": 171
+        }
+      ],
+      "webp": [
+        {
+          "src": "./logo-villa-norte-3/logo-villa-norte-3-512.webp",
+          "width": 512,
+          "bytes": 24214,
+          "height": 171
+        }
+      ],
+      "png": [
+        {
+          "src": "./logo-villa-norte-3/logo-villa-norte-3-512.png",
+          "width": 512,
+          "bytes": 66677,
+          "height": 171
+        }
+      ],
+      "jpg": []
+    },
+    "fallback": {
+      "src": "./logo-villa-norte-3/logo-villa-norte-3-512.png",
+      "width": 512,
+      "bytes": 66677,
+      "height": 171
+    }
+  },
   "logo.png": {
     "name": "logo.png",
     "role": "logo",
@@ -525,11 +754,66 @@
       "height": 1024
     }
   },
-  "proyecto-extra-1.png": {
-    "name": "proyecto-extra-1.png",
+  "mascota-bani.png": {
+    "name": "mascota-bani.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/mascota-bani.png",
+    "sourceWidth": 508,
+    "sourceHeight": 1024,
+    "width": 480,
+    "height": 968,
+    "formats": {
+      "avif": [
+        {
+          "src": "./mascota-bani/mascota-bani-320.avif",
+          "width": 320,
+          "bytes": 16849,
+          "height": 645
+        },
+        {
+          "src": "./mascota-bani/mascota-bani-480.avif",
+          "width": 480,
+          "bytes": 26808,
+          "height": 968
+        }
+      ],
+      "webp": [
+        {
+          "src": "./mascota-bani/mascota-bani-320.webp",
+          "width": 320,
+          "bytes": 32100,
+          "height": 645
+        },
+        {
+          "src": "./mascota-bani/mascota-bani-480.webp",
+          "width": 480,
+          "bytes": 52250,
+          "height": 968
+        }
+      ],
+      "png": [
+        {
+          "src": "./mascota-bani/mascota-bani-480.png",
+          "width": 480,
+          "bytes": 371731,
+          "height": 968
+        }
+      ],
+      "jpg": []
+    },
+    "fallback": {
+      "src": "./mascota-bani/mascota-bani-480.png",
+      "width": 480,
+      "bytes": 371731,
+      "height": 968
+    }
+  },
+  "proyecto-el-milagro.png": {
+    "name": "proyecto-el-milagro.png",
     "role": "project",
     "active": true,
-    "source": "src/assets/images/regenerated/proyecto-extra-1.png",
+    "source": "src/assets/images/proyecto-el-milagro.png",
     "sourceWidth": 1448,
     "sourceHeight": 1086,
     "width": 1200,
@@ -537,83 +821,97 @@
     "formats": {
       "avif": [
         {
-          "src": "./proyecto-extra-1/proyecto-extra-1-320.avif",
+          "src": "./proyecto-el-milagro/proyecto-el-milagro-320.avif",
           "width": 320,
-          "bytes": 6750,
+          "bytes": 6499,
           "height": 240
         },
         {
-          "src": "./proyecto-extra-1/proyecto-extra-1-480.avif",
+          "src": "./proyecto-el-milagro/proyecto-el-milagro-480.avif",
           "width": 480,
-          "bytes": 12199,
+          "bytes": 11769,
           "height": 360
         },
         {
-          "src": "./proyecto-extra-1/proyecto-extra-1-640.avif",
+          "src": "./proyecto-el-milagro/proyecto-el-milagro-640.avif",
           "width": 640,
-          "bytes": 19225,
+          "bytes": 18864,
           "height": 480
         },
         {
-          "src": "./proyecto-extra-1/proyecto-extra-1-960.avif",
+          "src": "./proyecto-el-milagro/proyecto-el-milagro-960.avif",
           "width": 960,
-          "bytes": 39196,
+          "bytes": 38493,
           "height": 720
         },
         {
-          "src": "./proyecto-extra-1/proyecto-extra-1-1200.avif",
+          "src": "./proyecto-el-milagro/proyecto-el-milagro-1200.avif",
           "width": 1200,
-          "bytes": 58017,
+          "bytes": 57690,
           "height": 900
         }
       ],
       "webp": [
         {
-          "src": "./proyecto-extra-1/proyecto-extra-1-320.webp",
+          "src": "./proyecto-el-milagro/proyecto-el-milagro-320.webp",
           "width": 320,
-          "bytes": 7056,
+          "bytes": 6834,
           "height": 240
         },
         {
-          "src": "./proyecto-extra-1/proyecto-extra-1-480.webp",
+          "src": "./proyecto-el-milagro/proyecto-el-milagro-480.webp",
           "width": 480,
-          "bytes": 13034,
+          "bytes": 12914,
           "height": 360
         },
         {
-          "src": "./proyecto-extra-1/proyecto-extra-1-640.webp",
+          "src": "./proyecto-el-milagro/proyecto-el-milagro-640.webp",
           "width": 640,
-          "bytes": 19636,
+          "bytes": 19846,
           "height": 480
         },
         {
-          "src": "./proyecto-extra-1/proyecto-extra-1-960.webp",
+          "src": "./proyecto-el-milagro/proyecto-el-milagro-960.webp",
           "width": 960,
-          "bytes": 40098,
+          "bytes": 40080,
           "height": 720
         },
         {
-          "src": "./proyecto-extra-1/proyecto-extra-1-1200.webp",
+          "src": "./proyecto-el-milagro/proyecto-el-milagro-1200.webp",
           "width": 1200,
-          "bytes": 60280,
+          "bytes": 59916,
           "height": 900
         }
       ],
       "png": [],
       "jpg": [
         {
-          "src": "./proyecto-extra-1/proyecto-extra-1-1200.jpg",
+          "src": "./proyecto-el-milagro/proyecto-el-milagro-1200.jpg",
           "width": 1200,
-          "bytes": 88020,
+          "bytes": 88377,
           "height": 900
         }
       ]
     },
     "fallback": {
-      "src": "./proyecto-extra-1/proyecto-extra-1-1200.jpg",
+      "src": "./proyecto-el-milagro/proyecto-el-milagro-1200.jpg",
       "width": 1200,
-      "bytes": 88020,
+      "bytes": 88377,
       "height": 900
+    }
+  },
+  "proyecto-extra-1.png": {
+    "name": "proyecto-extra-1.png",
+    "role": "project",
+    "active": false,
+    "source": "src/assets/images/regenerated/proyecto-extra-1.png",
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
+    "formats": {
+      "avif": [],
+      "webp": [],
+      "png": [],
+      "jpg": []
     }
   },
   "proyecto-extra-2.png": {
@@ -630,11 +928,11 @@
       "jpg": []
     }
   },
-  "proyecto-huaral-village.png": {
-    "name": "proyecto-huaral-village.png",
+  "proyecto-guaral-village.png": {
+    "name": "proyecto-guaral-village.png",
     "role": "project",
     "active": true,
-    "source": "src/assets/images/regenerated/proyecto-huaral-village.png",
+    "source": "src/assets/images/proyecto-guaral-village.png",
     "sourceWidth": 1448,
     "sourceHeight": 1086,
     "width": 1200,
@@ -642,174 +940,475 @@
     "formats": {
       "avif": [
         {
-          "src": "./proyecto-huaral-village/proyecto-huaral-village-320.avif",
+          "src": "./proyecto-guaral-village/proyecto-guaral-village-320.avif",
           "width": 320,
-          "bytes": 6438,
+          "bytes": 6664,
           "height": 240
         },
         {
-          "src": "./proyecto-huaral-village/proyecto-huaral-village-480.avif",
+          "src": "./proyecto-guaral-village/proyecto-guaral-village-480.avif",
           "width": 480,
-          "bytes": 11765,
+          "bytes": 11657,
           "height": 360
         },
         {
-          "src": "./proyecto-huaral-village/proyecto-huaral-village-640.avif",
+          "src": "./proyecto-guaral-village/proyecto-guaral-village-640.avif",
           "width": 640,
-          "bytes": 18582,
+          "bytes": 18606,
           "height": 480
         },
         {
-          "src": "./proyecto-huaral-village/proyecto-huaral-village-960.avif",
+          "src": "./proyecto-guaral-village/proyecto-guaral-village-960.avif",
           "width": 960,
-          "bytes": 38108,
+          "bytes": 37749,
           "height": 720
         },
         {
-          "src": "./proyecto-huaral-village/proyecto-huaral-village-1200.avif",
+          "src": "./proyecto-guaral-village/proyecto-guaral-village-1200.avif",
           "width": 1200,
-          "bytes": 56914,
+          "bytes": 56425,
           "height": 900
         }
       ],
       "webp": [
         {
-          "src": "./proyecto-huaral-village/proyecto-huaral-village-320.webp",
+          "src": "./proyecto-guaral-village/proyecto-guaral-village-320.webp",
           "width": 320,
-          "bytes": 7046,
+          "bytes": 7242,
           "height": 240
         },
         {
-          "src": "./proyecto-huaral-village/proyecto-huaral-village-480.webp",
+          "src": "./proyecto-guaral-village/proyecto-guaral-village-480.webp",
           "width": 480,
-          "bytes": 12986,
+          "bytes": 13400,
           "height": 360
         },
         {
-          "src": "./proyecto-huaral-village/proyecto-huaral-village-640.webp",
+          "src": "./proyecto-guaral-village/proyecto-guaral-village-640.webp",
           "width": 640,
-          "bytes": 20188,
+          "bytes": 20830,
           "height": 480
         },
         {
-          "src": "./proyecto-huaral-village/proyecto-huaral-village-960.webp",
+          "src": "./proyecto-guaral-village/proyecto-guaral-village-960.webp",
           "width": 960,
-          "bytes": 39956,
+          "bytes": 40038,
           "height": 720
         },
         {
-          "src": "./proyecto-huaral-village/proyecto-huaral-village-1200.webp",
+          "src": "./proyecto-guaral-village/proyecto-guaral-village-1200.webp",
           "width": 1200,
-          "bytes": 59062,
+          "bytes": 59458,
           "height": 900
         }
       ],
       "png": [],
       "jpg": [
         {
-          "src": "./proyecto-huaral-village/proyecto-huaral-village-1200.jpg",
+          "src": "./proyecto-guaral-village/proyecto-guaral-village-1200.jpg",
           "width": 1200,
-          "bytes": 85844,
+          "bytes": 87225,
           "height": 900
         }
       ]
     },
     "fallback": {
-      "src": "./proyecto-huaral-village/proyecto-huaral-village-1200.jpg",
+      "src": "./proyecto-guaral-village/proyecto-guaral-village-1200.jpg",
       "width": 1200,
-      "bytes": 85844,
+      "bytes": 87225,
+      "height": 900
+    }
+  },
+  "proyecto-huaral-village.png": {
+    "name": "proyecto-huaral-village.png",
+    "role": "project",
+    "active": false,
+    "source": "src/assets/images/regenerated/proyecto-huaral-village.png",
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
+    "formats": {
+      "avif": [],
+      "webp": [],
+      "png": [],
+      "jpg": []
+    }
+  },
+  "proyecto-las-palmeras.png": {
+    "name": "proyecto-las-palmeras.png",
+    "role": "project",
+    "active": true,
+    "source": "src/assets/images/proyecto-las-palmeras.png",
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
+    "width": 1200,
+    "height": 900,
+    "formats": {
+      "avif": [
+        {
+          "src": "./proyecto-las-palmeras/proyecto-las-palmeras-320.avif",
+          "width": 320,
+          "bytes": 6969,
+          "height": 240
+        },
+        {
+          "src": "./proyecto-las-palmeras/proyecto-las-palmeras-480.avif",
+          "width": 480,
+          "bytes": 12838,
+          "height": 360
+        },
+        {
+          "src": "./proyecto-las-palmeras/proyecto-las-palmeras-640.avif",
+          "width": 640,
+          "bytes": 20417,
+          "height": 480
+        },
+        {
+          "src": "./proyecto-las-palmeras/proyecto-las-palmeras-960.avif",
+          "width": 960,
+          "bytes": 41378,
+          "height": 720
+        },
+        {
+          "src": "./proyecto-las-palmeras/proyecto-las-palmeras-1200.avif",
+          "width": 1200,
+          "bytes": 61385,
+          "height": 900
+        }
+      ],
+      "webp": [
+        {
+          "src": "./proyecto-las-palmeras/proyecto-las-palmeras-320.webp",
+          "width": 320,
+          "bytes": 7508,
+          "height": 240
+        },
+        {
+          "src": "./proyecto-las-palmeras/proyecto-las-palmeras-480.webp",
+          "width": 480,
+          "bytes": 14514,
+          "height": 360
+        },
+        {
+          "src": "./proyecto-las-palmeras/proyecto-las-palmeras-640.webp",
+          "width": 640,
+          "bytes": 22082,
+          "height": 480
+        },
+        {
+          "src": "./proyecto-las-palmeras/proyecto-las-palmeras-960.webp",
+          "width": 960,
+          "bytes": 44522,
+          "height": 720
+        },
+        {
+          "src": "./proyecto-las-palmeras/proyecto-las-palmeras-1200.webp",
+          "width": 1200,
+          "bytes": 65674,
+          "height": 900
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./proyecto-las-palmeras/proyecto-las-palmeras-1200.jpg",
+          "width": 1200,
+          "bytes": 94321,
+          "height": 900
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./proyecto-las-palmeras/proyecto-las-palmeras-1200.jpg",
+      "width": 1200,
+      "bytes": 94321,
+      "height": 900
+    }
+  },
+  "proyecto-villa-flores.png": {
+    "name": "proyecto-villa-flores.png",
+    "role": "project",
+    "active": true,
+    "source": "src/assets/images/proyecto-villa-flores.png",
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
+    "width": 1200,
+    "height": 900,
+    "formats": {
+      "avif": [
+        {
+          "src": "./proyecto-villa-flores/proyecto-villa-flores-320.avif",
+          "width": 320,
+          "bytes": 7486,
+          "height": 240
+        },
+        {
+          "src": "./proyecto-villa-flores/proyecto-villa-flores-480.avif",
+          "width": 480,
+          "bytes": 13320,
+          "height": 360
+        },
+        {
+          "src": "./proyecto-villa-flores/proyecto-villa-flores-640.avif",
+          "width": 640,
+          "bytes": 20597,
+          "height": 480
+        },
+        {
+          "src": "./proyecto-villa-flores/proyecto-villa-flores-960.avif",
+          "width": 960,
+          "bytes": 38175,
+          "height": 720
+        },
+        {
+          "src": "./proyecto-villa-flores/proyecto-villa-flores-1200.avif",
+          "width": 1200,
+          "bytes": 55046,
+          "height": 900
+        }
+      ],
+      "webp": [
+        {
+          "src": "./proyecto-villa-flores/proyecto-villa-flores-320.webp",
+          "width": 320,
+          "bytes": 8336,
+          "height": 240
+        },
+        {
+          "src": "./proyecto-villa-flores/proyecto-villa-flores-480.webp",
+          "width": 480,
+          "bytes": 14924,
+          "height": 360
+        },
+        {
+          "src": "./proyecto-villa-flores/proyecto-villa-flores-640.webp",
+          "width": 640,
+          "bytes": 23020,
+          "height": 480
+        },
+        {
+          "src": "./proyecto-villa-flores/proyecto-villa-flores-960.webp",
+          "width": 960,
+          "bytes": 43002,
+          "height": 720
+        },
+        {
+          "src": "./proyecto-villa-flores/proyecto-villa-flores-1200.webp",
+          "width": 1200,
+          "bytes": 59258,
+          "height": 900
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./proyecto-villa-flores/proyecto-villa-flores-1200.jpg",
+          "width": 1200,
+          "bytes": 89132,
+          "height": 900
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./proyecto-villa-flores/proyecto-villa-flores-1200.jpg",
+      "width": 1200,
+      "bytes": 89132,
+      "height": 900
+    }
+  },
+  "proyecto-villa-hermosa.png": {
+    "name": "proyecto-villa-hermosa.png",
+    "role": "project",
+    "active": true,
+    "source": "src/assets/images/proyecto-villa-hermosa.png",
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
+    "width": 1200,
+    "height": 900,
+    "formats": {
+      "avif": [
+        {
+          "src": "./proyecto-villa-hermosa/proyecto-villa-hermosa-320.avif",
+          "width": 320,
+          "bytes": 7172,
+          "height": 240
+        },
+        {
+          "src": "./proyecto-villa-hermosa/proyecto-villa-hermosa-480.avif",
+          "width": 480,
+          "bytes": 12887,
+          "height": 360
+        },
+        {
+          "src": "./proyecto-villa-hermosa/proyecto-villa-hermosa-640.avif",
+          "width": 640,
+          "bytes": 20461,
+          "height": 480
+        },
+        {
+          "src": "./proyecto-villa-hermosa/proyecto-villa-hermosa-960.avif",
+          "width": 960,
+          "bytes": 40156,
+          "height": 720
+        },
+        {
+          "src": "./proyecto-villa-hermosa/proyecto-villa-hermosa-1200.avif",
+          "width": 1200,
+          "bytes": 60008,
+          "height": 900
+        }
+      ],
+      "webp": [
+        {
+          "src": "./proyecto-villa-hermosa/proyecto-villa-hermosa-320.webp",
+          "width": 320,
+          "bytes": 8138,
+          "height": 240
+        },
+        {
+          "src": "./proyecto-villa-hermosa/proyecto-villa-hermosa-480.webp",
+          "width": 480,
+          "bytes": 14768,
+          "height": 360
+        },
+        {
+          "src": "./proyecto-villa-hermosa/proyecto-villa-hermosa-640.webp",
+          "width": 640,
+          "bytes": 22748,
+          "height": 480
+        },
+        {
+          "src": "./proyecto-villa-hermosa/proyecto-villa-hermosa-960.webp",
+          "width": 960,
+          "bytes": 43660,
+          "height": 720
+        },
+        {
+          "src": "./proyecto-villa-hermosa/proyecto-villa-hermosa-1200.webp",
+          "width": 1200,
+          "bytes": 62206,
+          "height": 900
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./proyecto-villa-hermosa/proyecto-villa-hermosa-1200.jpg",
+          "width": 1200,
+          "bytes": 93481,
+          "height": 900
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./proyecto-villa-hermosa/proyecto-villa-hermosa-1200.jpg",
+      "width": 1200,
+      "bytes": 93481,
+      "height": 900
+    }
+  },
+  "proyecto-villa-norte-3.png": {
+    "name": "proyecto-villa-norte-3.png",
+    "role": "project",
+    "active": true,
+    "source": "src/assets/images/proyecto-villa-norte-3.png",
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
+    "width": 1200,
+    "height": 900,
+    "formats": {
+      "avif": [
+        {
+          "src": "./proyecto-villa-norte-3/proyecto-villa-norte-3-320.avif",
+          "width": 320,
+          "bytes": 6986,
+          "height": 240
+        },
+        {
+          "src": "./proyecto-villa-norte-3/proyecto-villa-norte-3-480.avif",
+          "width": 480,
+          "bytes": 12106,
+          "height": 360
+        },
+        {
+          "src": "./proyecto-villa-norte-3/proyecto-villa-norte-3-640.avif",
+          "width": 640,
+          "bytes": 18736,
+          "height": 480
+        },
+        {
+          "src": "./proyecto-villa-norte-3/proyecto-villa-norte-3-960.avif",
+          "width": 960,
+          "bytes": 36142,
+          "height": 720
+        },
+        {
+          "src": "./proyecto-villa-norte-3/proyecto-villa-norte-3-1200.avif",
+          "width": 1200,
+          "bytes": 52841,
+          "height": 900
+        }
+      ],
+      "webp": [
+        {
+          "src": "./proyecto-villa-norte-3/proyecto-villa-norte-3-320.webp",
+          "width": 320,
+          "bytes": 7164,
+          "height": 240
+        },
+        {
+          "src": "./proyecto-villa-norte-3/proyecto-villa-norte-3-480.webp",
+          "width": 480,
+          "bytes": 12818,
+          "height": 360
+        },
+        {
+          "src": "./proyecto-villa-norte-3/proyecto-villa-norte-3-640.webp",
+          "width": 640,
+          "bytes": 19870,
+          "height": 480
+        },
+        {
+          "src": "./proyecto-villa-norte-3/proyecto-villa-norte-3-960.webp",
+          "width": 960,
+          "bytes": 37256,
+          "height": 720
+        },
+        {
+          "src": "./proyecto-villa-norte-3/proyecto-villa-norte-3-1200.webp",
+          "width": 1200,
+          "bytes": 54016,
+          "height": 900
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./proyecto-villa-norte-3/proyecto-villa-norte-3-1200.jpg",
+          "width": 1200,
+          "bytes": 82829,
+          "height": 900
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./proyecto-villa-norte-3/proyecto-villa-norte-3-1200.jpg",
+      "width": 1200,
+      "bytes": 82829,
       "height": 900
     }
   },
   "proyecto-villa-norte.png": {
     "name": "proyecto-villa-norte.png",
     "role": "project",
-    "active": true,
+    "active": false,
     "source": "src/assets/images/regenerated/proyecto-villa-norte.png",
     "sourceWidth": 1448,
     "sourceHeight": 1086,
-    "width": 1200,
-    "height": 900,
     "formats": {
-      "avif": [
-        {
-          "src": "./proyecto-villa-norte/proyecto-villa-norte-320.avif",
-          "width": 320,
-          "bytes": 6656,
-          "height": 240
-        },
-        {
-          "src": "./proyecto-villa-norte/proyecto-villa-norte-480.avif",
-          "width": 480,
-          "bytes": 11819,
-          "height": 360
-        },
-        {
-          "src": "./proyecto-villa-norte/proyecto-villa-norte-640.avif",
-          "width": 640,
-          "bytes": 18273,
-          "height": 480
-        },
-        {
-          "src": "./proyecto-villa-norte/proyecto-villa-norte-960.avif",
-          "width": 960,
-          "bytes": 35249,
-          "height": 720
-        },
-        {
-          "src": "./proyecto-villa-norte/proyecto-villa-norte-1200.avif",
-          "width": 1200,
-          "bytes": 51156,
-          "height": 900
-        }
-      ],
-      "webp": [
-        {
-          "src": "./proyecto-villa-norte/proyecto-villa-norte-320.webp",
-          "width": 320,
-          "bytes": 6910,
-          "height": 240
-        },
-        {
-          "src": "./proyecto-villa-norte/proyecto-villa-norte-480.webp",
-          "width": 480,
-          "bytes": 13018,
-          "height": 360
-        },
-        {
-          "src": "./proyecto-villa-norte/proyecto-villa-norte-640.webp",
-          "width": 640,
-          "bytes": 20066,
-          "height": 480
-        },
-        {
-          "src": "./proyecto-villa-norte/proyecto-villa-norte-960.webp",
-          "width": 960,
-          "bytes": 38164,
-          "height": 720
-        },
-        {
-          "src": "./proyecto-villa-norte/proyecto-villa-norte-1200.webp",
-          "width": 1200,
-          "bytes": 54766,
-          "height": 900
-        }
-      ],
+      "avif": [],
+      "webp": [],
       "png": [],
-      "jpg": [
-        {
-          "src": "./proyecto-villa-norte/proyecto-villa-norte-1200.jpg",
-          "width": 1200,
-          "bytes": 78402,
-          "height": 900
-        }
-      ]
-    },
-    "fallback": {
-      "src": "./proyecto-villa-norte/proyecto-villa-norte-1200.jpg",
-      "width": 1200,
-      "bytes": 78402,
-      "height": 900
+      "jpg": []
     }
   }
 }

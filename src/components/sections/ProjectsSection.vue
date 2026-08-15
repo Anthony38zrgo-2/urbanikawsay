@@ -12,15 +12,6 @@ const features = [
   { label: 'Vías afirmadas', icon: 'road' },
   { label: 'Seguridad', icon: 'shield' },
 ]
-
-const statusLabels = {
-  available: 'Disponible',
-  presale: 'En preventa',
-  last: 'Últimos lotes',
-  sold: 'Vendido',
-}
-
-const statusClass = (status) => `badge-status--${status || 'sold'}`
 </script>
 
 <template>
@@ -57,12 +48,20 @@ const statusClass = (status) => `badge-status--${status || 'sold'}`
               sizes="(min-width: 768px) 33vw, 100vw"
               loading="lazy"
             />
-            <span class="badge badge-status--project" :class="statusClass(project.status)">
-              {{ statusLabels[project.status] || 'Vendido' }}
-            </span>
           </div>
           <div class="project-info">
-            <h3 class="project-name">{{ project.name }}</h3>
+            <div class="project-info-header">
+              <ResponsiveImage
+                v-if="project.logoUrl && imageAssets[project.logoUrl]"
+                :asset="imageAssets[project.logoUrl]"
+                :alt="`Logo ${project.name}`"
+                picture-class="project-logo-picture"
+                img-class="project-logo"
+                sizes="120px"
+                loading="lazy"
+              />
+              <h3 class="project-name">{{ project.name }}</h3>
+            </div>
             <p class="project-location">
               <BaseIcon name="location" :size="16" decorative />
               {{ project.location }}
@@ -102,16 +101,14 @@ const statusClass = (status) => `badge-status--${status || 'sold'}`
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 640px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
   .project-grid { grid-template-columns: repeat(3, 1fr); }
 }
 .project-media {
   position: relative;
-}
-.badge-status--project {
-  position: absolute;
-  top: 0.75rem;
-  left: 0.75rem;
 }
 .project-info {
   padding: 1.25rem;
@@ -119,11 +116,32 @@ const statusClass = (status) => `badge-status--${status || 'sold'}`
   flex-direction: column;
   flex: 1;
 }
+.project-info-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  min-height: 2.25rem;
+}
+:deep(.project-logo-picture) {
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  width: auto;
+  max-width: 4rem;
+  flex-shrink: 0;
+}
+:deep(.project-logo) {
+  width: auto;
+  height: 2rem;
+  max-width: 4rem;
+  object-fit: contain;
+}
 .project-name {
   font-family: var(--font-display);
   color: var(--color-brand-primary);
   font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  margin: 0;
 }
 .project-location,
 .project-detail {

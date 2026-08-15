@@ -50,12 +50,12 @@ onBeforeUnmount(() => {
           alt=""
           picture-class="brand-logo-picture"
           img-class="brand-logo"
-          sizes="44px"
+          sizes="(min-width: 768px) 160px, 120px"
           loading="eager"
           fetchpriority="high"
         />
         <span class="brand-copy">
-          <strong>{{ siteData.brand.name }}</strong>
+          <strong>{{ siteData.brand.shortName || siteData.brand.name }}</strong>
           <small>{{ siteData.brand.tagline }}</small>
         </span>
       </a>
@@ -117,24 +117,27 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  min-height: 4.5rem;
+  min-height: 4.75rem;
 }
 .brand-lockup {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.75rem;
   text-decoration: none;
   color: var(--color-text-inverse);
+  flex-shrink: 0;
 }
 :deep(.brand-logo) {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: 3.25rem;
+  max-width: 11rem;
   object-fit: contain;
 }
 :deep(.brand-logo-picture) {
-  display: block;
-  width: 2.75rem;
-  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  height: 3.25rem;
+  width: auto;
 }
 .brand-copy {
   display: flex;
@@ -143,11 +146,14 @@ onBeforeUnmount(() => {
 }
 .brand-copy strong {
   font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
 }
 .brand-copy small {
   font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   opacity: 0.85;
 }
 .side-nav {

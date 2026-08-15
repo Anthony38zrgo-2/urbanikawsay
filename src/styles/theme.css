@@ -61,15 +61,15 @@
   --text-display-3xl: clamp(2.5rem, 7vw, 4rem);
   --text-display-2xl: clamp(2.25rem, 5.5vw, 3.25rem);
   --text-display-xl: clamp(2rem, 5vw, 2.75rem);
-  --text-heading-2xl: clamp(1.75rem, 4.5vw, 2.5rem);
-  --text-heading-xl: clamp(1.5rem, 4vw, 2rem);
+  --text-heading-2xl: clamp(2rem, 5.2vw, 3rem);
+  --text-heading-xl: clamp(1.6rem, 4vw, 2.2rem);
   --text-heading-lg: 1.4rem;
   --text-heading-md: 1.2rem;
-  --text-body-lg: clamp(1.05rem, 2.4vw, 1.2rem);
+  --text-body-lg: clamp(1.08rem, 2.4vw, 1.25rem);
   --text-body: 1rem;
   --text-body-sm: 0.95rem;
   --text-caption: 0.85rem;
-  --text-eyebrow: 0.8rem;
+  --text-eyebrow: clamp(0.85rem, 1.8vw, 0.95rem);
 
   /* Ritmo vertical premium */
   --space-section: clamp(4.5rem, 10vw, 7.5rem);

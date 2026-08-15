@@ -13,9 +13,18 @@ const activeNames = new Set([
   'group-71.png',
   'group-72.png',
   'mapa.png',
-  'proyecto-villa-norte.png',
-  'proyecto-huaral-village.png',
-  'proyecto-extra-1.png',
+  'proyecto-las-palmeras.png',
+  'proyecto-villa-flores.png',
+  'proyecto-villa-norte-3.png',
+  'proyecto-el-milagro.png',
+  'proyecto-guaral-village.png',
+  'proyecto-villa-hermosa.png',
+  'mascota-bani.png',
+  'logo-las-palmeras.png',
+  'logo-villa-hermosa.png',
+  'logo-villa-norte-3.png',
+  'logo-el-milagro.png',
+  'logo-guaral-village.png',
   'logo.png',
   'favicon-32.png',
   'favicon-192.png',
@@ -23,11 +32,11 @@ const activeNames = new Set([
 
 const roleFor = (name) => {
   if (name.startsWith('favicon-')) return 'favicon'
-  if (name === 'logo.png') return 'logo'
+  if (name === 'logo.png' || name.startsWith('logo-')) return 'logo'
   if (name === 'mapa.png') return 'map'
   if (name.startsWith('proyecto-')) return 'project'
   if (name.startsWith('cuadro-') || name.startsWith('group-')) return 'hero'
-  if (name.startsWith('foto-')) return 'photo'
+  if (name.startsWith('foto-') || name.startsWith('mascota-')) return 'photo'
   return 'promo'
 }
 
