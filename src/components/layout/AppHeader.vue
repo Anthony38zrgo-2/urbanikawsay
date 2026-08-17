@@ -1,36 +1,33 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-import BaseIcon from '@/components/ui/BaseIcon.vue'
-import ResponsiveImage from '@/components/ui/ResponsiveImage.vue'
-import { siteData } from '@/constants/site'
-import { imageAssets } from '@/assets/generated/image-assets.js'
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import BaseIcon from "@/components/ui/BaseIcon.vue";
+import BrandLogo from "@/components/ui/BrandLogo.vue";
+import { siteData } from "@/constants/site";
 
-const emit = defineEmits(['open-reserve'])
-const menuOpen = ref(false)
-const scrolled = ref(false)
-
-const logo = imageAssets[siteData.brand.logo]
+const emit = defineEmits(["open-reserve"]);
+const menuOpen = ref(false);
+const scrolled = ref(false);
 
 const onScroll = () => {
-  scrolled.value = window.scrollY > 10
-}
+  scrolled.value = window.scrollY > 10;
+};
 
 const closeMenu = () => {
-  menuOpen.value = false
-}
+  menuOpen.value = false;
+};
 
 const handleKeydown = (e) => {
-  if (e.key === 'Escape' && menuOpen.value) closeMenu()
-}
+  if (e.key === "Escape" && menuOpen.value) closeMenu();
+};
 
 onMounted(() => {
-  window.addEventListener('scroll', onScroll)
-  document.addEventListener('keydown', handleKeydown)
-})
+  window.addEventListener("scroll", onScroll);
+  document.addEventListener("keydown", handleKeydown);
+});
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', onScroll)
-  document.removeEventListener('keydown', handleKeydown)
-})
+  window.removeEventListener("scroll", onScroll);
+  document.removeEventListener("keydown", handleKeydown);
+});
 </script>
 
 <template>
@@ -45,19 +42,7 @@ onBeforeUnmount(() => {
         :aria-label="siteData.brand.logoAlt"
         @click="closeMenu"
       >
-        <ResponsiveImage
-          :asset="logo"
-          alt=""
-          picture-class="brand-logo-picture"
-          img-class="brand-logo"
-          sizes="(min-width: 768px) 160px, 120px"
-          loading="eager"
-          fetchpriority="high"
-        />
-        <span class="brand-copy">
-          <strong>{{ siteData.brand.shortName || siteData.brand.name }}</strong>
-          <small>{{ siteData.brand.tagline }}</small>
-        </span>
+        <BrandLogo class="brand-logo text-white" />
       </a>
 
       <nav
@@ -127,17 +112,12 @@ onBeforeUnmount(() => {
   color: var(--color-text-inverse);
   flex-shrink: 0;
 }
+.brand-logo,
 :deep(.brand-logo) {
   width: auto;
-  height: 3.25rem;
-  max-width: 11rem;
-  object-fit: contain;
-}
-:deep(.brand-logo-picture) {
-  display: flex;
-  align-items: center;
-  height: 3.25rem;
-  width: auto;
+  height: 2.75rem;
+  max-width: 12rem;
+  display: block;
 }
 .brand-copy {
   display: flex;

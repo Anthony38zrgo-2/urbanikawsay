@@ -1,28 +1,34 @@
 <script setup>
-import BaseIcon from '@/components/ui/BaseIcon.vue'
-import ResponsiveImage from '@/components/ui/ResponsiveImage.vue'
-import { projects } from '@/constants/site'
-import { imageAssets } from '@/assets/generated/image-assets.js'
+import BaseIcon from "@/components/ui/BaseIcon.vue";
+import ResponsiveImage from "@/components/ui/ResponsiveImage.vue";
+import { projects } from "@/constants/site";
+import { imageAssets } from "@/assets/generated/image-assets.js";
 
-const emit = defineEmits(['open-project'])
+const emit = defineEmits(["open-project"]);
 
 const features = [
-  { label: 'Paneles Solares', icon: 'sun' },
-  { label: 'Tanque elevado', icon: 'water' },
-  { label: 'Vías afirmadas', icon: 'road' },
-  { label: 'Seguridad', icon: 'shield' },
-]
+  { label: "Paneles Solares", icon: "sun" },
+  { label: "Tanque elevado", icon: "water" },
+  { label: "Vías afirmadas", icon: "road" },
+  { label: "Seguridad", icon: "shield" },
+];
 </script>
 
 <template>
-  <section id="proyectos" class="section-pad projects-section anchor-offset" aria-labelledby="projects-title">
+  <section
+    id="proyectos"
+    class="section-pad projects-section anchor-offset"
+    aria-labelledby="projects-title"
+  >
     <div class="container-page">
       <div class="section-header section-header--center">
         <p class="section-eyebrow">Proyectos</p>
-        <h2 id="projects-title" class="section-title">DESCUBRE LO QUE TENEMOS PARA ASEGURAR TU FUTURO</h2>
+        <h2 id="projects-title" class="section-title">
+          DESCUBRE LO QUE TENEMOS PARA ASEGURAR TU FUTURO
+        </h2>
         <p class="section-lead">
-          Las Palmeras, en Huaral. Terrenos desde 120 m², a 20 minutos del Megapuerto
-          de Chancay.
+          Las Palmeras, en Huaral. Terrenos desde 120 m², a 20 minutos del
+          Megapuerto de Chancay.
         </p>
       </div>
 
@@ -39,7 +45,9 @@ const features = [
           :key="project.slug"
           class="card-property"
         >
-          <div class="media-frame aspect-4-3 media-frame--contain project-media">
+          <div
+            class="media-frame aspect-4-3 media-frame--contain project-media"
+          >
             <ResponsiveImage
               :asset="imageAssets[project.imageUrl]"
               :alt="`Proyecto ${project.name}`"
@@ -51,15 +59,6 @@ const features = [
           </div>
           <div class="project-info">
             <div class="project-info-header">
-              <ResponsiveImage
-                v-if="project.logoUrl && imageAssets[project.logoUrl]"
-                :asset="imageAssets[project.logoUrl]"
-                :alt="`Logo ${project.name}`"
-                picture-class="project-logo-picture"
-                img-class="project-logo"
-                sizes="120px"
-                loading="lazy"
-              />
               <h3 class="project-name">{{ project.name }}</h3>
             </div>
             <p class="project-location">
@@ -102,10 +101,14 @@ const features = [
   gap: 1.5rem;
 }
 @media (min-width: 640px) {
-  .project-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (min-width: 1024px) {
-  .project-grid { grid-template-columns: repeat(3, 1fr); }
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 .project-media {
   position: relative;

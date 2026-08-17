@@ -1,14 +1,32 @@
 <script setup>
-import ResponsiveImage from '@/components/ui/ResponsiveImage.vue'
-import { imageAssets } from '@/assets/generated/image-assets.js'
+import heroImg1 from '@/assets/images/hero/hero-01.jpg'
+import heroImg2 from '@/assets/images/hero/hero-02.jpg'
+import heroImg3 from '@/assets/images/hero/hero-03.jpg'
+import heroImg4 from '@/assets/images/hero/hero-04.jpg'
+import heroImg5 from '@/assets/images/hero/hero-05.jpg'
 
 const slides = [
-  { image: 'cuadro-01.png', alt: 'Urbanikawsay Inmobiliaria — inversión en terrenos' },
-  { image: 'group-71.png', alt: 'Proyectos inmobiliarios cerca del Megapuerto de Chancay' },
-  { image: 'group-72.png', alt: 'Terrenos con título de propiedad' },
-  { image: 'cuadro-02.png', alt: 'Lotes con servicios básicos' },
+  {
+    src: heroImg1,
+    alt: 'Proyectos y terrenos habilitados en Huaral - Urbanikawsay Inmobiliaria',
+  },
+  {
+    src: heroImg2,
+    alt: 'Equipo de profesionales y asesores de Urbanikawsay Inmobiliaria',
+  },
+  {
+    src: heroImg3,
+    alt: 'Vistas panorámicas y vías principales de desarrollo inmobiliario',
+  },
+  {
+    src: heroImg4,
+    alt: 'Entrega de títulos y asesoría personalizada a inversionistas',
+  },
+  {
+    src: heroImg5,
+    alt: 'Lotes y áreas verdes con alta proyección y plusvalía',
+  },
 ]
-
 </script>
 
 <template>
@@ -16,16 +34,14 @@ const slides = [
     <div class="hero-slider">
       <figure
         v-for="(slide, index) in slides"
-        :key="slide.image"
+        :key="index"
         class="hero-slide"
         :style="{ '--i': index }"
       >
-        <ResponsiveImage
-          :asset="imageAssets[slide.image]"
+        <img
+          :src="slide.src"
           :alt="slide.alt"
-          picture-class="hero-slide-picture"
-          img-class="hero-slide-img animate-kenburns"
-          sizes="100vw"
+          class="hero-slide-img animate-kenburns"
           :loading="index === 0 ? 'eager' : 'lazy'"
           :fetchpriority="index === 0 ? 'high' : 'auto'"
         />
@@ -77,23 +93,26 @@ const slides = [
   position: absolute;
   inset: 0;
   opacity: 0;
-  animation: heroCrossfade 20s infinite;
+  animation: heroCrossfade 25s infinite;
   animation-delay: calc(var(--i) * 5s);
+  margin: 0;
 }
-:deep(.hero-slide-img) {
+.hero-slide-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-.hero-slide-picture {
+  object-position: center;
   display: block;
-  width: 100%;
-  height: 100%;
 }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgb(9 46 28 / 0.72);
+  background: linear-gradient(
+    135deg,
+    rgba(9, 46, 28, 0.84) 0%,
+    rgba(9, 46, 28, 0.68) 50%,
+    rgba(9, 46, 28, 0.78) 100%
+  );
 }
 .hero-content {
   position: relative;
@@ -134,8 +153,8 @@ const slides = [
 }
 
 @keyframes heroCrossfade {
-  0%, 20% { opacity: 1; }
-  25%, 95% { opacity: 0; }
+  0%, 16% { opacity: 1; }
+  20%, 96% { opacity: 0; }
   100% { opacity: 1; }
 }
 
