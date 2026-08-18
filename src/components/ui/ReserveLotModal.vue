@@ -44,7 +44,7 @@ const handleSubmit = () => {
   if (!validate()) return
   submitted.value = true
   const body = `Nombre: ${form.nombre} ${form.apellido}\nDocumento: ${form.documento}\nTeléfono: ${form.telefono}\nEmail: ${form.email}\nMensaje: ${form.mensaje}\n`
-  window.location.href = `mailto:contacto@urbanikawsay.com?subject=Separación de lote - ${form.nombre} ${form.apellido}&body=${encodeURIComponent(body)}`
+  window.location.href = `mailto:urbanikawsayinmobiliaria@gmail.com?subject=Separación de lote - ${form.nombre} ${form.apellido}&body=${encodeURIComponent(body)}`
 }
 
 const errorFor = (key) => computed(() => errors.value[key] || '')

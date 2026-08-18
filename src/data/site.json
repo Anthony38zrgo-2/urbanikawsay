@@ -16,18 +16,18 @@
     "phoneMain": "917 789 123",
     "phoneMainIntl": "51917789123",
     "phoneSecondary": "926 353 563",
-    "email": "contacto@urbanikawsay.com",
-    "address1": "Jr. Manuel Rivero #200 con Jr. C. A. Salaverry, Los Olivos 15304",
-    "address2": "Sta Cruz de Pachacutec 155, Lima",
+    "email": "urbanikawsayinmobiliaria@gmail.com",
+    "address1": "Sta Cruz de Pachacutec 155, Los Olivos 15301",
+    "address2": "Sta Cruz de Pachacutec 155, Los Olivos 15301",
     "schedule": "Lun – Vie: 9:00 a.m. a 5:00 p.m. / Sab: 9:00 a.m. a 1:00 p.m."
   },
   "footer": {
     "legalName": "Constructora e inmobiliaria urbania j&j e.i.r.l",
     "year": 2025,
     "socials": [
-      { "platform": "Facebook", "url": "#" },
-      { "platform": "Linkedin", "url": "#" },
-      { "platform": "Youtube", "url": "#" }
+      { "platform": "Instagram", "url": "https://www.instagram.com/urbanikawsayinmobiliaria/" },
+      { "platform": "TikTok", "url": "https://www.tiktok.com/@urbanikawsay_oficia" },
+      { "platform": "Facebook", "url": "https://www.facebook.com/UrbanikawsayInmobiliaria" }
     ],
     "topic": [
       "Términos y condiciones",

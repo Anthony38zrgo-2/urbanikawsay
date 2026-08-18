@@ -729,49 +729,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-guaral-village-1.png",
-    "sourceWidth": 1402,
-    "sourceHeight": 1122,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 512,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-guaral-village-1/foto-guaral-village-1-320.avif",
           "width": 320,
-          "bytes": 9340,
-          "height": 256
+          "bytes": 4801,
+          "height": 240
         },
         {
           "src": "./foto-guaral-village-1/foto-guaral-village-1-480.avif",
           "width": 480,
-          "bytes": 19803,
-          "height": 384
+          "bytes": 10254,
+          "height": 360
         },
         {
           "src": "./foto-guaral-village-1/foto-guaral-village-1-640.avif",
           "width": 640,
-          "bytes": 35605,
-          "height": 512
+          "bytes": 17758,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-guaral-village-1/foto-guaral-village-1-320.webp",
           "width": 320,
-          "bytes": 12780,
-          "height": 256
+          "bytes": 5910,
+          "height": 240
         },
         {
           "src": "./foto-guaral-village-1/foto-guaral-village-1-480.webp",
           "width": 480,
-          "bytes": 28878,
-          "height": 384
+          "bytes": 13194,
+          "height": 360
         },
         {
           "src": "./foto-guaral-village-1/foto-guaral-village-1-640.webp",
           "width": 640,
-          "bytes": 53600,
-          "height": 512
+          "bytes": 23212,
+          "height": 480
         }
       ],
       "png": [],
@@ -779,16 +779,16 @@
         {
           "src": "./foto-guaral-village-1/foto-guaral-village-1-640.jpg",
           "width": 640,
-          "bytes": 54266,
-          "height": 512
+          "bytes": 29962,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-guaral-village-1/foto-guaral-village-1-640.jpg",
       "width": 640,
-      "bytes": 54266,
-      "height": 512
+      "bytes": 29962,
+      "height": 480
     }
   },
   "foto-guaral-village-2.png": {
@@ -796,49 +796,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-guaral-village-2.png",
-    "sourceWidth": 1459,
-    "sourceHeight": 1078,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 473,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-guaral-village-2/foto-guaral-village-2-320.avif",
           "width": 320,
-          "bytes": 8763,
-          "height": 236
+          "bytes": 3027,
+          "height": 240
         },
         {
           "src": "./foto-guaral-village-2/foto-guaral-village-2-480.avif",
           "width": 480,
-          "bytes": 18816,
-          "height": 355
+          "bytes": 5940,
+          "height": 360
         },
         {
           "src": "./foto-guaral-village-2/foto-guaral-village-2-640.avif",
           "width": 640,
-          "bytes": 32696,
-          "height": 473
+          "bytes": 9873,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-guaral-village-2/foto-guaral-village-2-320.webp",
           "width": 320,
-          "bytes": 13562,
-          "height": 236
+          "bytes": 3260,
+          "height": 240
         },
         {
           "src": "./foto-guaral-village-2/foto-guaral-village-2-480.webp",
           "width": 480,
-          "bytes": 30206,
-          "height": 355
+          "bytes": 6772,
+          "height": 360
         },
         {
           "src": "./foto-guaral-village-2/foto-guaral-village-2-640.webp",
           "width": 640,
-          "bytes": 53670,
-          "height": 473
+          "bytes": 11220,
+          "height": 480
         }
       ],
       "png": [],
@@ -846,16 +846,16 @@
         {
           "src": "./foto-guaral-village-2/foto-guaral-village-2-640.jpg",
           "width": 640,
-          "bytes": 53568,
-          "height": 473
+          "bytes": 20386,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-guaral-village-2/foto-guaral-village-2-640.jpg",
       "width": 640,
-      "bytes": 53568,
-      "height": 473
+      "bytes": 20386,
+      "height": 480
     }
   },
   "foto-guaral-village-3.png": {
@@ -863,49 +863,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-guaral-village-3.png",
-    "sourceWidth": 1454,
-    "sourceHeight": 1082,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 476,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-guaral-village-3/foto-guaral-village-3-320.avif",
           "width": 320,
-          "bytes": 7301,
-          "height": 238
+          "bytes": 5374,
+          "height": 240
         },
         {
           "src": "./foto-guaral-village-3/foto-guaral-village-3-480.avif",
           "width": 480,
-          "bytes": 15854,
-          "height": 357
+          "bytes": 11106,
+          "height": 360
         },
         {
           "src": "./foto-guaral-village-3/foto-guaral-village-3-640.avif",
           "width": 640,
-          "bytes": 27860,
-          "height": 476
+          "bytes": 18531,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-guaral-village-3/foto-guaral-village-3-320.webp",
           "width": 320,
-          "bytes": 11270,
-          "height": 238
+          "bytes": 6484,
+          "height": 240
         },
         {
           "src": "./foto-guaral-village-3/foto-guaral-village-3-480.webp",
           "width": 480,
-          "bytes": 25612,
-          "height": 357
+          "bytes": 14006,
+          "height": 360
         },
         {
           "src": "./foto-guaral-village-3/foto-guaral-village-3-640.webp",
           "width": 640,
-          "bytes": 45702,
-          "height": 476
+          "bytes": 23796,
+          "height": 480
         }
       ],
       "png": [],
@@ -913,16 +913,16 @@
         {
           "src": "./foto-guaral-village-3/foto-guaral-village-3-640.jpg",
           "width": 640,
-          "bytes": 47407,
-          "height": 476
+          "bytes": 32743,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-guaral-village-3/foto-guaral-village-3-640.jpg",
       "width": 640,
-      "bytes": 47407,
-      "height": 476
+      "bytes": 32743,
+      "height": 480
     }
   },
   "foto-las-palmeras-1.png": {
@@ -930,49 +930,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-las-palmeras-1.png",
-    "sourceWidth": 1122,
-    "sourceHeight": 1402,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 800,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-las-palmeras-1/foto-las-palmeras-1-320.avif",
           "width": 320,
-          "bytes": 15412,
-          "height": 400
+          "bytes": 8381,
+          "height": 240
         },
         {
           "src": "./foto-las-palmeras-1/foto-las-palmeras-1-480.avif",
           "width": 480,
-          "bytes": 35677,
-          "height": 600
+          "bytes": 20635,
+          "height": 360
         },
         {
           "src": "./foto-las-palmeras-1/foto-las-palmeras-1-640.avif",
           "width": 640,
-          "bytes": 67114,
-          "height": 800
+          "bytes": 41467,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-las-palmeras-1/foto-las-palmeras-1-320.webp",
           "width": 320,
-          "bytes": 26178,
-          "height": 400
+          "bytes": 12298,
+          "height": 240
         },
         {
           "src": "./foto-las-palmeras-1/foto-las-palmeras-1-480.webp",
           "width": 480,
-          "bytes": 63372,
-          "height": 600
+          "bytes": 34828,
+          "height": 360
         },
         {
           "src": "./foto-las-palmeras-1/foto-las-palmeras-1-640.webp",
           "width": 640,
-          "bytes": 116250,
-          "height": 800
+          "bytes": 71754,
+          "height": 480
         }
       ],
       "png": [],
@@ -980,16 +980,16 @@
         {
           "src": "./foto-las-palmeras-1/foto-las-palmeras-1-640.jpg",
           "width": 640,
-          "bytes": 106674,
-          "height": 800
+          "bytes": 59072,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-las-palmeras-1/foto-las-palmeras-1-640.jpg",
       "width": 640,
-      "bytes": 106674,
-      "height": 800
+      "bytes": 59072,
+      "height": 480
     }
   },
   "foto-las-palmeras-2.png": {
@@ -997,49 +997,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-las-palmeras-2.png",
-    "sourceWidth": 1672,
-    "sourceHeight": 941,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 360,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-las-palmeras-2/foto-las-palmeras-2-320.avif",
           "width": 320,
-          "bytes": 6735,
-          "height": 180
+          "bytes": 8569,
+          "height": 240
         },
         {
           "src": "./foto-las-palmeras-2/foto-las-palmeras-2-480.avif",
           "width": 480,
-          "bytes": 14437,
-          "height": 270
+          "bytes": 18932,
+          "height": 360
         },
         {
           "src": "./foto-las-palmeras-2/foto-las-palmeras-2-640.avif",
           "width": 640,
-          "bytes": 25426,
-          "height": 360
+          "bytes": 35495,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-las-palmeras-2/foto-las-palmeras-2-320.webp",
           "width": 320,
-          "bytes": 9064,
-          "height": 180
+          "bytes": 12666,
+          "height": 240
         },
         {
           "src": "./foto-las-palmeras-2/foto-las-palmeras-2-480.webp",
           "width": 480,
-          "bytes": 20480,
-          "height": 270
+          "bytes": 30860,
+          "height": 360
         },
         {
           "src": "./foto-las-palmeras-2/foto-las-palmeras-2-640.webp",
           "width": 640,
-          "bytes": 37782,
-          "height": 360
+          "bytes": 58658,
+          "height": 480
         }
       ],
       "png": [],
@@ -1047,16 +1047,16 @@
         {
           "src": "./foto-las-palmeras-2/foto-las-palmeras-2-640.jpg",
           "width": 640,
-          "bytes": 38134,
-          "height": 360
+          "bytes": 55795,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-las-palmeras-2/foto-las-palmeras-2-640.jpg",
       "width": 640,
-      "bytes": 38134,
-      "height": 360
+      "bytes": 55795,
+      "height": 480
     }
   },
   "foto-las-palmeras-3.png": {
@@ -1064,49 +1064,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-las-palmeras-3.png",
-    "sourceWidth": 1672,
-    "sourceHeight": 941,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 360,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-las-palmeras-3/foto-las-palmeras-3-320.avif",
           "width": 320,
-          "bytes": 5535,
-          "height": 180
+          "bytes": 7225,
+          "height": 240
         },
         {
           "src": "./foto-las-palmeras-3/foto-las-palmeras-3-480.avif",
           "width": 480,
-          "bytes": 13356,
-          "height": 270
+          "bytes": 18559,
+          "height": 360
         },
         {
           "src": "./foto-las-palmeras-3/foto-las-palmeras-3-640.avif",
           "width": 640,
-          "bytes": 24896,
-          "height": 360
+          "bytes": 35951,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-las-palmeras-3/foto-las-palmeras-3-320.webp",
           "width": 320,
-          "bytes": 7224,
-          "height": 180
+          "bytes": 9498,
+          "height": 240
         },
         {
           "src": "./foto-las-palmeras-3/foto-las-palmeras-3-480.webp",
           "width": 480,
-          "bytes": 19330,
-          "height": 270
+          "bytes": 27264,
+          "height": 360
         },
         {
           "src": "./foto-las-palmeras-3/foto-las-palmeras-3-640.webp",
           "width": 640,
-          "bytes": 39042,
-          "height": 360
+          "bytes": 57012,
+          "height": 480
         }
       ],
       "png": [],
@@ -1114,16 +1114,16 @@
         {
           "src": "./foto-las-palmeras-3/foto-las-palmeras-3-640.jpg",
           "width": 640,
-          "bytes": 36024,
-          "height": 360
+          "bytes": 49630,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-las-palmeras-3/foto-las-palmeras-3-640.jpg",
       "width": 640,
-      "bytes": 36024,
-      "height": 360
+      "bytes": 49630,
+      "height": 480
     }
   },
   "foto-las-palmeras-4.png": {
@@ -1140,19 +1140,19 @@
         {
           "src": "./foto-las-palmeras-4/foto-las-palmeras-4-320.avif",
           "width": 320,
-          "bytes": 9251,
+          "bytes": 8571,
           "height": 240
         },
         {
           "src": "./foto-las-palmeras-4/foto-las-palmeras-4-480.avif",
           "width": 480,
-          "bytes": 19491,
+          "bytes": 20043,
           "height": 360
         },
         {
           "src": "./foto-las-palmeras-4/foto-las-palmeras-4-640.avif",
           "width": 640,
-          "bytes": 33955,
+          "bytes": 37352,
           "height": 480
         }
       ],
@@ -1160,19 +1160,19 @@
         {
           "src": "./foto-las-palmeras-4/foto-las-palmeras-4-320.webp",
           "width": 320,
-          "bytes": 14906,
+          "bytes": 11786,
           "height": 240
         },
         {
           "src": "./foto-las-palmeras-4/foto-las-palmeras-4-480.webp",
           "width": 480,
-          "bytes": 33268,
+          "bytes": 29174,
           "height": 360
         },
         {
           "src": "./foto-las-palmeras-4/foto-las-palmeras-4-640.webp",
           "width": 640,
-          "bytes": 57206,
+          "bytes": 58312,
           "height": 480
         }
       ],
@@ -1181,7 +1181,7 @@
         {
           "src": "./foto-las-palmeras-4/foto-las-palmeras-4-640.jpg",
           "width": 640,
-          "bytes": 57037,
+          "bytes": 53767,
           "height": 480
         }
       ]
@@ -1189,7 +1189,7 @@
     "fallback": {
       "src": "./foto-las-palmeras-4/foto-las-palmeras-4-640.jpg",
       "width": 640,
-      "bytes": 57037,
+      "bytes": 53767,
       "height": 480
     }
   },
@@ -1207,19 +1207,19 @@
         {
           "src": "./foto-las-palmeras-5/foto-las-palmeras-5-320.avif",
           "width": 320,
-          "bytes": 6579,
+          "bytes": 7878,
           "height": 240
         },
         {
           "src": "./foto-las-palmeras-5/foto-las-palmeras-5-480.avif",
           "width": 480,
-          "bytes": 14187,
+          "bytes": 17322,
           "height": 360
         },
         {
           "src": "./foto-las-palmeras-5/foto-las-palmeras-5-640.avif",
           "width": 640,
-          "bytes": 25910,
+          "bytes": 31321,
           "height": 480
         }
       ],
@@ -1227,19 +1227,19 @@
         {
           "src": "./foto-las-palmeras-5/foto-las-palmeras-5-320.webp",
           "width": 320,
-          "bytes": 9952,
+          "bytes": 9408,
           "height": 240
         },
         {
           "src": "./foto-las-palmeras-5/foto-las-palmeras-5-480.webp",
           "width": 480,
-          "bytes": 23310,
+          "bytes": 22168,
           "height": 360
         },
         {
           "src": "./foto-las-palmeras-5/foto-las-palmeras-5-640.webp",
           "width": 640,
-          "bytes": 41646,
+          "bytes": 41058,
           "height": 480
         }
       ],
@@ -1248,7 +1248,7 @@
         {
           "src": "./foto-las-palmeras-5/foto-las-palmeras-5-640.jpg",
           "width": 640,
-          "bytes": 43474,
+          "bytes": 44761,
           "height": 480
         }
       ]
@@ -1256,7 +1256,7 @@
     "fallback": {
       "src": "./foto-las-palmeras-5/foto-las-palmeras-5-640.jpg",
       "width": 640,
-      "bytes": 43474,
+      "bytes": 44761,
       "height": 480
     }
   },
@@ -1274,19 +1274,19 @@
         {
           "src": "./foto-las-palmeras-6/foto-las-palmeras-6-320.avif",
           "width": 320,
-          "bytes": 8926,
+          "bytes": 8842,
           "height": 240
         },
         {
           "src": "./foto-las-palmeras-6/foto-las-palmeras-6-480.avif",
           "width": 480,
-          "bytes": 18427,
+          "bytes": 19617,
           "height": 360
         },
         {
           "src": "./foto-las-palmeras-6/foto-las-palmeras-6-640.avif",
           "width": 640,
-          "bytes": 31964,
+          "bytes": 35867,
           "height": 480
         }
       ],
@@ -1294,19 +1294,19 @@
         {
           "src": "./foto-las-palmeras-6/foto-las-palmeras-6-320.webp",
           "width": 320,
-          "bytes": 14054,
+          "bytes": 12190,
           "height": 240
         },
         {
           "src": "./foto-las-palmeras-6/foto-las-palmeras-6-480.webp",
           "width": 480,
-          "bytes": 31058,
+          "bytes": 29290,
           "height": 360
         },
         {
           "src": "./foto-las-palmeras-6/foto-las-palmeras-6-640.webp",
           "width": 640,
-          "bytes": 53354,
+          "bytes": 54694,
           "height": 480
         }
       ],
@@ -1315,7 +1315,7 @@
         {
           "src": "./foto-las-palmeras-6/foto-las-palmeras-6-640.jpg",
           "width": 640,
-          "bytes": 53638,
+          "bytes": 54234,
           "height": 480
         }
       ]
@@ -1323,7 +1323,7 @@
     "fallback": {
       "src": "./foto-las-palmeras-6/foto-las-palmeras-6-640.jpg",
       "width": 640,
-      "bytes": 53638,
+      "bytes": 54234,
       "height": 480
     }
   },
@@ -1332,49 +1332,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-villa-flores-1.png",
-    "sourceWidth": 1122,
-    "sourceHeight": 1402,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 800,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-villa-flores-1/foto-villa-flores-1-320.avif",
           "width": 320,
-          "bytes": 7569,
-          "height": 400
+          "bytes": 16049,
+          "height": 240
         },
         {
           "src": "./foto-villa-flores-1/foto-villa-flores-1-480.avif",
           "width": 480,
-          "bytes": 17937,
-          "height": 600
+          "bytes": 35558,
+          "height": 360
         },
         {
           "src": "./foto-villa-flores-1/foto-villa-flores-1-640.avif",
           "width": 640,
-          "bytes": 35421,
-          "height": 800
+          "bytes": 61824,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-villa-flores-1/foto-villa-flores-1-320.webp",
           "width": 320,
-          "bytes": 8656,
-          "height": 400
+          "bytes": 28324,
+          "height": 240
         },
         {
           "src": "./foto-villa-flores-1/foto-villa-flores-1-480.webp",
           "width": 480,
-          "bytes": 22442,
-          "height": 600
+          "bytes": 62914,
+          "height": 360
         },
         {
           "src": "./foto-villa-flores-1/foto-villa-flores-1-640.webp",
           "width": 640,
-          "bytes": 45342,
-          "height": 800
+          "bytes": 107592,
+          "height": 480
         }
       ],
       "png": [],
@@ -1382,16 +1382,16 @@
         {
           "src": "./foto-villa-flores-1/foto-villa-flores-1-640.jpg",
           "width": 640,
-          "bytes": 52926,
-          "height": 800
+          "bytes": 97141,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-villa-flores-1/foto-villa-flores-1-640.jpg",
       "width": 640,
-      "bytes": 52926,
-      "height": 800
+      "bytes": 97141,
+      "height": 480
     }
   },
   "foto-villa-flores-2.png": {
@@ -1399,49 +1399,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-villa-flores-2.png",
-    "sourceWidth": 1122,
-    "sourceHeight": 1402,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 800,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-villa-flores-2/foto-villa-flores-2-320.avif",
           "width": 320,
-          "bytes": 10953,
-          "height": 400
+          "bytes": 6128,
+          "height": 240
         },
         {
           "src": "./foto-villa-flores-2/foto-villa-flores-2-480.avif",
           "width": 480,
-          "bytes": 26566,
-          "height": 600
+          "bytes": 13882,
+          "height": 360
         },
         {
           "src": "./foto-villa-flores-2/foto-villa-flores-2-640.avif",
           "width": 640,
-          "bytes": 51304,
-          "height": 800
+          "bytes": 25317,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-villa-flores-2/foto-villa-flores-2-320.webp",
           "width": 320,
-          "bytes": 13930,
-          "height": 400
+          "bytes": 7836,
+          "height": 240
         },
         {
           "src": "./foto-villa-flores-2/foto-villa-flores-2-480.webp",
           "width": 480,
-          "bytes": 37488,
-          "height": 600
+          "bytes": 19190,
+          "height": 360
         },
         {
           "src": "./foto-villa-flores-2/foto-villa-flores-2-640.webp",
           "width": 640,
-          "bytes": 74086,
-          "height": 800
+          "bytes": 34900,
+          "height": 480
         }
       ],
       "png": [],
@@ -1449,16 +1449,16 @@
         {
           "src": "./foto-villa-flores-2/foto-villa-flores-2-640.jpg",
           "width": 640,
-          "bytes": 72431,
-          "height": 800
+          "bytes": 41005,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-villa-flores-2/foto-villa-flores-2-640.jpg",
       "width": 640,
-      "bytes": 72431,
-      "height": 800
+      "bytes": 41005,
+      "height": 480
     }
   },
   "foto-villa-flores-3.png": {
@@ -1466,49 +1466,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-villa-flores-3.png",
-    "sourceWidth": 1122,
-    "sourceHeight": 1402,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 800,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-villa-flores-3/foto-villa-flores-3-320.avif",
           "width": 320,
-          "bytes": 7497,
-          "height": 400
+          "bytes": 6709,
+          "height": 240
         },
         {
           "src": "./foto-villa-flores-3/foto-villa-flores-3-480.avif",
           "width": 480,
-          "bytes": 18803,
-          "height": 600
+          "bytes": 15573,
+          "height": 360
         },
         {
           "src": "./foto-villa-flores-3/foto-villa-flores-3-640.avif",
           "width": 640,
-          "bytes": 40086,
-          "height": 800
+          "bytes": 29709,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-villa-flores-3/foto-villa-flores-3-320.webp",
           "width": 320,
-          "bytes": 8344,
-          "height": 400
+          "bytes": 8764,
+          "height": 240
         },
         {
           "src": "./foto-villa-flores-3/foto-villa-flores-3-480.webp",
           "width": 480,
-          "bytes": 23074,
-          "height": 600
+          "bytes": 22980,
+          "height": 360
         },
         {
           "src": "./foto-villa-flores-3/foto-villa-flores-3-640.webp",
           "width": 640,
-          "bytes": 54242,
-          "height": 800
+          "bytes": 44428,
+          "height": 480
         }
       ],
       "png": [],
@@ -1516,16 +1516,16 @@
         {
           "src": "./foto-villa-flores-3/foto-villa-flores-3-640.jpg",
           "width": 640,
-          "bytes": 55921,
-          "height": 800
+          "bytes": 45010,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-villa-flores-3/foto-villa-flores-3-640.jpg",
       "width": 640,
-      "bytes": 55921,
-      "height": 800
+      "bytes": 45010,
+      "height": 480
     }
   },
   "foto-villa-flores-4.png": {
@@ -1542,19 +1542,19 @@
         {
           "src": "./foto-villa-flores-4/foto-villa-flores-4-320.avif",
           "width": 320,
-          "bytes": 5133,
+          "bytes": 6415,
           "height": 240
         },
         {
           "src": "./foto-villa-flores-4/foto-villa-flores-4-480.avif",
           "width": 480,
-          "bytes": 10740,
+          "bytes": 15778,
           "height": 360
         },
         {
           "src": "./foto-villa-flores-4/foto-villa-flores-4-640.avif",
           "width": 640,
-          "bytes": 18120,
+          "bytes": 31626,
           "height": 480
         }
       ],
@@ -1562,19 +1562,19 @@
         {
           "src": "./foto-villa-flores-4/foto-villa-flores-4-320.webp",
           "width": 320,
-          "bytes": 7356,
+          "bytes": 8098,
           "height": 240
         },
         {
           "src": "./foto-villa-flores-4/foto-villa-flores-4-480.webp",
           "width": 480,
-          "bytes": 16326,
+          "bytes": 21968,
           "height": 360
         },
         {
           "src": "./foto-villa-flores-4/foto-villa-flores-4-640.webp",
           "width": 640,
-          "bytes": 28978,
+          "bytes": 47738,
           "height": 480
         }
       ],
@@ -1583,7 +1583,7 @@
         {
           "src": "./foto-villa-flores-4/foto-villa-flores-4-640.jpg",
           "width": 640,
-          "bytes": 32552,
+          "bytes": 44422,
           "height": 480
         }
       ]
@@ -1591,141 +1591,7 @@
     "fallback": {
       "src": "./foto-villa-flores-4/foto-villa-flores-4-640.jpg",
       "width": 640,
-      "bytes": 32552,
-      "height": 480
-    }
-  },
-  "foto-villa-flores-5.png": {
-    "name": "foto-villa-flores-5.png",
-    "role": "photo",
-    "active": true,
-    "source": "src/assets/images/foto-villa-flores-5.png",
-    "sourceWidth": 1448,
-    "sourceHeight": 1086,
-    "width": 640,
-    "height": 480,
-    "formats": {
-      "avif": [
-        {
-          "src": "./foto-villa-flores-5/foto-villa-flores-5-320.avif",
-          "width": 320,
-          "bytes": 7662,
-          "height": 240
-        },
-        {
-          "src": "./foto-villa-flores-5/foto-villa-flores-5-480.avif",
-          "width": 480,
-          "bytes": 17412,
-          "height": 360
-        },
-        {
-          "src": "./foto-villa-flores-5/foto-villa-flores-5-640.avif",
-          "width": 640,
-          "bytes": 31735,
-          "height": 480
-        }
-      ],
-      "webp": [
-        {
-          "src": "./foto-villa-flores-5/foto-villa-flores-5-320.webp",
-          "width": 320,
-          "bytes": 12722,
-          "height": 240
-        },
-        {
-          "src": "./foto-villa-flores-5/foto-villa-flores-5-480.webp",
-          "width": 480,
-          "bytes": 29678,
-          "height": 360
-        },
-        {
-          "src": "./foto-villa-flores-5/foto-villa-flores-5-640.webp",
-          "width": 640,
-          "bytes": 52668,
-          "height": 480
-        }
-      ],
-      "png": [],
-      "jpg": [
-        {
-          "src": "./foto-villa-flores-5/foto-villa-flores-5-640.jpg",
-          "width": 640,
-          "bytes": 52351,
-          "height": 480
-        }
-      ]
-    },
-    "fallback": {
-      "src": "./foto-villa-flores-5/foto-villa-flores-5-640.jpg",
-      "width": 640,
-      "bytes": 52351,
-      "height": 480
-    }
-  },
-  "foto-villa-flores-6.png": {
-    "name": "foto-villa-flores-6.png",
-    "role": "photo",
-    "active": true,
-    "source": "src/assets/images/foto-villa-flores-6.png",
-    "sourceWidth": 1448,
-    "sourceHeight": 1086,
-    "width": 640,
-    "height": 480,
-    "formats": {
-      "avif": [
-        {
-          "src": "./foto-villa-flores-6/foto-villa-flores-6-320.avif",
-          "width": 320,
-          "bytes": 6298,
-          "height": 240
-        },
-        {
-          "src": "./foto-villa-flores-6/foto-villa-flores-6-480.avif",
-          "width": 480,
-          "bytes": 13697,
-          "height": 360
-        },
-        {
-          "src": "./foto-villa-flores-6/foto-villa-flores-6-640.avif",
-          "width": 640,
-          "bytes": 24211,
-          "height": 480
-        }
-      ],
-      "webp": [
-        {
-          "src": "./foto-villa-flores-6/foto-villa-flores-6-320.webp",
-          "width": 320,
-          "bytes": 9384,
-          "height": 240
-        },
-        {
-          "src": "./foto-villa-flores-6/foto-villa-flores-6-480.webp",
-          "width": 480,
-          "bytes": 22116,
-          "height": 360
-        },
-        {
-          "src": "./foto-villa-flores-6/foto-villa-flores-6-640.webp",
-          "width": 640,
-          "bytes": 40348,
-          "height": 480
-        }
-      ],
-      "png": [],
-      "jpg": [
-        {
-          "src": "./foto-villa-flores-6/foto-villa-flores-6-640.jpg",
-          "width": 640,
-          "bytes": 41333,
-          "height": 480
-        }
-      ]
-    },
-    "fallback": {
-      "src": "./foto-villa-flores-6/foto-villa-flores-6-640.jpg",
-      "width": 640,
-      "bytes": 41333,
+      "bytes": 44422,
       "height": 480
     }
   },
@@ -1734,49 +1600,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-villa-hermosa-1.png",
-    "sourceWidth": 1122,
-    "sourceHeight": 1402,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 800,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-320.avif",
           "width": 320,
-          "bytes": 7497,
-          "height": 400
+          "bytes": 15456,
+          "height": 240
         },
         {
           "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-480.avif",
           "width": 480,
-          "bytes": 18803,
-          "height": 600
+          "bytes": 34444,
+          "height": 360
         },
         {
           "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-640.avif",
           "width": 640,
-          "bytes": 40086,
-          "height": 800
+          "bytes": 59891,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-320.webp",
           "width": 320,
-          "bytes": 8344,
-          "height": 400
+          "bytes": 28946,
+          "height": 240
         },
         {
           "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-480.webp",
           "width": 480,
-          "bytes": 23074,
-          "height": 600
+          "bytes": 64920,
+          "height": 360
         },
         {
           "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-640.webp",
           "width": 640,
-          "bytes": 54242,
-          "height": 800
+          "bytes": 111544,
+          "height": 480
         }
       ],
       "png": [],
@@ -1784,16 +1650,16 @@
         {
           "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-640.jpg",
           "width": 640,
-          "bytes": 55921,
-          "height": 800
+          "bytes": 98920,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-640.jpg",
       "width": 640,
-      "bytes": 55921,
-      "height": 800
+      "bytes": 98920,
+      "height": 480
     }
   },
   "foto-villa-hermosa-2.png": {
@@ -1801,66 +1667,66 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-villa-hermosa-2.png",
-    "sourceWidth": 1122,
-    "sourceHeight": 1402,
+    "sourceWidth": 6000,
+    "sourceHeight": 4500,
     "width": 640,
-    "height": 800,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-320.avif",
           "width": 320,
-          "bytes": 13202,
-          "height": 400
+          "bytes": 10491,
+          "height": 240
         },
         {
           "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-480.avif",
           "width": 480,
-          "bytes": 27694,
-          "height": 600
+          "bytes": 22498,
+          "height": 360
         },
         {
           "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-640.avif",
           "width": 640,
-          "bytes": 47203,
-          "height": 800
+          "bytes": 38045,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-320.webp",
           "width": 320,
-          "bytes": 20574,
-          "height": 400
+          "bytes": 17324,
+          "height": 240
         },
         {
           "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-480.webp",
           "width": 480,
-          "bytes": 45044,
-          "height": 600
+          "bytes": 39760,
+          "height": 360
         },
         {
           "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-640.webp",
           "width": 640,
-          "bytes": 78112,
-          "height": 800
+          "bytes": 70888,
+          "height": 480
         }
       ],
-      "png": [],
-      "jpg": [
+      "png": [
         {
-          "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-640.jpg",
+          "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-640.png",
           "width": 640,
-          "bytes": 86555,
-          "height": 800
+          "bytes": 678211,
+          "height": 480
         }
-      ]
+      ],
+      "jpg": []
     },
     "fallback": {
-      "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-640.jpg",
+      "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-640.png",
       "width": 640,
-      "bytes": 86555,
-      "height": 800
+      "bytes": 678211,
+      "height": 480
     }
   },
   "foto-villa-hermosa-3.png": {
@@ -1868,49 +1734,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-villa-hermosa-3.png",
-    "sourceWidth": 1386,
-    "sourceHeight": 1135,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 524,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-villa-hermosa-3/foto-villa-hermosa-3-320.avif",
           "width": 320,
-          "bytes": 7382,
-          "height": 262
+          "bytes": 12106,
+          "height": 240
         },
         {
           "src": "./foto-villa-hermosa-3/foto-villa-hermosa-3-480.avif",
           "width": 480,
-          "bytes": 17514,
-          "height": 393
+          "bytes": 26916,
+          "height": 360
         },
         {
           "src": "./foto-villa-hermosa-3/foto-villa-hermosa-3-640.avif",
           "width": 640,
-          "bytes": 31527,
-          "height": 524
+          "bytes": 46121,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-villa-hermosa-3/foto-villa-hermosa-3-320.webp",
           "width": 320,
-          "bytes": 9290,
-          "height": 262
+          "bytes": 22570,
+          "height": 240
         },
         {
           "src": "./foto-villa-hermosa-3/foto-villa-hermosa-3-480.webp",
           "width": 480,
-          "bytes": 22220,
-          "height": 393
+          "bytes": 52202,
+          "height": 360
         },
         {
           "src": "./foto-villa-hermosa-3/foto-villa-hermosa-3-640.webp",
           "width": 640,
-          "bytes": 41754,
-          "height": 524
+          "bytes": 90366,
+          "height": 480
         }
       ],
       "png": [],
@@ -1918,16 +1784,16 @@
         {
           "src": "./foto-villa-hermosa-3/foto-villa-hermosa-3-640.jpg",
           "width": 640,
-          "bytes": 45470,
-          "height": 524
+          "bytes": 82499,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-villa-hermosa-3/foto-villa-hermosa-3-640.jpg",
       "width": 640,
-      "bytes": 45470,
-      "height": 524
+      "bytes": 82499,
+      "height": 480
     }
   },
   "foto-villa-norte-3-1.png": {
@@ -1935,49 +1801,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-villa-norte-3-1.png",
-    "sourceWidth": 1122,
-    "sourceHeight": 1402,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 800,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-320.avif",
           "width": 320,
-          "bytes": 15639,
-          "height": 400
+          "bytes": 6541,
+          "height": 240
         },
         {
           "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-480.avif",
           "width": 480,
-          "bytes": 35185,
-          "height": 600
+          "bytes": 13498,
+          "height": 360
         },
         {
           "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-640.avif",
           "width": 640,
-          "bytes": 65379,
-          "height": 800
+          "bytes": 23826,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-320.webp",
           "width": 320,
-          "bytes": 22802,
-          "height": 400
+          "bytes": 6902,
+          "height": 240
         },
         {
           "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-480.webp",
           "width": 480,
-          "bytes": 55568,
-          "height": 600
+          "bytes": 15300,
+          "height": 360
         },
         {
           "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-640.webp",
           "width": 640,
-          "bytes": 102402,
-          "height": 800
+          "bytes": 28228,
+          "height": 480
         }
       ],
       "png": [],
@@ -1985,16 +1851,16 @@
         {
           "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-640.jpg",
           "width": 640,
-          "bytes": 93587,
-          "height": 800
+          "bytes": 33894,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-640.jpg",
       "width": 640,
-      "bytes": 93587,
-      "height": 800
+      "bytes": 33894,
+      "height": 480
     }
   },
   "foto-villa-norte-3-2.png": {
@@ -2002,49 +1868,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-villa-norte-3-2.png",
-    "sourceWidth": 1122,
-    "sourceHeight": 1402,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 800,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-320.avif",
           "width": 320,
-          "bytes": 13236,
-          "height": 400
+          "bytes": 13548,
+          "height": 240
         },
         {
           "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-480.avif",
           "width": 480,
-          "bytes": 31220,
-          "height": 600
+          "bytes": 29208,
+          "height": 360
         },
         {
           "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-640.avif",
           "width": 640,
-          "bytes": 61104,
-          "height": 800
+          "bytes": 49778,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-320.webp",
           "width": 320,
-          "bytes": 18700,
-          "height": 400
+          "bytes": 23636,
+          "height": 240
         },
         {
           "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-480.webp",
           "width": 480,
-          "bytes": 48016,
-          "height": 600
+          "bytes": 51424,
+          "height": 360
         },
         {
           "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-640.webp",
           "width": 640,
-          "bytes": 96918,
-          "height": 800
+          "bytes": 87374,
+          "height": 480
         }
       ],
       "png": [],
@@ -2052,16 +1918,16 @@
         {
           "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-640.jpg",
           "width": 640,
-          "bytes": 85005,
-          "height": 800
+          "bytes": 83095,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-640.jpg",
       "width": 640,
-      "bytes": 85005,
-      "height": 800
+      "bytes": 83095,
+      "height": 480
     }
   },
   "foto-villa-norte-3-3.png": {
@@ -2069,49 +1935,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-villa-norte-3-3.png",
-    "sourceWidth": 1122,
-    "sourceHeight": 1402,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 800,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-320.avif",
           "width": 320,
-          "bytes": 12479,
-          "height": 400
+          "bytes": 8272,
+          "height": 240
         },
         {
           "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-480.avif",
           "width": 480,
-          "bytes": 30037,
-          "height": 600
+          "bytes": 18948,
+          "height": 360
         },
         {
           "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-640.avif",
           "width": 640,
-          "bytes": 56710,
-          "height": 800
+          "bytes": 35666,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-320.webp",
           "width": 320,
-          "bytes": 17666,
-          "height": 400
+          "bytes": 11778,
+          "height": 240
         },
         {
           "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-480.webp",
           "width": 480,
-          "bytes": 43360,
-          "height": 600
+          "bytes": 28116,
+          "height": 360
         },
         {
           "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-640.webp",
           "width": 640,
-          "bytes": 88118,
-          "height": 800
+          "bytes": 57136,
+          "height": 480
         }
       ],
       "png": [],
@@ -2119,16 +1985,16 @@
         {
           "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-640.jpg",
           "width": 640,
-          "bytes": 82001,
-          "height": 800
+          "bytes": 52491,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-640.jpg",
       "width": 640,
-      "bytes": 82001,
-      "height": 800
+      "bytes": 52491,
+      "height": 480
     }
   },
   "foto-villa-norte-3-4.png": {
@@ -2136,49 +2002,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-villa-norte-3-4.png",
-    "sourceWidth": 1122,
-    "sourceHeight": 1402,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 800,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-320.avif",
           "width": 320,
-          "bytes": 19594,
-          "height": 400
+          "bytes": 7756,
+          "height": 240
         },
         {
           "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-480.avif",
           "width": 480,
-          "bytes": 45716,
-          "height": 600
+          "bytes": 17067,
+          "height": 360
         },
         {
           "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-640.avif",
           "width": 640,
-          "bytes": 86018,
-          "height": 800
+          "bytes": 30064,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-320.webp",
           "width": 320,
-          "bytes": 33886,
-          "height": 400
+          "bytes": 10742,
+          "height": 240
         },
         {
           "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-480.webp",
           "width": 480,
-          "bytes": 80890,
-          "height": 600
+          "bytes": 24858,
+          "height": 360
         },
         {
           "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-640.webp",
           "width": 640,
-          "bytes": 149734,
-          "height": 800
+          "bytes": 43936,
+          "height": 480
         }
       ],
       "png": [],
@@ -2186,149 +2052,15 @@
         {
           "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-640.jpg",
           "width": 640,
-          "bytes": 130684,
-          "height": 800
+          "bytes": 47678,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-640.jpg",
       "width": 640,
-      "bytes": 130684,
-      "height": 800
-    }
-  },
-  "foto-villa-norte-3-5.png": {
-    "name": "foto-villa-norte-3-5.png",
-    "role": "photo",
-    "active": true,
-    "source": "src/assets/images/foto-villa-norte-3-5.png",
-    "sourceWidth": 1448,
-    "sourceHeight": 1086,
-    "width": 640,
-    "height": 480,
-    "formats": {
-      "avif": [
-        {
-          "src": "./foto-villa-norte-3-5/foto-villa-norte-3-5-320.avif",
-          "width": 320,
-          "bytes": 6647,
-          "height": 240
-        },
-        {
-          "src": "./foto-villa-norte-3-5/foto-villa-norte-3-5-480.avif",
-          "width": 480,
-          "bytes": 15918,
-          "height": 360
-        },
-        {
-          "src": "./foto-villa-norte-3-5/foto-villa-norte-3-5-640.avif",
-          "width": 640,
-          "bytes": 29805,
-          "height": 480
-        }
-      ],
-      "webp": [
-        {
-          "src": "./foto-villa-norte-3-5/foto-villa-norte-3-5-320.webp",
-          "width": 320,
-          "bytes": 9088,
-          "height": 240
-        },
-        {
-          "src": "./foto-villa-norte-3-5/foto-villa-norte-3-5-480.webp",
-          "width": 480,
-          "bytes": 23236,
-          "height": 360
-        },
-        {
-          "src": "./foto-villa-norte-3-5/foto-villa-norte-3-5-640.webp",
-          "width": 640,
-          "bytes": 46152,
-          "height": 480
-        }
-      ],
-      "png": [],
-      "jpg": [
-        {
-          "src": "./foto-villa-norte-3-5/foto-villa-norte-3-5-640.jpg",
-          "width": 640,
-          "bytes": 44686,
-          "height": 480
-        }
-      ]
-    },
-    "fallback": {
-      "src": "./foto-villa-norte-3-5/foto-villa-norte-3-5-640.jpg",
-      "width": 640,
-      "bytes": 44686,
-      "height": 480
-    }
-  },
-  "foto-villa-norte-3-6.png": {
-    "name": "foto-villa-norte-3-6.png",
-    "role": "photo",
-    "active": true,
-    "source": "src/assets/images/foto-villa-norte-3-6.png",
-    "sourceWidth": 1448,
-    "sourceHeight": 1086,
-    "width": 640,
-    "height": 480,
-    "formats": {
-      "avif": [
-        {
-          "src": "./foto-villa-norte-3-6/foto-villa-norte-3-6-320.avif",
-          "width": 320,
-          "bytes": 8197,
-          "height": 240
-        },
-        {
-          "src": "./foto-villa-norte-3-6/foto-villa-norte-3-6-480.avif",
-          "width": 480,
-          "bytes": 18064,
-          "height": 360
-        },
-        {
-          "src": "./foto-villa-norte-3-6/foto-villa-norte-3-6-640.avif",
-          "width": 640,
-          "bytes": 32101,
-          "height": 480
-        }
-      ],
-      "webp": [
-        {
-          "src": "./foto-villa-norte-3-6/foto-villa-norte-3-6-320.webp",
-          "width": 320,
-          "bytes": 11732,
-          "height": 240
-        },
-        {
-          "src": "./foto-villa-norte-3-6/foto-villa-norte-3-6-480.webp",
-          "width": 480,
-          "bytes": 27486,
-          "height": 360
-        },
-        {
-          "src": "./foto-villa-norte-3-6/foto-villa-norte-3-6-640.webp",
-          "width": 640,
-          "bytes": 50402,
-          "height": 480
-        }
-      ],
-      "png": [],
-      "jpg": [
-        {
-          "src": "./foto-villa-norte-3-6/foto-villa-norte-3-6-640.jpg",
-          "width": 640,
-          "bytes": 50634,
-          "height": 480
-        }
-      ]
-    },
-    "fallback": {
-      "src": "./foto-villa-norte-3-6/foto-villa-norte-3-6-640.jpg",
-      "width": 640,
-      "bytes": 50634,
+      "bytes": 47678,
       "height": 480
     }
   },

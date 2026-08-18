@@ -4,9 +4,23 @@ import BaseIcon from '@/components/ui/BaseIcon.vue'
 import ResponsiveImage from '@/components/ui/ResponsiveImage.vue'
 import { siteData } from '@/constants/site'
 import { imageAssets } from '@/assets/generated/image-assets.js'
+import mascotAudio from '@/assets/audio/animacion-lote.mp3'
 
 const baniAsset = imageAssets['mascota-bani-v2.png']
 const detalleAsset = imageAssets['detalle-contacto.png']
+
+let baniAudio = null
+
+const playMascotAudio = () => {
+  if (!baniAudio) {
+    baniAudio = new Audio(mascotAudio)
+  }
+  // Si ya está sonando, lo reiniciamos
+  baniAudio.currentTime = 0
+  baniAudio.play().catch(() => {
+    // Ignorar bloqueos de autoplay; el clic lo permite
+  })
+}
 
 const form = reactive({ nombre: '', email: '', telefono: '', mensaje: '' })
 const errors = ref({})
@@ -60,10 +74,18 @@ const handleSubmit = () => {
         <!-- Columna Izquierda: Mascota Bani + Información de Contacto -->
         <div class="contact-left-col">
           <!-- Mascota Bani de pie sobre el lateral izquierdo -->
-          <aside class="contact-mascot" aria-label="Bani, mascota oficial de Urbanikawsay">
+          <aside
+            class="contact-mascot"
+            role="button"
+            tabindex="0"
+            :aria-label="'Bani, mascota oficial de Urbanikawsay. Haz clic para escuchar el mensaje.'"
+            @click="playMascotAudio"
+            @keydown.enter.prevent="playMascotAudio"
+            @keydown.space.prevent="playMascotAudio"
+          >
             <ResponsiveImage
               :asset="baniAsset"
-              alt="Bani, mascota de Urbanikawsay con casco y chaleco de seguridad"
+              alt="Bani, mascota de Urbanikawsay con casco y chaleco de seguridad. Haz clic para escuchar su mensaje."
               picture-class="mascot-picture"
               img-class="mascot-img"
               sizes="(min-width: 1200px) 340px, (min-width: 768px) 280px, 220px"
@@ -428,8 +450,19 @@ const handleSubmit = () => {
   transition: transform 0.3s ease;
 }
 
-.contact-mascot:hover :deep(.mascot-img) {
+.contact-mascot {
+  cursor: pointer;
+}
+
+.contact-mascot:hover :deep(.mascot-img),
+.contact-mascot:focus-visible :deep(.mascot-img) {
   transform: translateY(-6px) scale(1.02);
+}
+
+.contact-mascot:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 4px;
+  border-radius: var(--radius-lg);
 }
 
 .contact-info-content {

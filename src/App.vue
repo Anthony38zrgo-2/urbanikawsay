@@ -4,11 +4,13 @@ import AppHeader from '@/components/layout/AppHeader.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
 import HeroSection from '@/components/sections/HeroSection.vue'
 import AboutSection from '@/components/sections/AboutSection.vue'
+import TestimonialsSection from '@/components/sections/TestimonialsSection.vue'
 import TeamSection from '@/components/sections/TeamSection.vue'
 import ProjectsSection from '@/components/sections/ProjectsSection.vue'
 import ValuesSection from '@/components/sections/ValuesSection.vue'
 import ContactSection from '@/components/sections/ContactSection.vue'
 import WhatsAppButton from '@/components/ui/WhatsAppButton.vue'
+import SocialFloating from '@/components/ui/SocialFloating.vue'
 import ProjectModal from '@/components/ui/ProjectModal.vue'
 import ReserveLotModal from '@/components/ui/ReserveLotModal.vue'
 
@@ -34,6 +36,7 @@ const openProject = (slug) => {
     <main class="site-main">
       <HeroSection />
       <AboutSection />
+      <TestimonialsSection />
       <ProjectsSection @open-project="openProject" />
       <TeamSection />
       <ValuesSection />
@@ -41,6 +44,7 @@ const openProject = (slug) => {
     </main>
     <AppFooter />
 
+    <SocialFloating />
     <WhatsAppButton />
     <ProjectModal
       :open="projectOpen"
