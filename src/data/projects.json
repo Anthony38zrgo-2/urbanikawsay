@@ -7,6 +7,11 @@
     "distanceToPort": "A 25 min del Megapuerto · A 15 min de Plaza de Armas",
     "imageUrl": "proyecto-las-palmeras.png",
     "logoUrl": "logo-las-palmeras.png",
+    "gallery": [
+      "foto-las-palmeras-1.png",
+      "foto-las-palmeras-2.png",
+      "foto-las-palmeras-3.png"
+    ],
     "status": "available",
     "price": "Desde S/ 29,000*",
     "initialPayment": "Desde S/ 3,000",
@@ -33,12 +38,18 @@
     "distanceToPort": "A 25 min del Megapuerto · A 15 min de Plaza de Armas",
     "imageUrl": "proyecto-villa-flores.png",
     "logoUrl": "logo-villa-hermosa.png",
+    "gallery": [
+      "foto-villa-flores-1.png",
+      "foto-villa-flores-2.png",
+      "foto-villa-flores-3.png"
+    ],
     "status": "available",
     "price": "Desde S/ 30,000*",
     "initialPayment": "Desde S/ 4,000",
     "financing": "Hasta 24 meses",
     "monthlyQuota": "Desde S/ 1,083.33",
     "mapsUrl": "https://maps.app.goo.gl/JqaDrUaatW62vebm6",
+    "youtubeUrl": "https://youtu.be/25F6RsZnuR4",
     "description": "Exclusivo proyecto con parques habilitados al 100%, cancha deportiva, zona de parrillas, riego tecnificado y tanques elevados de abastecimiento. Gran potencial de valorización asociado al crecimiento urbano de Huaral.",
     "features": [
       "Documentación inscrita en SUNARP",
@@ -58,6 +69,12 @@
     "distanceToPort": "A 25 min del Megapuerto · A 15 min de Plaza de Armas",
     "imageUrl": "proyecto-villa-norte-3.png",
     "logoUrl": "logo-villa-norte-3.png",
+    "gallery": [
+      "foto-villa-norte-3-1.png",
+      "foto-villa-norte-3-2.png",
+      "foto-villa-norte-3-3.png",
+      "foto-villa-norte-3-4.png"
+    ],
     "status": "available",
     "price": "Desde S/ 26,000*",
     "initialPayment": "Desde S/ 3,000",
@@ -83,6 +100,12 @@
     "distanceToPort": "A 25 min del Megapuerto · A 15 min de Plaza de Armas",
     "imageUrl": "proyecto-el-milagro.png",
     "logoUrl": "logo-el-milagro.png",
+    "gallery": [
+      "foto-el-milagro-1.png",
+      "foto-el-milagro-2.png",
+      "foto-el-milagro-3.png",
+      "foto-el-milagro-4.png"
+    ],
     "status": "available",
     "price": "Consultar precio promocional",
     "initialPayment": "Inicial accesible",
@@ -131,6 +154,10 @@
     "distanceToPort": "A 25 min del Megapuerto · A 15 min de Plaza de Armas",
     "imageUrl": "proyecto-villa-hermosa.png",
     "logoUrl": "logo-villa-hermosa.png",
+    "gallery": [
+      "foto-villa-hermosa-1.png",
+      "foto-villa-hermosa-2.png"
+    ],
     "status": "presale",
     "price": "Consultar precio de preventa",
     "initialPayment": "Inicial: S/ 8,000",

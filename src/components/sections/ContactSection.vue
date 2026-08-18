@@ -4,9 +4,9 @@ import BaseIcon from '@/components/ui/BaseIcon.vue'
 import ResponsiveImage from '@/components/ui/ResponsiveImage.vue'
 import { siteData } from '@/constants/site'
 import { imageAssets } from '@/assets/generated/image-assets.js'
-import contactoPaisajeImg from '@/assets/images/contacto-paisaje.jpg'
 
-const baniAsset = imageAssets['mascota-bani.png']
+const baniAsset = imageAssets['mascota-bani-v2.png']
+const detalleAsset = imageAssets['detalle-contacto.png']
 
 const form = reactive({ nombre: '', email: '', telefono: '', mensaje: '' })
 const errors = ref({})
@@ -36,10 +36,12 @@ const handleSubmit = () => {
   <section id="contacto" class="section-pad contact-section anchor-offset" aria-labelledby="contact-title">
     <!-- Capa de Paisaje Inmobiliario en el lateral izquierdo de la sección -->
     <div class="contact-landscape-bg" aria-hidden="true">
-      <img
-        :src="contactoPaisajeImg"
+      <ResponsiveImage
+        :asset="detalleAsset"
         alt=""
-        class="landscape-img"
+        picture-class="landscape-picture"
+        img-class="landscape-img"
+        sizes="(min-width: 768px) 540px, 100vw"
         loading="lazy"
       />
       <!-- Máscara degradada y curva hacia el fondo crema -->
@@ -51,12 +53,7 @@ const handleSubmit = () => {
       <path d="M-50,0 C120,40 240,120 280,250" stroke="#0D4D2E" stroke-width="26" stroke-linecap="round" />
     </svg>
 
-    <!-- Isotipo / Gota naranja superior izquierda -->
-    <div class="contact-brand-mark" aria-hidden="true">
-      <svg width="34" height="42" viewBox="0 0 34 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17 0C7.6 0 0 7.6 0 17C0 29.8 17 42 17 42C17 42 34 29.8 34 17C34 7.6 26.4 0 17 0ZM17 26C12 26 8 22 8 17C8 12 12 8 17 8C22 8 26 12 26 17C26 22 22 26 17 26Z" fill="#FF7A00" />
-      </svg>
-    </div>
+    
 
     <div class="container-page contact-container">
       <div class="contact-grid">
@@ -257,6 +254,12 @@ const handleSubmit = () => {
   overflow: hidden;
 }
 
+@media (min-width: 900px) {
+  .contact-section {
+    padding-block: clamp(2.5rem, 4vw, 4rem);
+  }
+}
+
 /* Paisaje de fondo del lado izquierdo */
 .contact-landscape-bg {
   position: absolute;
@@ -271,16 +274,22 @@ const handleSubmit = () => {
 
 @media (min-width: 768px) {
   .contact-landscape-bg {
-    width: clamp(320px, 38vw, 540px);
+    width: clamp(360px, 43vw, 620px);
   }
 }
 
-.landscape-img {
+:deep(.landscape-picture) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+:deep(.landscape-img) {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: left center;
-  opacity: 0.85;
+  opacity: 1;
 }
 
 .landscape-mask {
@@ -289,8 +298,8 @@ const handleSubmit = () => {
   background: linear-gradient(
     to right,
     rgba(253, 252, 247, 0) 0%,
-    rgba(253, 252, 247, 0.25) 45%,
-    rgba(253, 252, 247, 0.85) 75%,
+    rgba(253, 252, 247, 0.12) 45%,
+    rgba(253, 252, 247, 0.72) 75%,
     #FDFCF7 100%
   ),
   linear-gradient(
@@ -321,17 +330,7 @@ const handleSubmit = () => {
   height: auto;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.95;
-}
-
-/* Isotipo naranja en la esquina superior izquierda */
-.contact-brand-mark {
-  position: absolute;
-  top: clamp(1.5rem, 3vw, 2.5rem);
-  left: clamp(1.5rem, 3.5vw, 3.5rem);
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0.9;
+  display: none;
 }
 
 .contact-container {
@@ -355,8 +354,13 @@ const handleSubmit = () => {
 
 @media (min-width: 1200px) {
   .contact-grid {
-    grid-template-columns: 1.45fr 1fr;
-    gap: 4rem;
+    grid-template-columns: 320px minmax(250px, 1fr) 340px;
+    gap: 1.25rem;
+    align-items: center;
+  }
+
+  .contact-left-col {
+    display: contents;
   }
 }
 
@@ -403,7 +407,11 @@ const handleSubmit = () => {
 
 @media (min-width: 1200px) {
   .contact-mascot {
+    grid-column: 1;
+    width: 320px;
     max-width: 320px;
+    justify-self: start;
+    align-self: end;
   }
 }
 
@@ -428,6 +436,14 @@ const handleSubmit = () => {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
+}
+
+@media (min-width: 1200px) {
+  .contact-info-content {
+    grid-column: 2;
+    max-width: 340px;
+    justify-self: start;
+  }
 }
 
 .contact-header {
@@ -570,6 +586,40 @@ const handleSubmit = () => {
 @media (min-width: 640px) {
   .contact-form-card {
     padding: 2.25rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contact-right-col {
+    grid-column: 3;
+  }
+
+  .contact-form-card {
+    padding: 1.25rem;
+    gap: 0.6rem;
+    border-radius: 1.25rem;
+  }
+
+  .field-group {
+    gap: 0.5rem;
+  }
+
+  .field-item {
+    gap: 0.25rem;
+  }
+
+  .field-input {
+    padding-block: 0.38rem;
+    font-size: 0.82rem;
+  }
+
+  .field-textarea {
+    min-height: 3.25rem;
+  }
+
+  .btn-submit-orange {
+    padding-block: 0.55rem;
+    font-size: 0.86rem;
   }
 }
 
@@ -733,5 +783,145 @@ const handleSubmit = () => {
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
   margin-top: 0.5rem;
+}
+
+@media (min-width: 1200px) {
+  .contact-info-content {
+    max-width: 360px;
+  }
+
+  .contact-heading {
+    font-size: 2.65rem;
+  }
+
+  .form-icon-badge {
+    width: 2.35rem;
+    height: 2.35rem;
+  }
+
+  .form-title {
+    font-size: 1.1rem;
+  }
+
+  .field-group {
+    gap: 0.5rem;
+  }
+
+  .field-item {
+    gap: 0.25rem;
+  }
+
+  .field-label {
+    font-size: 0.76rem;
+  }
+
+  .field-input {
+    padding-block: 0.38rem;
+    font-size: 0.82rem;
+  }
+
+  .field-textarea {
+    min-height: 3.25rem;
+  }
+
+  .form-security-note {
+    font-size: 0.72rem;
+  }
+
+  .btn-submit-orange {
+    padding-block: 0.55rem;
+    font-size: 0.86rem;
+  }
+}
+
+/* La referencia usa una composición panorámica continua en escritorio. */
+@media (min-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1.15fr 1fr 1.4fr;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .contact-left-col {
+    display: contents;
+  }
+
+  .contact-mascot {
+    grid-column: 1;
+    width: 100%;
+    max-width: 360px;
+    justify-self: start;
+    align-self: end;
+  }
+
+  .contact-info-content {
+    grid-column: 2;
+    width: 100%;
+    max-width: 290px;
+    justify-self: start;
+    gap: 1.1rem;
+  }
+
+  .contact-heading {
+    font-size: 2.6rem;
+    white-space: nowrap;
+  }
+
+  .contact-lead {
+    font-size: 0.85rem;
+    line-height: 1.48;
+  }
+
+  .contact-right-col {
+    grid-column: 3;
+    width: 100%;
+    max-width: 400px;
+    justify-self: end;
+  }
+
+  .contact-form-card {
+    padding: 1.5rem;
+    gap: 0.9rem;
+    border-radius: 1.25rem;
+  }
+
+  .form-icon-badge {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .form-title {
+    font-size: 1.3rem;
+  }
+
+  .field-group {
+    gap: 0.75rem;
+  }
+
+  .field-item {
+    gap: 0.3rem;
+  }
+
+  .field-label {
+    font-size: 0.78rem;
+  }
+
+  .field-input {
+    padding-block: 0.55rem;
+    font-size: 0.84rem;
+  }
+
+  .field-textarea {
+    min-height: 4.5rem;
+  }
+
+  .btn-submit-orange {
+    padding-block: 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .form-security-note {
+    font-size: 0.72rem;
+  }
 }
 </style>

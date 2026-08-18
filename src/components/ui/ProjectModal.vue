@@ -31,9 +31,23 @@ const logoSrc = computed(() => {
   return imageAssets[project.value.logoUrl] || null;
 });
 
-// Carrusel de imágenes del proyecto: Portada + 3 imágenes adicionales
+// Carrusel de imágenes del proyecto: galería propia o Portada + 3 imágenes adicionales
 const gallerySlides = computed(() => {
   if (!project.value) return [];
+
+  const custom = project.value.gallery || [];
+  if (custom.length) {
+    return custom
+      .filter((name) => imageAssets[name])
+      .map((name, index) => ({
+        type: "asset",
+        asset: imageAssets[name],
+        alt: `Vista ${index + 1} de ${project.value.name}`,
+        tag: `Vista ${index + 1}`,
+        contain: true,
+      }));
+  }
+
   return [
     {
       type: "asset",
@@ -130,7 +144,7 @@ const youtubeEmbedUrl = computed(() => {
               :asset="slide.asset"
               :alt="slide.alt"
               picture-class="project-image-picture"
-              img-class="project-image"
+              :img-class="slide.contain ? 'project-image project-image--contain' : 'project-image'"
               sizes="(min-width: 768px) 40rem, 100vw"
             />
             <img
@@ -330,6 +344,11 @@ const youtubeEmbedUrl = computed(() => {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+:deep(.project-image--contain),
+.project-image--contain {
+  object-fit: contain;
 }
 
 .slide-tag {

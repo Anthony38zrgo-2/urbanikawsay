@@ -11,6 +11,7 @@ const budgets = {
   project: { webp: 100_000, avif: 80_000 },
   logo: { webp: 50_000, avif: 40_000 },
   photo: { webp: 150_000, avif: 120_000 },
+  background: { webp: 250_000, avif: 200_000 },
   promo: { webp: 200_000, avif: 160_000 },
 }
 

@@ -13,6 +13,20 @@
       "jpg": []
     }
   },
+  "contacto-paisaje.jpg": {
+    "name": "contacto-paisaje.jpg",
+    "role": "promo",
+    "active": false,
+    "source": "src/assets/images/contacto-paisaje.jpg",
+    "sourceWidth": 896,
+    "sourceHeight": 1200,
+    "formats": {
+      "avif": [],
+      "webp": [],
+      "png": [],
+      "jpg": []
+    }
+  },
   "cuadro-01.png": {
     "name": "cuadro-01.png",
     "role": "hero",
@@ -171,6 +185,85 @@
       "height": 801
     }
   },
+  "detalle-contacto.png": {
+    "name": "detalle-contacto.png",
+    "role": "background",
+    "active": true,
+    "source": "src/assets/images/detalle-contacto.png",
+    "sourceWidth": 8000,
+    "sourceHeight": 4500,
+    "width": 1600,
+    "height": 900,
+    "formats": {
+      "avif": [
+        {
+          "src": "./detalle-contacto/detalle-contacto-480.avif",
+          "width": 480,
+          "bytes": 5165,
+          "height": 270
+        },
+        {
+          "src": "./detalle-contacto/detalle-contacto-768.avif",
+          "width": 768,
+          "bytes": 9646,
+          "height": 432
+        },
+        {
+          "src": "./detalle-contacto/detalle-contacto-1024.avif",
+          "width": 1024,
+          "bytes": 15128,
+          "height": 576
+        },
+        {
+          "src": "./detalle-contacto/detalle-contacto-1600.avif",
+          "width": 1600,
+          "bytes": 28110,
+          "height": 900
+        }
+      ],
+      "webp": [
+        {
+          "src": "./detalle-contacto/detalle-contacto-480.webp",
+          "width": 480,
+          "bytes": 8412,
+          "height": 270
+        },
+        {
+          "src": "./detalle-contacto/detalle-contacto-768.webp",
+          "width": 768,
+          "bytes": 17324,
+          "height": 432
+        },
+        {
+          "src": "./detalle-contacto/detalle-contacto-1024.webp",
+          "width": 1024,
+          "bytes": 26774,
+          "height": 576
+        },
+        {
+          "src": "./detalle-contacto/detalle-contacto-1600.webp",
+          "width": 1600,
+          "bytes": 48304,
+          "height": 900
+        }
+      ],
+      "png": [
+        {
+          "src": "./detalle-contacto/detalle-contacto-1600.png",
+          "width": 1600,
+          "bytes": 451319,
+          "height": 900
+        }
+      ],
+      "jpg": []
+    },
+    "fallback": {
+      "src": "./detalle-contacto/detalle-contacto-1600.png",
+      "width": 1600,
+      "bytes": 451319,
+      "height": 900
+    }
+  },
   "favicon-192.png": {
     "name": "favicon-192.png",
     "role": "favicon",
@@ -227,6 +320,1078 @@
       "width": 32,
       "bytes": 1272,
       "height": 32
+    }
+  },
+  "foto-el-milagro-1.png": {
+    "name": "foto-el-milagro-1.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-el-milagro-1.png",
+    "sourceWidth": 1122,
+    "sourceHeight": 1402,
+    "width": 640,
+    "height": 800,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-el-milagro-1/foto-el-milagro-1-320.avif",
+          "width": 320,
+          "bytes": 9470,
+          "height": 400
+        },
+        {
+          "src": "./foto-el-milagro-1/foto-el-milagro-1-480.avif",
+          "width": 480,
+          "bytes": 20225,
+          "height": 600
+        },
+        {
+          "src": "./foto-el-milagro-1/foto-el-milagro-1-640.avif",
+          "width": 640,
+          "bytes": 35678,
+          "height": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-el-milagro-1/foto-el-milagro-1-320.webp",
+          "width": 320,
+          "bytes": 11860,
+          "height": 400
+        },
+        {
+          "src": "./foto-el-milagro-1/foto-el-milagro-1-480.webp",
+          "width": 480,
+          "bytes": 26292,
+          "height": 600
+        },
+        {
+          "src": "./foto-el-milagro-1/foto-el-milagro-1-640.webp",
+          "width": 640,
+          "bytes": 47052,
+          "height": 800
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-el-milagro-1/foto-el-milagro-1-640.jpg",
+          "width": 640,
+          "bytes": 59367,
+          "height": 800
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-el-milagro-1/foto-el-milagro-1-640.jpg",
+      "width": 640,
+      "bytes": 59367,
+      "height": 800
+    }
+  },
+  "foto-el-milagro-2.png": {
+    "name": "foto-el-milagro-2.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-el-milagro-2.png",
+    "sourceWidth": 1122,
+    "sourceHeight": 1402,
+    "width": 640,
+    "height": 800,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-el-milagro-2/foto-el-milagro-2-320.avif",
+          "width": 320,
+          "bytes": 15608,
+          "height": 400
+        },
+        {
+          "src": "./foto-el-milagro-2/foto-el-milagro-2-480.avif",
+          "width": 480,
+          "bytes": 34445,
+          "height": 600
+        },
+        {
+          "src": "./foto-el-milagro-2/foto-el-milagro-2-640.avif",
+          "width": 640,
+          "bytes": 61748,
+          "height": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-el-milagro-2/foto-el-milagro-2-320.webp",
+          "width": 320,
+          "bytes": 22650,
+          "height": 400
+        },
+        {
+          "src": "./foto-el-milagro-2/foto-el-milagro-2-480.webp",
+          "width": 480,
+          "bytes": 52958,
+          "height": 600
+        },
+        {
+          "src": "./foto-el-milagro-2/foto-el-milagro-2-640.webp",
+          "width": 640,
+          "bytes": 95612,
+          "height": 800
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-el-milagro-2/foto-el-milagro-2-640.jpg",
+          "width": 640,
+          "bytes": 93194,
+          "height": 800
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-el-milagro-2/foto-el-milagro-2-640.jpg",
+      "width": 640,
+      "bytes": 93194,
+      "height": 800
+    }
+  },
+  "foto-el-milagro-3.png": {
+    "name": "foto-el-milagro-3.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-el-milagro-3.png",
+    "sourceWidth": 1122,
+    "sourceHeight": 1402,
+    "width": 640,
+    "height": 800,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-el-milagro-3/foto-el-milagro-3-320.avif",
+          "width": 320,
+          "bytes": 11311,
+          "height": 400
+        },
+        {
+          "src": "./foto-el-milagro-3/foto-el-milagro-3-480.avif",
+          "width": 480,
+          "bytes": 27356,
+          "height": 600
+        },
+        {
+          "src": "./foto-el-milagro-3/foto-el-milagro-3-640.avif",
+          "width": 640,
+          "bytes": 53019,
+          "height": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-el-milagro-3/foto-el-milagro-3-320.webp",
+          "width": 320,
+          "bytes": 16370,
+          "height": 400
+        },
+        {
+          "src": "./foto-el-milagro-3/foto-el-milagro-3-480.webp",
+          "width": 480,
+          "bytes": 41186,
+          "height": 600
+        },
+        {
+          "src": "./foto-el-milagro-3/foto-el-milagro-3-640.webp",
+          "width": 640,
+          "bytes": 81604,
+          "height": 800
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-el-milagro-3/foto-el-milagro-3-640.jpg",
+          "width": 640,
+          "bytes": 79749,
+          "height": 800
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-el-milagro-3/foto-el-milagro-3-640.jpg",
+      "width": 640,
+      "bytes": 79749,
+      "height": 800
+    }
+  },
+  "foto-el-milagro-4.png": {
+    "name": "foto-el-milagro-4.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-el-milagro-4.png",
+    "sourceWidth": 1122,
+    "sourceHeight": 1402,
+    "width": 640,
+    "height": 800,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-el-milagro-4/foto-el-milagro-4-320.avif",
+          "width": 320,
+          "bytes": 9531,
+          "height": 400
+        },
+        {
+          "src": "./foto-el-milagro-4/foto-el-milagro-4-480.avif",
+          "width": 480,
+          "bytes": 23021,
+          "height": 600
+        },
+        {
+          "src": "./foto-el-milagro-4/foto-el-milagro-4-640.avif",
+          "width": 640,
+          "bytes": 46154,
+          "height": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-el-milagro-4/foto-el-milagro-4-320.webp",
+          "width": 320,
+          "bytes": 11590,
+          "height": 400
+        },
+        {
+          "src": "./foto-el-milagro-4/foto-el-milagro-4-480.webp",
+          "width": 480,
+          "bytes": 30574,
+          "height": 600
+        },
+        {
+          "src": "./foto-el-milagro-4/foto-el-milagro-4-640.webp",
+          "width": 640,
+          "bytes": 65854,
+          "height": 800
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-el-milagro-4/foto-el-milagro-4-640.jpg",
+          "width": 640,
+          "bytes": 66948,
+          "height": 800
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-el-milagro-4/foto-el-milagro-4-640.jpg",
+      "width": 640,
+      "bytes": 66948,
+      "height": 800
+    }
+  },
+  "foto-las-palmeras-1.png": {
+    "name": "foto-las-palmeras-1.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-las-palmeras-1.png",
+    "sourceWidth": 1122,
+    "sourceHeight": 1402,
+    "width": 640,
+    "height": 800,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-las-palmeras-1/foto-las-palmeras-1-320.avif",
+          "width": 320,
+          "bytes": 15412,
+          "height": 400
+        },
+        {
+          "src": "./foto-las-palmeras-1/foto-las-palmeras-1-480.avif",
+          "width": 480,
+          "bytes": 35677,
+          "height": 600
+        },
+        {
+          "src": "./foto-las-palmeras-1/foto-las-palmeras-1-640.avif",
+          "width": 640,
+          "bytes": 67114,
+          "height": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-las-palmeras-1/foto-las-palmeras-1-320.webp",
+          "width": 320,
+          "bytes": 26178,
+          "height": 400
+        },
+        {
+          "src": "./foto-las-palmeras-1/foto-las-palmeras-1-480.webp",
+          "width": 480,
+          "bytes": 63372,
+          "height": 600
+        },
+        {
+          "src": "./foto-las-palmeras-1/foto-las-palmeras-1-640.webp",
+          "width": 640,
+          "bytes": 116250,
+          "height": 800
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-las-palmeras-1/foto-las-palmeras-1-640.jpg",
+          "width": 640,
+          "bytes": 106674,
+          "height": 800
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-las-palmeras-1/foto-las-palmeras-1-640.jpg",
+      "width": 640,
+      "bytes": 106674,
+      "height": 800
+    }
+  },
+  "foto-las-palmeras-2.png": {
+    "name": "foto-las-palmeras-2.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-las-palmeras-2.png",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 640,
+    "height": 360,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-las-palmeras-2/foto-las-palmeras-2-320.avif",
+          "width": 320,
+          "bytes": 6735,
+          "height": 180
+        },
+        {
+          "src": "./foto-las-palmeras-2/foto-las-palmeras-2-480.avif",
+          "width": 480,
+          "bytes": 14437,
+          "height": 270
+        },
+        {
+          "src": "./foto-las-palmeras-2/foto-las-palmeras-2-640.avif",
+          "width": 640,
+          "bytes": 25426,
+          "height": 360
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-las-palmeras-2/foto-las-palmeras-2-320.webp",
+          "width": 320,
+          "bytes": 9064,
+          "height": 180
+        },
+        {
+          "src": "./foto-las-palmeras-2/foto-las-palmeras-2-480.webp",
+          "width": 480,
+          "bytes": 20480,
+          "height": 270
+        },
+        {
+          "src": "./foto-las-palmeras-2/foto-las-palmeras-2-640.webp",
+          "width": 640,
+          "bytes": 37782,
+          "height": 360
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-las-palmeras-2/foto-las-palmeras-2-640.jpg",
+          "width": 640,
+          "bytes": 38134,
+          "height": 360
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-las-palmeras-2/foto-las-palmeras-2-640.jpg",
+      "width": 640,
+      "bytes": 38134,
+      "height": 360
+    }
+  },
+  "foto-las-palmeras-3.png": {
+    "name": "foto-las-palmeras-3.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-las-palmeras-3.png",
+    "sourceWidth": 1672,
+    "sourceHeight": 941,
+    "width": 640,
+    "height": 360,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-las-palmeras-3/foto-las-palmeras-3-320.avif",
+          "width": 320,
+          "bytes": 5535,
+          "height": 180
+        },
+        {
+          "src": "./foto-las-palmeras-3/foto-las-palmeras-3-480.avif",
+          "width": 480,
+          "bytes": 13356,
+          "height": 270
+        },
+        {
+          "src": "./foto-las-palmeras-3/foto-las-palmeras-3-640.avif",
+          "width": 640,
+          "bytes": 24896,
+          "height": 360
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-las-palmeras-3/foto-las-palmeras-3-320.webp",
+          "width": 320,
+          "bytes": 7224,
+          "height": 180
+        },
+        {
+          "src": "./foto-las-palmeras-3/foto-las-palmeras-3-480.webp",
+          "width": 480,
+          "bytes": 19330,
+          "height": 270
+        },
+        {
+          "src": "./foto-las-palmeras-3/foto-las-palmeras-3-640.webp",
+          "width": 640,
+          "bytes": 39042,
+          "height": 360
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-las-palmeras-3/foto-las-palmeras-3-640.jpg",
+          "width": 640,
+          "bytes": 36024,
+          "height": 360
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-las-palmeras-3/foto-las-palmeras-3-640.jpg",
+      "width": 640,
+      "bytes": 36024,
+      "height": 360
+    }
+  },
+  "foto-villa-flores-1.png": {
+    "name": "foto-villa-flores-1.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-villa-flores-1.png",
+    "sourceWidth": 1122,
+    "sourceHeight": 1402,
+    "width": 640,
+    "height": 800,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-villa-flores-1/foto-villa-flores-1-320.avif",
+          "width": 320,
+          "bytes": 7569,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-flores-1/foto-villa-flores-1-480.avif",
+          "width": 480,
+          "bytes": 17937,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-flores-1/foto-villa-flores-1-640.avif",
+          "width": 640,
+          "bytes": 35421,
+          "height": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-villa-flores-1/foto-villa-flores-1-320.webp",
+          "width": 320,
+          "bytes": 8656,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-flores-1/foto-villa-flores-1-480.webp",
+          "width": 480,
+          "bytes": 22442,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-flores-1/foto-villa-flores-1-640.webp",
+          "width": 640,
+          "bytes": 45342,
+          "height": 800
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-villa-flores-1/foto-villa-flores-1-640.jpg",
+          "width": 640,
+          "bytes": 52926,
+          "height": 800
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-villa-flores-1/foto-villa-flores-1-640.jpg",
+      "width": 640,
+      "bytes": 52926,
+      "height": 800
+    }
+  },
+  "foto-villa-flores-2.png": {
+    "name": "foto-villa-flores-2.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-villa-flores-2.png",
+    "sourceWidth": 1122,
+    "sourceHeight": 1402,
+    "width": 640,
+    "height": 800,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-villa-flores-2/foto-villa-flores-2-320.avif",
+          "width": 320,
+          "bytes": 10953,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-flores-2/foto-villa-flores-2-480.avif",
+          "width": 480,
+          "bytes": 26566,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-flores-2/foto-villa-flores-2-640.avif",
+          "width": 640,
+          "bytes": 51304,
+          "height": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-villa-flores-2/foto-villa-flores-2-320.webp",
+          "width": 320,
+          "bytes": 13930,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-flores-2/foto-villa-flores-2-480.webp",
+          "width": 480,
+          "bytes": 37488,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-flores-2/foto-villa-flores-2-640.webp",
+          "width": 640,
+          "bytes": 74086,
+          "height": 800
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-villa-flores-2/foto-villa-flores-2-640.jpg",
+          "width": 640,
+          "bytes": 72431,
+          "height": 800
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-villa-flores-2/foto-villa-flores-2-640.jpg",
+      "width": 640,
+      "bytes": 72431,
+      "height": 800
+    }
+  },
+  "foto-villa-flores-3.png": {
+    "name": "foto-villa-flores-3.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-villa-flores-3.png",
+    "sourceWidth": 1122,
+    "sourceHeight": 1402,
+    "width": 640,
+    "height": 800,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-villa-flores-3/foto-villa-flores-3-320.avif",
+          "width": 320,
+          "bytes": 7497,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-flores-3/foto-villa-flores-3-480.avif",
+          "width": 480,
+          "bytes": 18803,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-flores-3/foto-villa-flores-3-640.avif",
+          "width": 640,
+          "bytes": 40086,
+          "height": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-villa-flores-3/foto-villa-flores-3-320.webp",
+          "width": 320,
+          "bytes": 8344,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-flores-3/foto-villa-flores-3-480.webp",
+          "width": 480,
+          "bytes": 23074,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-flores-3/foto-villa-flores-3-640.webp",
+          "width": 640,
+          "bytes": 54242,
+          "height": 800
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-villa-flores-3/foto-villa-flores-3-640.jpg",
+          "width": 640,
+          "bytes": 55921,
+          "height": 800
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-villa-flores-3/foto-villa-flores-3-640.jpg",
+      "width": 640,
+      "bytes": 55921,
+      "height": 800
+    }
+  },
+  "foto-villa-hermosa-1.png": {
+    "name": "foto-villa-hermosa-1.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-villa-hermosa-1.png",
+    "sourceWidth": 1122,
+    "sourceHeight": 1402,
+    "width": 640,
+    "height": 800,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-320.avif",
+          "width": 320,
+          "bytes": 7497,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-480.avif",
+          "width": 480,
+          "bytes": 18803,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-640.avif",
+          "width": 640,
+          "bytes": 40086,
+          "height": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-320.webp",
+          "width": 320,
+          "bytes": 8344,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-480.webp",
+          "width": 480,
+          "bytes": 23074,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-640.webp",
+          "width": 640,
+          "bytes": 54242,
+          "height": 800
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-640.jpg",
+          "width": 640,
+          "bytes": 55921,
+          "height": 800
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-villa-hermosa-1/foto-villa-hermosa-1-640.jpg",
+      "width": 640,
+      "bytes": 55921,
+      "height": 800
+    }
+  },
+  "foto-villa-hermosa-2.png": {
+    "name": "foto-villa-hermosa-2.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-villa-hermosa-2.png",
+    "sourceWidth": 1122,
+    "sourceHeight": 1402,
+    "width": 640,
+    "height": 800,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-320.avif",
+          "width": 320,
+          "bytes": 13202,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-480.avif",
+          "width": 480,
+          "bytes": 27694,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-640.avif",
+          "width": 640,
+          "bytes": 47203,
+          "height": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-320.webp",
+          "width": 320,
+          "bytes": 20574,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-480.webp",
+          "width": 480,
+          "bytes": 45044,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-640.webp",
+          "width": 640,
+          "bytes": 78112,
+          "height": 800
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-640.jpg",
+          "width": 640,
+          "bytes": 86555,
+          "height": 800
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-villa-hermosa-2/foto-villa-hermosa-2-640.jpg",
+      "width": 640,
+      "bytes": 86555,
+      "height": 800
+    }
+  },
+  "foto-villa-norte-3-1.png": {
+    "name": "foto-villa-norte-3-1.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-villa-norte-3-1.png",
+    "sourceWidth": 1122,
+    "sourceHeight": 1402,
+    "width": 640,
+    "height": 800,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-320.avif",
+          "width": 320,
+          "bytes": 15639,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-480.avif",
+          "width": 480,
+          "bytes": 35185,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-640.avif",
+          "width": 640,
+          "bytes": 65379,
+          "height": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-320.webp",
+          "width": 320,
+          "bytes": 22802,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-480.webp",
+          "width": 480,
+          "bytes": 55568,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-640.webp",
+          "width": 640,
+          "bytes": 102402,
+          "height": 800
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-640.jpg",
+          "width": 640,
+          "bytes": 93587,
+          "height": 800
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-villa-norte-3-1/foto-villa-norte-3-1-640.jpg",
+      "width": 640,
+      "bytes": 93587,
+      "height": 800
+    }
+  },
+  "foto-villa-norte-3-2.png": {
+    "name": "foto-villa-norte-3-2.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-villa-norte-3-2.png",
+    "sourceWidth": 1122,
+    "sourceHeight": 1402,
+    "width": 640,
+    "height": 800,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-320.avif",
+          "width": 320,
+          "bytes": 13236,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-480.avif",
+          "width": 480,
+          "bytes": 31220,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-640.avif",
+          "width": 640,
+          "bytes": 61104,
+          "height": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-320.webp",
+          "width": 320,
+          "bytes": 18700,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-480.webp",
+          "width": 480,
+          "bytes": 48016,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-640.webp",
+          "width": 640,
+          "bytes": 96918,
+          "height": 800
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-640.jpg",
+          "width": 640,
+          "bytes": 85005,
+          "height": 800
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-villa-norte-3-2/foto-villa-norte-3-2-640.jpg",
+      "width": 640,
+      "bytes": 85005,
+      "height": 800
+    }
+  },
+  "foto-villa-norte-3-3.png": {
+    "name": "foto-villa-norte-3-3.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-villa-norte-3-3.png",
+    "sourceWidth": 1122,
+    "sourceHeight": 1402,
+    "width": 640,
+    "height": 800,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-320.avif",
+          "width": 320,
+          "bytes": 12479,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-480.avif",
+          "width": 480,
+          "bytes": 30037,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-640.avif",
+          "width": 640,
+          "bytes": 56710,
+          "height": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-320.webp",
+          "width": 320,
+          "bytes": 17666,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-480.webp",
+          "width": 480,
+          "bytes": 43360,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-640.webp",
+          "width": 640,
+          "bytes": 88118,
+          "height": 800
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-640.jpg",
+          "width": 640,
+          "bytes": 82001,
+          "height": 800
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-villa-norte-3-3/foto-villa-norte-3-3-640.jpg",
+      "width": 640,
+      "bytes": 82001,
+      "height": 800
+    }
+  },
+  "foto-villa-norte-3-4.png": {
+    "name": "foto-villa-norte-3-4.png",
+    "role": "photo",
+    "active": true,
+    "source": "src/assets/images/foto-villa-norte-3-4.png",
+    "sourceWidth": 1122,
+    "sourceHeight": 1402,
+    "width": 640,
+    "height": 800,
+    "formats": {
+      "avif": [
+        {
+          "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-320.avif",
+          "width": 320,
+          "bytes": 19594,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-480.avif",
+          "width": 480,
+          "bytes": 45716,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-640.avif",
+          "width": 640,
+          "bytes": 86018,
+          "height": 800
+        }
+      ],
+      "webp": [
+        {
+          "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-320.webp",
+          "width": 320,
+          "bytes": 33886,
+          "height": 400
+        },
+        {
+          "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-480.webp",
+          "width": 480,
+          "bytes": 80890,
+          "height": 600
+        },
+        {
+          "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-640.webp",
+          "width": 640,
+          "bytes": 149734,
+          "height": 800
+        }
+      ],
+      "png": [],
+      "jpg": [
+        {
+          "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-640.jpg",
+          "width": 640,
+          "bytes": 130684,
+          "height": 800
+        }
+      ]
+    },
+    "fallback": {
+      "src": "./foto-villa-norte-3-4/foto-villa-norte-3-4-640.jpg",
+      "width": 640,
+      "bytes": 130684,
+      "height": 800
     }
   },
   "foto-wa-1.png": {
@@ -754,59 +1919,85 @@
       "height": 1024
     }
   },
-  "mascota-bani.png": {
-    "name": "mascota-bani.png",
+  "mascota-bani-v2.png": {
+    "name": "mascota-bani-v2.png",
     "role": "photo",
     "active": true,
-    "source": "src/assets/images/mascota-bani.png",
-    "sourceWidth": 508,
-    "sourceHeight": 1024,
-    "width": 480,
-    "height": 968,
+    "source": "src/assets/images/mascota-bani-v2.png",
+    "sourceWidth": 1024,
+    "sourceHeight": 1536,
+    "width": 640,
+    "height": 960,
     "formats": {
       "avif": [
         {
-          "src": "./mascota-bani/mascota-bani-320.avif",
+          "src": "./mascota-bani-v2/mascota-bani-v2-320.avif",
           "width": 320,
-          "bytes": 16849,
-          "height": 645
+          "bytes": 13026,
+          "height": 480
         },
         {
-          "src": "./mascota-bani/mascota-bani-480.avif",
+          "src": "./mascota-bani-v2/mascota-bani-v2-480.avif",
           "width": 480,
-          "bytes": 26808,
-          "height": 968
+          "bytes": 21140,
+          "height": 720
+        },
+        {
+          "src": "./mascota-bani-v2/mascota-bani-v2-640.avif",
+          "width": 640,
+          "bytes": 29362,
+          "height": 960
         }
       ],
       "webp": [
         {
-          "src": "./mascota-bani/mascota-bani-320.webp",
+          "src": "./mascota-bani-v2/mascota-bani-v2-320.webp",
           "width": 320,
-          "bytes": 32100,
-          "height": 645
+          "bytes": 23016,
+          "height": 480
         },
         {
-          "src": "./mascota-bani/mascota-bani-480.webp",
+          "src": "./mascota-bani-v2/mascota-bani-v2-480.webp",
           "width": 480,
-          "bytes": 52250,
-          "height": 968
+          "bytes": 38618,
+          "height": 720
+        },
+        {
+          "src": "./mascota-bani-v2/mascota-bani-v2-640.webp",
+          "width": 640,
+          "bytes": 57536,
+          "height": 960
         }
       ],
       "png": [
         {
-          "src": "./mascota-bani/mascota-bani-480.png",
-          "width": 480,
-          "bytes": 371731,
-          "height": 968
+          "src": "./mascota-bani-v2/mascota-bani-v2-640.png",
+          "width": 640,
+          "bytes": 447734,
+          "height": 960
         }
       ],
       "jpg": []
     },
     "fallback": {
-      "src": "./mascota-bani/mascota-bani-480.png",
-      "width": 480,
-      "bytes": 371731,
-      "height": 968
+      "src": "./mascota-bani-v2/mascota-bani-v2-640.png",
+      "width": 640,
+      "bytes": 447734,
+      "height": 960
+    }
+  },
+  "mascota-bani.png": {
+    "name": "mascota-bani.png",
+    "role": "photo",
+    "active": false,
+    "source": "src/assets/images/mascota-bani.png",
+    "sourceWidth": 508,
+    "sourceHeight": 1024,
+    "formats": {
+      "avif": [],
+      "webp": [],
+      "png": [],
+      "jpg": []
     }
   },
   "proyecto-el-milagro.png": {

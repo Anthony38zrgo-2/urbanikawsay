@@ -17,6 +17,10 @@ Baseline: commit `bd6303c`.
 | `logo.png` | Header | 2559 x 733 | 39 KB | Optimizar sin alterar |
 | `favicon-32.png` | Favicon | 32 x 32 | 1 KB | Optimizar sin alterar |
 | `favicon-192.png` | Favicon/apple | 192 x 192 | 9 KB | Optimizar sin alterar |
+| `foto-el-milagro-1.png` | Modal galería El Milagro | 1122 x 1402 | ~2.4 MB | Activo (rol `photo`) |
+| `foto-el-milagro-2.png` | Modal galería El Milagro | 1122 x 1402 | ~3.0 MB | Activo (rol `photo`) |
+| `foto-el-milagro-3.png` | Modal galería El Milagro | 1122 x 1402 | ~2.9 MB | Activo (rol `photo`) |
+| `foto-el-milagro-4.png` | Modal galería El Milagro | 1122 x 1402 | ~3.0 MB | Activo (rol `photo`) |
 
 ## Assets no publicados
 

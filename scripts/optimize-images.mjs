@@ -19,7 +19,24 @@ const activeNames = new Set([
   'proyecto-el-milagro.png',
   'proyecto-guaral-village.png',
   'proyecto-villa-hermosa.png',
-  'mascota-bani.png',
+  'mascota-bani-v2.png',
+  'detalle-contacto.png',
+  'foto-el-milagro-1.png',
+  'foto-el-milagro-2.png',
+  'foto-el-milagro-3.png',
+  'foto-el-milagro-4.png',
+  'foto-las-palmeras-1.png',
+  'foto-las-palmeras-2.png',
+  'foto-las-palmeras-3.png',
+  'foto-villa-flores-1.png',
+  'foto-villa-flores-2.png',
+  'foto-villa-flores-3.png',
+  'foto-villa-hermosa-1.png',
+  'foto-villa-hermosa-2.png',
+  'foto-villa-norte-3-1.png',
+  'foto-villa-norte-3-2.png',
+  'foto-villa-norte-3-3.png',
+  'foto-villa-norte-3-4.png',
   'logo-las-palmeras.png',
   'logo-villa-hermosa.png',
   'logo-villa-norte-3.png',
@@ -35,6 +52,7 @@ const roleFor = (name) => {
   if (name === 'logo.png' || name.startsWith('logo-')) return 'logo'
   if (name === 'mapa.png') return 'map'
   if (name.startsWith('proyecto-')) return 'project'
+  if (name.startsWith('detalle-')) return 'background'
   if (name.startsWith('cuadro-') || name.startsWith('group-')) return 'hero'
   if (name.startsWith('foto-') || name.startsWith('mascota-')) return 'photo'
   return 'promo'
@@ -46,6 +64,7 @@ const widthsFor = (role, sourceWidth) => {
     map: [395, 640, 790, 1024, 1200],
     project: [320, 480, 640, 960, 1200],
     photo: [320, 480, 640],
+    background: [480, 768, 1024, 1600],
     promo: [480, 768, 1024],
     logo: [512],
     favicon: [sourceWidth],

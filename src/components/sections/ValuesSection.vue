@@ -1,10 +1,35 @@
 <script setup>
 import { ref } from 'vue'
 import BaseIcon from '@/components/ui/BaseIcon.vue'
-import ResponsiveImage from '@/components/ui/ResponsiveImage.vue'
-import { imageAssets } from '@/assets/generated/image-assets.js'
+import fortaleza01 from '@/assets/images/fortaleza/fortaleza-01.jpg'
+import fortaleza02 from '@/assets/images/fortaleza/fortaleza-02.jpg'
+import fortaleza03 from '@/assets/images/fortaleza/fortaleza-03.jpg'
+import fortaleza04 from '@/assets/images/fortaleza/fortaleza-04.jpg'
+import fortaleza05 from '@/assets/images/fortaleza/fortaleza-05.jpg'
 
-const bgImage = imageAssets['group-71.png']
+const backgroundSlides = [
+  {
+    src: fortaleza01,
+    alt: 'Trazado general y habilitación urbana de lotes de terreno',
+  },
+  {
+    src: fortaleza02,
+    alt: 'Delimitación de lotes y módulos de atención en campo',
+  },
+  {
+    src: fortaleza03,
+    alt: 'Infraestructura vial, electrificación y lotización',
+  },
+  {
+    src: fortaleza04,
+    alt: 'Panorámica aérea de lotes y visitas guiadas',
+  },
+  {
+    src: fortaleza05,
+    alt: 'Avenida principal y distribución de manzanas residenciales',
+  },
+]
+
 const activeTab = ref('mision')
 
 const values = [
@@ -30,14 +55,21 @@ const tabs = [
 <template>
   <section class="section-pad values-section" aria-labelledby="values-title">
     <div class="values-bg-layer" aria-hidden="true">
-      <ResponsiveImage
-        :asset="bgImage"
-        alt=""
-        picture-class="values-bg-picture"
-        img-class="values-bg-img"
-        sizes="100vw"
-        loading="lazy"
-      />
+      <div class="values-slider">
+        <figure
+          v-for="(slide, index) in backgroundSlides"
+          :key="index"
+          class="values-slide"
+          :style="{ '--i': index }"
+        >
+          <img
+            :src="slide.src"
+            :alt="slide.alt"
+            class="values-slide-img animate-kenburns"
+            :loading="index === 0 ? 'eager' : 'lazy'"
+          />
+        </figure>
+      </div>
       <div class="values-overlay"></div>
     </div>
 
@@ -109,17 +141,27 @@ const tabs = [
   overflow: hidden;
 }
 
-:deep(.values-bg-picture) {
-  display: block;
-  width: 100%;
-  height: 100%;
+.values-slider {
+  position: absolute;
+  inset: 0;
+  display: flex;
 }
 
-:deep(.values-bg-img) {
+.values-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: valuesCrossfade 25s infinite;
+  animation-delay: calc(var(--i) * 5s);
+  margin: 0;
+}
+
+.values-slide-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
 }
 
 .values-overlay {
@@ -128,9 +170,25 @@ const tabs = [
   background: linear-gradient(
     180deg,
     rgba(9, 46, 28, 0.88) 0%,
-    rgba(9, 46, 28, 0.82) 50%,
+    rgba(9, 46, 28, 0.78) 50%,
     rgba(9, 46, 28, 0.94) 100%
   );
+}
+
+@keyframes valuesCrossfade {
+  0%, 16% { opacity: 1; }
+  20%, 96% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .values-slide {
+    animation: none;
+    opacity: 0;
+  }
+  .values-slide:first-child {
+    opacity: 1;
+  }
 }
 
 .values-content {
