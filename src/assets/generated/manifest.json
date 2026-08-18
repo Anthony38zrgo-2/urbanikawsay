@@ -327,49 +327,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-el-milagro-1.png",
-    "sourceWidth": 1122,
-    "sourceHeight": 1402,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 800,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-el-milagro-1/foto-el-milagro-1-320.avif",
           "width": 320,
-          "bytes": 9470,
-          "height": 400
+          "bytes": 6139,
+          "height": 240
         },
         {
           "src": "./foto-el-milagro-1/foto-el-milagro-1-480.avif",
           "width": 480,
-          "bytes": 20225,
-          "height": 600
+          "bytes": 13437,
+          "height": 360
         },
         {
           "src": "./foto-el-milagro-1/foto-el-milagro-1-640.avif",
           "width": 640,
-          "bytes": 35678,
-          "height": 800
+          "bytes": 23694,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-el-milagro-1/foto-el-milagro-1-320.webp",
           "width": 320,
-          "bytes": 11860,
-          "height": 400
+          "bytes": 7804,
+          "height": 240
         },
         {
           "src": "./foto-el-milagro-1/foto-el-milagro-1-480.webp",
           "width": 480,
-          "bytes": 26292,
-          "height": 600
+          "bytes": 18032,
+          "height": 360
         },
         {
           "src": "./foto-el-milagro-1/foto-el-milagro-1-640.webp",
           "width": 640,
-          "bytes": 47052,
-          "height": 800
+          "bytes": 32222,
+          "height": 480
         }
       ],
       "png": [],
@@ -377,16 +377,16 @@
         {
           "src": "./foto-el-milagro-1/foto-el-milagro-1-640.jpg",
           "width": 640,
-          "bytes": 59367,
-          "height": 800
+          "bytes": 39065,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-el-milagro-1/foto-el-milagro-1-640.jpg",
       "width": 640,
-      "bytes": 59367,
-      "height": 800
+      "bytes": 39065,
+      "height": 480
     }
   },
   "foto-el-milagro-2.png": {
@@ -394,49 +394,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-el-milagro-2.png",
-    "sourceWidth": 1122,
-    "sourceHeight": 1402,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 800,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-el-milagro-2/foto-el-milagro-2-320.avif",
           "width": 320,
-          "bytes": 15608,
-          "height": 400
+          "bytes": 7630,
+          "height": 240
         },
         {
           "src": "./foto-el-milagro-2/foto-el-milagro-2-480.avif",
           "width": 480,
-          "bytes": 34445,
-          "height": 600
+          "bytes": 18058,
+          "height": 360
         },
         {
           "src": "./foto-el-milagro-2/foto-el-milagro-2-640.avif",
           "width": 640,
-          "bytes": 61748,
-          "height": 800
+          "bytes": 33929,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-el-milagro-2/foto-el-milagro-2-320.webp",
           "width": 320,
-          "bytes": 22650,
-          "height": 400
+          "bytes": 9952,
+          "height": 240
         },
         {
           "src": "./foto-el-milagro-2/foto-el-milagro-2-480.webp",
           "width": 480,
-          "bytes": 52958,
-          "height": 600
+          "bytes": 26342,
+          "height": 360
         },
         {
           "src": "./foto-el-milagro-2/foto-el-milagro-2-640.webp",
           "width": 640,
-          "bytes": 95612,
-          "height": 800
+          "bytes": 52582,
+          "height": 480
         }
       ],
       "png": [],
@@ -444,16 +444,16 @@
         {
           "src": "./foto-el-milagro-2/foto-el-milagro-2-640.jpg",
           "width": 640,
-          "bytes": 93194,
-          "height": 800
+          "bytes": 49186,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-el-milagro-2/foto-el-milagro-2-640.jpg",
       "width": 640,
-      "bytes": 93194,
-      "height": 800
+      "bytes": 49186,
+      "height": 480
     }
   },
   "foto-el-milagro-3.png": {
@@ -461,49 +461,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-el-milagro-3.png",
-    "sourceWidth": 1122,
-    "sourceHeight": 1402,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 800,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-el-milagro-3/foto-el-milagro-3-320.avif",
           "width": 320,
-          "bytes": 11311,
-          "height": 400
+          "bytes": 6602,
+          "height": 240
         },
         {
           "src": "./foto-el-milagro-3/foto-el-milagro-3-480.avif",
           "width": 480,
-          "bytes": 27356,
-          "height": 600
+          "bytes": 15641,
+          "height": 360
         },
         {
           "src": "./foto-el-milagro-3/foto-el-milagro-3-640.avif",
           "width": 640,
-          "bytes": 53019,
-          "height": 800
+          "bytes": 30251,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-el-milagro-3/foto-el-milagro-3-320.webp",
           "width": 320,
-          "bytes": 16370,
-          "height": 400
+          "bytes": 10366,
+          "height": 240
         },
         {
           "src": "./foto-el-milagro-3/foto-el-milagro-3-480.webp",
           "width": 480,
-          "bytes": 41186,
-          "height": 600
+          "bytes": 25174,
+          "height": 360
         },
         {
           "src": "./foto-el-milagro-3/foto-el-milagro-3-640.webp",
           "width": 640,
-          "bytes": 81604,
-          "height": 800
+          "bytes": 48972,
+          "height": 480
         }
       ],
       "png": [],
@@ -511,16 +511,16 @@
         {
           "src": "./foto-el-milagro-3/foto-el-milagro-3-640.jpg",
           "width": 640,
-          "bytes": 79749,
-          "height": 800
+          "bytes": 48925,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-el-milagro-3/foto-el-milagro-3-640.jpg",
       "width": 640,
-      "bytes": 79749,
-      "height": 800
+      "bytes": 48925,
+      "height": 480
     }
   },
   "foto-el-milagro-4.png": {
@@ -528,49 +528,49 @@
     "role": "photo",
     "active": true,
     "source": "src/assets/images/foto-el-milagro-4.png",
-    "sourceWidth": 1122,
-    "sourceHeight": 1402,
+    "sourceWidth": 1448,
+    "sourceHeight": 1086,
     "width": 640,
-    "height": 800,
+    "height": 480,
     "formats": {
       "avif": [
         {
           "src": "./foto-el-milagro-4/foto-el-milagro-4-320.avif",
           "width": 320,
-          "bytes": 9531,
-          "height": 400
+          "bytes": 6163,
+          "height": 240
         },
         {
           "src": "./foto-el-milagro-4/foto-el-milagro-4-480.avif",
           "width": 480,
-          "bytes": 23021,
-          "height": 600
+          "bytes": 13394,
+          "height": 360
         },
         {
           "src": "./foto-el-milagro-4/foto-el-milagro-4-640.avif",
           "width": 640,
-          "bytes": 46154,
-          "height": 800
+          "bytes": 24833,
+          "height": 480
         }
       ],
       "webp": [
         {
           "src": "./foto-el-milagro-4/foto-el-milagro-4-320.webp",
           "width": 320,
-          "bytes": 11590,
-          "height": 400
+          "bytes": 7348,
+          "height": 240
         },
         {
           "src": "./foto-el-milagro-4/foto-el-milagro-4-480.webp",
           "width": 480,
-          "bytes": 30574,
-          "height": 600
+          "bytes": 18228,
+          "height": 360
         },
         {
           "src": "./foto-el-milagro-4/foto-el-milagro-4-640.webp",
           "width": 640,
-          "bytes": 65854,
-          "height": 800
+          "bytes": 35132,
+          "height": 480
         }
       ],
       "png": [],
@@ -578,16 +578,16 @@
         {
           "src": "./foto-el-milagro-4/foto-el-milagro-4-640.jpg",
           "width": 640,
-          "bytes": 66948,
-          "height": 800
+          "bytes": 39722,
+          "height": 480
         }
       ]
     },
     "fallback": {
       "src": "./foto-el-milagro-4/foto-el-milagro-4-640.jpg",
       "width": 640,
-      "bytes": 66948,
-      "height": 800
+      "bytes": 39722,
+      "height": 480
     }
   },
   "foto-las-palmeras-1.png": {

@@ -1,27 +1,26 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import BaseIcon from '@/components/ui/BaseIcon.vue'
-import imgNosotros1 from '@/assets/images/nosotros/nosotros-01.jpg'
-import imgNosotros2 from '@/assets/images/nosotros/nosotros-02.jpg'
-import imgNosotros3 from '@/assets/images/nosotros/nosotros-03.jpg'
+import nosotrosData from '@/data/nosotros.json'
 
-const slides = [
-  {
-    src: imgNosotros1,
-    alt: 'Equipo y clientes en la oficina de Urbanikawsay Inmobiliaria',
-    caption: 'Compromiso y transparencia en cada entrega',
-  },
-  {
-    src: imgNosotros2,
-    alt: 'Familias felices recibiendo su inversión en proyectos inmobiliarios',
-    caption: 'Familias asegurando su patrimonio y futuro',
-  },
-  {
-    src: imgNosotros3,
-    alt: 'Clientes satisfechos en el proyecto Las Palmeras de Huaral',
-    caption: 'Construyendo futuro y confianza en cada paso',
-  },
-]
+// Carga perezosa-glob de todas las imágenes de la carpeta nosotros
+const imageModules = import.meta.glob('@/assets/images/nosotros/*.jpg', {
+  eager: true,
+  import: 'default',
+})
+const imageByName = Object.fromEntries(
+  Object.entries(imageModules).map(([path, src]) => [
+    path.split('/').pop(),
+    src,
+  ]),
+)
+
+const slides = nosotrosData.slides
+  .map((slide) => ({
+    src: imageByName[slide.file],
+    alt: slide.alt,
+  }))
+  .filter((slide) => Boolean(slide.src))
 
 const currentIndex = ref(0)
 const isPaused = ref(false)
@@ -115,9 +114,6 @@ onUnmounted(() => {
                 class="carousel-img"
                 :loading="index === 0 ? 'eager' : 'lazy'"
               />
-              <div class="carousel-caption">
-                <span>{{ slide.caption }}</span>
-              </div>
             </div>
 
             <!-- Botones de Navegación Anterior / Siguiente -->
@@ -239,20 +235,6 @@ onUnmounted(() => {
   object-fit: cover;
   object-position: center 20%;
   display: block;
-}
-
-.carousel-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1.5rem 1.25rem 1rem;
-  background: linear-gradient(to top, rgba(9, 46, 28, 0.85) 0%, rgba(9, 46, 28, 0.4) 60%, transparent 100%);
-  color: #FFFFFF;
-  font-size: 0.88rem;
-  font-weight: 500;
-  text-align: center;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* Botones de navegación */

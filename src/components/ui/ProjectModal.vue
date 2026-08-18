@@ -44,7 +44,6 @@ const gallerySlides = computed(() => {
         asset: imageAssets[name],
         alt: `Vista ${index + 1} de ${project.value.name}`,
         tag: `Vista ${index + 1}`,
-        contain: true,
       }));
   }
 
@@ -146,11 +145,7 @@ const youtubeEmbedUrl = computed(() => {
               :asset="slide.asset"
               :alt="slide.alt"
               picture-class="project-image-picture"
-              :img-class="
-                slide.contain
-                  ? 'project-image project-image--contain'
-                  : 'project-image'
-              "
+              img-class="project-image"
               sizes="(min-width: 768px) 40rem, 100vw"
             />
             <img
@@ -358,11 +353,6 @@ const youtubeEmbedUrl = computed(() => {
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-:deep(.project-image--contain),
-.project-image--contain {
-  object-fit: contain;
 }
 
 .slide-tag {

@@ -52,6 +52,7 @@
     { "name": "Marisol Gómez", "role": "Coordinadora", "greeting": "Hola, soy Marisol. Como coordinadora, estoy aquí para acompañarte en cada etapa de tu proceso, resolver tus dudas y asegurarme de que tu experiencia sea clara y confiable." },
     { "name": "Alexandra", "role": "Área Administrativa", "greeting": "Hola, soy Alexandra. Formo parte del área administrativa y estoy aquí para apoyarte de manera específica y organizada para que tu experiencia sea segura y confiable." },
     { "name": "Bryan Segura", "role": "Post Venta", "greeting": "Hola, soy Bryan. Formo parte del equipo de postventa y estaré contigo para brindarte seguimiento y apoyarte en todo lo que necesites después de tu compra." },
-    { "name": "Geraldine Romero", "role": "Jefe Comercial", "greeting": "Hola, soy Geraldine. Como jefe comercial, estoy aquí para brindarte la mejor asesoría en tu inversión y acompañarte a encontrar el terreno ideal para tu futuro." }
+    { "name": "Geraldine Romero", "role": "Jefe Comercial", "greeting": "Hola, soy Geraldine. Como jefe comercial, estoy aquí para brindarte la mejor asesoría en tu inversión y acompañarte a encontrar el terreno ideal para tu futuro." },
+    { "name": "Yarany Urbina", "role": "Coordinadora de Marketing", "greeting": "Hola, soy Yarany. Como coordinadora de marketing, estoy aquí para ayudarte a conocer nuestras propuestas, descubrir nuevas oportunidades y acompañarte a encontrar la mejor opción para hacer realidad tus proyectos." }
   ]
 }
