@@ -112,7 +112,9 @@ const whatsappCta = computed(() =>
 const youtubeEmbedUrl = computed(() => {
   if (!project.value?.youtubeUrl) return null;
   const url = project.value.youtubeUrl;
-  const match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+  const match = url.match(
+    /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/,
+  );
   return match ? `https://www.youtube-nocookie.com/embed/${match[1]}` : null;
 });
 </script>
@@ -144,7 +146,11 @@ const youtubeEmbedUrl = computed(() => {
               :asset="slide.asset"
               :alt="slide.alt"
               picture-class="project-image-picture"
-              :img-class="slide.contain ? 'project-image project-image--contain' : 'project-image'"
+              :img-class="
+                slide.contain
+                  ? 'project-image project-image--contain'
+                  : 'project-image'
+              "
               sizes="(min-width: 768px) 40rem, 100vw"
             />
             <img
@@ -273,7 +279,15 @@ const youtubeEmbedUrl = computed(() => {
           <iframe
             :src="youtubeEmbedUrl"
             :title="`Video de presentación de ${project.name}`"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
             allowfullscreen
             loading="lazy"
           ></iframe>
@@ -544,7 +558,9 @@ const youtubeEmbedUrl = computed(() => {
   font-size: 0.92rem;
   font-weight: 700;
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
   padding: 0.2rem 0;
 }
 .btn-maps-link:hover {

@@ -38,6 +38,7 @@ const activeNames = new Set([
   'foto-villa-norte-3-3.png',
   'foto-villa-norte-3-4.png',
   'logo-las-palmeras.png',
+  'logo-villa-flores.png',
   'logo-villa-hermosa.png',
   'logo-villa-norte-3.png',
   'logo-el-milagro.png',
