@@ -10,7 +10,10 @@
     "gallery": [
       "foto-las-palmeras-1.png",
       "foto-las-palmeras-2.png",
-      "foto-las-palmeras-3.png"
+      "foto-las-palmeras-3.png",
+      "foto-las-palmeras-4.png",
+      "foto-las-palmeras-5.png",
+      "foto-las-palmeras-6.png"
     ],
     "status": "available",
     "price": "Desde S/ 29,000*",
@@ -41,7 +44,10 @@
     "gallery": [
       "foto-villa-flores-1.png",
       "foto-villa-flores-2.png",
-      "foto-villa-flores-3.png"
+      "foto-villa-flores-3.png",
+      "foto-villa-flores-4.png",
+      "foto-villa-flores-5.png",
+      "foto-villa-flores-6.png"
     ],
     "status": "available",
     "price": "Desde S/ 30,000*",
@@ -73,7 +79,9 @@
       "foto-villa-norte-3-1.png",
       "foto-villa-norte-3-2.png",
       "foto-villa-norte-3-3.png",
-      "foto-villa-norte-3-4.png"
+      "foto-villa-norte-3-4.png",
+      "foto-villa-norte-3-5.png",
+      "foto-villa-norte-3-6.png"
     ],
     "status": "available",
     "price": "Desde S/ 26,000*",
@@ -104,7 +112,9 @@
       "foto-el-milagro-1.png",
       "foto-el-milagro-2.png",
       "foto-el-milagro-3.png",
-      "foto-el-milagro-4.png"
+      "foto-el-milagro-4.png",
+      "foto-el-milagro-5.png",
+      "foto-el-milagro-6.png"
     ],
     "status": "available",
     "price": "Consultar precio promocional",
@@ -130,6 +140,11 @@
     "distanceToPort": "A 25 min del Megapuerto · A 15 min de Plaza de Armas",
     "imageUrl": "proyecto-guaral-village.png",
     "logoUrl": "logo-guaral-village.png",
+    "gallery": [
+      "foto-guaral-village-1.png",
+      "foto-guaral-village-2.png",
+      "foto-guaral-village-3.png"
+    ],
     "status": "last",
     "price": "Consultar precio de preventa",
     "initialPayment": "Inicial: S/ 5,000",
@@ -156,7 +171,8 @@
     "logoUrl": "logo-villa-hermosa.png",
     "gallery": [
       "foto-villa-hermosa-1.png",
-      "foto-villa-hermosa-2.png"
+      "foto-villa-hermosa-2.png",
+      "foto-villa-hermosa-3.png"
     ],
     "status": "presale",
     "price": "Consultar precio de preventa",

@@ -42,9 +42,10 @@
     "panelDescription": "Escoge una pregunta frecuente o escríbenos tu consulta.",
     "questions": [
       { "label": "Quiero separar un lote", "message": "Hola, quiero separar un lote. ¿Cómo procedo?" },
-      { "label": "¿Cómo es el crédito directo?", "message": "Hola, quisiera información sobre el crédito directo sin bancos." },
-      { "label": "¿Tienen título de propiedad?", "message": "Hola, ¿los lotes cuentan con título de propiedad?" },
-      { "label": "¿Dónde están ubicados?", "message": "Hola, ¿dónde están ubicados sus terrenos?" }
+      { "label": "¿El proyecto tiene título y documentos?", "message": "Hola, ¿el proyecto cuenta con título y documentos?" },
+      { "label": "¿Cómo funciona el financiamiento directo?", "message": "Hola, quisiera saber cómo funciona el financiamiento directo." },
+      { "label": "¿Qué servicios y beneficios tiene el proyecto?", "message": "Hola, ¿qué servicios y beneficios tiene el proyecto?" },
+      { "label": "¿Dónde está ubicado y qué tan cerca está de Huaral/Chancay?", "message": "Hola, ¿dónde está ubicado el proyecto y qué tan cerca está de Huaral o Chancay?" }
     ]
   },
   "team": [
