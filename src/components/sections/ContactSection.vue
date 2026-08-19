@@ -1,10 +1,15 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, computed } from 'vue'
 import BaseIcon from '@/components/ui/BaseIcon.vue'
 import ResponsiveImage from '@/components/ui/ResponsiveImage.vue'
 import { siteData } from '@/constants/site'
 import { imageAssets } from '@/assets/generated/image-assets.js'
 import mascotAudio from '@/assets/audio/animacion-lote.mp3'
+import { useMessenger } from '@/composables/useMessenger'
+import { useWhatsApp } from '@/composables/useWhatsApp'
+
+const { page: messengerPage, buildMessengerUrl, openMessenger, copyText } = useMessenger()
+const { createWhatsAppUrl } = useWhatsApp()
 
 const baniAsset = imageAssets['mascota-bani-v2.png']
 const detalleAsset = imageAssets['detalle-contacto.png']
@@ -22,9 +27,15 @@ const playMascotAudio = () => {
   })
 }
 
-const form = reactive({ nombre: '', email: '', telefono: '', mensaje: '' })
+const form = reactive({ nombre: '', email: '', telefono: '', mensaje: '', empresa: '' })
 const errors = ref({})
 const submitted = ref(false)
+const popupBlocked = ref(false)
+const copied = ref(false)
+const loading = ref(false)
+
+// Prevent spam: bots often fill hidden honeypot fields.
+const isSpam = () => form.empresa.trim().length > 0
 
 const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
 
@@ -38,11 +49,46 @@ const validate = () => {
   return Object.keys(e).length === 0
 }
 
+const messengerUrl = computed(() =>
+  buildMessengerUrl({
+    nombre: form.nombre,
+    email: form.email,
+    telefono: form.telefono,
+    mensaje: form.mensaje,
+    origen: 'urbanikawsay.com #contacto',
+  }),
+)
+
+const whatsappUrl = computed(() => createWhatsAppUrl(`Hola, soy ${form.nombre || '...'} (${form.email || '...'}). ${form.mensaje || 'Quiero más información.'}`))
+
 const handleSubmit = () => {
-  if (!validate()) return
+  if (!validate() || isSpam()) return
+  loading.value = true
+  popupBlocked.value = false
+  copied.value = false
   submitted.value = true
-  const body = `Nombre: ${form.nombre}\nTeléfono: ${form.telefono}\nEmail: ${form.email}\nMensaje: ${form.mensaje}\n`
-  window.location.href = `mailto:${siteData.contact.email}?subject=Consulta - ${form.nombre}&body=${encodeURIComponent(body)}`
+  // Intenta abrir Messenger con el mensaje ya redactado.
+  const win = openMessenger({
+    nombre: form.nombre,
+    email: form.email,
+    telefono: form.telefono,
+    mensaje: form.mensaje,
+    origen: 'urbanikawsay.com #contacto',
+  })
+  if (!win) popupBlocked.value = true
+  loading.value = false
+}
+
+const handleCopy = async () => {
+  await copyText({
+    nombre: form.nombre,
+    email: form.email,
+    telefono: form.telefono,
+    mensaje: form.mensaje,
+    origen: 'urbanikawsay.com #contacto',
+  })
+  copied.value = true
+  setTimeout(() => { copied.value = false }, 2500)
 }
 </script>
 
@@ -247,21 +293,45 @@ const handleSubmit = () => {
               </div>
             </div>
 
-            <!-- Botón de Envío Naranja Vibrante con Ícono Send -->
-            <button type="submit" class="btn-submit-orange">
-              <BaseIcon name="send" :size="18" decorative />
-              <span>Enviar mensaje</span>
+            <!-- Honeypot anti-spam (oculto para humanos) -->
+            <div class="field-item field-honeypot" aria-hidden="true">
+              <label for="ct-empresa">Empresa (no rellenar)</label>
+              <input id="ct-empresa" v-model="form.empresa" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <!-- Botón de Envío a Messenger -->
+            <button type="submit" class="btn-submit-orange" :disabled="loading">
+              <BaseIcon name="messenger" :size="18" decorative />
+              <span>{{ loading ? 'Enviando…' : 'Enviar por Messenger' }}</span>
             </button>
 
             <!-- Nota de Privacidad y Seguridad -->
             <div class="form-security-note">
               <BaseIcon name="lock" :size="14" decorative />
-              <span>Tu información está segura con nosotros.</span>
+              <span>Tu información viaja directo a nuestro Messenger. Sin correos.</span>
             </div>
 
-            <p v-if="submitted" class="form-success" aria-live="polite">
-              Gracias. Se abrirá tu cliente de correo para completar el envío.
-            </p>
+            <div v-if="submitted" class="form-success" role="status" aria-live="polite">
+              <template v-if="!popupBlocked">
+                <strong>¡Ya casi! Se abrió Messenger con tu consulta.</strong><br />
+                Pulsa <strong>Enviar</strong> dentro de Messenger para que llegue a nuestro buzón.
+                Te responderemos por Facebook.
+                <a :href="messengerUrl" target="_blank" rel="noopener noreferrer" class="success-link">Reabrir Messenger</a>
+              </template>
+              <template v-else>
+                <strong>Tu navegador bloqueó la ventana de Messenger.</strong><br />
+                Haz clic para continuar en Messenger:
+                <a :href="messengerUrl" target="_blank" rel="noopener noreferrer" class="success-link">
+                  Abrir Messenger y enviar
+                </a>
+                <button type="button" class="success-link-btn" @click="handleCopy">
+                  {{ copied ? '¡Mensaje copiado!' : 'Copiar mensaje' }}
+                </button>
+                <br />
+                ¿Prefieres WhatsApp?
+                <a :href="whatsappUrl" target="_blank" rel="noopener noreferrer" class="success-link">Escríbenos por WhatsApp</a>
+              </template>
+            </div>
           </form>
         </div>
       </div>
@@ -823,6 +893,48 @@ const handleSubmit = () => {
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
   margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Honeypot oculto solo a humanos */
+.field-honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-submit-orange:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+}
+
+.success-link {
+  color: var(--color-brand-secondary);
+  font-weight: 700;
+  text-decoration: underline;
+  display: inline-block;
+  margin-inline-start: 0.25rem;
+}
+
+.success-link-btn {
+  margin: 0.5rem 0 0;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid rgba(46, 170, 77, 0.5);
+  background: #FFFFFF;
+  color: var(--color-brand-primary);
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.success-link-btn:hover {
+  background: var(--color-surface-soft);
 }
 
 @media (min-width: 1280px) {

@@ -42,11 +42,24 @@ npm run images:check    # validar presupuesto de bytes y resolucion
 ```
 
 ## Variables de entorno (opcionales)
-Copia `.env.example` a `.env` y define si se usa un proveedor de formularios:
-- `VITE_FORMSPREE_ID` — ID de formulario Formspree
-- `VITE_WEB3FORMS_KEY` — clave Web3Forms
+Copia `.env.example` a `.env` si necesitas cambiar el handle de Messenger:
+- `VITE_MESSENGER_PAGE` — handle de la Página de Facebook (por defecto tomado
+  de `src/data/site.json` → `footer.messengerPage` = `UrbanikawsayInmobiliaria`).
 
-> Por defecto los formularios usan `mailto:` como fallback. No commitear `.env`.
+### Formularios → Messenger directo (sin email)
+Los formularios de contacto (`#contacto`) y "Separa tu lote" ya **no usan
+`mailto:`**. Al enviar, se abre `https://m.me/<Página>?text=<mensaje>` con el
+mensaje del visitante pre-redactado. Para que el mensaje llegue a la bandeja de
+la Página (Meta Business Suite → Mensajes), el visitante pulsa **Enviar** en
+Messenger. Incluye honeypot anti-spam y fallback (copiar mensaje / WhatsApp) si
+el navegador bloquea la ventana emergente.
+
+> Nota técnica: una web estática no puede inyectar mensajes en Messenger sin
+> exponer un token secreto. El enlace `m.me` es el medio oficial y queda
+> **un clic extra** en Messenger. Si se quisiera envío 100% automático haría
+> falta un Worker con Facebook Graph API (`PAGE_ACCESS_TOKEN`), fuera de GitHub Pages.
+
+No commitear `.env`.
 
 ## Design tokens
 Paleta de `diseño/paleta-moderna.css` (verde bosque 60% + verdes 30% + ámbar

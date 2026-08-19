@@ -1,12 +1,18 @@
 <script setup>
 import { reactive, ref, computed } from 'vue'
 import BaseModal from './BaseModal.vue'
+import BaseIcon from './BaseIcon.vue'
+import { useMessenger } from '@/composables/useMessenger'
+import { useWhatsApp } from '@/composables/useWhatsApp'
 
 const props = defineProps({
   open: { type: Boolean, default: false },
 })
 
 const emit = defineEmits(['close'])
+
+const { openMessenger } = useMessenger()
+const { createWhatsAppUrl } = useWhatsApp()
 
 const form = reactive({
   nombre: '',
@@ -16,14 +22,20 @@ const form = reactive({
   email: '',
   mensaje: '',
   acepta: false,
+  empresa: '',
 })
 
 const errors = ref({})
 const submitted = ref(false)
+const popupBlocked = ref(false)
+const loading = ref(false)
 
 const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
 const isPhonePeru = (v) => /^9\d{8}$/.test(v.replace(/\D/g, ''))
 const isDni = (v) => /^\d{8}$/.test(v)
+
+// Anti-spam: bots rellenan campos honeypot ocultos.
+const isSpam = () => form.empresa.trim().length > 0
 
 const validate = () => {
   const e = {}
@@ -40,11 +52,30 @@ const validate = () => {
   return Object.keys(e).length === 0
 }
 
+const messengerUrl = computed(() =>
+  `https://m.me/${import.meta.env.VITE_MESSENGER_PAGE || 'UrbanikawsayInmobiliaria'}?text=${encodeURIComponent(
+    `Hola, soy ${form.nombre} ${form.apellido}. Quiero separar un lote.\nDNI: ${form.documento}\nTeléfono: ${form.telefono}\nEmail: ${form.email}${form.mensaje ? `\nMensaje: ${form.mensaje}` : ''}`.slice(0, 1500),
+  )}`,
+)
+
+const whatsappUrl = computed(() =>
+  createWhatsAppUrl(`Hola, soy ${form.nombre} ${form.apellido}. Quiero separar un lote (${form.telefono}).`),
+)
+
 const handleSubmit = () => {
-  if (!validate()) return
+  if (!validate() || isSpam()) return
+  loading.value = true
+  popupBlocked.value = false
   submitted.value = true
-  const body = `Nombre: ${form.nombre} ${form.apellido}\nDocumento: ${form.documento}\nTeléfono: ${form.telefono}\nEmail: ${form.email}\nMensaje: ${form.mensaje}\n`
-  window.location.href = `mailto:urbanikawsayinmobiliaria@gmail.com?subject=Separación de lote - ${form.nombre} ${form.apellido}&body=${encodeURIComponent(body)}`
+  const win = openMessenger({
+    nombre: `${form.nombre} ${form.apellido}`,
+    email: form.email,
+    telefono: form.telefono,
+    mensaje: `Quiero separar un lote. DNI: ${form.documento}${form.mensaje ? `\n${form.mensaje}` : ''}`,
+    origen: 'urbanikawsay.com - Separación de lote',
+  })
+  if (!win) popupBlocked.value = true
+  loading.value = false
 }
 
 const errorFor = (key) => computed(() => errors.value[key] || '')
@@ -96,15 +127,33 @@ const errorFor = (key) => computed(() => errors.value[key] || '')
         <label for="rl-msg">Cómo podemos ayudarte (opcional)</label>
         <textarea id="rl-msg" v-model="form.mensaje" rows="3"></textarea>
       </div>
+      <div class="field-honeypot" aria-hidden="true">
+        <label for="rl-empresa">Empresa (no rellenar)</label>
+        <input id="rl-empresa" v-model="form.empresa" type="text" tabindex="-1" autocomplete="off" />
+      </div>
       <label class="check" :class="{ 'check-error': errors.acepta }">
         <input v-model="form.acepta" type="checkbox" required />
         <span>He leído y acepto los Términos y condiciones y las Políticas de privacidad de Urbanikawsay Inmobiliaria.</span>
       </label>
       <p v-if="errors.acepta" class="field-error">{{ errors.acepta }}</p>
-      <button type="submit" class="btn-aero btn-aero-primary submit-btn">Enviar solicitud</button>
-      <p v-if="submitted" class="form-success" aria-live="polite">
-        Gracias. Se abrirá tu cliente de correo para completar el envío.
-      </p>
+      <button type="submit" class="btn-aero btn-aero-primary submit-btn" :disabled="loading">
+        <BaseIcon name="messenger" :size="16" decorative />
+        {{ loading ? 'Enviando…' : 'Enviar por Messenger' }}
+      </button>
+      <div v-if="submitted" class="form-success" role="status" aria-live="polite">
+        <template v-if="!popupBlocked">
+          <strong>¡Ya casi! Se abrió Messenger con tu solicitud.</strong><br />
+          Pulsa <strong>Enviar</strong> dentro de Messenger para que llegue a nuestro buzón.
+          <a :href="messengerUrl" target="_blank" rel="noopener noreferrer" class="success-link">Reabrir Messenger</a>
+        </template>
+        <template v-else>
+          <strong>Tu navegador bloqueó la ventana de Messenger.</strong><br />
+          <a :href="messengerUrl" target="_blank" rel="noopener noreferrer" class="success-link">Abrir Messenger y enviar</a>
+          <br />
+          ¿Prefieres WhatsApp?
+          <a :href="whatsappUrl" target="_blank" rel="noopener noreferrer" class="success-link">Escríbenos por WhatsApp</a>
+        </template>
+      </div>
     </form>
   </BaseModal>
 </template>
@@ -127,5 +176,29 @@ const errorFor = (key) => computed(() => errors.value[key] || '')
 .submit-btn {
   align-self: flex-start;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
+.submit-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+.field-honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.success-link {
+  color: var(--color-brand-secondary);
+  font-weight: 700;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 0.35rem;
+}
+
 </style>
