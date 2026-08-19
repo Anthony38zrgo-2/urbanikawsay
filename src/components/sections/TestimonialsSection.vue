@@ -120,7 +120,7 @@ const goToSlide = (index) => {
 .testimonials-carousel-wrapper {
   position: relative;
   width: 100%;
-  max-width: 560px;
+  max-width: 952px; /* 560px * 1.7 = 70% aumento — todos los viewports */
   aspect-ratio: 16 / 9;
   border-radius: var(--radius-lg);
   overflow: hidden;

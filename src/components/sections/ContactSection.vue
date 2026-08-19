@@ -294,6 +294,12 @@ const handleSubmit = () => {
   overflow: hidden;
 }
 
+@media (max-width: 767px) {
+  .contact-landscape-bg {
+    display: none;
+  }
+}
+
 @media (min-width: 768px) {
   .contact-landscape-bg {
     width: clamp(360px, 43vw, 620px);
