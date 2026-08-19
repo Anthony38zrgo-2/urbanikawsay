@@ -129,9 +129,14 @@ const siTiktokRaw = siTiktok.path
 .footer-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: clamp(1.5rem, 3vw, 2rem);
 }
-@media (min-width: 768px) {
+@media (min-width: 640px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
   .footer-grid {
     grid-template-columns: repeat(4, 1fr);
   }

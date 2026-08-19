@@ -83,8 +83,10 @@ const openProject = (slug) => {
   flex-direction: column;
   background: var(--color-surface);
   color: var(--color-text-primary);
+  overflow-x: clip;
 }
 .site-main {
   flex: 1;
+  min-width: 0;
 }
 </style>

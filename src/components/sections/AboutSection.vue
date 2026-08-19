@@ -166,7 +166,7 @@ onUnmounted(() => {
   align-items: center;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .about-grid {
     grid-template-columns: 1.15fr 1fr;
     gap: 3.5rem;
@@ -199,8 +199,8 @@ onUnmounted(() => {
 .about-carousel-wrapper {
   position: relative;
   width: 100%;
-  max-width: 440px;
-  aspect-ratio: 4 / 5;
+  max-width: clamp(320px, 90vw, 440px);
+  aspect-ratio: 5 / 6;
   border-radius: 1.5rem;
   overflow: hidden;
   box-shadow: 0 16px 36px -10px rgba(13, 77, 46, 0.18), 0 4px 12px -2px rgba(13, 77, 46, 0.08);
@@ -211,6 +211,7 @@ onUnmounted(() => {
 @media (min-width: 640px) {
   .about-carousel-wrapper {
     max-width: 480px;
+    aspect-ratio: 4 / 5;
   }
 }
 
@@ -237,13 +238,13 @@ onUnmounted(() => {
   display: block;
 }
 
-/* Botones de navegación */
+/* Botones de navegación — S2 44px mínimo */
 .carousel-nav-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(4px);
@@ -288,6 +289,12 @@ onUnmounted(() => {
   padding: 0;
   cursor: pointer;
   transition: width 0.3s ease, background-color 0.3s ease;
+  position: relative;
+}
+.indicator-dot::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
 }
 
 .indicator-dot.active {

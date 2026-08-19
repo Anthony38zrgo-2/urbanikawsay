@@ -73,15 +73,16 @@ const slides = [
 <style scoped>
 .hero {
   position: relative;
-  min-height: 90vh;
+  min-height: clamp(32rem, 88svh, 44rem);
   display: flex;
   align-items: center;
   color: var(--color-text-inverse);
   overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom, 0);
 }
-@media (max-width: 767px) {
+@media (min-width: 1024px) {
   .hero {
-    min-height: clamp(36rem, 82svh, 52rem);
+    min-height: 90vh;
   }
 }
 .hero-slider {
@@ -117,7 +118,7 @@ const slides = [
 .hero-content {
   position: relative;
   z-index: 1;
-  padding-block: 6rem;
+  padding-block: clamp(3rem, 10svh, 6rem);
 }
 .hero-section {
   display: flex;

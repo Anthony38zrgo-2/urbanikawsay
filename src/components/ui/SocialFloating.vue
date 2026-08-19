@@ -34,12 +34,12 @@ const socials = (siteData.footer.socials || []).filter((s) => iconPaths[s.platfo
 .social-floating {
   position: fixed;
   right: 1rem;
-  bottom: 5.5rem;
+  bottom: calc(5.5rem + env(safe-area-inset-bottom, 0));
   z-index: 39;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
 }
 .social-floating-btn {
   width: 2.75rem;

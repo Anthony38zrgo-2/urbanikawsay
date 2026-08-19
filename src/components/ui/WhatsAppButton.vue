@@ -126,14 +126,16 @@ onBeforeUnmount(() => document.removeEventListener('keydown', handleEscape))
 .whatsapp-panel {
   position: fixed;
   right: 1rem;
-  bottom: 5rem;
+  bottom: calc(5rem + env(safe-area-inset-bottom, 0));
   z-index: 40;
   width: min(92vw, 24rem);
+  max-height: min(68dvh, 32rem);
+  overflow-y: auto;
   background: var(--color-surface-flat);
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border-flat);
   box-shadow: var(--shadow-modal);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .whatsapp-panel-close {
   position: absolute;
@@ -211,7 +213,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', handleEscape))
 .whatsapp-floating {
   position: fixed;
   right: 1rem;
-  bottom: 1.25rem;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0));
   z-index: 40;
   width: 3.75rem;
   height: 3.75rem;

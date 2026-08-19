@@ -13,9 +13,9 @@
     padding-block: var(--space-section);
   }
 
-  /* Compensa sticky header al navegar a anclas */
+  /* Compensa sticky header al navegar a anclas — S0 clamp */
   .anchor-offset {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: clamp(4.5rem, 8vh, 5.5rem);
   }
 
   /* Ritmo vertical dentro de una sección */

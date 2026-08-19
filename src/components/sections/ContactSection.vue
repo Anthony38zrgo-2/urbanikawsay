@@ -276,7 +276,7 @@ const handleSubmit = () => {
   overflow: hidden;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
   .contact-section {
     padding-block: clamp(2.5rem, 4vw, 4rem);
   }
@@ -367,17 +367,17 @@ const handleSubmit = () => {
   align-items: start;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .contact-grid {
     grid-template-columns: 1.4fr 1fr;
-    gap: 3.5rem;
+    gap: 3rem;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .contact-grid {
-    grid-template-columns: 320px minmax(250px, 1fr) 340px;
-    gap: 1.25rem;
+    grid-template-columns: 320px minmax(250px, 1fr) 380px;
+    gap: 1.5rem;
     align-items: center;
   }
 
@@ -403,7 +403,7 @@ const handleSubmit = () => {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .contact-left-col {
     grid-template-columns: 290px 1fr;
     gap: 2.5rem;
@@ -415,7 +415,7 @@ const handleSubmit = () => {
   justify-content: center;
   align-items: flex-end;
   flex-shrink: 0;
-  width: 12rem;
+  width: clamp(12rem, 45vw, 18rem);
   margin-inline: auto;
 }
 
@@ -427,7 +427,7 @@ const handleSubmit = () => {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .contact-mascot {
     grid-column: 1;
     width: 320px;
@@ -471,7 +471,7 @@ const handleSubmit = () => {
   gap: 1.4rem;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .contact-info-content {
     grid-column: 2;
     max-width: 340px;
@@ -622,37 +622,38 @@ const handleSubmit = () => {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .contact-right-col {
     grid-column: 3;
   }
 
   .contact-form-card {
-    padding: 1.25rem;
-    gap: 0.6rem;
+    padding: 1.75rem;
+    gap: 1rem;
     border-radius: 1.25rem;
   }
 
   .field-group {
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
 
   .field-item {
-    gap: 0.25rem;
+    gap: 0.35rem;
   }
 
   .field-input {
-    padding-block: 0.38rem;
-    font-size: 0.82rem;
+    min-height: 42px;
+    padding-block: 0.6rem;
+    font-size: 0.88rem;
   }
 
   .field-textarea {
-    min-height: 3.25rem;
+    min-height: 5rem;
   }
 
   .btn-submit-orange {
-    padding-block: 0.55rem;
-    font-size: 0.86rem;
+    padding-block: 0.75rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -818,7 +819,7 @@ const handleSubmit = () => {
   margin-top: 0.5rem;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .contact-info-content {
     max-width: 360px;
   }
@@ -837,124 +838,36 @@ const handleSubmit = () => {
   }
 
   .field-group {
-    gap: 0.5rem;
-  }
-
-  .field-item {
-    gap: 0.25rem;
-  }
-
-  .field-label {
-    font-size: 0.76rem;
-  }
-
-  .field-input {
-    padding-block: 0.38rem;
-    font-size: 0.82rem;
-  }
-
-  .field-textarea {
-    min-height: 3.25rem;
-  }
-
-  .form-security-note {
-    font-size: 0.72rem;
-  }
-
-  .btn-submit-orange {
-    padding-block: 0.55rem;
-    font-size: 0.86rem;
-  }
-}
-
-/* La referencia usa una composición panorámica continua en escritorio. */
-@media (min-width: 900px) {
-  .contact-grid {
-    grid-template-columns: 1.15fr 1fr 1.4fr;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  .contact-left-col {
-    display: contents;
-  }
-
-  .contact-mascot {
-    grid-column: 1;
-    width: 100%;
-    max-width: 360px;
-    justify-self: start;
-    align-self: end;
-  }
-
-  .contact-info-content {
-    grid-column: 2;
-    width: 100%;
-    max-width: 290px;
-    justify-self: start;
-    gap: 1.1rem;
-  }
-
-  .contact-heading {
-    font-size: 2.6rem;
-    white-space: nowrap;
-  }
-
-  .contact-lead {
-    font-size: 0.85rem;
-    line-height: 1.48;
-  }
-
-  .contact-right-col {
-    grid-column: 3;
-    width: 100%;
-    max-width: 400px;
-    justify-self: end;
-  }
-
-  .contact-form-card {
-    padding: 1.5rem;
-    gap: 0.9rem;
-    border-radius: 1.25rem;
-  }
-
-  .form-icon-badge {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .form-title {
-    font-size: 1.3rem;
-  }
-
-  .field-group {
     gap: 0.75rem;
   }
 
   .field-item {
-    gap: 0.3rem;
+    gap: 0.35rem;
   }
 
   .field-label {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
   }
 
   .field-input {
-    padding-block: 0.55rem;
-    font-size: 0.84rem;
+    min-height: 42px;
+    padding-block: 0.6rem;
+    font-size: 0.88rem;
   }
 
   .field-textarea {
-    min-height: 4.5rem;
-  }
-
-  .btn-submit-orange {
-    padding-block: 0.7rem;
-    font-size: 0.9rem;
+    min-height: 5rem;
   }
 
   .form-security-note {
     font-size: 0.72rem;
   }
+
+  .btn-submit-orange {
+    padding-block: 0.75rem;
+    font-size: 0.9rem;
+  }
 }
+
+/* Eliminado breakpoint 900 — ahora 1024 (2col) y 1280 (3col) únicamente — S4 */
 </style>

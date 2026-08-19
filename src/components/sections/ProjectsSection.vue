@@ -46,7 +46,7 @@ const features = [
           class="card-property"
         >
           <div
-            class="media-frame aspect-4-3 media-frame--contain project-media"
+            class="media-frame aspect-4-3 project-media"
           >
             <ResponsiveImage
               :asset="imageAssets[project.imageUrl]"
@@ -98,7 +98,7 @@ const features = [
 .project-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
 }
 @media (min-width: 640px) {
   .project-grid {
@@ -109,6 +109,9 @@ const features = [
   .project-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+.card-property {
+  height: 100%;
 }
 .project-media {
   position: relative;

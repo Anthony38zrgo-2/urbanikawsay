@@ -57,8 +57,8 @@
      Tipografía, ritmo, profundidad suave, hairline y acento
      ============================================================ */
 
-  /* Escala tipográfica semántica (display → caption) */
-  --text-display-3xl: clamp(2.5rem, 7vw, 4rem);
+  /* Escala tipográfica semántica (display → caption) — S1 reducido para 320 */
+  --text-display-3xl: clamp(2rem, 6vw, 3.5rem);
   --text-display-2xl: clamp(2.25rem, 5.5vw, 3.25rem);
   --text-display-xl: clamp(2rem, 5vw, 2.75rem);
   --text-heading-2xl: clamp(2rem, 5.2vw, 3rem);
@@ -71,11 +71,19 @@
   --text-caption: 0.85rem;
   --text-eyebrow: clamp(0.85rem, 1.8vw, 0.95rem);
 
-  /* Ritmo vertical premium */
-  --space-section: clamp(4.5rem, 10vw, 7.5rem);
+  /* Ritmo vertical premium — S0 Fundación responsive */
+  --space-section: clamp(3.5rem, 8vw, 6.5rem);
+  --space-section-dense: clamp(2.5rem, 6vw, 4rem);
   --space-block: clamp(2.5rem, 6vw, 4rem);
   --space-stack: 1.5rem;
-  --space-inline: 1.25rem;
+  --space-inline: clamp(1rem, 4vw, 1.5rem);
+
+  /* Breakpoints únicos (referencia para media queries) */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
 
   /* Profundidad suave (solo property-card y modal) */
   --shadow-premium-card: 0 2px 6px -2px rgb(9 46 28 / 0.06), 0 22px 40px -28px rgb(9 46 28 / 0.28);

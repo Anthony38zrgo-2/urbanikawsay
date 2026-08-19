@@ -110,8 +110,8 @@ onBeforeUnmount(() => {
 
 .modal-dialog {
   width: 100%;
-  max-width: 40rem;
-  max-height: 85vh;
+  max-width: min(40rem, 92vw);
+  max-height: min(86dvh, 85vh);
   overflow-y: auto;
   background: var(--color-surface-flat);
   border-radius: var(--radius-lg);

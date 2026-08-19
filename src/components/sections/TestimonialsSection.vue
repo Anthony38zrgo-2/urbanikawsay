@@ -155,8 +155,8 @@ const goToSlide = (index) => {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.7);
@@ -200,6 +200,12 @@ const goToSlide = (index) => {
   padding: 0;
   cursor: pointer;
   transition: width 0.3s ease, background-color 0.3s ease;
+  position: relative;
+}
+.testimonial-dot::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
 }
 .testimonial-dot.active {
   width: 1.6rem;

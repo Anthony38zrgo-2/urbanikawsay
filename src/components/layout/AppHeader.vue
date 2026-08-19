@@ -87,6 +87,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .site-header {
+  --header-h: 4.75rem;
   position: sticky;
   top: 0;
   z-index: 30;
@@ -101,8 +102,8 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  min-height: 4.75rem;
+  gap: clamp(0.75rem, 2vw, 1rem);
+  min-height: var(--header-h);
 }
 .brand-lockup {
   display: flex;
@@ -116,7 +117,7 @@ onBeforeUnmount(() => {
 :deep(.brand-logo) {
   width: auto;
   height: 2.75rem;
-  max-width: 12rem;
+  max-width: clamp(9rem, 22vw, 12rem);
   display: block;
 }
 .brand-copy {
@@ -163,11 +164,11 @@ onBeforeUnmount(() => {
   outline-offset: 2px;
 }
 
-/* Menú móvil (flat, visible cuando is-open) */
+/* Menú móvil (flat, visible cuando is-open) — S1 alineado a --header-h */
 @media (max-width: 767px) {
   .side-nav {
     position: fixed;
-    top: 4.5rem;
+    top: var(--header-h);
     left: 0;
     right: 0;
     z-index: 29;
@@ -177,6 +178,13 @@ onBeforeUnmount(() => {
     border-bottom: 1px solid rgb(255 255 255 / 0.12);
     padding: 0.5rem 1.25rem;
     display: none;
+  }
+  .side-nav[aria-hidden="true"] {
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .side-nav[aria-hidden="false"] {
+    visibility: visible;
   }
   .side-nav.is-open {
     display: flex;

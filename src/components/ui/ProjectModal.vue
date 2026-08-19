@@ -370,13 +370,13 @@ const youtubeEmbedUrl = computed(() => {
   pointer-events: none;
 }
 
-/* Botones de navegación */
+/* Botones de navegación — S5 44px */
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(4px);
@@ -487,7 +487,7 @@ const youtubeEmbedUrl = computed(() => {
   border-radius: var(--radius-md);
   margin-bottom: 1rem;
 }
-@media (min-width: 480px) {
+@media (min-width: 768px) {
   .commercial-box {
     grid-template-columns: repeat(4, 1fr);
   }

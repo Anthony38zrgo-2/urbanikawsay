@@ -191,6 +191,15 @@ const tabs = [
   }
 }
 
+@media (hover: none) {
+  .values-slide {
+    animation-play-state: paused;
+  }
+  .values-slide:first-child {
+    opacity: 1;
+  }
+}
+
 .values-content {
   position: relative;
   z-index: 1;
@@ -270,6 +279,10 @@ const tabs = [
 }
 
 @media (min-width: 1024px) {
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1280px) {
   .values-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
