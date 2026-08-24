@@ -59,6 +59,7 @@ const goToSlide = (index) => {
           >
             <div class="video-frame">
               <iframe
+                v-if="index === currentIndex"
                 :src="slide.src"
                 :title="`Testimonio de cliente ${index + 1}`"
                 loading="lazy"

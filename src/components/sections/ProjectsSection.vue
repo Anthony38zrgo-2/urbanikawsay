@@ -63,10 +63,6 @@ const features = [
             </div>
             <p class="project-location">
               <BaseIcon name="location" :size="16" decorative />
-              {{ project.location }}
-            </p>
-            <p class="project-detail">
-              <BaseIcon name="road" :size="16" decorative />
               {{ project.distanceToPort }}
             </p>
             <button
@@ -149,8 +145,7 @@ const features = [
   font-size: 1.25rem;
   margin: 0;
 }
-.project-location,
-.project-detail {
+.project-location {
   display: flex;
   align-items: center;
   gap: 0.4rem;

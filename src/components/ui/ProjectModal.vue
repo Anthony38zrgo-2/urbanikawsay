@@ -15,7 +15,7 @@ const props = defineProps({
   slug: { type: String, default: "" },
 });
 
-const emit = defineEmits(["close", "reserve"]);
+const emit = defineEmits(["close"]);
 
 const { createWhatsAppUrl } = useWhatsApp();
 
@@ -103,7 +103,7 @@ watch(
 const whatsappCta = computed(() =>
   project.value
     ? createWhatsAppUrl(
-        `Hola, quiero más información sobre el proyecto ${project.value.name}.`,
+        `Hola, quiero separar mi lote en el proyecto ${project.value.name}.`,
       )
     : "#",
 );
@@ -230,15 +230,8 @@ const youtubeEmbedUrl = computed(() => {
         <div class="spec">
           <BaseIcon name="location" decorative />
           <div>
-            <dt class="sr-only">Ubicación y lote</dt>
-            <dd>{{ project.location }} · {{ project.lotSize }}</dd>
-          </div>
-        </div>
-        <div class="spec">
-          <BaseIcon name="road" decorative />
-          <div>
-            <dt class="sr-only">Distancia</dt>
-            <dd>{{ project.distanceToPort }}</dd>
+            <dt class="sr-only">Ubicación</dt>
+            <dd>{{ project.distanceToPort }} · {{ project.lotSize }}</dd>
           </div>
         </div>
       </dl>
@@ -290,20 +283,13 @@ const youtubeEmbedUrl = computed(() => {
       </div>
 
       <div class="project-actions">
-        <button
-          type="button"
-          class="btn-aero btn-aero-primary"
-          @click="emit('reserve', project.slug)"
-        >
-          {{ project.ctaLabel }}
-        </button>
         <a
           :href="whatsappCta"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn-aero btn-aero-quiet"
+          class="btn-aero btn-aero-primary"
         >
-          Consultar por WhatsApp
+          {{ project.ctaLabel }}
         </a>
       </div>
     </template>

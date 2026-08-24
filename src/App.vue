@@ -50,7 +50,6 @@ const openProject = (slug) => {
       :open="projectOpen"
       :slug="projectSlug"
       @close="projectOpen = false"
-      @reserve="openReserve"
     />
     <ReserveLotModal :open="reserveOpen" @close="reserveOpen = false" />
   </div>

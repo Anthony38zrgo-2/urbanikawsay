@@ -4,7 +4,7 @@
     "name": "Las Palmeras",
     "location": "Huaral",
     "lotSize": "Desde 120 m²",
-    "distanceToPort": "A 25 min del Megapuerto · A 15 min de Plaza de Armas",
+    "distanceToPort": "A 6.5 Km de Huaral",
     "imageUrl": "proyecto-las-palmeras.png",
     "logoUrl": "logo-las-palmeras.png",
     "gallery": [
@@ -38,7 +38,7 @@
     "name": "Villa Flores",
     "location": "Huaral",
     "lotSize": "Desde 120 m²",
-    "distanceToPort": "A 25 min del Megapuerto · A 15 min de Plaza de Armas",
+    "distanceToPort": "A 3.5 Km de Huaral",
     "imageUrl": "proyecto-villa-flores.png",
     "logoUrl": "logo-villa-flores.png",
     "gallery": [
@@ -70,7 +70,7 @@
     "name": "Villa Norte III",
     "location": "Huaral",
     "lotSize": "Desde 120 m²",
-    "distanceToPort": "A 25 min del Megapuerto · A 15 min de Plaza de Armas",
+    "distanceToPort": "A 7 Km de Huaral",
     "imageUrl": "proyecto-villa-norte-3.png",
     "logoUrl": "logo-villa-norte-3.png",
     "gallery": [
@@ -100,8 +100,8 @@
     "slug": "el-milagro",
     "name": "El Milagro",
     "location": "Huaral",
-    "lotSize": "Desde 120 m²",
-    "distanceToPort": "A 25 min del Megapuerto · A 15 min de Plaza de Armas",
+    "lotSize": "Desde 200 m²",
+    "distanceToPort": "A 5 Km de Huaral",
     "imageUrl": "proyecto-el-milagro.png",
     "logoUrl": "logo-el-milagro.png",
     "gallery": [
@@ -129,9 +129,9 @@
   {
     "slug": "guaral-village",
     "name": "Guaral Village",
-    "location": "Huaral · km 4.2",
+    "location": "Huaral",
     "lotSize": "Lotes de 120 m²",
-    "distanceToPort": "A 25 min del Megapuerto · A 15 min de Plaza de Armas",
+    "distanceToPort": "A 4.2 Km de Huaral",
     "imageUrl": "proyecto-guaral-village.png",
     "logoUrl": "logo-guaral-village.png",
     "gallery": [
@@ -158,9 +158,9 @@
   {
     "slug": "villa-hermosa",
     "name": "Villa Hermosa",
-    "location": "Huaral · km 3.5",
+    "location": "Huaral",
     "lotSize": "Lotes de 120 m²",
-    "distanceToPort": "A 25 min del Megapuerto · A 15 min de Plaza de Armas",
+    "distanceToPort": "A 3.5 Km de Huaral",
     "imageUrl": "proyecto-villa-hermosa.png",
     "logoUrl": "logo-villa-hermosa.png",
     "gallery": [

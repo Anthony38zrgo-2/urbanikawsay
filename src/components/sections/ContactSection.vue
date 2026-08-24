@@ -5,10 +5,8 @@ import ResponsiveImage from '@/components/ui/ResponsiveImage.vue'
 import { siteData } from '@/constants/site'
 import { imageAssets } from '@/assets/generated/image-assets.js'
 import mascotAudio from '@/assets/audio/animacion-lote.mp3'
-import { useMessenger } from '@/composables/useMessenger'
 import { useWhatsApp } from '@/composables/useWhatsApp'
 
-const { page: messengerPage, buildMessengerUrl, openMessenger, copyText } = useMessenger()
 const { createWhatsAppUrl } = useWhatsApp()
 
 const baniAsset = imageAssets['mascota-bani-v2.png']
@@ -30,8 +28,6 @@ const playMascotAudio = () => {
 const form = reactive({ nombre: '', email: '', telefono: '', mensaje: '', empresa: '' })
 const errors = ref({})
 const submitted = ref(false)
-const popupBlocked = ref(false)
-const copied = ref(false)
 const loading = ref(false)
 
 // Prevent spam: bots often fill hidden honeypot fields.
@@ -42,53 +38,43 @@ const isEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)
 const validate = () => {
   const e = {}
   if (!form.nombre.trim()) e.nombre = 'Ingresa tu nombre.'
+  else if (form.nombre.trim().length < 2) e.nombre = 'El nombre debe tener al menos 2 caracteres.'
   if (!form.email.trim()) e.email = 'Ingresa tu correo.'
   else if (!isEmail(form.email.trim())) e.email = 'Ingresa un correo válido.'
+  if (!form.telefono.trim()) e.telefono = 'Ingresa tu teléfono.'
+  else {
+    const digits = form.telefono.replace(/\D/g, '')
+    if (digits.length !== 9) e.telefono = 'El teléfono debe tener 9 dígitos.'
+    else if (!digits.startsWith('9')) e.telefono = 'El teléfono debe empezar con 9.'
+  }
   if (!form.mensaje.trim()) e.mensaje = 'Escribe tu mensaje.'
+  else if (form.mensaje.trim().length < 10) e.mensaje = 'Escribe al menos 10 caracteres.'
   errors.value = e
   return Object.keys(e).length === 0
 }
 
-const messengerUrl = computed(() =>
-  buildMessengerUrl({
-    nombre: form.nombre,
-    email: form.email,
-    telefono: form.telefono,
-    mensaje: form.mensaje,
-    origen: 'urbanikawsay.com #contacto',
-  }),
-)
+const buildWhatsAppMessage = () => {
+  return [
+    `📋 *Consulta desde urbanikawsay.com*`,
+    ``,
+    `👤 *Nombre:* ${form.nombre}`,
+    `📧 *Email:* ${form.email}`,
+    `📱 *Teléfono:* ${form.telefono}`,
+    ``,
+    `💬 *Mensaje:*`,
+    form.mensaje,
+  ].join('\n')
+}
 
-const whatsappUrl = computed(() => createWhatsAppUrl(`Hola, soy ${form.nombre || '...'} (${form.email || '...'}). ${form.mensaje || 'Quiero más información.'}`))
+const whatsappUrl = computed(() => createWhatsAppUrl(buildWhatsAppMessage()))
 
 const handleSubmit = () => {
   if (!validate() || isSpam()) return
   loading.value = true
-  popupBlocked.value = false
-  copied.value = false
   submitted.value = true
-  // Intenta abrir Messenger con el mensaje ya redactado.
-  const win = openMessenger({
-    nombre: form.nombre,
-    email: form.email,
-    telefono: form.telefono,
-    mensaje: form.mensaje,
-    origen: 'urbanikawsay.com #contacto',
-  })
-  if (!win) popupBlocked.value = true
+  const url = createWhatsAppUrl(buildWhatsAppMessage())
+  window.open(url, '_blank', 'noopener,noreferrer')
   loading.value = false
-}
-
-const handleCopy = async () => {
-  await copyText({
-    nombre: form.nombre,
-    email: form.email,
-    telefono: form.telefono,
-    mensaje: form.mensaje,
-    origen: 'urbanikawsay.com #contacto',
-  })
-  copied.value = true
-  setTimeout(() => { copied.value = false }, 2500)
 }
 </script>
 
@@ -235,6 +221,7 @@ const handleCopy = async () => {
                   type="text"
                   placeholder="Ej: Juan Pérez"
                   required
+                  maxlength="100"
                   :aria-invalid="!!errors.nombre"
                   aria-describedby="ct-nombre-err"
                   class="field-input"
@@ -270,8 +257,12 @@ const handleCopy = async () => {
                   v-model="form.telefono"
                   type="tel"
                   placeholder="Ej: 987 654 321"
+                  required
+                  :aria-invalid="!!errors.telefono"
+                  aria-describedby="ct-tel-err"
                   class="field-input"
                 />
+                <p v-if="errors.telefono" id="ct-tel-err" class="field-error">{{ errors.telefono }}</p>
               </div>
 
               <div class="field-item">
@@ -285,6 +276,7 @@ const handleCopy = async () => {
                   rows="4"
                   placeholder="Escribe tu mensaje aquí..."
                   required
+                  maxlength="500"
                   :aria-invalid="!!errors.mensaje"
                   aria-describedby="ct-msg-err"
                   class="field-input field-textarea"
@@ -299,38 +291,22 @@ const handleCopy = async () => {
               <input id="ct-empresa" v-model="form.empresa" type="text" tabindex="-1" autocomplete="off" />
             </div>
 
-            <!-- Botón de Envío a Messenger -->
+            <!-- Botón de Envío a WhatsApp -->
             <button type="submit" class="btn-submit-orange" :disabled="loading">
-              <BaseIcon name="messenger" :size="18" decorative />
-              <span>{{ loading ? 'Enviando…' : 'Enviar por Messenger' }}</span>
+              <BaseIcon name="whatsapp" :size="18" decorative />
+              <span>{{ loading ? 'Enviando…' : 'Enviar por WhatsApp' }}</span>
             </button>
 
             <!-- Nota de Privacidad y Seguridad -->
             <div class="form-security-note">
               <BaseIcon name="lock" :size="14" decorative />
-              <span>Tu información viaja directo a nuestro Messenger. Sin correos.</span>
+              <span>Tu información viaja directo a nuestro WhatsApp. Sin correos.</span>
             </div>
 
             <div v-if="submitted" class="form-success" role="status" aria-live="polite">
-              <template v-if="!popupBlocked">
-                <strong>¡Ya casi! Se abrió Messenger con tu consulta.</strong><br />
-                Pulsa <strong>Enviar</strong> dentro de Messenger para que llegue a nuestro buzón.
-                Te responderemos por Facebook.
-                <a :href="messengerUrl" target="_blank" rel="noopener noreferrer" class="success-link">Reabrir Messenger</a>
-              </template>
-              <template v-else>
-                <strong>Tu navegador bloqueó la ventana de Messenger.</strong><br />
-                Haz clic para continuar en Messenger:
-                <a :href="messengerUrl" target="_blank" rel="noopener noreferrer" class="success-link">
-                  Abrir Messenger y enviar
-                </a>
-                <button type="button" class="success-link-btn" @click="handleCopy">
-                  {{ copied ? '¡Mensaje copiado!' : 'Copiar mensaje' }}
-                </button>
-                <br />
-                ¿Prefieres WhatsApp?
-                <a :href="whatsappUrl" target="_blank" rel="noopener noreferrer" class="success-link">Escríbenos por WhatsApp</a>
-              </template>
+              <strong>¡Gracias! Se abrió WhatsApp con tu consulta.</strong><br />
+              Envía el mensaje prellenado para que llegue a nuestro equipo.
+              <a :href="whatsappUrl" target="_blank" rel="noopener noreferrer" class="success-link">Abrir WhatsApp y enviar</a>
             </div>
           </form>
         </div>
