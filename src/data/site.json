@@ -51,13 +51,13 @@
     ]
   },
   "team": [
-    { "name": "Lucero Tapia", "role": "Administradora", "greeting": "Hola, soy Lucero. Como administradora, estoy aquí para acompañarte en todo el proceso de documentación y firma de tu minuta, resolviendo tus dudas paso a paso." },
-    { "name": "Marisol Gómez", "role": "Coordinadora", "greeting": "Hola, soy Marisol. Como coordinadora, estoy aquí para acompañarte en cada etapa de tu proceso, resolver tus dudas y asegurarme de que tu experiencia sea clara y confiable." },
-    { "name": "Alexandra Andrade", "role": "Administradora de proyectos", "greeting": "Hola, soy Alexandra. Como administradora de proyectos, estoy aquí para apoyarte de manera específica y organizada para que tu experiencia sea segura y confiable." },
-    { "name": "Brayan Segura", "role": "Post Venta", "greeting": "Hola, soy Brayan. Formo parte del equipo de postventa y estaré contigo para brindarte seguimiento y apoyarte en todo lo que necesites después de tu compra." },
-    { "name": "Joel Jara", "role": "Desarrollador inmobiliario", "greeting": "Hola, soy Joel. Como gerente comercial, estoy aquí para liderar y acompañar cada proceso, brindándote la mejor orientación para que encuentres oportunidades de inversión y tomes decisiones seguras para construir tu futuro." },
-    { "name": "Gonzalo de la Torre", "role": "Área de Diseño", "greeting": "Hola, soy Gonzalo. Desde el área de diseño, estoy aquí para transformar ideas en propuestas visuales que conecten, comuniquen y den vida a cada proyecto." },
-    { "name": "Geraldine Romero", "role": "Jefe Comercial", "greeting": "Hola, soy Geraldine. Como jefe comercial, estoy aquí para brindarte la mejor asesoría en tu inversión y acompañarte a encontrar el terreno ideal para tu futuro." },
-    { "name": "Yarany Urbina", "role": "Coordinadora de Marketing", "greeting": "Hola, soy Yarany. Como coordinadora de marketing, estoy aquí para ayudarte a conocer nuestras propuestas, descubrir nuevas oportunidades y acompañarte a encontrar la mejor opción para hacer realidad tus proyectos." }
+    { "name": "Joel Jara", "role": "Desarrollador inmobiliario", "photo": "joel.webp", "greeting": "Hola, soy Joel. Como desarrollador inmobiliario, estoy aquí para liderar y acompañar cada proceso, brindándote la mejor orientación para que encuentres oportunidades de inversión y tomes decisiones seguras para construir tu futuro." },
+    { "name": "Lucero Tapia", "role": "Administradora", "photo": "lucero.webp", "greeting": "Hola, soy Lucero. Como administradora, estoy aquí para acompañarte en todo el proceso de documentación y firma de tu minuta, resolviendo tus dudas paso a paso." },
+    { "name": "Marisol Gómez", "role": "Coordinadora", "photo": "marisol.webp", "greeting": "Hola, soy Marisol. Como coordinadora, estoy aquí para acompañarte en cada etapa de tu proceso, resolver tus dudas y asegurarme de que tu experiencia sea clara y confiable." },
+    { "name": "Alexandra Andrade", "role": "Administradora de proyectos", "photo": "alessandra.webp", "greeting": "Hola, soy Alexandra. Como administradora de proyectos, estoy aquí para apoyarte de manera específica y organizada para que tu experiencia sea segura y confiable." },
+    { "name": "Brayan Segura", "role": "Post Venta", "photo": "brayam.webp", "greeting": "Hola, soy Brayan. Formo parte del equipo de postventa y estaré contigo para brindarte seguimiento y apoyarte en todo lo que necesites después de tu compra." },
+    { "name": "Geraldine Romero", "role": "Jefe Comercial", "photo": "yeraldin.webp", "greeting": "Hola, soy Geraldine. Como jefe comercial, estoy aquí para brindarte la mejor asesoría en tu inversión y acompañarte a encontrar el terreno ideal para tu futuro." },
+    { "name": "Yarany Urbina", "role": "Coordinadora de Marketing", "photo": "yarany.webp", "greeting": "Hola, soy Yarany. Como coordinadora de marketing, estoy aquí para ayudarte a conocer nuestras propuestas, descubrir nuevas oportunidades y acompañarte a encontrar la mejor opción para hacer realidad tus proyectos." },
+    { "name": "Gonzalo de la Torre", "role": "Área de Diseño", "photo": "gonzalo.webp", "greeting": "Hola, soy Gonzalo. Desde el área de diseño, estoy aquí para transformar ideas en propuestas visuales que conecten, comuniquen y den vida a cada proyecto." }
   ]
 }
