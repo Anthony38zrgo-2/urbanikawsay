@@ -169,6 +169,7 @@ const handleSubmit = () => {
                 <div class="contact-item-text">
                   <span class="label">Dirección</span>
                   <span>{{ siteData.contact.address1 }}</span>
+                  <span>{{ siteData.contact.address2 }}</span>
                 </div>
               </li>
 
