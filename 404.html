@@ -24,10 +24,8 @@
       "/contactenos": "/#contacto",
       "/separa-tu-lote": "/"
     };
-    var base = (window.location.pathname.startsWith("/urbanikawsay/")) ? "/urbanikawsay" : "";
-    var path = window.location.pathname.replace(new RegExp("^" + base), "");
-    var target = legacy[path] || "/";
-    window.location.replace(base + target);
+    var target = legacy[window.location.pathname] || "/";
+    window.location.replace(target);
   </script>
 </head>
 <body>
