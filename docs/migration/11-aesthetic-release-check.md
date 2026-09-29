@@ -10,7 +10,7 @@ Estado: `PASS`
 
 ## SEO / artefactos
 - `robots.txt`, `sitemap.xml`, `404.html` y meta/OG/JSON-LD presentes en `dist`.
-- `base` de deployment `/urbanikawsay/` intacto.
+- `base` de deployment `/` para el dominio personalizado.
 
 ## Smoke test
 - `/` → 200 con `#app`.

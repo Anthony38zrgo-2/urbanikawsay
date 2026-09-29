@@ -13,8 +13,8 @@
     { "label": "Contáctanos", "href": "#contacto" }
   ],
   "contact": {
-    "phoneMain": "917 789 123",
-    "phoneMainIntl": "51917789123",
+    "phoneMain": "917920591327",
+    "phoneMainIntl": "51920591327",
     "phoneSecondary": "926 353 563",
     "email": "urbanikawsayinmobiliaria@gmail.com",
     "address1": "Sta Cruz de Pachacutec 155, Los Olivos 15301",
@@ -38,7 +38,7 @@
     ]
   },
   "whatsapp": {
-    "number": "51917789123",
+    "number": "51920591327",
     "defaultMessage": "Hola, quiero más información sobre sus terrenos.",
     "panelTitle": "Hablemos por WhatsApp",
     "panelDescription": "Escoge una pregunta frecuente o escríbenos tu consulta.",
@@ -56,7 +56,7 @@
     { "name": "Marisol Gómez", "role": "Coordinadora", "photo": "marisol.webp", "greeting": "Hola, soy Marisol. Como coordinadora, estoy aquí para acompañarte en cada etapa de tu proceso, resolver tus dudas y asegurarme de que tu experiencia sea clara y confiable." },
     { "name": "Alexandra Andrade", "role": "Administradora de proyectos", "photo": "alessandra.webp", "greeting": "Hola, soy Alexandra. Como administradora de proyectos, estoy aquí para apoyarte de manera específica y organizada para que tu experiencia sea segura y confiable." },
     { "name": "Brayan Segura", "role": "Post Venta", "photo": "brayam.webp", "greeting": "Hola, soy Brayan. Formo parte del equipo de postventa y estaré contigo para brindarte seguimiento y apoyarte en todo lo que necesites después de tu compra." },
-    { "name": "Geraldine Romero", "role": "Jefe Comercial", "photo": "yeraldin.webp", "greeting": "Hola, soy Geraldine. Como jefe comercial, estoy aquí para brindarte la mejor asesoría en tu inversión y acompañarte a encontrar el terreno ideal para tu futuro." },
+    { "name": "Yeraldin Romero", "role": "Jefe Comercial", "photo": "yeraldin.webp", "greeting": "Hola, soy Yeraldin. Como jefe comercial, estoy aquí para brindarte la mejor asesoría en tu inversión y acompañarte a encontrar el terreno ideal para tu futuro." },
     { "name": "Yarany Urbina", "role": "Coordinadora de Marketing", "photo": "yarany.webp", "greeting": "Hola, soy Yarany. Como coordinadora de marketing, estoy aquí para ayudarte a conocer nuestras propuestas, descubrir nuevas oportunidades y acompañarte a encontrar la mejor opción para hacer realidad tus proyectos." },
     { "name": "Gonzalo de la Torre", "role": "Área de Diseño", "photo": "gonzalo.webp", "greeting": "Hola, soy Gonzalo. Desde el área de diseño, estoy aquí para transformar ideas en propuestas visuales que conecten, comuniquen y den vida a cada proyecto." }
   ]

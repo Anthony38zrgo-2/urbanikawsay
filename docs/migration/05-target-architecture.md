@@ -7,7 +7,7 @@
 
 ## Rendering
 - **SPA single-page** con nav por anclas (#). Sin Vue Router / Pinia / SSR.
-- Deploy: GitHub Pages, base `/urbanikawsay/` (mode=deployment).
+- Deploy: GitHub Pages en `https://urbanikawsay.com/`, base `/` en todos los modos.
 
 ## Estructura
 ```

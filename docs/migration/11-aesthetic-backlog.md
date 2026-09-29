@@ -419,7 +419,7 @@ AEST-002 tokens → AEST-003 flat primitives → AEST-004 aero buttons
   4. Confirmar que `robots.txt`, `sitemap.xml`, `404.html` y meta SEO siguen en `dist`.
   5. Registrar tamaños de JS/CSS y cualquier regresión de LCP.
 - **Restrictions:** no desplegar si AEST-011, AEST-012 o AEST-013 tienen FAIL abierto.
-- **Acceptance criteria:** ambos builds PASS; no se rompe base `/urbanikawsay/`; presupuesto anterior de JS/CSS no empeora sin justificación; artefactos SEO presentes.
+- **Acceptance criteria:** ambos builds PASS; ambos usan base `/`; presupuesto anterior de JS/CSS no empeora sin justificación; artefactos SEO presentes.
 - **Validation:** `npm run build`, `npm run build:deployment`, `npm run preview` y smoke test HTTP.
 - **Definition of Done:** release candidate listo para revisión visual y deploy.
 - **Escalate to GLM if:** performance o build empeora por una decisión estética que requiere tradeoff.

@@ -33,7 +33,7 @@ Decisiones arquitectónicas del Planner (NO renegociables por Builder):
 - SPA single-page landing con secciones por ancla (#). Sin Vue Router, sin Pinia, sin TS.
 - Tailwind v4 vía @tailwindcss/vite (CSS-first, bloque `@theme`). Sin tailwind.config.js.
 - JS puro (no TypeScript). <script setup> Composition API.
-- Deploy: GitHub Pages con base `/urbanikawsay/` (modo `deployment`), igual que la referencia.
+- Deploy: GitHub Pages en `https://urbanikawsay.com/`, con base `/` en todos los modos.
 - SEO: meta estática en index.html (title, description, OG, robots, theme-color).
 - Iconografía: SVG propios inline (currentColor, viewBox 24x24) + simple-icons para
   brand glyphs de redes sociales. Prohibido icon fonts, FontAwesome, emoji.
@@ -55,7 +55,7 @@ ADOPT:
 - Datos JSON en src/data/ expuestos por src/constants/company.js (punto único)
 - import.meta.glob eager para imágenes (evita imports manuales)
 - Alias "@" → src en vite.config.js
-- base condicional por mode (`mode === 'deployment' ? '/repo/' : '/'`)
+- base fijo `/` para servir desde la raíz del dominio personalizado
 - Accesibilidad: aria-label, aria-expanded, aria-controls, role="dialog",
   aria-modal, skip-link, aria-labelledby en secciones
 - WhatsApp button flotante con panel desplegable (Transition + Escape)
@@ -296,7 +296,7 @@ src/
 Archivos raíz:
 - index.html (meta estática SEO, lang=es, preconnect Google Fonts Inter+Poppins,
   theme-color #0D4D2E, favicon, apple-touch-icon, description, OG básico)
-- vite.config.js (vue + tailwindcss plugins; alias @; base condicional deployment)
+- vite.config.js (vue + tailwindcss plugins; alias @; base `/`)
 - package.json (vue, vite, @vitejs/plugin-vue, tailwindcss, @tailwindcss/vite,
   simple-icons, gh-pages devDep; scripts dev/build/build:deployment/preview/deploy)
 - .env.example (vacío placeholder)
@@ -573,7 +573,7 @@ URB-005 — Scaffold del proyecto Vue 3 + Vite + Tailwind v4
   Steps:
     1. package.json con: vue 3.5, vite 8, @vitejs/plugin-vue, tailwindcss 4,
        @tailwindcss/vite, simple-icons, gh-pages (devDep).
-    2. vite.config.js con alias @, plugins vue+tailwind, base condicional deployment.
+    2. vite.config.js con alias @, plugins vue+tailwind, base `/`.
     3. index.html con lang=es, meta description (de §7), theme-color #0D4D2E,
        preconnect Google Fonts, stylesheet Inter+Poppins wght@400;500;600;700,
        favicon/apple-touch-icon, title, OG/twitter básico.
@@ -1245,17 +1245,17 @@ URB-035 — Build de deployment + smoke test
   Inputs: vite.config.js modo deployment, gh-pages
   Outputs: dist/ de `npm run build:deployment`, despliegue a gh-pages
   Steps:
-    1. `npm run build:deployment` (genera dist con base /urbanikawsay/).
+    1. `npm run build:deployment` (genera dist con base `/` e incluye `CNAME`).
     2. `npm run deploy` (gh-pages -d dist) o preview local primero.
-    3. Smoke test: cargar https://<user>.github.io/urbanikawsay/, verificar
+    3. Smoke test: cargar https://urbanikawsay.com/, verificar
        hero, navegación por anclas, modales, form, responsive mobile.
-    4. Verificar 404.html redirige anchors.
+    4. Verificar que `dist/CNAME` contiene `urbanikawsay.com` y 404.html redirige anchors.
   Acceptance:
     - URL pública carga sin errores consola.
     - Lighthouse mobile SEO 100; a11y ≥90; performance ≥85.
     - Modales abren; form submit llega (o mailto abre cliente).
   Validation: navegador real + lighthouse.
-  Escalate: deployment falla por base path → GLM ajusta vite.config.
+  Escalate: fallan el build o la carga de rutas/activos → GLM revisa la configuración.
 
 URB-036 — Limpieza final + README
   Fase: F11 | Tipo: docs | Owner: builder | Model: deepseek-v4-flash-low

@@ -8,7 +8,7 @@ Tailwind CSS v4** como SPA de una sola página con navegación por anclas.
 - Vue 3.5 (Composition API, `<script setup>`) · JavaScript
 - Vite 8 + `@tailwindcss/vite` → Tailwind v4 CSS-first (sin `tailwind.config.js`)
 - `simple-icons` (path de Facebook) + iconografía SVG propia en `BaseIcon`
-- Deploy: GitHub Pages (base `/urbanikawsay/`)
+- Deploy: GitHub Pages en `https://urbanikawsay.com/` (base `/`)
 
 ## Estructura
 ```
@@ -34,9 +34,9 @@ src/
 npm install          # instalar dependencias
 npm run dev          # dev server (localhost:5173)
 npm run build        # build de producción (base /)
-npm run build:deployment  # build para GitHub Pages (base /urbanikawsay/)
+npm run build:deployment  # build para GitHub Pages en la raíz del dominio
 npm run preview      # previsualizar build
-npm run deploy       # publicar a gh-pages (tras build:deployment)
+npm run deploy       # construir y publicar dist a gh-pages
 npm run images:optimize # generar derivados responsive con sharp
 npm run images:check    # validar presupuesto de bytes y resolucion
 ```
@@ -67,6 +67,8 @@ Paleta de `diseño/paleta-moderna.css` (verde bosque 60% + verdes 30% + ámbar
 `docs/migration/04-color-system.md` para contraste WCAG.
 
 ## SEO / 301
+El archivo `public/CNAME` conserva el dominio personalizado al copiarse a `dist`.
+
 Las URLs legacy (`/proyecto/`, `/acerca-de-nosotros/`, `/contactenos/`,
 `/separa-tu-lote/`, fichas `/proyecto/*`) se consolidan a la SPA vía
 `public/404.html` (redirección JS, GitHub Pages no soporta 301 server-side).
