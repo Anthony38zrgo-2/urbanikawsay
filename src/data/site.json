@@ -13,9 +13,9 @@
     { "label": "Contáctanos", "href": "#contacto" }
   ],
   "contact": {
-    "phoneMain": "920591327",
-    "phoneMainIntl": "51920591327",
-    "phoneSecondary": "926 353 563",
+    "phoneMain": "987510883",
+    "phoneMainIntl": "51987510883",
+    "phoneSecondary": "",
     "email": "urbanikawsayinmobiliaria@gmail.com",
     "address1": "Sta Cruz de Pachacutec 155, Los Olivos 15301",
     "address2": "Sede: Av. Javier Prado Este 5924, La Molina",
@@ -38,7 +38,7 @@
     ]
   },
   "whatsapp": {
-    "number": "51920591327",
+    "number": "51987510883",
     "defaultMessage": "Hola, quiero más información sobre sus terrenos.",
     "panelTitle": "Hablemos por WhatsApp",
     "panelDescription": "Escoge una pregunta frecuente o escríbenos tu consulta.",

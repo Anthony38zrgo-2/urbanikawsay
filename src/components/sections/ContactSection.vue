@@ -143,11 +143,13 @@ const handleSubmit = () => {
                   <BaseIcon name="phone" :size="18" decorative />
                 </div>
                 <div class="contact-item-text">
-                  <span class="label">Teléfonos</span>
+                  <span class="label">{{ siteData.contact.phoneSecondary ? 'Teléfonos' : 'Teléfono' }}</span>
                   <div class="phones-line">
                     <a :href="`tel:+${siteData.contact.phoneMainIntl}`">{{ siteData.contact.phoneMain }}</a>
-                    <span class="phone-sep">·</span>
-                    <a :href="`tel:+51926353563`">{{ siteData.contact.phoneSecondary }}</a>
+                    <template v-if="siteData.contact.phoneSecondary">
+                      <span class="phone-sep">·</span>
+                      <a :href="`tel:+51${siteData.contact.phoneSecondary.replace(/\D/g, '')}`">{{ siteData.contact.phoneSecondary }}</a>
+                    </template>
                   </div>
                 </div>
               </li>
